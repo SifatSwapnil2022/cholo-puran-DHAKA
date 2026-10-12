@@ -4,3 +4,4 @@
 wrangler.jsonc
 tools
 node_modules
+.wrangler
