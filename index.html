@@ -213,11 +213,12 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .intro{position:fixed;inset:0;z-index:100;background:#0B2A21;color:#F7F4EC;display:grid;place-items:center;transition:opacity .7s ease}
 .intro.out{opacity:0;pointer-events:none}
 .intro[hidden]{display:none}
-.intro svg.bd{width:min(52vw,300px);height:auto;overflow:visible}
+.intro .bdwrap{position:relative;width:min(52vw,300px)}
+.intro svg.bd{display:block;width:100%;height:auto;overflow:visible}
 .intro .outline{fill:none;stroke:#F7F4EC;stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease forwards}
 .intro .fillbd{fill:#006A4E;opacity:0;animation:fadein .6s ease 1.2s forwards}
 .intro .sun{fill:#F42A41;opacity:0;transform-origin:center;transform-box:fill-box;animation:pop .5s ease 1.4s forwards}
-.intro .ring{fill:none;stroke:#F42A41;stroke-width:1.2;opacity:0;transform-origin:center;transform-box:fill-box;animation:ring 1.4s ease 1.6s infinite}
+.intro .pulse{position:absolute;left:51.67%;top:49.53%;width:4.56%;aspect-ratio:1;margin:-2.28% 0 0 -2.28%;border:1.5px solid #F42A41;border-radius:50%;opacity:0;will-change:transform,opacity;animation:ring 1.4s ease-out 1.6s infinite}
 .intro .words{position:absolute;left:0;right:0;bottom:12vh;text-align:center;opacity:0;animation:fadein .6s ease 1.5s forwards}
 .intro .words b{display:block;font-family:var(--f-sign);font-weight:400;font-size:clamp(30px,6vw,46px);line-height:1.2}
 .intro .words span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
@@ -322,7 +323,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 @media (prefers-reduced-motion:reduce){
   .drawer{transition:none}
   .intro .outline,.intro .fillbd,.intro .sun,.intro .words{animation-duration:.01s;animation-delay:0s}
-  .intro .ring{animation:none}
+  .intro .pulse{animation:none}
 }
 </style>
 
@@ -432,12 +433,14 @@ table.fees small{color:var(--ink-3);font-weight:400}
 
 <div class="intro" id="intro">
   <button class="skip" id="skipIntro">Skip</button>
+  <div class="bdwrap">
   <svg class="bd" viewBox="0 0 263 360" aria-hidden="true">
     <path class="fillbd" d="M58.7,278.9L58.9,273.1L58.5,267.6L54.2,252.9L51.1,245.4L51.5,242.9L51.3,241.9L50.1,232.2L48.2,226.3L47.2,219.9L51.7,210.8L49.9,209.3L44.8,208.1L40.0,206.6L38.8,204.2L40.9,195.2L38.4,191.8L34.9,188.2L33.9,186.8L32.6,185.0L31.0,180.4L34.3,171.0L38.6,160.0L39.4,155.8L40.2,148.5L40.4,145.7L40.0,143.0L35.3,139.9L27.1,138.6L21.3,135.9L17.9,131.9L15.0,130.3L11.5,131.5L7.0,129.9L3.3,125.9L0.0,121.1L0.4,118.8L1.2,115.8L7.2,103.2L9.4,102.8L14.6,105.2L16.6,105.3L19.9,100.3L24.6,86.2L31.4,86.2L37.4,86.7L41.3,87.4L45.4,86.9L49.5,85.7L51.7,84.0L53.0,81.7L52.6,79.8L47.4,77.1L45.6,75.1L44.1,69.5L42.5,67.4L32.6,67.0L27.3,64.4L24.4,62.2L19.5,54.4L13.1,48.8L7.2,47.4L4.7,45.5L3.5,42.6L4.3,38.4L6.2,34.5L7.4,30.2L12.1,24.5L17.7,19.6L20.3,16.2L23.8,12.6L24.2,10.6L23.6,8.4L20.7,6.3L18.7,5.5L18.5,4.2L19.7,0.4L22.6,0.0L28.3,3.4L34.1,8.8L37.6,13.6L37.6,17.4L39.8,18.1L42.1,18.2L46.0,19.9L49.9,19.4L52.3,20.3L54.0,20.0L54.6,17.8L52.8,14.6L51.3,12.2L53.0,9.9L54.8,9.5L56.9,10.1L59.5,12.1L61.6,16.4L62.0,23.0L66.3,29.0L72.3,33.3L76.8,35.2L82.3,36.6L87.0,35.2L89.5,31.1L88.5,27.4L89.1,24.0L90.9,22.2L94.0,22.3L96.3,25.0L102.6,39.2L101.4,45.6L102.8,63.0L101.2,74.5L101.4,77.0L102.2,78.9L103.3,79.7L105.1,79.7L112.9,81.8L119.5,84.2L127.1,86.4L137.7,88.1L144.3,87.5L147.8,87.5L154.4,88.0L172.0,87.0L186.4,86.8L192.3,88.4L197.1,89.1L213.3,87.9L229.7,87.4L238.5,91.0L248.2,97.0L253.5,101.4L254.5,103.9L253.9,106.1L252.1,107.2L248.8,107.4L241.2,104.4L239.8,105.3L240.0,111.2L239.8,112.1L238.1,117.4L233.4,129.4L232.6,134.7L231.6,136.1L230.5,136.9L226.8,137.1L224.0,137.9L222.9,139.9L221.1,143.9L219.9,148.0L218.0,149.3L213.9,147.0L211.2,147.4L208.0,148.3L204.7,150.6L202.4,153.5L199.7,154.5L192.1,153.9L190.7,154.4L189.7,156.4L188.9,159.0L182.9,165.1L180.6,174.9L179.0,181.3L179.2,186.3L184.3,199.1L187.8,215.9L189.1,217.6L190.3,218.2L190.7,217.8L190.7,214.3L190.9,210.1L192.6,209.1L194.6,209.9L196.7,213.6L198.9,220.3L201.4,222.9L205.1,223.7L209.4,222.2L212.7,219.1L213.9,215.8L213.1,209.4L212.9,204.5L214.7,200.0L222.1,193.1L223.3,191.0L222.7,185.2L222.7,179.7L225.6,179.4L229.3,180.2L234.0,177.5L235.5,177.5L237.5,180.3L240.8,179.9L243.3,191.8L245.9,202.3L245.9,207.4L246.3,218.1L247.4,226.8L249.2,228.9L251.3,233.5L253.3,239.0L254.8,242.1L255.8,252.0L257.2,259.1L258.9,281.7L259.5,286.1L260.1,288.4L260.1,309.1L260.7,317.8L262.3,325.2L262.8,327.9L260.9,330.2L259.3,330.6L257.6,327.0L253.7,324.4L248.0,321.5L245.7,319.6L242.6,320.3L238.7,324.6L237.1,328.8L237.7,334.4L238.9,340.0L241.8,343.1L242.0,346.7L243.1,351.2L244.5,355.5L245.3,360.0L244.3,360.0L241.0,354.3L237.9,348.0L229.9,336.1L227.5,314.8L227.2,304.3L221.9,292.0L218.2,274.9L216.8,270.5L218.6,265.0L219.0,262.9L218.0,263.4L215.1,266.2L211.6,259.4L209.4,253.3L199.9,240.6L197.3,235.0L197.1,229.6L193.2,235.0L187.6,238.9L182.1,244.8L178.4,246.5L166.7,247.6L159.9,239.8L150.3,220.9L148.8,216.5L150.1,205.4L147.8,194.9L147.8,189.3L147.2,185.6L145.5,186.5L144.7,189.0L145.1,192.9L144.5,196.2L136.1,195.6L128.1,194.1L135.1,199.6L142.5,200.9L146.4,205.8L147.0,209.7L146.8,214.1L142.9,217.2L139.4,219.0L140.0,223.2L144.3,228.3L139.0,229.8L137.7,233.2L137.5,237.8L140.2,242.1L141.2,245.2L140.6,248.0L143.1,251.1L146.8,257.6L147.8,262.2L146.4,268.6L144.3,271.1L141.0,273.6L133.0,281.7L129.1,291.0L125.8,295.4L121.7,296.1L120.3,294.2L116.8,291.8L116.8,287.2L117.8,283.7L124.6,274.9L120.9,276.1L116.6,278.6L110.2,283.2L108.0,277.5L106.7,272.1L106.7,265.5L111.9,255.7L105.9,260.5L104.3,266.7L105.1,273.9L104.3,279.0L102.0,285.7L98.9,289.7L93.8,292.3L91.6,296.3L88.1,299.2L88.1,293.4L87.0,285.7L83.3,267.6L82.5,271.5L84.4,282.7L84.4,290.1L81.5,295.9L76.0,302.1L71.6,302.9L69.2,302.1L65.3,298.2L61.2,292.6L60.4,283.8L58.7,278.9ZM157.0,279.1L147.2,281.3L142.1,280.6L151.5,264.3L151.3,257.0L149.9,251.0L144.9,246.3L144.7,242.8L142.5,238.2L141.4,232.6L146.8,230.9L151.1,234.1L151.7,235.8L152.5,240.3L154.8,245.0L162.2,254.5L162.2,260.4L160.1,274.7L157.0,279.1Z"/>
     <path class="outline" d="M58.7,278.9L58.9,273.1L58.5,267.6L54.2,252.9L51.1,245.4L51.5,242.9L51.3,241.9L50.1,232.2L48.2,226.3L47.2,219.9L51.7,210.8L49.9,209.3L44.8,208.1L40.0,206.6L38.8,204.2L40.9,195.2L38.4,191.8L34.9,188.2L33.9,186.8L32.6,185.0L31.0,180.4L34.3,171.0L38.6,160.0L39.4,155.8L40.2,148.5L40.4,145.7L40.0,143.0L35.3,139.9L27.1,138.6L21.3,135.9L17.9,131.9L15.0,130.3L11.5,131.5L7.0,129.9L3.3,125.9L0.0,121.1L0.4,118.8L1.2,115.8L7.2,103.2L9.4,102.8L14.6,105.2L16.6,105.3L19.9,100.3L24.6,86.2L31.4,86.2L37.4,86.7L41.3,87.4L45.4,86.9L49.5,85.7L51.7,84.0L53.0,81.7L52.6,79.8L47.4,77.1L45.6,75.1L44.1,69.5L42.5,67.4L32.6,67.0L27.3,64.4L24.4,62.2L19.5,54.4L13.1,48.8L7.2,47.4L4.7,45.5L3.5,42.6L4.3,38.4L6.2,34.5L7.4,30.2L12.1,24.5L17.7,19.6L20.3,16.2L23.8,12.6L24.2,10.6L23.6,8.4L20.7,6.3L18.7,5.5L18.5,4.2L19.7,0.4L22.6,0.0L28.3,3.4L34.1,8.8L37.6,13.6L37.6,17.4L39.8,18.1L42.1,18.2L46.0,19.9L49.9,19.4L52.3,20.3L54.0,20.0L54.6,17.8L52.8,14.6L51.3,12.2L53.0,9.9L54.8,9.5L56.9,10.1L59.5,12.1L61.6,16.4L62.0,23.0L66.3,29.0L72.3,33.3L76.8,35.2L82.3,36.6L87.0,35.2L89.5,31.1L88.5,27.4L89.1,24.0L90.9,22.2L94.0,22.3L96.3,25.0L102.6,39.2L101.4,45.6L102.8,63.0L101.2,74.5L101.4,77.0L102.2,78.9L103.3,79.7L105.1,79.7L112.9,81.8L119.5,84.2L127.1,86.4L137.7,88.1L144.3,87.5L147.8,87.5L154.4,88.0L172.0,87.0L186.4,86.8L192.3,88.4L197.1,89.1L213.3,87.9L229.7,87.4L238.5,91.0L248.2,97.0L253.5,101.4L254.5,103.9L253.9,106.1L252.1,107.2L248.8,107.4L241.2,104.4L239.8,105.3L240.0,111.2L239.8,112.1L238.1,117.4L233.4,129.4L232.6,134.7L231.6,136.1L230.5,136.9L226.8,137.1L224.0,137.9L222.9,139.9L221.1,143.9L219.9,148.0L218.0,149.3L213.9,147.0L211.2,147.4L208.0,148.3L204.7,150.6L202.4,153.5L199.7,154.5L192.1,153.9L190.7,154.4L189.7,156.4L188.9,159.0L182.9,165.1L180.6,174.9L179.0,181.3L179.2,186.3L184.3,199.1L187.8,215.9L189.1,217.6L190.3,218.2L190.7,217.8L190.7,214.3L190.9,210.1L192.6,209.1L194.6,209.9L196.7,213.6L198.9,220.3L201.4,222.9L205.1,223.7L209.4,222.2L212.7,219.1L213.9,215.8L213.1,209.4L212.9,204.5L214.7,200.0L222.1,193.1L223.3,191.0L222.7,185.2L222.7,179.7L225.6,179.4L229.3,180.2L234.0,177.5L235.5,177.5L237.5,180.3L240.8,179.9L243.3,191.8L245.9,202.3L245.9,207.4L246.3,218.1L247.4,226.8L249.2,228.9L251.3,233.5L253.3,239.0L254.8,242.1L255.8,252.0L257.2,259.1L258.9,281.7L259.5,286.1L260.1,288.4L260.1,309.1L260.7,317.8L262.3,325.2L262.8,327.9L260.9,330.2L259.3,330.6L257.6,327.0L253.7,324.4L248.0,321.5L245.7,319.6L242.6,320.3L238.7,324.6L237.1,328.8L237.7,334.4L238.9,340.0L241.8,343.1L242.0,346.7L243.1,351.2L244.5,355.5L245.3,360.0L244.3,360.0L241.0,354.3L237.9,348.0L229.9,336.1L227.5,314.8L227.2,304.3L221.9,292.0L218.2,274.9L216.8,270.5L218.6,265.0L219.0,262.9L218.0,263.4L215.1,266.2L211.6,259.4L209.4,253.3L199.9,240.6L197.3,235.0L197.1,229.6L193.2,235.0L187.6,238.9L182.1,244.8L178.4,246.5L166.7,247.6L159.9,239.8L150.3,220.9L148.8,216.5L150.1,205.4L147.8,194.9L147.8,189.3L147.2,185.6L145.5,186.5L144.7,189.0L145.1,192.9L144.5,196.2L136.1,195.6L128.1,194.1L135.1,199.6L142.5,200.9L146.4,205.8L147.0,209.7L146.8,214.1L142.9,217.2L139.4,219.0L140.0,223.2L144.3,228.3L139.0,229.8L137.7,233.2L137.5,237.8L140.2,242.1L141.2,245.2L140.6,248.0L143.1,251.1L146.8,257.6L147.8,262.2L146.4,268.6L144.3,271.1L141.0,273.6L133.0,281.7L129.1,291.0L125.8,295.4L121.7,296.1L120.3,294.2L116.8,291.8L116.8,287.2L117.8,283.7L124.6,274.9L120.9,276.1L116.6,278.6L110.2,283.2L108.0,277.5L106.7,272.1L106.7,265.5L111.9,255.7L105.9,260.5L104.3,266.7L105.1,273.9L104.3,279.0L102.0,285.7L98.9,289.7L93.8,292.3L91.6,296.3L88.1,299.2L88.1,293.4L87.0,285.7L83.3,267.6L82.5,271.5L84.4,282.7L84.4,290.1L81.5,295.9L76.0,302.1L71.6,302.9L69.2,302.1L65.3,298.2L61.2,292.6L60.4,283.8L58.7,278.9ZM157.0,279.1L147.2,281.3L142.1,280.6L151.5,264.3L151.3,257.0L149.9,251.0L144.9,246.3L144.7,242.8L142.5,238.2L141.4,232.6L146.8,230.9L151.1,234.1L151.7,235.8L152.5,240.3L154.8,245.0L162.2,254.5L162.2,260.4L160.1,274.7L157.0,279.1Z" pathLength="1"/>
-    <circle class="ring" cx="135.9" cy="178.3" r="6"/>
     <circle class="sun" cx="135.9" cy="178.3" r="6"/>
   </svg>
+  <i class="pulse" aria-hidden="true"></i>
+  </div>
   <div class="words"><b>চলো পুরান ঢাকা</b><span>Old Dhaka · 23.71° N 90.41° E</span></div>
 </div>
 <script>
@@ -920,7 +923,14 @@ function buildGround() {
 
 const PLASTER = ['#D9CDB4', '#E3D5B8', '#CFC2A6', '#E7D2C2', '#D6C9A0', '#C9CFC0', '#E5DFD0', '#D8B9A8', '#BFC6C1', '#E2C99A', '#CDBFAE', '#E8E1CF', '#C9B7A0', '#D4D9C9', '#E6C7B5', '#B9C2B7'];
 const treeList = [];
-function buildCity() {
+/* Long builds yield to the browser every ~10 ms so the intro keeps animating */
+let sliceT = 0;
+const nextFrame = () => new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
+async function slice() {
+  if (document.hidden || performance.now() - sliceT < 10) return;
+  await nextFrame(); sliceT = performance.now();
+}
+async function buildCity() {
   const cell = state.low ? 22 : 17;
   const r = rng(1608);
   const xmin = W(0, 90.374)[0], xmax = W(0, 90.433)[0], zmin = W(23.729, 0)[1], zmaxN = W(23.690, 0)[1];
@@ -935,6 +945,7 @@ function buildCity() {
     return false;
   };
   for (let gx = xmin; gx < xmax; gx += cell) {
+    await slice();
     for (let gz = zmin; gz < zmaxN + 900; gz += cell) {
       const x = gx + (r() - 0.5) * cell * 0.25, z = gz + (r() - 0.5) * cell * 0.25;
       const bz = bankZ(x), sz = southZ(x);
@@ -982,12 +993,13 @@ function buildCity() {
   state.blds = blds; state.bldRng = r;
 }
 const SIGNCOL = ['#C8322C', '#1F5C99', '#2A8A4A', '#E2A22B', '#F2F0EA', '#8C3F8E', '#E5642B', '#0E6E6B', '#D9C31F'];
-function buildFacades(blds, r) {
+async function buildFacades(blds, r) {
   const slab = [], rail = [], ac = [], sign = [], awn = [];
   const railC = [], signC = [], awnC = [];
   const q = new THREE.Quaternion(), up = new THREE.Vector3(0, 1, 0), tilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), 0.32), c = new THREE.Color();
   const hot = state.places.map(p => [p.x, p.z]);
   for (const b of blds) {
+    await slice();
     b.near = nearRoad(b.x, b.z, 18) || hot.some(([x, z]) => Math.abs(b.x - x) < 220 && Math.abs(b.z - z) < 220);
     const cs = Math.cos(b.ry), sn = Math.sin(b.ry);
     // four faces: local normal (lx, lz), distance to the face, face length
@@ -1405,9 +1417,10 @@ function treeAt(k, x, z, s) { treeList.push([null, k, x, z, s]); }
 
 const heroGroups = [];
 let starMat;
-function buildLandmarks() {
+async function buildLandmarks() {
   starMat = new THREE.MeshStandardMaterial({ map: starTex(), vertexColors: true, roughness: 0.6 });
   for (const p of state.places) {
+    await slice();
     const fn = B[p.type]; if (!fn) continue;
     const k = new Kit(); const g = new THREE.Group();
     g.position.set(p.x, 0, p.z); g.rotation.y = p.ry || 0;
@@ -2061,6 +2074,12 @@ function hideIntro() {
   const intro = $('#intro');
   intro.classList.add('out'); setTimeout(() => { intro.hidden = true; }, 750);
 }
+function introDrawn() {
+  const intro = $('#intro');
+  if (intro.hidden || reduced || !document.getAnimations) return Promise.resolve();
+  const anims = document.getAnimations().filter(a => a.effect && intro.contains(a.effect.target) && a.effect.getTiming().iterations !== Infinity);
+  return Promise.race([Promise.all(anims.map(a => a.finished.catch(() => {}))), new Promise(r => setTimeout(r, 3000))]);
+}
 function runIntro(done) {
   const seen = store.get('cpd-intro');
   const intro = $('#intro');
@@ -2069,7 +2088,7 @@ function runIntro(done) {
   let finished = false;
   const finish = () => { if (finished) return; finished = true; store.set('cpd-intro', '1'); hideIntro(); done(true); };
   $('#skipIntro').onclick = finish;
-  setTimeout(finish, 2700);
+  setTimeout(finish, 300);
 }
 
 /* ================================================================
@@ -2078,7 +2097,7 @@ function runIntro(done) {
 let fpsAcc = 0, fpsN = 0, fpsChecked = false, elapsed = 0;
 function loop() {
   const raw = clock.getDelta(); const dt = Math.min(0.05, raw); elapsed += dt;
-  stepTween(Math.min(0.25, raw));
+  stepTween(Math.min(0.1, raw));
   if (state.walk) stepWalk(dt); else controls.update();
   updateLife(dt, elapsed);
   if (state.sunDir) { sun.position.copy(controls.target).addScaledVector(state.sunDir, 3000); sun.target.position.copy(controls.target); }
@@ -2104,7 +2123,13 @@ async function boot() {
   }
   try { await Promise.race([Promise.all([document.fonts.load('700 80px "Hind Siliguri"', 'অআক'), document.fonts.load('600 40px "Bricolage Grotesque"', 'AB')]), new Promise(r => setTimeout(r, 2500))]); } catch {}
   try {
-    buildGround(); buildCity(); buildLandmarks(); buildFacades(state.blds, state.bldRng); buildTrees(); buildLife(); buildMarkers(); applyLang();
+    sliceT = performance.now();
+    buildGround(); await nextFrame();
+    await buildCity(); await nextFrame();
+    await buildLandmarks(); await nextFrame();
+    await buildFacades(state.blds, state.bldRng); await nextFrame();
+    buildTrees(); buildLife(); await nextFrame();
+    buildMarkers(); applyLang();
     initWalkInput();
   } catch (e) {
     hideIntro(); console.error(e);
@@ -2114,12 +2139,16 @@ async function boot() {
   applyTime(+$('#hour').value);
   const deep = (location.hash || '').slice(1);
   const start = (animated) => {
-    state.ready = true;
+    state.ready = true; clock.getDelta();
     if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
     if (animated) { camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target).add(new THREE.Vector3(0, 0, -600)); controls.update(); flyTo(HOME.pos, HOME.target, 2.4); }
     else { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); }
   };
   camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target); controls.update();
+  // Let the intro finish drawing, then warm up the GPU behind it so the first visible frames don't stall
+  await introDrawn();
+  try { if (renderer.compileAsync) await renderer.compileAsync(scene, camera); else renderer.compile(scene, camera); } catch {}
+  renderer.render(scene, camera); await nextFrame();
   loop();
   runIntro(start);
   window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets };
