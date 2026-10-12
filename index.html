@@ -11,6 +11,14 @@
 <meta property="og:image" content="https://cholopurandhaka.netlify.app/docs/video-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="docs/logo.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Puran Dhaka">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
 <title>Cholo Puran Dhaka</title>
 <meta name="description" content="Walk Old Dhaka in 3D: 40 places, food spots and hidden lanes, with fees, hours, best times and how to get there.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +59,10 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
+[hidden]{display:none!important}
+html,body{height:100%;overscroll-behavior:none}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,a,input,select,label,.chips button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-display);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow:hidden}
 :lang(bn), .bn{font-family:var(--f-bn)}
 button{font:inherit;color:inherit}
@@ -60,7 +71,7 @@ a{color:var(--green-ink)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- top bar ---------- */
-.bar{position:fixed;inset:0 0 auto 0;z-index:40;height:calc(var(--bar-h) + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 16px 0;display:flex;align-items:center;gap:14px;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{position:fixed;inset:0 0 auto 0;z-index:40;height:calc(var(--bar-h) + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:14px;background:var(--paper);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:0 0 auto;background:none;border:0;padding:0;cursor:pointer}
 .brand svg{width:26px;height:34px;flex:0 0 auto}
 .brand b{font-weight:800;font-size:17px;letter-spacing:-.02em;line-height:1}
@@ -100,7 +111,7 @@ a{color:var(--green-ink)}
 .mah.night{color:rgba(247,244,236,.7);text-shadow:0 1px 2px rgba(0,0,0,.6)}
 
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-.chips{position:absolute;left:16px;top:14px;right:16px;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none;z-index:5}
+.chips{position:absolute;left:max(16px,env(safe-area-inset-left,0px));top:14px;right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:6px;flex-wrap:wrap;pointer-events:none;z-index:5}
 .chips button{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px 0 8px;border-radius:999px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-weight:500;font-size:13.5px;color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,.3)}
 .chips button i{display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--c);color:#fff}
 .chips button i svg{width:14px;height:14px}
@@ -108,7 +119,7 @@ a{color:var(--green-ink)}
 .chips .count{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3)}
 .chips button[aria-pressed="true"] .count{color:inherit;opacity:.7}
 
-.timebox{position:absolute;left:16px;bottom:16px;width:min(380px,calc(100% - 32px));padding:12px 14px 12px;z-index:5}
+.timebox{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100% - 32px));padding:12px 14px 12px;z-index:5}
 .timebox .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .timebox label{font-weight:600;font-size:13px;color:var(--ink-2)}
 .timebox output{font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
@@ -125,7 +136,7 @@ a{color:var(--green-ink)}
 .now button{border:1px solid var(--line);background:var(--paper-2);border-radius:6px;padding:4px 8px;font-size:13px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
 .now button b{width:8px;height:8px;border-radius:2px;background:var(--c);display:inline-block}
 
-.tools{position:absolute;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:5;align-items:flex-end}
+.tools{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;z-index:5;align-items:flex-end}
 .tool{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow);cursor:pointer;font-weight:600;font-size:14px}
 .tool svg{width:18px;height:18px}
 .tool.primary{background:var(--green);border-color:var(--green);color:#fff}
@@ -136,7 +147,7 @@ a{color:var(--green-ink)}
 /* ---------- place drawer ---------- */
 .drawer{position:absolute;top:12px;right:12px;bottom:12px;width:min(430px,calc(100% - 24px));z-index:20;display:flex;flex-direction:column;overflow:hidden;transform:translateX(calc(100% + 24px));transition:transform .32s cubic-bezier(.2,.8,.2,1);visibility:hidden}
 .drawer.open{transform:none;visibility:visible}
-.drawer .scroll{overflow:auto;padding:0 18px 22px;overscroll-behavior:contain;flex:1;min-height:0}
+.drawer .scroll{overflow:auto;-webkit-overflow-scrolling:touch;padding:0 18px calc(22px + env(safe-area-inset-bottom,0px));overscroll-behavior:contain;flex:1;min-height:0}
 .handle{display:none}
 .close{position:absolute;right:12px;top:12px;z-index:3;width:34px;height:34px;border-radius:8px;border:0;background:rgba(247,244,236,.14);color:var(--board-ink);cursor:pointer;display:grid;place-items:center}
 .close svg{width:18px;height:18px}
@@ -194,7 +205,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .nearlist button{display:flex;align-items:center;gap:8px;border:0;background:rgba(247,244,236,.95);color:#0B2A21;border-radius:9px;padding:7px 10px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 4px 12px -6px rgba(0,0,0,.5)}
 .nearlist button small{font-family:var(--f-mono);font-weight:400;color:#41564C}
 .nearlist svg{width:16px;height:16px;transition:transform .15s}
-.joy{position:absolute;left:24px;bottom:28px;width:124px;height:124px;border-radius:50%;background:rgba(11,42,33,.35);border:2px solid rgba(247,244,236,.6);pointer-events:auto;touch-action:none}
+.joy{position:absolute;left:max(24px,env(safe-area-inset-left,0px));bottom:calc(28px + env(safe-area-inset-bottom,0px));width:124px;height:124px;border-radius:50%;background:rgba(11,42,33,.35);border:2px solid rgba(247,244,236,.6);pointer-events:auto;touch-action:none}
 .joy i{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:rgba(247,244,236,.92)}
 .cross{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:rgba(255,255,255,.8);box-shadow:0 0 0 1px rgba(0,0,0,.4)}
 
@@ -218,7 +229,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 
 /* ---------- pages (guide, about) ---------- */
 .page{position:fixed;inset:calc(var(--bar-h) + env(safe-area-inset-top,0px)) 0 0 0;overflow:auto;background:var(--paper);z-index:30}
-.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+.wrap{max-width:1040px;margin:0 auto;padding:28px max(20px,env(safe-area-inset-right,0px)) calc(80px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
 .page h1{font-weight:800;font-size:clamp(30px,4.4vw,48px);letter-spacing:-.03em;line-height:1.02;margin:0 0 10px;text-wrap:balance}
 .page h1 .bn{font-family:var(--f-sign);font-weight:400;color:var(--green-ink);letter-spacing:0;display:block;font-size:.62em;margin-top:6px}
 .lede{font-size:17px;color:var(--ink-2);max-width:62ch;margin:0 0 22px}
@@ -265,17 +276,17 @@ table.fees small{color:var(--ink-3);font-weight:400}
   #mapView .chips{top:10px;left:0;right:0;flex-wrap:nowrap;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}
   #mapView .chips::-webkit-scrollbar{display:none}
   .chips button{flex:0 0 auto}
-  .timebox{bottom:12px;left:12px;width:calc(100% - 24px - 64px);padding:10px 12px}
+  .timebox{bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;width:calc(100% - 24px - 64px);padding:10px 12px}
   .now{display:none}
-  .tools{right:12px;bottom:12px}
+  .tools{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
   .tool .t{display:none}
   .tool{padding:0;width:46px;justify-content:center}
   .legend{display:none}
   .drawer{top:auto;left:0;right:0;bottom:0;width:auto;height:min(74%,640px);border-radius:16px 16px 0 0;transform:translateY(105%);border-bottom:0}
   .drawer.open{transform:none}
   .drawer.peek{transform:translateY(calc(100% - 132px))}
-  .handle{display:block;width:100%;height:22px;border:0;background:var(--board);cursor:pointer;position:relative;flex:0 0 auto}
-  .handle::after{content:"";position:absolute;left:50%;top:9px;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:rgba(247,244,236,.5)}
+  .handle{display:block;width:100%;height:28px;touch-action:none;border:0;background:var(--board);cursor:pointer;position:relative;flex:0 0 auto}
+  .handle::after{content:"";position:absolute;left:50%;top:12px;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:rgba(247,244,236,.5)}
   .sign{padding-top:10px}
   .about{grid-template-columns:1fr;gap:20px}
   .portrait{max-width:180px}
@@ -287,6 +298,27 @@ table.fees small{color:var(--ink-3);font-weight:400}
 }
 .searchbtn{display:none;width:36px;height:36px;border-radius:8px;border:1px solid var(--line);background:none;place-items:center;cursor:pointer;margin-left:auto}
 .searchbtn svg{width:18px;height:18px}
+/* touch devices: 16px inputs stop iOS zooming on focus; bigger tap targets */
+@media (pointer:coarse){
+  .search input,select{font-size:16px}
+  .now button{padding:7px 10px}
+  .drawer .close{width:40px;height:40px}
+}
+/* phones held sideways: keep the map visible */
+@media (pointer:coarse) and (max-height:500px){
+  .timebox{width:min(300px,45%);padding:8px 12px}
+  .now{display:none}
+  .legend{display:none}
+  .tool .t{display:none}
+  .tool{padding:0;width:42px;height:38px;justify-content:center}
+  .drawer{width:min(400px,55%)}
+  #mapView .chips{top:10px;left:0;right:0;flex-wrap:nowrap;overflow-x:auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 6px max(16px,env(safe-area-inset-left,0px));scrollbar-width:none}
+  #mapView .chips::-webkit-scrollbar{display:none}
+  .chips button{flex:0 0 auto}
+  .joy{width:104px;height:104px}
+  .joy i{width:44px;height:44px;margin:-22px 0 0 -22px}
+}
+.drawer.dragging{transition:none}
 @media (prefers-reduced-motion:reduce){
   .drawer{transition:none}
   .intro .outline,.intro .fillbd,.intro .sun,.intro .words{animation-duration:.01s;animation-delay:0s}
@@ -481,7 +513,7 @@ const T = {
   en: {
     map: 'Map', guide: 'Guide', about: 'About', search: 'Search places, food, mahallas', searchLabel: 'Search places',
     time: 'Time of day', goodNow: 'Good around this time', estimates: 'estimates', legendHidden: 'lesser-known place', plan: 'Top-down', walkHere2: 'Walk the lanes',
-    walk: 'Walk here', directions: 'Directions', copy: 'Copy link', copied: 'Link copied',
+    walk: 'Walk here', directions: 'Directions', copy: 'Copy link', share: 'Share', copied: 'Link copied',
     why: 'Why go', glance: 'At a glance', spend: 'Time to spend', known: 'How well known', goodFor: 'Good for', getting: 'Getting there', walking: 'Walking', facilities: 'Facilities',
     best: 'When to go', quiet: 'Quieter', peak: 'Busiest', hours: 'Hours', closed: 'Closed', fees: 'Entry', photo: 'Photography', inside: 'Photos inside', history: 'Background', note: 'Good to know', nearby: 'Within a short walk', sources: 'Sources',
     researched: 'From published sources, collected 12 Oct 2026. Not yet checked on site.',
@@ -496,7 +528,7 @@ const T = {
   bn: {
     map: 'ম্যাপ', guide: 'গাইড', about: 'পরিচিতি', search: 'জায়গা, খাবার বা মহল্লা খুঁজুন', searchLabel: 'জায়গা খুঁজুন',
     time: 'দিনের সময়', goodNow: 'এই সময়ে ভালো', estimates: 'আনুমানিক', legendHidden: 'কম-চেনা জায়গা', plan: 'ওপর থেকে', walkHere2: 'গলিতে হাঁটুন',
-    walk: 'এখানে হাঁটুন', directions: 'পথ দেখুন', copy: 'লিংক কপি', copied: 'লিংক কপি হয়েছে',
+    walk: 'এখানে হাঁটুন', directions: 'পথ দেখুন', copy: 'লিংক কপি', share: 'শেয়ার', copied: 'লিংক কপি হয়েছে',
     why: 'কেন যাবেন', glance: 'এক নজরে', spend: 'কতক্ষণ লাগবে', known: 'কতটা পরিচিত', goodFor: 'কাদের জন্য', getting: 'যাওয়ার উপায়', walking: 'হাঁটা', facilities: 'সুবিধা',
     best: 'কখন যাবেন', quiet: 'ভিড় কম', peak: 'ভিড় বেশি', hours: 'খোলার সময়', closed: 'বন্ধ', fees: 'টিকিট', photo: 'ছবি তোলা', inside: 'ভেতরে ছবি', history: 'পটভূমি', note: 'জেনে রাখুন', nearby: 'হেঁটে কাছাকাছি', sources: 'তথ্যসূত্র',
     researched: 'প্রকাশিত সূত্র থেকে, ১২ অক্টোবর ২০২৬ সংগ্রহ। সরেজমিনে যাচাই বাকি।',
@@ -1787,13 +1819,15 @@ function startWalk(p) {
   const touch = matchMedia('(pointer:coarse)').matches;
   $('#joy').hidden = !touch; $('#walkHint').textContent = touch ? t('walkHintTouch') : t('walkHint');
   closeDrawer(true);
+  enterLayer();
   canvas.focus();
   setTimeout(() => { $('#walkHint').style.opacity = '0'; $('#walkHint').style.transition = 'opacity 1s'; }, 6000);
   $('#walkHint').style.opacity = '1';
   walkHud();
 }
-function stopWalk() {
+function stopWalk(fromHistory) {
   if (!state.walk) return;
+  if (fromHistory !== true) leaveLayer();
   state.walk = null; controls.enabled = true; scene.fog.density = 0.00021;
   $('#walkhud').hidden = true; $('#timebox').hidden = false; $('#tools').hidden = false; $('#chips').hidden = false;
   if (state.prevView) flyTo(state.prevView.pos, state.prevView.target, 1);
@@ -1850,7 +1884,7 @@ function initWalkInput() {
   jp.addEventListener('pointermove', e => { if (joy.id === e.pointerId) jmove(e); });
   const jend = e => { if (joy.id !== e.pointerId) return; joy.id = null; joy.x = joy.y = 0; knob.style.transform = ''; };
   jp.addEventListener('pointerup', jend); jp.addEventListener('pointercancel', jend);
-  $('#exitWalk').onclick = stopWalk;
+  $('#exitWalk').onclick = () => stopWalk();
 }
 
 /* ================================================================
@@ -1871,6 +1905,26 @@ function minutes(a, b) {
   const unit = m => m < 90 ? (bn ? 'মিনিট' : 'min') : (bn ? 'ঘণ্টা' : 'hr');
   return unit(a) === unit(b) ? `${f(a)}–${f(b)} ${unit(b)}` : `${f(a)} ${unit(a)} – ${f(b)} ${unit(b)}`;
 }
+/* Back button / back swipe: one history entry while a place card or walk mode is open */
+let layerOpen = false, ignorePop = 0;
+function enterLayer(url) {
+  try {
+    if (layerOpen) history.replaceState({ cpd: 1 }, '', url || location.href);
+    else { history.pushState({ cpd: 1 }, '', url || location.href); layerOpen = true; }
+  } catch {}
+}
+function leaveLayer() {
+  if (!layerOpen) return;
+  layerOpen = false; ignorePop++;
+  try { history.back(); } catch { ignorePop--; }
+}
+addEventListener('popstate', () => {
+  if (ignorePop) { ignorePop--; return; }
+  if (!layerOpen) return;
+  layerOpen = false;
+  if (state.walk) stopWalk(true);
+  if ($('#drawer').classList.contains('open')) closeDrawer(true);
+});
 function openDrawer(p) {
   state.selected = p.slug;
   markerEls.forEach(e => e.classList.toggle('sel', e.dataset.slug === p.slug));
@@ -1894,7 +1948,7 @@ function openDrawer(p) {
     <div class="actions">
       <button class="btn primary" id="dWalk">${uiIcon('walk')}${t('walk')}</button>
       <a class="btn" href="${dirUrl}" target="_blank" rel="noopener">${uiIcon('dir')}${t('directions')}</a>
-      <button class="btn" id="dCopy">${uiIcon('link')}<span>${t('copy')}</span></button>
+      <button class="btn" id="dCopy">${uiIcon('link')}<span>${navigator.share && matchMedia('(pointer:coarse)').matches ? t('share') : t('copy')}</span></button>
     </div>
     <div class="sec"><h3>${t('why')}</h3><p>${esc(p.whyGo)}</p></div>
     <div class="sec"><h3>${t('glance')}</h3>
@@ -1922,15 +1976,18 @@ function openDrawer(p) {
   dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
   $('#dWalk').onclick = () => startWalk(p);
-  $('#dCopy').onclick = () => { const url = location.href.split('#')[0] + '#' + p.slug; const done = () => { $('#dCopy span').textContent = t('copied'); setTimeout(() => { const s = $('#dCopy span'); if (s) s.textContent = t('copy'); }, 1800); }; try { navigator.clipboard.writeText(url).then(done, () => prompted(url)); } catch { prompted(url); } };
+  $('#dCopy').onclick = () => { const url = location.href.split('#')[0] + '#' + p.slug;
+    if (navigator.share && matchMedia('(pointer:coarse)').matches) { navigator.share({ title: p.name.en + ' · Cholo Puran Dhaka', text: p.tagline, url }).catch(() => {}); return; }
+    const done = () => { $('#dCopy span').textContent = t('copied'); setTimeout(() => { const s = $('#dCopy span'); if (s) s.textContent = t('copy'); }, 1800); }; try { navigator.clipboard.writeText(url).then(done, () => prompted(url)); } catch { prompted(url); } };
   $('#drawerBody').querySelectorAll('.near button').forEach(b => b.onclick = () => select(b.dataset.slug));
-  try { history.replaceState(null, '', '#' + p.slug); } catch {}
+  enterLayer('#' + p.slug);
 }
 function prompted(url) { const s = $('#dCopy span'); if (s) s.textContent = url; }
 function closeDrawer(silent) {
   const dr = $('#drawer'); dr.classList.remove('open', 'peek'); dr.setAttribute('aria-hidden', 'true'); state.selected = null;
   markerEls.forEach(e => e.classList.remove('sel'));
-  if (!silent) try { history.replaceState(null, '', location.pathname + location.search); } catch {}
+  dr.style.transform = '';
+  if (!silent) { if (layerOpen) leaveLayer(); else try { history.replaceState(null, '', location.pathname + location.search); } catch {} }
 }
 function select(slug) {
   const p = state.bySlug[slug]; if (!p) return;
@@ -2058,7 +2115,7 @@ async function boot() {
   const deep = (location.hash || '').slice(1);
   const start = (animated) => {
     state.ready = true;
-    if (deep && state.bySlug[deep]) { const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
+    if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
     if (animated) { camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target).add(new THREE.Vector3(0, 0, -600)); controls.update(); flyTo(HOME.pos, HOME.target, 2.4); }
     else { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); }
   };
@@ -2067,6 +2124,33 @@ async function boot() {
   runIntro(start);
   window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets };
 }
+/* Phone bottom sheet: drag the handle or the coloured header down to shrink or close, up to expand */
+function initSheetSwipe() {
+  const dr = $('#drawer'); const phone = matchMedia('(max-width:760px)');
+  let y0 = null, dy = 0, base = 0;
+  const startOK = e => phone.matches && dr.classList.contains('open') && (e.target.closest('#handle') || (e.target.closest('.sign') && !e.target.closest('a,button')));
+  dr.addEventListener('touchstart', e => {
+    if (!startOK(e) || e.touches.length !== 1) return;
+    y0 = e.touches[0].clientY; dy = 0;
+    base = dr.classList.contains('peek') ? dr.offsetHeight - 132 : 0;
+    dr.classList.add('dragging');
+  }, { passive: true });
+  dr.addEventListener('touchmove', e => {
+    if (y0 === null) return;
+    dy = e.touches[0].clientY - y0;
+    const y = Math.max(0, base + dy);
+    dr.style.transform = `translateY(${y}px)`;
+    e.preventDefault();
+  }, { passive: false });
+  const end = () => {
+    if (y0 === null) return;
+    y0 = null; dr.classList.remove('dragging'); dr.style.transform = '';
+    const peek = dr.classList.contains('peek');
+    if (dy > 70) { if (peek || dy > dr.offsetHeight * 0.55) closeDrawer(); else dr.classList.add('peek'); }
+    else if (dy < -50 && peek) dr.classList.remove('peek');
+  };
+  dr.addEventListener('touchend', end); dr.addEventListener('touchcancel', end);
+}
 function applyStaticUI() {
   $('#skipIntro').onclick = hideIntro;
   $('#lang').onclick = () => { state.lang = state.lang === 'en' ? 'bn' : 'en'; store.set('cpd-lang', state.lang); applyLang(); };
@@ -2074,6 +2158,7 @@ function applyStaticUI() {
   $('#home').onclick = () => { showView('map'); closeDrawer(); if (state.ready) { stopWalk(); flyTo(HOME.pos, HOME.target, 1.4); } };
   $('#closeDrawer').onclick = () => closeDrawer();
   $('#handle').onclick = () => $('#drawer').classList.toggle('peek');
+  initSheetSwipe();
   $('#hour').addEventListener('input', e => { if (scene) applyTime(+e.target.value); });
   $('#sort').addEventListener('change', renderGuide);
   $('#walkBtn').onclick = () => { if (!state.ready) return; const sel = state.selected && state.bySlug[state.selected]; startWalk(sel || null); };
