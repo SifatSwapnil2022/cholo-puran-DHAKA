@@ -4,7 +4,7 @@
 
 <h1 align="center">Cholo Puran Dhaka · চলো পুরান ঢাকা</h1>
 
-<p align="center">A walkable 3D guide to Old Dhaka: 40 places (for now), food spots and hidden lanes,<br>each with fees, hours, closed days, the best time to go and how to get there.</p>
+<p align="center">A walkable 3D guide to Old Dhaka for first-time visitors: 40 places (for now), ready-made walking routes,<br>a card to show your rickshaw driver, and practical tips, each with its source.</p>
 
 <p align="center"><b><a href="https://cholopurandhaka.netlify.app">Open the live site →</a></b><br><sub>Works on desktop, Android and iPhone. No sign-up, no install.</sub></p>
 
@@ -20,6 +20,10 @@ It is also an HCI question I care about: does a 3D street-level view help people
 
 ## What it does
 
+- **Walking routes.** Four ready-made days out: *Old Dhaka in one day*, a food crawl, a golden-hour river walk, and a morning of Old Dhaka's many faiths. The route is drawn on the 3D map with numbered stops, suggested times, walking minutes between stops (longer hops marked for a rickshaw), and the days each stop is closed. Every route has its own link, for example [`#route-one-day`](https://cholopurandhaka.netlify.app/#route-one-day).
+- **Show the driver.** One tap shows the place name in large Bangla with its area and a well-known landmark nearby, plus "Please take me here" and "How much will the fare be?" in Bangla, each with an English line underneath. The screen stays on while it is open.
+- **Before you go.** Getting there, getting around the lanes, what to wear, money, food and water, staying safe, when to go and dates to know, with a 999 emergency button (press 2 for English). Every section lists its sources.
+- **Start here.** First-time visitors get a short welcome with the four routes, the tips and an option to explore the map on their own.
 - **3D Old Dhaka.** Orbit, pan and zoom over the old city and the Buriganga. Tap a marker and the camera flies to the place.
 - **Walk mode.** Drop to street level in front of any place and walk with W A S D, the arrow keys or an on-screen pad. Walls and the river block you, and nearby places show distance and direction.
 - **Place cards.** Why go, history, entry fees, hours and closed days (with a warning if it is closed today), quieter and busiest times, photo tips, vehicle access, seating and washrooms, nearby places, and the sources for every fact.
@@ -37,16 +41,25 @@ It is also an HCI question I care about: does a 3D street-level view help people
 | ![Launches at Sadarghat](docs/screenshots/walk-sadarghat.jpg) | ![Old Dhaka at night](docs/screenshots/night.jpg) |
 | Named launches at Sadarghat | The same streets at night |
 
+![The "Old Dhaka in one day" route on the 3D map](docs/screenshots/route.jpg)
+
 ## On phones
 
 The site is built to feel like an app on Android and iPhone:
 
+- **Tab bar.** Map, Routes, Tips, Places and About sit at the bottom, within thumb reach.
 - **Bottom-sheet place cards.** Drag a card down to shrink it, down again to close it, or up to expand it.
 - **Back button.** Android's back button and the iPhone back swipe close the card or leave walk mode instead of leaving the site.
 - **Add to Home Screen.** Installs with its own icon and opens full screen.
 - **Share.** The place card uses the phone's own share sheet.
 - **Fits every screen.** Respects the notch and home bar, has a compact layout for phones held sideways, and stops iOS zooming in when you tap the search box.
 - **Lighter on phones.** The app detects low-power devices and uses lighter settings.
+
+<p align="center">
+  <img src="docs/screenshots/phone-start.jpg" width="230" alt="Start-here sheet with the four walking routes">
+  <img src="docs/screenshots/phone-driver.jpg" width="230" alt="Show-the-driver card with the place name in large Bangla">
+  <img src="docs/screenshots/phone-tips.jpg" width="230" alt="Before-you-go tips with the 999 emergency button">
+</p>
 
 <p align="center">
   <img src="docs/screenshots/phone-card.jpg" width="230" alt="Place card as a bottom sheet on a phone">
@@ -93,10 +106,12 @@ Any static host works with no build command and the repo root as the publish fol
 
 ## Data
 
-`places.json` holds one record per place: bilingual name, categories, coordinates, why go, history, fees, hours, closed days, crowd times, time to spend, who it suits, photography notes, access, and sources.
+`places.json` holds one record per place: bilingual name, categories, coordinates, why go, history, fees, hours, closed days, crowd times, time to spend, who it suits, photography notes, access, and sources. It also holds the walking routes (stops, suggested times and notes) and the traveller tips with their sources.
 
 - Facts were collected from published sources on 12 October 2026: Wikipedia, The Daily Star, Dhaka Tribune, The Financial Express, The Business Standard, Daily Observer, Bangladesh Monitor, Nijhoom Tours and food writers. Each place lists its own sources.
 - **Nothing has been checked on site yet.** 17 coordinates come from sources; 23 are placed by street or neighbourhood and are marked approximate in the app.
+- The traveller tips draw on UK FCDO travel advice (updated 9 October 2026), The Business Standard (official CNG fares, February 2025), UNB (999 in English, February 2025), Wikipedia (Metro Line 6), Wikivoyage, Nijhoom Tours and weather data. Each tips section links its sources.
+- Route walking times are estimates from straight-line distance (× 1.3 for the lanes, at about 75 m a minute). Legs over about 900 m are suggested by rickshaw.
 - Hours and fees change. If you spot something wrong, please open an issue.
 
 ## Roadmap
@@ -106,7 +121,7 @@ Any static host works with no build command and the repo root as the publish fol
 - [ ] Replace the generated streets and houses with real OpenStreetMap data
 - [ ] Field-check every card and fix the approximate pins
 - [ ] Full Bangla descriptions
-- [ ] Walking trails (heritage walk, food crawl, golden-hour photo walk)
+- [x] Walking routes, a show-the-driver card and traveller tips
 - [ ] Offline mode for use in the lanes
 - [ ] A small user study comparing 3D and 2D maps for wayfinding
 

@@ -28,14 +28,17 @@
 /* Layout: the 3D city fills the screen; a slim bar on top, controls float on the map edges,
    place details open as a side panel (desktop) or bottom sheet (phone). Guide and About are scrolling pages. */
 :root{
-  --paper:#F7F4EC; --paper-2:#EEE9DC; --paper-3:#E4DDCB;
-  --ink:#0B2A21; --ink-2:#41564C; --ink-3:#6B7A71;
-  --line:#D6CEBB;
-  --green:#006A4E; --green-ink:#006A4E; --red:#F42A41; --red-ink:#C2152B;
-  --board:#0B2A21; --board-ink:#F7F4EC;
-  --c-heritage:#A4432B; --c-food:#A86C06; --c-hidden-gem:#3B4A8C; --c-photo-spot:#B9466D;
-  --c-market:#6F6B16; --c-worship:#006A4E; --c-river:#2C6C70; --c-festival:#D6213A;
-  --shadow:0 1px 0 rgba(11,42,33,.06), 0 8px 24px -12px rgba(11,42,33,.35);
+  /* Rickshaw-art palette: flag green and red, with the pinks, marigolds and turquoises painted on Dhaka's rickshaws */
+  --paper:#FFFCF6; --paper-2:#FFF2DC; --paper-3:#F7E4C4;
+  --ink:#1C1B3A; --ink-2:#4A4868; --ink-3:#6F6D8A;
+  --line:#ECDDC2;
+  --green:#006A4E; --green-ink:#006A4E; --red:#F42A41; --red-ink:#C8102E;
+  --pink:#E5317A; --marigold:#F5A300; --teal:#0E8FB0; --violet:#6A3FD9;
+  --board:#14364A; --board-ink:#FFFCF6;
+  --c-heritage:#D2452B; --c-food:#E07F00; --c-hidden-gem:#6A3FD9; --c-photo-spot:#E5317A;
+  --c-market:#2E9A3E; --c-worship:#0B7A57; --c-river:#0E8FB0; --c-festival:#E0263F;
+  --shadow:0 1px 0 rgba(28,27,58,.05), 0 10px 26px -14px rgba(28,27,58,.45);
+  --tab-h:0px;
   --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --f-bn:"Hind Siliguri", "Noto Sans Bengali", "Vrinda", sans-serif;
   --f-sign:"Galada", "Hind Siliguri", cursive;
@@ -43,17 +46,17 @@
   --bar-h:56px;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --paper:#0E1D18; --paper-2:#14271F; --paper-3:#1B3229;
-  --ink:#ECE7DA; --ink-2:#B6C3BB; --ink-3:#8C9C93;
-  --line:#2A4137;
+  --paper:#15152B; --paper-2:#1E1E3A; --paper-3:#28284A;
+  --ink:#F4EFE4; --ink-2:#C9C5DA; --ink-3:#9D9AB8;
+  --line:#33335A; --board:#0F2536;
   --green:#2FA57E; --green-ink:#5CC79F; --red:#FF4D5E; --red-ink:#FF7A87;
   --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 28px -12px rgba(0,0,0,.7);
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --paper:#0E1D18; --paper-2:#14271F; --paper-3:#1B3229;
-  --ink:#ECE7DA; --ink-2:#B6C3BB; --ink-3:#8C9C93;
-  --line:#2A4137;
+  --paper:#15152B; --paper-2:#1E1E3A; --paper-3:#28284A;
+  --ink:#F4EFE4; --ink-2:#C9C5DA; --ink-3:#9D9AB8;
+  --line:#33335A; --board:#0F2536;
   --green:#2FA57E; --green-ink:#5CC79F; --red:#FF4D5E; --red-ink:#FF7A87;
   --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 28px -12px rgba(0,0,0,.7);
   color-scheme:dark;
@@ -78,7 +81,9 @@ a{color:var(--green-ink)}
 .brand small{display:block;font-family:var(--f-sign);font-size:13px;color:var(--ink-3);line-height:1.1;margin-top:2px;font-weight:400}
 .nav{display:flex;gap:2px;margin-left:8px}
 .nav button{border:0;background:none;padding:8px 12px;border-radius:6px;font-weight:500;color:var(--ink-2);cursor:pointer}
-.nav button[aria-current="page"]{color:var(--ink);background:var(--paper-2);box-shadow:inset 0 -2px 0 var(--green)}
+.nav button{display:inline-flex;align-items:center;gap:6px}
+.nav button svg{width:17px;height:17px}
+.nav button[aria-current="page"]{color:var(--green-ink);background:color-mix(in srgb,var(--green) 10%,var(--paper));box-shadow:inset 0 -3px 0 var(--green)}
 .search{margin-left:auto;position:relative;flex:0 1 320px;min-width:0}
 .search input{width:100%;height:36px;border:1px solid var(--line);background:var(--paper-2);border-radius:8px;padding:0 12px 0 34px;font:inherit;color:var(--ink)}
 .search input::placeholder{color:var(--ink-3)}
@@ -95,19 +100,25 @@ a{color:var(--green-ink)}
 #scene{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none;background:#C9D2CC}
 #markers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
 .mk{position:absolute;left:0;top:0;pointer-events:auto;display:flex;align-items:center;gap:0;border:0;padding:0;background:none;cursor:pointer;transform-origin:50% 100%;will-change:transform}
-.mk .chip{position:relative;display:grid;place-items:center;width:30px;height:30px;border-radius:7px;background:var(--c);color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.18),0 6px 14px -6px rgba(0,0,0,.5)}
-.mk .chip::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:var(--c)}
+.mk .chip{position:relative;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;box-shadow:0 0 0 2px #fff,0 6px 14px -6px rgba(0,0,0,.6)}
+.mk .chip::after{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top:7px solid #fff}
+.mk .chip .n{position:absolute;inset:0;display:none;place-items:center;font-weight:800;font-size:15px;color:#fff;border-radius:50%;background:var(--rc)}
+.mk.rt .chip{background:var(--rc);width:34px;height:34px;box-shadow:0 0 0 3px #fff,0 8px 16px -6px rgba(0,0,0,.6)}
+.mk.rt .chip .n{display:grid}
+.mk.rt .chip svg,.mk.rt .dot{display:none}
+.mk.off{opacity:.22;transform-origin:50% 100%}
+.mk.off .lbl{display:none!important}
 .mk .chip svg{width:18px;height:18px}
 .mk .dot{position:absolute;right:-3px;top:-3px;width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px #fff}
-.mk .lbl{margin-left:6px;padding:3px 7px 3px;border-radius:5px;background:rgba(247,244,236,.94);color:#0B2A21;font-size:12.5px;font-weight:600;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.18);line-height:1.25;display:none}
-.mk .lbl i{font-style:normal;font-family:var(--f-bn);font-weight:500;color:#41564C;margin-left:5px}
+.mk .lbl{margin-left:8px;padding:3px 8px 3px;border-radius:999px;background:rgba(255,252,246,.95);color:#1C1B3A;font-size:12.5px;font-weight:600;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.18);line-height:1.25;display:none}
+.mk .lbl i{font-style:normal;font-family:var(--f-bn);font-weight:500;color:#5B5975;margin-left:5px}
 .mk.labels .lbl{display:block}
 .mk.sel .chip{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--red),0 8px 18px -6px rgba(0,0,0,.6)}
 .mk.sel .lbl{display:block}
 .mk.dim{opacity:.32}
 .mk:focus-visible{outline:none}
 .mk:focus-visible .chip{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
-.mah{position:absolute;left:0;top:0;pointer-events:none;font-family:var(--f-display);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(11,42,33,.5);text-shadow:0 1px 0 rgba(247,244,236,.7);white-space:nowrap;transform:translate(-50%,-50%)}
+.mah{position:absolute;left:0;top:0;pointer-events:none;font-family:var(--f-display);font-weight:700;font-size:13px;letter-spacing:.04em;color:rgba(28,27,58,.55);text-shadow:0 1px 0 rgba(255,252,246,.8);white-space:nowrap;transform:translate(-50%,-50%)}
 .mah.night{color:rgba(247,244,236,.7);text-shadow:0 1px 2px rgba(0,0,0,.6)}
 
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
@@ -115,8 +126,10 @@ a{color:var(--green-ink)}
 .chips button{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px 0 8px;border-radius:999px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-weight:500;font-size:13.5px;color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,.3)}
 .chips button i{display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--c);color:#fff}
 .chips button i svg{width:14px;height:14px}
-.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.chips .count{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3)}
+.chips button:hover{border-color:var(--c)}
+.chips button[aria-pressed="true"]{background:var(--c);color:#fff;border-color:var(--c)}
+.chips button[aria-pressed="true"] i{background:rgba(255,255,255,.22)}
+.chips .count{font-size:12px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .chips button[aria-pressed="true"] .count{color:inherit;opacity:.7}
 
 .timebox{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100% - 32px));padding:12px 14px 12px;z-index:5}
@@ -128,10 +141,10 @@ a{color:var(--green-ink)}
 .sky::-moz-range-track{height:8px;border-radius:999px;background:linear-gradient(90deg,#3A4C67 0%,#E9A98D 8%,#BCD3D6 22%,#D7DFDA 45%,#F0C17E 70%,#C0663E 77%,#1C2A3F 86%,#0D1724 100%)}
 .sky::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-7px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);cursor:grab}
 .sky::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);cursor:grab}
-.ticks{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3)}
+.ticks{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--ink-3)}
 .now{margin-top:10px;border-top:1px dashed var(--line);padding-top:9px}
-.now h3{margin:0 0 6px;font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
-.now h3 em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:400}
+.now h3{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--ink-2)}
+.now h3 em{font-style:normal;font-weight:400;color:var(--ink-3)}
 .now ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .now button{border:1px solid var(--line);background:var(--paper-2);border-radius:6px;padding:4px 8px;font-size:13px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
 .now button b{width:8px;height:8px;border-radius:2px;background:var(--c);display:inline-block}
@@ -141,7 +154,7 @@ a{color:var(--green-ink)}
 .tool svg{width:18px;height:18px}
 .tool.primary{background:var(--green);border-color:var(--green);color:#fff}
 .tool[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.legend{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:6px;background:var(--paper);padding:4px 8px;border-radius:6px;border:1px solid var(--line)}
+.legend{font-size:12px;font-weight:600;color:var(--ink-3);display:flex;align-items:center;gap:6px;background:var(--paper);padding:4px 8px;border-radius:6px;border:1px solid var(--line)}
 .legend .dot{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
 
 /* ---------- place drawer ---------- */
@@ -149,16 +162,17 @@ a{color:var(--green-ink)}
 .drawer.open{transform:none;visibility:visible}
 .drawer .scroll{overflow:auto;-webkit-overflow-scrolling:touch;padding:0 18px calc(22px + env(safe-area-inset-bottom,0px));overscroll-behavior:contain;flex:1;min-height:0}
 .handle{display:none}
-.close{position:absolute;right:12px;top:12px;z-index:3;width:34px;height:34px;border-radius:8px;border:0;background:rgba(247,244,236,.14);color:var(--board-ink);cursor:pointer;display:grid;place-items:center}
+.close{position:absolute;right:12px;top:12px;z-index:3;width:34px;height:34px;border-radius:50%;border:0;background:rgba(20,20,58,.35);color:#FFFCF6;cursor:pointer;display:grid;place-items:center}
 .close svg{width:18px;height:18px}
-.sign{position:relative;margin:0 -18px 0;padding:22px 22px 18px;background:var(--board);color:var(--board-ink)}
-.sign::before{content:"";position:absolute;inset:8px;border:2px solid var(--c);border-radius:4px;pointer-events:none}
+.sign{position:relative;margin:0 -18px 0;padding:22px 22px 22px;background:color-mix(in srgb,var(--c) 62%,#14143A);color:#FFFCF6}
+.sign::after,.rtrim::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:10px;background:radial-gradient(circle at 7px 0,var(--trim,color-mix(in srgb,var(--c) 62%,#14143A)) 6.5px,transparent 7px) 0 0/14px 10px repeat-x}
+.sign::before{content:"";position:absolute;inset:8px;border:2px solid rgba(255,252,246,.55);border-radius:6px;pointer-events:none}
 .sign .bnname{font-family:var(--f-sign);font-size:34px;line-height:1.15;margin:4px 40px 2px 0}
 .sign h2{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.2;text-wrap:balance;padding-right:30px}
-.sign .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 12px;font-family:var(--f-mono);font-size:11.5px;color:rgba(247,244,236,.72)}
+.sign .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.85)}
 .sign .cat{display:inline-flex;align-items:center;gap:5px}
 .sign .cat i{width:8px;height:8px;border-radius:2px;background:var(--cc);display:inline-block;box-shadow:0 0 0 1px rgba(255,255,255,.5)}
-.tagline{font-size:19px;font-weight:600;line-height:1.3;letter-spacing:-.01em;margin:16px 0 6px;text-wrap:balance}
+.tagline{font-size:19px;font-weight:700;line-height:1.3;letter-spacing:-.01em;margin:22px 0 6px;text-wrap:balance}
 .status{font-size:12.5px;color:var(--ink-3);display:flex;gap:6px;align-items:flex-start;margin:0 0 4px}
 .status svg{width:14px;height:14px;flex:0 0 auto;margin-top:3px}
 .warn{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;padding:9px 11px;border-radius:8px;background:var(--paper-2);border-left:3px solid var(--red);font-size:13.5px}
@@ -167,8 +181,11 @@ a{color:var(--green-ink)}
 .btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border-radius:9px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-weight:600;font-size:14px;text-decoration:none;color:var(--ink)}
 .btn svg{width:17px;height:17px}
 .btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.pink{background:var(--pink);border-color:var(--pink);color:#fff}
+body.inroute #chips,body.inroute #timebox,body.inroute .legend{display:none}
 .sec{margin-top:20px}
-.sec h3{margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sec h3{margin:0 0 8px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--ink);display:flex;align-items:center;gap:8px}
+.sec h3::before{content:"";width:14px;height:4px;border-radius:2px;background:var(--c,var(--green))}
 .sec p{margin:0 0 8px;max-width:62ch}
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .facts div{background:var(--paper);padding:10px 12px;min-width:0}
@@ -176,7 +193,7 @@ a{color:var(--green-ink)}
 .facts dd{margin:2px 0 0;font-weight:600;font-size:14px;line-height:1.35}
 .meter{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
 .meter i{width:10px;height:10px;border-radius:2px;background:var(--paper-3)}
-.meter i.on{background:var(--green)}
+.meter i.on{background:var(--c,var(--green))}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .two h4{margin:0 0 4px;font-size:13px;display:flex;align-items:center;gap:6px}
 .two h4 i{width:9px;height:9px;border-radius:50%;display:inline-block}
@@ -189,10 +206,10 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .near button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:9px;padding:8px 10px;cursor:pointer}
 .near button span{flex:1;min-width:0}
 .near small{color:var(--ink-3);display:block}
-.near .mins{font-family:var(--f-mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.near .mins{font-size:12.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
 .near i{width:10px;height:10px;border-radius:3px;background:var(--c);flex:0 0 auto}
 .src{margin:0;padding-left:16px;font-size:13.5px}
-.coords{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);margin-top:16px}
+.coords{font-size:12px;color:var(--ink-3);margin-top:16px;font-variant-numeric:tabular-nums}
 
 /* ---------- walk HUD ---------- */
 .walkhud{position:absolute;inset:0;pointer-events:none;z-index:15}
@@ -221,7 +238,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .intro .pulse{position:absolute;left:51.67%;top:49.53%;width:4.56%;aspect-ratio:1;margin:-2.28% 0 0 -2.28%;border:1.5px solid #F42A41;border-radius:50%;opacity:0;will-change:transform,opacity;animation:ring 1.4s ease-out 1.6s infinite}
 .intro .words{position:absolute;left:0;right:0;bottom:12vh;text-align:center;opacity:0;animation:fadein .6s ease 1.5s forwards}
 .intro .words b{display:block;font-family:var(--f-sign);font-weight:400;font-size:clamp(30px,6vw,46px);line-height:1.2}
-.intro .words span{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.intro .words span{font-size:14px;opacity:.75}
 .intro .skip{position:absolute;right:16px;top:calc(16px + env(safe-area-inset-top,0px));background:none;border:1px solid rgba(247,244,236,.4);color:#F7F4EC;border-radius:8px;padding:7px 12px;cursor:pointer}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fadein{to{opacity:1}}
@@ -237,7 +254,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .gtools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
 .gtools .chips{position:static;pointer-events:auto;padding:0}
 .gtools select{height:34px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;padding:0 8px}
-.glist{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.glist{list-style:none;margin:0;padding:0;border-top:3px solid var(--green)}
 .glist li{border-bottom:1px solid var(--line)}
 .grow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:6px 20px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:14px 4px;cursor:pointer}
 .grow:hover{background:var(--paper-2)}
@@ -245,11 +262,11 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .grow .nm .bn{font-weight:500;color:var(--ink-3);font-size:15px;margin-left:8px}
 .grow .tg{color:var(--ink-2);font-size:14px;margin-top:2px}
 .grow .cats{display:flex;flex-wrap:wrap;gap:5px}
-.grow .cats span{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;padding:2px 7px;border-radius:5px;background:var(--paper-2);color:var(--ink-2)}
+.grow .cats span{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:color-mix(in srgb,var(--c) 13%,var(--paper));color:color-mix(in srgb,var(--c) 70%,var(--ink))}
 .grow .cats i{width:8px;height:8px;border-radius:2px;background:var(--c)}
-.grow .rt{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);text-align:right;white-space:nowrap}
+.grow .rt{font-size:12.5px;color:var(--ink-3);text-align:right;white-space:nowrap}
 .grow .rt b{display:block;color:var(--ink);font-family:var(--f-display);font-size:13px;font-weight:600}
-.mahh{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+.mahh{font-size:13px;font-weight:600;color:var(--c,var(--ink-3));margin-top:3px}
 
 .about{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:start;margin-top:10px}
 .portrait{width:100%;aspect-ratio:4/5;max-width:220px;border-radius:12px;background:var(--board);color:var(--board-ink);display:grid;place-items:center;position:relative;overflow:hidden}
@@ -259,14 +276,143 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .about h2{font-size:28px;letter-spacing:-.02em;margin:0 0 4px;line-height:1.1}
 .about .role{color:var(--ink-3);font-family:var(--f-mono);font-size:12.5px;margin:0 0 16px}
 .about p{max-width:62ch;margin:0 0 12px;font-size:16px}
-.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:40px;padding-top:24px;border-top:2px solid var(--ink)}
-.cols h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:40px;padding-top:24px;border-top:3px solid var(--green)}
+.cols h3{font-size:17px;font-weight:800;color:var(--ink);margin:0 0 10px}
 .cols p,.cols li{font-size:14.5px;color:var(--ink-2)}
 .cols ul{padding-left:18px;margin:0}
 .nogl{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center}
 
+
+/* ---------- route line on the map ---------- */
+#routeLayer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+#routeLayer .case{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+#routeLayer .ln{fill:none;stroke:var(--rc);stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round}
+#routeLayer .ln.ride{stroke-dasharray:1 11;stroke-width:7}
+
+/* ---------- painted panels (route cards, route header) ---------- */
+.rpanel{position:relative;background:var(--rc);color:var(--rink,#fff);border-radius:16px 16px 0 0;padding:18px 18px 20px}
+.rpanel::before{content:"";position:absolute;inset:7px;border:2px solid currentColor;opacity:.35;border-radius:11px 11px 4px 4px;pointer-events:none}
+.rtrim{position:relative}
+.rtrim::after{--trim:var(--rc)}
+.rpanel .bn{display:block;font-family:var(--f-sign);font-size:28px;line-height:1.15}
+.rpanel h2,.rpanel h3{margin:2px 0 0;font-size:20px;font-weight:800;letter-spacing:-.015em;line-height:1.2;text-wrap:balance}
+.stats{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13.5px;font-weight:600}
+.stats span{display:inline-flex;align-items:center;gap:5px}
+.stats svg{width:16px;height:16px}
+
+/* routes page */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:8px}
+.rcard{display:flex;flex-direction:column;border-radius:16px;background:var(--paper);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
+.rcard .body{padding:20px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.rcard p{margin:0;color:var(--ink-2)}
+.stoprow{display:flex;flex-wrap:wrap;gap:4px 0;margin:0;padding:0;list-style:none;font-size:13px;font-weight:600;color:var(--ink-2)}
+.stoprow li{display:inline-flex;align-items:center}
+.stoprow li+li::before{content:"";width:14px;height:2px;margin:0 4px;background:var(--rc);border-radius:1px}
+.stoprow b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--rc);color:var(--rink,#fff);font-size:11px;margin-right:5px}
+.rcard .go{margin-top:auto}
+.btn.big{height:46px;padding:0 18px;font-size:15px;border-radius:12px}
+.btn.rc{background:var(--rc);border-color:var(--rc);color:var(--rink,#fff)}
+.days{display:flex;gap:4px;flex-wrap:wrap}
+.days i{font-style:normal;font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--paper-2);color:var(--ink-3)}
+.days i.ok{background:color-mix(in srgb,var(--green) 14%,var(--paper));color:var(--green-ink)}
+.days i.no{text-decoration:line-through;opacity:.6}
+
+/* route panel inside the drawer */
+.drawer .rpanel{margin:0 -18px;border-radius:0}
+.rnote{margin:22px 0 4px;padding:10px 12px;border-radius:10px;background:var(--paper-2);font-size:14px;color:var(--ink-2)}
+.ractions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.stops{list-style:none;margin:14px 0 0;padding:0;position:relative}
+.stop{position:relative;padding:0 0 14px 46px}
+.stop::before{content:"";position:absolute;left:16px;top:34px;bottom:0;width:3px;background:color-mix(in srgb,var(--rc) 35%,transparent);border-radius:2px}
+.stop:last-child::before{display:none}
+.stop .num{position:absolute;left:0;top:0;width:35px;height:35px;border-radius:50%;background:var(--rc);color:var(--rink,#fff);display:grid;place-items:center;font-weight:800;font-size:16px;box-shadow:0 0 0 3px var(--paper)}
+.stop .at{font-size:12.5px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.stop h4{margin:0;font-size:17px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.stop h4 .bn{font-weight:500;font-size:14px;color:var(--ink-3);margin-left:6px}
+.stop p{margin:4px 0 8px;font-size:14px;color:var(--ink-2)}
+.stop .acts{display:flex;gap:6px;flex-wrap:wrap}
+.stop .acts .btn{height:34px;font-size:13px;padding:0 11px}
+.stop.closed h4{opacity:.6}
+.stop .warn{margin:6px 0 8px}
+.leg{display:flex;align-items:center;gap:6px;margin:6px 0 0;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.leg svg{width:15px;height:15px}
+.rstrip{display:flex;align-items:center;gap:8px;margin:0 -18px;padding:10px 58px 10px 10px;min-height:56px;background:var(--rc);color:var(--rink,#fff);font-size:13.5px;font-weight:700}
+.rstrip button{border:0;background:rgba(255,255,255,.2);color:inherit;border-radius:999px;height:32px;padding:0 12px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;font-weight:700;white-space:nowrap}
+.rstrip button svg{width:16px;height:16px}
+.rstrip span{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.drawer.inroute .sign{padding-top:18px}
+.rpanel .swipe{display:none}
+
+/* ---------- show-the-driver card ---------- */
+.driver{position:fixed;inset:0;z-index:90;background:#FFFCF6;color:#1C1B3A;display:flex;flex-direction:column;overflow:auto;padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+.driver .band{height:10px;margin:-18px -20px 18px;background:linear-gradient(90deg,#006A4E 0 40%,#F42A41 40% 52%,#F5A300 52% 70%,#E5317A 70% 85%,#0E8FB0 85%)}
+.driver .hint2{font-size:15px;font-weight:600;color:#4A4868;margin:0 0 14px}
+.driver .dname{font-family:var(--f-bn);font-weight:700;font-size:clamp(44px,12vw,92px);line-height:1.12;margin:0 0 10px;color:#1C1B3A}
+.driver .line{font-family:var(--f-bn);font-size:clamp(24px,6vw,40px);font-weight:600;line-height:1.3;margin:10px 0 0}
+.driver .gloss{display:block;font-family:var(--f-display);font-size:14px;font-weight:500;color:#6F6D8A;margin-top:2px}
+.driver .please{margin-top:22px;padding:14px 16px;border-radius:14px;background:#FFF2DC;border-left:6px solid var(--c,#006A4E)}
+.driver .row2{display:flex;gap:10px;margin-top:auto;padding-top:24px;flex-wrap:wrap}
+.driver .row2 .btn{background:#fff;color:#1C1B3A;border-color:#ECDDC2}
+.driver .row2 .btn.primary{background:#006A4E;color:#fff;border-color:#006A4E}
+
+/* ---------- tips page ---------- */
+.sos{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 18px;border-radius:16px;background:var(--red);color:#fff;margin:0 0 22px}
+.sos b{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.sos p{margin:0;flex:1;min-width:200px;font-weight:600}
+.sos a{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;background:#fff;color:var(--red-ink);font-weight:800;text-decoration:none}
+.sos a svg{width:18px;height:18px}
+.tipjump{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;margin:0 0 14px;scrollbar-width:none}
+.tipjump::-webkit-scrollbar{display:none}
+.tipjump a{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px 0 8px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+.tipjump a i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--tc);color:#fff}
+.tipjump a svg{width:14px;height:14px}
+.tipgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 36px}
+.tsec{scroll-margin-top:16px}
+.tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.tsec h2 i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tc);color:#fff;flex:0 0 auto}
+.tsec h2 i svg{width:22px;height:22px}
+.tsec h2 small{display:block;font-family:var(--f-bn);font-weight:500;font-size:14px;color:var(--ink-3);letter-spacing:0}
+.tsec ul{list-style:none;margin:0;padding:0;border-left:3px solid var(--tc);padding-left:16px;display:grid;gap:10px}
+.tsec li{font-size:15.5px;line-height:1.5;color:var(--ink-2);max-width:62ch}
+.tsec li b{color:var(--ink)}
+.tsec .from{margin-top:10px;padding-left:19px;font-size:12.5px;color:var(--ink-3)}
+.tsec .from a{color:var(--ink-3)}
+
+/* ---------- start-here sheet ---------- */
+.welcome{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,calc(100% - 32px));max-height:calc(100% - 32px);overflow:auto;z-index:25;padding:22px 20px 18px}
+.welcome h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.welcome h2 .bn{display:block;font-family:var(--f-sign);font-weight:400;font-size:20px;color:var(--pink);letter-spacing:0;margin-top:2px}
+.welcome p{margin:8px 0 14px;color:var(--ink-2)}
+.wroutes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wroutes button{position:relative;text-align:left;border:0;border-radius:14px;padding:12px 12px 14px;background:var(--rc);color:var(--rink,#fff);cursor:pointer;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.wroutes button b{font-size:15px;font-weight:800;line-height:1.2}
+.wroutes button span{font-size:12.5px;font-weight:600;opacity:.9}
+.wmore{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.welcome .x{position:absolute;right:10px;top:10px;width:36px;height:36px;border-radius:50%;border:0;background:var(--paper-2);display:grid;place-items:center;cursor:pointer}
+.welcome .x svg{width:18px;height:18px}
+
+/* ---------- phone tab bar ---------- */
+.tabbar{display:none}
+
 /* ---------- phone ---------- */
 @media (max-width:760px){
+  :root{--tab-h:60px}
+  .drawer .rpanel .swipe{display:flex}
+  .nav{display:none}
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;height:calc(var(--tab-h) + env(safe-area-inset-bottom,0px));padding:0 max(4px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(4px,env(safe-area-inset-left,0px));background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -8px 24px -18px rgba(28,27,58,.5)}
+  .tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:var(--ink-3);font-size:11.5px;font-weight:700;cursor:pointer;padding:6px 0}
+  .tabbar button i{display:grid;place-items:center;width:46px;height:28px;border-radius:999px}
+  .tabbar button svg{width:21px;height:21px}
+  .tabbar button[aria-current="page"]{color:var(--green-ink)}
+  .tabbar button[aria-current="page"] i{background:color-mix(in srgb,var(--green) 14%,var(--paper))}
+  #mapView,.page{bottom:calc(var(--tab-h) + env(safe-area-inset-bottom,0px))}
+  body.walking .tabbar{display:none}
+  body.walking #mapView{bottom:0}
+  .welcome{top:auto;bottom:12px;transform:translateX(-50%);width:calc(100% - 20px);max-height:calc(100% - 70px)}
+  .wroutes button{min-height:84px}
+  .tipgrid{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:1fr}
+  .sos b{font-size:28px}
   .nav{margin-left:0}
   .nav button{padding:8px 8px;font-size:14px}
   .brand .txt{display:none}
@@ -277,9 +423,11 @@ table.fees small{color:var(--ink-3);font-weight:400}
   #mapView .chips{top:10px;left:0;right:0;flex-wrap:nowrap;overflow-x:auto;padding:0 16px 6px;scrollbar-width:none}
   #mapView .chips::-webkit-scrollbar{display:none}
   .chips button{flex:0 0 auto}
-  .timebox{bottom:calc(12px + env(safe-area-inset-bottom,0px));left:12px;width:calc(100% - 24px - 64px);padding:10px 12px}
+  .timebox{bottom:12px;left:12px;width:calc(100% - 24px - 64px);padding:8px 12px}
+  .timebox .ticks{display:none}
+  .sky{height:24px;margin:2px 0 0}
   .now{display:none}
-  .tools{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .tools{right:12px;bottom:12px}
   .tool .t{display:none}
   .tool{padding:0;width:46px;justify-content:center}
   .legend{display:none}
@@ -335,9 +483,11 @@ table.fees small{color:var(--ink-3);font-weight:400}
     <span class="txt"><b>Cholo Puran Dhaka</b><small>চলো পুরান ঢাকা</small></span>
   </button>
   <nav class="nav" aria-label="Sections">
-    <button id="nav-map" aria-current="page" data-i="map">Map</button>
-    <button id="nav-guide" data-i="guide">Guide</button>
-    <button id="nav-about" data-i="about">About</button>
+    <button id="nav-map" data-v="map" aria-current="page"><span data-i="map">Map</span></button>
+    <button id="nav-routes" data-v="routes"><span data-i="routes">Routes</span></button>
+    <button id="nav-tips" data-v="tips"><span data-i="tips">Tips</span></button>
+    <button id="nav-guide" data-v="guide"><span data-i="guide">Places</span></button>
+    <button id="nav-about" data-v="about"><span data-i="about">About</span></button>
   </nav>
   <div class="search" role="search">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20"/></svg>
@@ -351,7 +501,8 @@ table.fees small{color:var(--ink-3);font-weight:400}
 
 <main>
   <section id="mapView" aria-label="3D map of Old Dhaka">
-    <canvas id="scene" tabindex="0" aria-label="3D model of Old Dhaka. Use the place markers, the search box, or the Guide for a list."></canvas>
+    <canvas id="scene" tabindex="0" aria-label="3D model of Old Dhaka. Use the place markers, the search box, or Places for a list."></canvas>
+    <svg id="routeLayer" aria-hidden="true"><path class="case" id="rCase"/><path class="ln" id="rWalk"/><path class="ln ride" id="rRide"/></svg>
     <div id="markers"></div>
     <div class="chips" id="chips" role="toolbar" aria-label="Filter by category"></div>
 
@@ -374,6 +525,17 @@ table.fees small{color:var(--ink-3);font-weight:400}
       <div class="scroll" id="drawerBody"></div>
     </aside>
 
+    <section class="welcome panel" id="welcome" hidden aria-labelledby="wTitle">
+      <button class="x" id="wClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <h2 id="wTitle"><span data-i="wTitle">New to Old Dhaka?</span><span class="bn">প্রথমবার পুরান ঢাকায়?</span></h2>
+      <p data-i="wLede">Pick a walking route and follow it stop by stop, or explore the map on your own.</p>
+      <div class="wroutes" id="wRoutes"></div>
+      <div class="wmore">
+        <button class="btn" id="wTips"></button>
+        <button class="btn" id="wExplore"></button>
+      </div>
+    </section>
+
     <div class="walkhud" id="walkhud" hidden>
       <button class="tool exit" id="exitWalk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span class="t" data-i="exitWalk">Back to map</span></button>
       <div class="top"><div class="pill" id="walkWhere">Walking</div></div>
@@ -381,6 +543,24 @@ table.fees small{color:var(--ink-3);font-weight:400}
       <div class="cross" aria-hidden="true"></div>
       <div class="hint" id="walkHint"></div>
       <div class="joy" id="joy" hidden><i></i></div>
+    </div>
+  </section>
+
+  <section class="page" id="routesView" hidden aria-labelledby="rTitle">
+    <div class="wrap">
+      <h1 id="rTitle"><span data-i="rTitle">Walking routes</span><span class="bn">হেঁটে ঘোরার পথ</span></h1>
+      <p class="lede" data-i="rLede">Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.</p>
+      <div class="rgrid" id="rgrid"></div>
+    </div>
+  </section>
+
+  <section class="page" id="tipsView" hidden aria-labelledby="tTitle">
+    <div class="wrap">
+      <h1 id="tTitle"><span data-i="tTitle">Before you go</span><span class="bn">যাওয়ার আগে জেনে নিন</span></h1>
+      <p class="lede" data-i="tLede">The practical things first-time visitors ask about. Each section lists where the information comes from.</p>
+      <div class="sos" id="sos"></div>
+      <nav class="tipjump" id="tipjump" aria-label="Jump to a topic"></nav>
+      <div class="tipgrid" id="tipgrid"></div>
     </div>
   </section>
 
@@ -430,6 +610,16 @@ table.fees small{color:var(--ink-3);font-weight:400}
     </div>
   </section>
 </main>
+
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <button data-v="map" aria-current="page"><i></i><span data-i="map">Map</span></button>
+  <button data-v="routes"><i></i><span data-i="routes">Routes</span></button>
+  <button data-v="tips"><i></i><span data-i="tips">Tips</span></button>
+  <button data-v="guide"><i></i><span data-i="guide">Places</span></button>
+  <button data-v="about"><i></i><span data-i="about">About</span></button>
+</nav>
+
+<div class="driver" id="driver" hidden role="dialog" aria-modal="true" aria-labelledby="drvName"></div>
 
 <div class="intro" id="intro">
   <button class="skip" id="skipIntro">Skip</button>
@@ -505,7 +695,22 @@ const UI = {
   dir: '<path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
   link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4"/>',
-  arrow: '<path d="M12 4v16M6 10l6-6 6 6"/>'
+  arrow: '<path d="M12 4v16M6 10l6-6 6 6"/>',
+  map: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>',
+  route: '<circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="6" r="2.4"/><path d="M8.4 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.6"/>',
+  tips: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>',
+  places: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3"/><circle cx="4.5" cy="12" r="1.3"/><circle cx="4.5" cy="18" r="1.3"/>',
+  about: '<circle cx="12" cy="8" r="3.6"/><path d="M5 20.5c1.2-3.6 4-5.6 7-5.6s5.8 2 7 5.6"/>',
+  rickshaw: '<circle cx="6" cy="17.5" r="3"/><circle cx="18" cy="17.5" r="3"/><path d="M6 17.5h6.5l3-7.5H11M18 17.5l-2.5-7.5M9 4.5h7.5l1.5 5.5H9.5z"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',
+  steps: '<path d="M8 4.5c1.6 0 2.3 1.6 2 4l-.5 3.5H6.6L6 8.2C5.7 6 6.5 4.5 8 4.5zM6.7 14.5h3l-.2 2a1.5 1.5 0 0 1-3 0zM16 8.5c1.5 0 2.2 1.5 1.9 3.6l-.4 3.4h-2.9l-.6-3.5c-.3-2 .5-3.5 2-3.5zM14.7 17.5h2.9l-.2 1.8a1.5 1.5 0 0 1-3 0z"/>',
+  back: '<path d="M15 5l-7 7 7 7"/>', next: '<path d="M9 5l7 7-7 7"/>',
+  train: '<rect x="6" y="3" width="12" height="13.5" rx="3"/><path d="M6 10.5h12M9 20.5L7.5 22M15 20.5l1.5 1.5M9.2 13.6h.01M14.8 13.6h.01"/>',
+  money: '<rect x="3" y="6" width="18" height="12" rx="2.2"/><circle cx="12" cy="12" r="2.6"/><path d="M6.5 9.5v5M17.5 9.5v5"/>',
+  shirt: '<path d="M8.5 3L3.5 6l2 4.2 2.7-1.4V21h7.6V8.8l2.7 1.4 2-4.2-5-3c-.6 1.6-2 2.6-3.5 2.6S9.1 4.6 8.5 3z"/>',
+  shield: '<path d="M12 3l7 3v5.2c0 4.4-3 8.2-7 9.8-4-1.6-7-5.4-7-9.8V6z"/><path d="M9 12l2.2 2.2L15.4 10"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
+  phone: '<path d="M6.6 3h3l1.5 4.6-2 1.5a11 11 0 0 0 5.8 5.8l1.5-2 4.6 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.6 5a2 2 0 0 1 2-2z"/>'
 };
 const uiIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${UI[k]}</svg>`;
 
@@ -514,7 +719,7 @@ const uiIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
    ================================================================ */
 const T = {
   en: {
-    map: 'Map', guide: 'Guide', about: 'About', search: 'Search places, food, mahallas', searchLabel: 'Search places',
+    map: 'Map', guide: 'Places', about: 'About', routes: 'Routes', tips: 'Tips', search: 'Search places, food, mahallas', searchLabel: 'Search places',
     time: 'Time of day', goodNow: 'Good around this time', estimates: 'estimates', legendHidden: 'lesser-known place', plan: 'Top-down', walkHere2: 'Walk the lanes',
     walk: 'Walk here', directions: 'Directions', copy: 'Copy link', share: 'Share', copied: 'Link copied',
     why: 'Why go', glance: 'At a glance', spend: 'Time to spend', known: 'How well known', goodFor: 'Good for', getting: 'Getting there', walking: 'Walking', facilities: 'Facilities',
@@ -526,10 +731,17 @@ const T = {
     walkingNear: 'Walking near', openCard: 'Open', gTitle: '39 places worth the trip', gLede: 'Heritage sites, food, markets and quiet corners, with what each costs, when it is closed and the best hour to go. Lesser-known places are marked so you can go beyond the usual three.',
     sortLabel: 'Sort', sortMahalla: 'By neighbourhood', sortHidden: 'Lesser-known first', sortName: 'A to Z', aTitle: 'Who made this', aData: 'About the data', aCredits: 'Credits',
     bnNote: '', noResults: 'Nothing found. Try a mahalla name like Lalbagh or Chawkbazar.', all: 'All',
-    nogl: 'Your browser could not start the 3D view. Everything is still in the Guide.'
+    nogl: 'Your browser could not start the 3D view. Everything is still in Places.',
+    rTitle: 'Walking routes', rLede: 'Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.',
+    tTitle: 'Before you go', tLede: 'The practical things first-time visitors ask about. Each section lists where the information comes from.',
+    wTitle: 'New to Old Dhaka?', wLede: 'Pick a walking route and follow it stop by stop, or explore the map on your own.', readTips: 'Traveller tips', explore: 'Explore the map',
+    showDriver: 'Show driver', driverHint: 'Show this to your rickshaw or CNG driver', takeMe: 'Please take me here.', fareQ: 'How much will the fare be?', walkOnlyDrop: "Vehicles can't get in. Please drop me at the nearest road.", nearTo: 'Near', oldDhaka: 'Old Dhaka', done: 'Done',
+    startRoute: 'Start this route', showRoute: 'Show on map', endRoute: 'End route', firstStop: 'Go to stop 1', stopsN: 'stops', stopOf: 'Stop {a} of {b}', routeLabel: 'Route', open: 'Open',
+    walkLeg: '{m} min walk to the next stop', rideLeg: 'About {m} min by rickshaw to the next stop ({d} km)', bestDays: 'Best days', anyDay: 'Any day; check hours locally', swipeUp: 'Swipe up for the stops',
+    closedTodayAt: 'Closed today', walkKm: 'km on foot', sosText: 'Emergency: police, fire or ambulance. After dialling, press 2 for English.', call: 'Call 999', from: 'Sources:', jump: 'Jump to'
   },
   bn: {
-    map: 'ম্যাপ', guide: 'গাইড', about: 'পরিচিতি', search: 'জায়গা, খাবার বা মহল্লা খুঁজুন', searchLabel: 'জায়গা খুঁজুন',
+    map: 'ম্যাপ', guide: 'জায়গা', about: 'পরিচিতি', routes: 'পথ', tips: 'টিপস', search: 'জায়গা, খাবার বা মহল্লা খুঁজুন', searchLabel: 'জায়গা খুঁজুন',
     time: 'দিনের সময়', goodNow: 'এই সময়ে ভালো', estimates: 'আনুমানিক', legendHidden: 'কম-চেনা জায়গা', plan: 'ওপর থেকে', walkHere2: 'গলিতে হাঁটুন',
     walk: 'এখানে হাঁটুন', directions: 'পথ দেখুন', copy: 'লিংক কপি', share: 'শেয়ার', copied: 'লিংক কপি হয়েছে',
     why: 'কেন যাবেন', glance: 'এক নজরে', spend: 'কতক্ষণ লাগবে', known: 'কতটা পরিচিত', goodFor: 'কাদের জন্য', getting: 'যাওয়ার উপায়', walking: 'হাঁটা', facilities: 'সুবিধা',
@@ -541,7 +753,14 @@ const T = {
     walkingNear: 'হাঁটছেন', openCard: 'দেখুন', gTitle: 'যাওয়ার মতো ৩৯টি জায়গা', gLede: 'ঐতিহ্য, খাবার, বাজার আর নিরিবিলি কোণ। কোথায় কত টিকিট, কবে বন্ধ, কখন গেলে ভালো, সব এক জায়গায়। কম-চেনা জায়গাগুলো আলাদা করে চিহ্নিত।',
     sortLabel: 'সাজান', sortMahalla: 'মহল্লা অনুযায়ী', sortHidden: 'কম-চেনা আগে', sortName: 'নাম অনুযায়ী', aTitle: 'কে বানিয়েছে', aData: 'তথ্য সম্পর্কে', aCredits: 'কৃতজ্ঞতা',
     bnNote: 'বিস্তারিত বর্ণনা এখন ইংরেজিতে। বাংলা লেখা আসছে।', noResults: 'কিছু পাওয়া যায়নি। লালবাগ বা চকবাজারের মতো মহল্লার নাম লিখে দেখুন।', all: 'সব',
-    nogl: 'আপনার ব্রাউজারে থ্রিডি ভিউ চালু হয়নি। গাইডে সব তথ্য আছে।'
+    nogl: 'আপনার ব্রাউজারে থ্রিডি ভিউ চালু হয়নি। "জায়গা" পাতায় সব তথ্য আছে।',
+    rTitle: 'হেঁটে ঘোরার পথ', rLede: 'গুছিয়ে সাজানো দিনের পরিকল্পনা, এক জায়গা থেকে আরেক জায়গায় হাঁটার সময়সহ। দূরের পথে রিকশা নিন। সময়গুলো পরামর্শ; কোন জায়গা কবে বন্ধ, তা চিহ্নিত।',
+    tTitle: 'যাওয়ার আগে জেনে নিন', tLede: 'প্রথমবার যাঁরা আসছেন, তাঁদের দরকারি তথ্য। প্রতিটি অংশে তথ্যসূত্র দেওয়া আছে। বিস্তারিত এখন ইংরেজিতে।',
+    wTitle: 'প্রথমবার পুরান ঢাকায়?', wLede: 'একটা হাঁটার পথ বেছে নিন, ধাপে ধাপে চলুন। অথবা নিজের মতো ম্যাপ ঘুরে দেখুন।', readTips: 'ভ্রমণ টিপস', explore: 'ম্যাপ ঘুরে দেখুন',
+    showDriver: 'চালককে দেখান', driverHint: 'রিকশা বা সিএনজি চালককে দেখান', takeMe: 'দয়া করে আমাকে এখানে নিয়ে যান।', fareQ: 'ভাড়া কত হবে?', walkOnlyDrop: 'গাড়ি ভেতরে যায় না। কাছের রাস্তায় নামিয়ে দিন।', nearTo: 'কাছেই', oldDhaka: 'পুরান ঢাকা', done: 'ঠিক আছে',
+    startRoute: 'এই পথে চলুন', showRoute: 'ম্যাপে দেখুন', endRoute: 'পথ শেষ করুন', firstStop: 'প্রথম জায়গায় যান', stopsN: 'জায়গা', stopOf: '{b}টির মধ্যে {a} নম্বর', routeLabel: 'পথ', open: 'দেখুন',
+    walkLeg: 'পরের জায়গা হেঁটে {m} মিনিট', rideLeg: 'পরের জায়গা রিকশায় প্রায় {m} মিনিট ({d} কিমি)', bestDays: 'ভালো দিন', anyDay: 'যেকোনো দিন; সময় জেনে যান', swipeUp: 'জায়গাগুলো দেখতে ওপরে টানুন',
+    closedTodayAt: 'আজ বন্ধ', walkKm: 'কিমি হাঁটা', sosText: 'জরুরি: পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স।', call: '৯৯৯-এ ফোন করুন', from: 'তথ্যসূত্র:', jump: 'বিষয়'
   }
 };
 const CATNAME = {
@@ -595,7 +814,7 @@ async function loadData() {
   const r = await fetch('places.json');
   if (!r.ok) throw new Error('places.json ' + r.status);
   const d = await r.json();
-  state.places = d.places;
+  state.places = d.places; state.routes = d.routes || []; state.tips = d.tips || null;
   const n = d.places.length; T.en.gTitle = `${n} places worth the trip`; T.bn.gTitle = `যাওয়ার মতো ${bnNum(n)}টি জায়গা`;
   for (const p of d.places) {
     const [x, z] = W(p.lat, p.lng);
@@ -921,7 +1140,7 @@ function buildGround() {
   scene.add(k.mesh(heroMat, k.parts));
 }
 
-const PLASTER = ['#D9CDB4', '#E3D5B8', '#CFC2A6', '#E7D2C2', '#D6C9A0', '#C9CFC0', '#E5DFD0', '#D8B9A8', '#BFC6C1', '#E2C99A', '#CDBFAE', '#E8E1CF', '#C9B7A0', '#D4D9C9', '#E6C7B5', '#B9C2B7'];
+const PLASTER = ['#E8C99E', '#EED9B0', '#E2B4A4', '#F0BCA6', '#B9D6C4', '#A9CDD9', '#E9D47E', '#CDBADD', '#E4E1CF', '#EADFC9', '#D4A684', '#9FCBB9', '#F3DDB8', '#D9C6A6', '#BCCFA0', '#EECBD3', '#DDB98C', '#C3D9E2'];
 const treeList = [];
 /* Long builds yield to the browser every ~10 ms so the intro keeps animating */
 let sliceT = 0;
@@ -1645,7 +1864,7 @@ function updateLife(dt, time) {
    Light and time
    ================================================================ */
 const SKY = [
-  [4, '#101B2B'], [5.4, '#34465F'], [6.1, '#D9A894'], [7.2, '#BFD0D3'], [11, '#B8CDD3'], [15.6, '#C3D0CF'], [16.9, '#E0C9A2'], [17.5, '#D58A5E'], [18.1, '#544F68'], [19.2, '#17243A'], [24, '#0B1522']
+  [4, '#101B2B'], [5.4, '#34465F'], [6.1, '#E8A994'], [7.2, '#B4D3E2'], [11, '#A8D0E8'], [15.6, '#B8D5E2'], [16.9, '#EBC79A'], [17.5, '#E8875A'], [18.1, '#5E4F78'], [19.2, '#17243A'], [24, '#0B1522']
 ];
 const _c1 = new THREE.Color(), _c2 = new THREE.Color();
 function skyAt(h) {
@@ -1700,7 +1919,7 @@ function buildMarkers() {
   for (const p of state.places) {
     const b = document.createElement('button'); b.className = 'mk'; b.type = 'button'; b.dataset.slug = p.slug;
     b.style.setProperty('--c', `var(--c-${p.cat})`);
-    b.innerHTML = `<span class="chip">${svgIcon(p.cat)}${p.underrated >= 4 ? '<span class="dot"></span>' : ''}</span><span class="lbl">${esc(p.name.en)}<i>${esc(p.name.bn)}</i></span>`;
+    b.innerHTML = `<span class="chip">${svgIcon(p.cat)}<b class="n"></b>${p.underrated >= 4 ? '<span class="dot"></span>' : ''}</span><span class="lbl">${esc(p.name.en)}<i>${esc(p.name.bn)}</i></span>`;
     b.setAttribute('aria-label', `${p.name.en}, ${CATNAME.en[p.cat]}`);
     b.addEventListener('click', () => select(p.slug));
     b._p = new THREE.Vector3(p.x, (p.top || 10) + 4, p.z); b._place = p;
@@ -1723,12 +1942,12 @@ function updateMarkers() {
     const sc = walking ? clamp(140 / d, 0.65, 1.25) : clamp(1500 / d, 0.62, 1.05);
     e.style.transform = `translate(${sx - 15}px, ${sy - 36}px) scale(${sc.toFixed(3)})`;
     e.style.zIndex = String(10000 - Math.round(d));
-    const lab = walking ? d < 180 : (camD < 900 || (camD < 2400 && p.underrated <= 2));
+    const lab = walking ? d < 180 : state.route ? !!e._ri : (camD < 900 || (camD < 2400 && p.underrated <= 2));
     e._want = lab; e._sx = sx; e._sy = sy; e._d = d; e._sc = sc;
-    e.classList.toggle('dim', !show);
+    e.classList.toggle('dim', !show && !state.route);
   }
   const placed = [];
-  const order = markerEls.filter(e => e.style.display !== 'none').sort((a, b) => (b.classList.contains('sel') - a.classList.contains('sel')) || (a._place.underrated - b._place.underrated) || (a._d - b._d));
+  const order = markerEls.filter(e => e.style.display !== 'none').sort((a, b) => (b.classList.contains('sel') - a.classList.contains('sel')) || ((b._ri ? 1 : 0) - (a._ri ? 1 : 0)) || (a._place.underrated - b._place.underrated) || (a._d - b._d));
   for (const e of order) {
     const p = e._place;
     const chip = { x: e._sx - 15 * e._sc, y: e._sy - 36 * e._sc, w: 30 * e._sc, h: 36 * e._sc };
@@ -1818,6 +2037,7 @@ function spawnFor(p) {
   return fallback || { x: p.x, z: p.z + foot + 8, yaw: 0 };
 }
 function startWalk(p) {
+  if (!$('#welcome').hidden) closeWelcome();
   if (!p) {
     const tg = controls.target; let best = null, bd = 1e9;
     for (const q of state.places) { const d = Math.hypot(q.x - tg.x, q.z - tg.z); if (d < bd) { bd = d; best = q; } }
@@ -1832,6 +2052,7 @@ function startWalk(p) {
   const touch = matchMedia('(pointer:coarse)').matches;
   $('#joy').hidden = !touch; $('#walkHint').textContent = touch ? t('walkHintTouch') : t('walkHint');
   closeDrawer(true);
+  document.body.classList.add('walking');
   enterLayer();
   canvas.focus();
   setTimeout(() => { $('#walkHint').style.opacity = '0'; $('#walkHint').style.transition = 'opacity 1s'; }, 6000);
@@ -1841,9 +2062,11 @@ function startWalk(p) {
 function stopWalk(fromHistory) {
   if (!state.walk) return;
   if (fromHistory !== true) leaveLayer();
+  document.body.classList.remove('walking');
   state.walk = null; controls.enabled = true; scene.fog.density = 0.00021;
   $('#walkhud').hidden = true; $('#timebox').hidden = false; $('#tools').hidden = false; $('#chips').hidden = false;
   if (state.prevView) flyTo(state.prevView.pos, state.prevView.target, 1);
+  if (state.route && fromHistory !== true) setTimeout(() => { if (state.route && !state.walk) showRouteList(); }, 60);
 }
 const joy = { x: 0, y: 0, id: null };
 function stepWalk(dt) {
@@ -1916,6 +2139,7 @@ function minutes(a, b) {
   const bn = state.lang === 'bn';
   const f = m => m < 90 ? num(m) : num(Math.round(m / 30) / 2);
   const unit = m => m < 90 ? (bn ? 'মিনিট' : 'min') : (bn ? 'ঘণ্টা' : 'hr');
+  if (a === b) return `${f(a)} ${unit(a)}`;
   return unit(a) === unit(b) ? `${f(a)}–${f(b)} ${unit(b)}` : `${f(a)} ${unit(a)} – ${f(b)} ${unit(b)}`;
 }
 /* Back button / back swipe: one history entry while a place card or walk mode is open */
@@ -1933,21 +2157,28 @@ function leaveLayer() {
 }
 addEventListener('popstate', () => {
   if (ignorePop) { ignorePop--; return; }
+  if (drvPushed) { drvPushed = false; hideDriver(true); return; }
   if (!layerOpen) return;
   layerOpen = false;
   if (state.walk) stopWalk(true);
   if ($('#drawer').classList.contains('open')) closeDrawer(true);
+  endRoute();
 });
 function openDrawer(p) {
-  state.selected = p.slug;
+  state.selected = p.slug; state.drawerMode = 'place';
+  if (!$('#welcome').hidden) closeWelcome();
   markerEls.forEach(e => e.classList.toggle('sel', e.dataset.slug === p.slug));
+  const ri = state.routeInfo ? state.routeInfo.stops.findIndex(s => s.slug === p.slug) : -1;
+  const rs = ri >= 0 ? state.routeInfo.stops : null;
   const L = state.lang, today = dhakaWeekday();
   const closedToday = (p.closed || []).some(c => c.toLowerCase() === today.toLowerCase());
   const meter = n => `<span class="meter" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= 6 - n ? 'on' : ''}"></i>`).join('')}</span>`;
   const fees = (p.fees || []).length ? `<table class="fees">${p.fees.map(f => `<tr><td>${esc(f.who)}${f.note ? ` <small>(${esc(f.note)})</small>` : ''}</td><td>৳ ${num(f.bdt)}</td></tr>`).join('')}</table>` : '';
   const near = (p.near || []).slice(0, 3).map(o => `<li><button data-slug="${o.q.slug}" style="--c:var(--c-${o.q.cat})"><i></i><span>${esc(pName(o.q))}<small>${esc(o.q.tagline)}</small></span><span class="mins">${num(Math.max(1, Math.ceil(o.d * 1.3 / 75)))} ${t('walkMin')}</span></button></li>`).join('');
   const dirUrl = p.pin === 'source' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=walking` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
+  $('#drawerBody').style.cssText = `--c:var(--c-${p.cat})` + (rs ? ';' + rstyle(state.route) : '');
   $('#drawerBody').innerHTML = `
+    ${rs ? `<div class="rstrip"><button id="rsBack" aria-label="${t('routeLabel')}">${uiIcon('back')}${t('routeLabel')}</button><span>${fill('stopOf', { a: num(ri + 1), b: num(rs.length) })}</span>${ri > 0 ? `<button id="rsPrev" aria-label="Previous stop">${uiIcon('back')}</button>` : ''}${ri < rs.length - 1 ? `<button id="rsNext" aria-label="Next stop">${uiIcon('next')}</button>` : ''}</div>` : ''}
     <div class="sign" style="--c:var(--c-${p.cat})">
       <div class="bnname" lang="bn">${esc(p.name.bn)}</div>
       <h2 id="dTitle">${esc(p.name.en)}</h2>
@@ -1959,6 +2190,7 @@ function openDrawer(p) {
     ${p.pin !== 'source' ? `<p class="warn soft">${t('approx')}</p>` : ''}
     ${L === 'bn' ? `<p class="status">${t('bnNote')}</p>` : ''}
     <div class="actions">
+      <button class="btn pink" id="dDriver">${uiIcon('rickshaw')}${t('showDriver')}</button>
       <button class="btn primary" id="dWalk">${uiIcon('walk')}${t('walk')}</button>
       <a class="btn" href="${dirUrl}" target="_blank" rel="noopener">${uiIcon('dir')}${t('directions')}</a>
       <button class="btn" id="dCopy">${uiIcon('link')}<span>${navigator.share && matchMedia('(pointer:coarse)').matches ? t('share') : t('copy')}</span></button>
@@ -1981,14 +2213,17 @@ function openDrawer(p) {
     <div class="sec"><h3>${t('fees')}</h3>${fees}${p.ticketing ? `<p style="margin-top:8px">${esc(p.ticketing)}</p>` : (!fees ? `<p>${t('free')}</p>` : '')}</div>
     <div class="sec"><h3>${t('photo')}</h3><p>${esc(p.photo.tips)}</p><p><b>${t('inside')}:</b> ${esc(p.photo.inside)}</p></div>
     ${p.access.note ? `<div class="sec"><h3>${t('note')}</h3><p>${esc(p.access.note)}</p></div>` : ''}
+    ${rs && rs[ri].tip ? `<div class="sec"><h3>${t('routeLabel')}: ${esc(state.lang === 'bn' ? state.route.name.bn : state.route.name.en)}</h3><p>${esc(rs[ri].tip)}</p></div>` : ''}
     ${p.history ? `<div class="sec"><h3>${t('history')}</h3><p>${esc(p.history)}</p></div>` : ''}
     ${near ? `<div class="sec"><h3>${t('nearby')}</h3><ul class="near">${near}</ul></div>` : ''}
     <div class="sec"><h3>${t('sources')}</h3><ol class="src">${p.sources.map(s => s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>` : `<li>${esc(s.label)}</li>`).join('')}</ol></div>
     <p class="coords">${p.lat.toFixed(4)}° N · ${p.lng.toFixed(4)}° E${p.pin !== 'source' ? ' · approx.' : ''}</p>`;
-  const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek'); dr.setAttribute('aria-hidden', 'false');
+  const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek'); dr.classList.toggle('inroute', !!rs); dr.setAttribute('aria-hidden', 'false');
   dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
   $('#dWalk').onclick = () => startWalk(p);
+  $('#dDriver').onclick = () => showDriver(p);
+  if (rs) { $('#rsBack').onclick = () => showRouteList(); if ($('#rsPrev')) $('#rsPrev').onclick = () => select(rs[ri - 1].slug); if ($('#rsNext')) $('#rsNext').onclick = () => select(rs[ri + 1].slug); }
   $('#dCopy').onclick = () => { const url = location.href.split('#')[0] + '#' + p.slug;
     if (navigator.share && matchMedia('(pointer:coarse)').matches) { navigator.share({ title: p.name.en + ' · Cholo Puran Dhaka', text: p.tagline, url }).catch(() => {}); return; }
     const done = () => { $('#dCopy span').textContent = t('copied'); setTimeout(() => { const s = $('#dCopy span'); if (s) s.textContent = t('copy'); }, 1800); }; try { navigator.clipboard.writeText(url).then(done, () => prompted(url)); } catch { prompted(url); } };
@@ -1996,8 +2231,14 @@ function openDrawer(p) {
   enterLayer('#' + p.slug);
 }
 function prompted(url) { const s = $('#dCopy span'); if (s) s.textContent = url; }
+/* The X (or a full swipe down): inside a route, a stop goes back to the route list; the list ends the route. */
+function closeX() {
+  if (state.route && state.drawerMode === 'place') { showRouteList(); return; }
+  if (state.route) endRoute();
+  closeDrawer();
+}
 function closeDrawer(silent) {
-  const dr = $('#drawer'); dr.classList.remove('open', 'peek'); dr.setAttribute('aria-hidden', 'true'); state.selected = null;
+  const dr = $('#drawer'); dr.classList.remove('open', 'peek', 'inroute'); state.drawerMode = null; dr.setAttribute('aria-hidden', 'true'); state.selected = null;
   markerEls.forEach(e => e.classList.remove('sel'));
   dr.style.transform = '';
   if (!silent) { if (layerOpen) leaveLayer(); else try { history.replaceState(null, '', location.pathname + location.search); } catch {} }
@@ -2028,6 +2269,225 @@ function renderGuide() {
     <span class="rt"><b>${KNOWN[state.lang][p.underrated]}</b>${minutes(p.spend[0], p.spend[1])}</span></button></li>`).join('');
   $('#glist').querySelectorAll('.grow').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
+/* ================================================================
+   Walking routes
+   ================================================================ */
+const WEEK = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const DAYSHORT = { en: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'], bn: ['শনি', 'রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র'] };
+const fill = (k, o) => t(k).replace(/\{(\w)\}/g, (_, x) => o[x]);
+const lum = hex => { const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+const inkOn = hex => (1.05 / (lum(hex) + 0.05)) >= 3.4 ? '#FFFFFF' : '#1C1B3A';
+const rstyle = r => `--rc:${r.color};--rink:${inkOn(r.color)}`;
+function straight(a, b) { return Math.hypot(a.x - b.x, a.z - b.z); }
+function routeInfo(r) {
+  const stops = r.stops.map(s => ({ ...s, p: state.bySlug[s.slug] })).filter(s => s.p);
+  let walkM = 0;
+  stops.forEach((s, i) => {
+    const n = stops[i + 1]; if (!n) return;
+    const d = straight(s.p, n.p); s.d = d; s.ride = d > 900;
+    s.mins = s.ride ? Math.ceil(d * 1.4 / 150) + 3 : Math.max(1, Math.ceil(d * 1.3 / 75));
+    if (!s.ride) walkM += d * 1.3;
+  });
+  const closed = new Set(stops.flatMap(s => (s.p.closed || []).filter(c => WEEK.includes(c))));
+  const best = r.best && r.best.length ? r.best : WEEK.filter(d => !closed.has(d));
+  const last = stops[stops.length - 1];
+  const endMin = toMin(last.at) + (last.stay || 0);
+  return { stops, walkKm: walkM / 1000, best, closed, span: `${fmtClock(toMin(stops[0].at))}–${fmtClock(endMin)}` };
+}
+const toMin = s => { const [h, m] = s.split(':').map(Number); return h * 60 + (m || 0); };
+function fmtClock(min) { const h = Math.floor(min / 60), m = min % 60; return state.lang === 'bn' ? bnNum(`${h}:${String(m).padStart(2, '0')}`) : `${h}:${String(m).padStart(2, '0')}`; }
+const km = v => num(v < 10 ? v.toFixed(1) : Math.round(v));
+function dayChips(info) {
+  return `<div class="days" aria-label="${t('bestDays')}">${WEEK.map((d, i) => `<i class="${info.best.includes(d) ? 'ok' : info.closed.has(d) ? 'no' : ''}" title="${d}">${DAYSHORT[state.lang][i]}</i>`).join('')}</div>`;
+}
+function renderRoutes() {
+  const box = $('#rgrid'); if (!box) return;
+  box.innerHTML = state.routes.map(r => {
+    const info = routeInfo(r);
+    return `<article class="rcard" style="${rstyle(r)}">
+      <div class="rpanel rtrim"><span class="bn" lang="bn">${esc(r.name.bn)}</span><h2>${esc(r.name.en)}</h2>
+        <div class="stats"><span>${uiIcon('clock')}${info.span}</span><span>${uiIcon('steps')}${km(info.walkKm)} ${t('walkKm')}</span><span>${uiIcon('route')}${num(info.stops.length)} ${t('stopsN')}</span></div></div>
+      <div class="body">
+        <p>${esc(r.blurb[state.lang] || r.blurb.en)}</p>
+        <ol class="stoprow">${info.stops.map((s, i) => `<li><b>${num(i + 1)}</b>${esc(pName(s.p))}</li>`).join('')}</ol>
+        <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">${t('bestDays')}</div>${dayChips(info)}</div>
+        <button class="btn big rc go" data-route="${r.id}">${uiIcon('map')}${t('startRoute')}</button>
+      </div></article>`;
+  }).join('');
+  box.querySelectorAll('[data-route]').forEach(b => b.onclick = () => openRoute(b.dataset.route));
+}
+/* Frame the whole route in the part of the screen the panel doesn't cover: project the stops with a
+   test camera, then nudge the target and distance until they sit inside that area (perspective-correct). */
+function fitRoute(r) {
+  const pts = routeInfo(r).stops.map(s => new THREE.Vector3(s.p.x, 4, s.p.z));
+  const phone = matchMedia('(max-width:760px)').matches;
+  const dir = new THREE.Vector3(0.16, 0.74, 0.66).normalize();
+  const fwd = new THREE.Vector3(-dir.x, 0, -dir.z).normalize(), right = new THREE.Vector3(-fwd.z, 0, fwd.x);
+  const rect = canvas.getBoundingClientRect(), W = rect.width, H = rect.height;
+  const areaW = phone ? W : W - Math.min(460, W * 0.45), areaH = phone ? H - 150 : H;
+  const padL = 40, padR = phone ? 92 : 150, padTop = 56, padBottom = 22;
+  const sinP = dir.y;
+  const cam = camera.clone(); cam.aspect = W / H; cam.updateProjectionMatrix();
+  const c = pts.reduce((a, p) => a.add(p), new THREE.Vector3()).multiplyScalar(1 / pts.length); c.y = 0;
+  let dist = 1600; const q = new THREE.Vector3();
+  for (let it = 0; it < 6; it++) {
+    cam.position.copy(c).addScaledVector(dir, dist); cam.lookAt(c); cam.updateMatrixWorld();
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    for (const p of pts) { q.copy(p).project(cam); const x = (q.x * 0.5 + 0.5) * W, y = (-q.y * 0.5 + 0.5) * H; x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+    const wantW = areaW - padL - padR, wantH = areaH - padTop - padBottom;
+    const k = Math.max((x1 - x0) / wantW, (y1 - y0) / wantH);
+    const upp = 2 * dist * Math.tan(cam.fov * Math.PI / 360) / H;
+    const dx = (x0 + x1) / 2 - (padL + wantW / 2), dy = (y0 + y1) / 2 - (padTop + wantH / 2);
+    c.addScaledVector(right, dx * upp).addScaledVector(fwd, -dy * upp / sinP);
+    dist = clamp(dist * (0.35 + 0.65 * k), 350, 5000);
+  }
+  flyTo(c.clone().addScaledVector(dir, dist), c, 1.6);
+}
+function openRoute(id, opts = {}) {
+  const r = state.routes.find(x => x.id === id); if (!r) return;
+  $('#welcome').hidden = true; store.set('cpd-welcome', '1');
+  if (state.walk) stopWalk();
+  showView('map');
+  state.route = r; state.filter = null; renderChips('#chips');
+  document.body.classList.add('inroute');
+  const info = routeInfo(r); state.routeInfo = info;
+  markerEls.forEach(e => { const i = info.stops.findIndex(s => s.slug === e.dataset.slug); e._ri = i >= 0 ? i + 1 : 0; e.classList.toggle('rt', i >= 0); e.classList.toggle('off', i < 0); e.style.setProperty('--rc', r.color); const n = e.querySelector('.n'); if (n) n.textContent = i >= 0 ? num(i + 1) : ''; });
+  $('#routeLayer').style.setProperty('--rc', r.color);
+  showRouteList();
+  if (matchMedia('(max-width:760px)').matches && !opts.full) $('#drawer').classList.add('peek');
+  if (state.ready) fitRoute(r);
+}
+function endRoute() {
+  if (!state.route) return;
+  state.route = null; state.routeInfo = null; document.body.classList.remove('inroute');
+  markerEls.forEach(e => { e._ri = 0; e.classList.remove('rt', 'off'); });
+  ['#rCase', '#rWalk', '#rRide'].forEach(id => $(id).setAttribute('d', ''));
+}
+function showRouteList() {
+  const r = state.route; if (!r) return;
+  const info = routeInfo(r); const L = state.lang; const today = dhakaWeekday();
+  state.drawerMode = 'route'; state.selected = null;
+  markerEls.forEach(e => e.classList.remove('sel'));
+  const closedNow = info.stops.filter(s => (s.p.closed || []).includes(today));
+  $('#drawerBody').style.cssText = rstyle(r) + ';--c:' + r.color;
+  $('#drawerBody').innerHTML = `
+    <div class="rpanel rtrim"><span class="bn" lang="bn">${esc(r.name.bn)}</span><h2 id="dTitle">${esc(r.name.en)}</h2>
+      <div class="stats"><span>${uiIcon('clock')}${info.span}</span><span>${uiIcon('steps')}${km(info.walkKm)} ${t('walkKm')}</span><span>${uiIcon('route')}${num(info.stops.length)} ${t('stopsN')}</span></div>
+      <div class="stats swipe" style="opacity:.85">${t('swipeUp')}</div></div>
+    <p class="rnote">${esc(r.note[L] || r.note.en)}</p>
+    <div style="font-size:13px;font-weight:700;margin:10px 0 5px">${t('bestDays')}</div>${dayChips(info)}
+    ${closedNow.length ? `<p class="warn"><b>${t('closedTodayAt')}:</b>&nbsp;${closedNow.map(s => esc(pName(s.p))).join(', ')}</p>` : ''}
+    <div class="ractions"><button class="btn big rc" id="rFirst">${uiIcon('next')}${t('firstStop')}</button><button class="btn big" id="rEnd">${t('endRoute')}</button></div>
+    <ol class="stops">${info.stops.map((s, i) => {
+      const shut = (s.p.closed || []).includes(today);
+      return `<li class="stop${shut ? ' closed' : ''}"><span class="num">${num(i + 1)}</span>
+        <span class="at">${fmtClock(toMin(s.at))} · ${minutes(s.stay, s.stay)}</span>
+        <h4>${esc(s.p.name.en)}<span class="bn">${esc(s.p.name.bn)}</span></h4>
+        ${shut ? `<p class="warn">${t('closedToday')}</p>` : ''}
+        <p>${esc(s.tip)}</p>
+        <div class="acts"><button class="btn" data-open="${s.slug}">${t('open')}</button><button class="btn" data-drv="${s.slug}">${uiIcon('rickshaw')}${t('showDriver')}</button><button class="btn" data-walk="${s.slug}">${uiIcon('walk')}${t('walk')}</button></div>
+        ${s.d ? `<div class="leg">${uiIcon(s.ride ? 'rickshaw' : 'steps')}${s.ride ? fill('rideLeg', { m: num(s.mins), d: km(s.d * 1.4 / 1000) }) : fill('walkLeg', { m: num(s.mins) })}</div>` : ''}</li>`;
+    }).join('')}</ol>`;
+  const dr = $('#drawer'); dr.classList.add('open', 'inroute'); dr.setAttribute('aria-hidden', 'false'); dr.setAttribute('aria-labelledby', 'dTitle');
+  $('#drawerBody').scrollTop = 0;
+  $('#rFirst').onclick = () => select(info.stops[0].slug);
+  $('#rEnd').onclick = () => { endRoute(); closeDrawer(); };
+  $('#drawerBody').querySelectorAll('[data-open]').forEach(b => b.onclick = () => select(b.dataset.open));
+  $('#drawerBody').querySelectorAll('[data-drv]').forEach(b => b.onclick = () => showDriver(state.bySlug[b.dataset.drv]));
+  $('#drawerBody').querySelectorAll('[data-walk]').forEach(b => b.onclick = () => startWalk(state.bySlug[b.dataset.walk]));
+  enterLayer('#route-' + r.id);
+}
+const _rp = new THREE.Vector3();
+function drawRoute() {
+  const info = state.routeInfo; if (!info || state.walk) { if (info) ['#rCase', '#rWalk', '#rRide'].forEach(id => $(id).setAttribute('d', '')); return; }
+  const r = canvas.getBoundingClientRect(); const w = r.width, h = r.height;
+  let walk = '', ride = '';
+  for (const s of info.stops) {
+    if (!s.d) continue;
+    const n = info.stops[info.stops.indexOf(s) + 1];
+    let d = '', pen = false;
+    for (let k = 0; k <= 12; k++) {
+      const tt = k / 12; _rp.set(lerp(s.p.x, n.p.x, tt), 6, lerp(s.p.z, n.p.z, tt)).project(camera);
+      if (_rp.z > 1) { pen = false; continue; }
+      d += `${pen ? 'L' : 'M'}${((_rp.x * 0.5 + 0.5) * w).toFixed(1)} ${((-_rp.y * 0.5 + 0.5) * h).toFixed(1)}`; pen = true;
+    }
+    if (s.ride) ride += d; else walk += d;
+  }
+  $('#rCase').setAttribute('d', walk + ride); $('#rWalk').setAttribute('d', walk); $('#rRide').setAttribute('d', ride);
+}
+
+/* ================================================================
+   Show-the-driver card
+   ================================================================ */
+const MAH_BN = { 'Kumartoli': 'কুমারটুলি', 'Lalbagh': 'লালবাগ', 'Armanitola': 'আরমানিটোলা', 'Bakshibazar': 'বকশীবাজার', 'Chawkbazar': 'চকবাজার', 'Narinda': 'নারিন্দা',
+  'Farashganj': 'ফরাশগঞ্জ', 'Tikatuli': 'টিকাটুলি', 'Laxmibazar': 'লক্ষ্মীবাজার', 'Banglabazar': 'বাংলাবাজার', 'Wari': 'ওয়ারী', 'Sadarghat': 'সদরঘাট', 'Shankhari Bazar': 'শাঁখারীবাজার',
+  'Tanti Bazar': 'তাঁতীবাজার', 'Islampur': 'ইসলামপুর', 'Nazira Bazar': 'নাজিরাবাজার', 'Becharam Dewri': 'বেচারাম দেউড়ি', 'Johnson Road': 'জনসন রোড', 'Nazimuddin Road': 'নাজিমুদ্দিন রোড',
+  'Bangshal': 'বংশাল', 'Raisaheb Bazar': 'রায়সাহেব বাজার', 'Dighubabu Lane': 'দিগুবাবু লেন', 'Agamasi Lane': 'আগামসি লেন', 'Sutrapur & Gendaria': 'সূত্রাপুর ও গেন্ডারিয়া', 'Keraniganj': 'কেরানীগঞ্জ' };
+const ANCHORS = ['ahsan-manzil', 'lalbagh-fort', 'sadarghat', 'bahadur-shah-park', 'chawk-shahi-mosque', 'dhakeshwari-temple', 'hussaini-dalan', 'tara-masjid', 'haji-biryani', 'islampur'];
+let wakeLock = null, drvPushed = false;
+function showDriver(p) {
+  if (!p) return;
+  const anchor = ANCHORS.map(s => state.bySlug[s]).filter(q => q && q.slug !== p.slug).map(q => ({ q, d: straight(p, q) })).sort((a, b) => a.d - b.d)[0];
+  const near = anchor && anchor.d < 900 ? anchor.q : null;
+  const dirUrl = p.pin === 'source' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
+  const g = (bn, en) => `<p class="line" lang="bn">${bn}<span class="gloss" lang="en">${en}</span></p>`;
+  const d = $('#driver');
+  d.style.setProperty('--c', `var(--c-${p.cat})`);
+  d.innerHTML = `<div class="band"></div>
+    <p class="hint2">${t('driverHint')}</p>
+    <h1 class="dname" id="drvName" lang="bn">${esc(p.name.bn)}</h1>
+    ${g(`${esc(MAH_BN[p.mahalla] || p.mahalla)}, পুরান ঢাকা`, `${esc(p.mahalla)}, Old Dhaka`)}
+    ${near ? g(`কাছেই ${esc(near.name.bn)}`, `Near ${esc(near.name.en)}`) : ''}
+    <div class="please">${g('দয়া করে আমাকে এখানে নিয়ে যান।', 'Please take me here.')}${p.access.vehicle === 'walk-only' ? g('গাড়ি ভেতরে যায় না। কাছের রাস্তায় নামিয়ে দিন।', "Vehicles can't get in. Please drop me at the nearest road.") : ''}${g('ভাড়া কত হবে?', 'How much will the fare be?')}</div>
+    <div class="row2"><button class="btn big primary" id="drvDone">${t('done')}</button><a class="btn big" href="${dirUrl}" target="_blank" rel="noopener">${uiIcon('dir')}${t('directions')}</a></div>`;
+  d.hidden = false; $('#drvDone').focus();
+  $('#drvDone').onclick = () => hideDriver();
+  try { navigator.wakeLock && navigator.wakeLock.request('screen').then(l => { wakeLock = l; }).catch(() => {}); } catch {}
+  try { history.pushState({ cpd: 'drv' }, '', location.href); drvPushed = true; } catch {}
+}
+function hideDriver(fromHistory) {
+  const d = $('#driver'); if (d.hidden) return;
+  d.hidden = true;
+  try { wakeLock && wakeLock.release(); } catch {} wakeLock = null;
+  if (drvPushed && fromHistory !== true) { drvPushed = false; ignorePop++; try { history.back(); } catch { ignorePop--; } }
+  drvPushed = false;
+}
+
+/* ================================================================
+   Traveller tips
+   ================================================================ */
+const TIPICON = { arrive: ['train', '#0E8FB0'], rickshaw: ['rickshaw', '#E5317A'], respect: ['shirt', '#6A3FD9'], money: ['money', '#2E9A3E'], food: ['food', '#E07F00'], safety: ['shield', '#E0263F'], sun: ['sun', '#D98A00'], festival: ['festival', '#0B7A57'] };
+const tipSvg = k => ICON[k] ? svgIcon(k, 2) : uiIcon(k);
+function renderTips() {
+  const tp = state.tips; if (!tp) return;
+  const S = tp.sources;
+  $('#sos').innerHTML = `<b>999</b><p>${t('sosText')}</p><a href="tel:999">${uiIcon('phone')}${t('call')}</a>`;
+  $('#tipjump').innerHTML = tp.sections.map(sec => { const [ic, col] = TIPICON[sec.icon] || ['info', '#006A4E']; return `<a href="#" data-to="tip-${sec.id}" style="--tc:${col}"><i>${tipSvg(ic)}</i>${esc(sec.title[state.lang] || sec.title.en)}</a>`; }).join('');
+  $('#tipgrid').innerHTML = tp.sections.map(sec => {
+    const [ic, col] = TIPICON[sec.icon] || ['info', '#006A4E'];
+    const src = sec.src.map(k => S[k]).filter(Boolean).map(x => x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)).join('; ');
+    return `<section class="tsec" id="tip-${sec.id}" style="--tc:${col}">
+      <h2><i>${tipSvg(ic)}</i><span>${esc(sec.title.en)}<small lang="bn">${esc(sec.title.bn)}</small></span></h2>
+      <ul>${sec.items.map(([lead, rest]) => `<li><b>${esc(lead)}</b> ${esc(rest)}</li>`).join('')}</ul>
+      <p class="from">${t('from')} ${src}</p></section>`;
+  }).join('') + `<p class="from" style="grid-column:1/-1;padding:0">${esc(S[tp.emergency.src].label)} — <a href="${esc(S[tp.emergency.src].url)}" target="_blank" rel="noopener">999</a></p>`;
+  $('#tipjump').querySelectorAll('[data-to]').forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById(a.dataset.to).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
+}
+
+/* ================================================================
+   Start-here sheet
+   ================================================================ */
+function renderWelcome() {
+  $('#wRoutes').innerHTML = state.routes.map(r => { const info = routeInfo(r); return `<button data-route="${r.id}" style="${rstyle(r)}"><b>${esc(state.lang === 'bn' ? r.name.bn : r.name.en)}</b><span>${info.span} · ${num(info.stops.length)} ${t('stopsN')}</span></button>`; }).join('');
+  $('#wRoutes').querySelectorAll('[data-route]').forEach(b => b.onclick = () => openRoute(b.dataset.route));
+  $('#wTips').innerHTML = `${uiIcon('tips')}${t('readTips')}`;
+  $('#wExplore').innerHTML = `${uiIcon('map')}${t('explore')}`;
+}
+function maybeWelcome() {
+  if (store.get('cpd-welcome') || state.route || state.selected) return;
+  renderWelcome(); $('#welcome').hidden = false;
+}
+function closeWelcome() { $('#welcome').hidden = true; store.set('cpd-welcome', '1'); }
 function initSearch() {
   const q = $('#q'), res = $('#results'); let items = [], on = -1;
   const norm = s => s.toLowerCase().normalize('NFKD');
@@ -2058,13 +2518,17 @@ function applyLang() {
   markerEls.forEach(e => { const p = e._place; e.querySelector('.lbl').innerHTML = state.lang === 'bn' ? `${esc(p.name.bn)}` : `${esc(p.name.en)}<i>${esc(p.name.bn)}</i>`; });
   renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow();
   if (scene) $('#hourOut').textContent = fmtHour(state.hour);
-  if (state.selected) openDrawer(state.bySlug[state.selected]);
+  renderRoutes(); renderTips(); if (!$('#welcome').hidden) renderWelcome();
+  if (state.drawerMode === 'route' && state.route) showRouteList();
+  else if (state.selected) openDrawer(state.bySlug[state.selected]);
 }
+const VIEWS = ['map', 'routes', 'tips', 'guide', 'about'];
 function showView(v) {
   state.view = v;
-  $('#guideView').hidden = v !== 'guide'; $('#aboutView').hidden = v !== 'about';
-  for (const n of ['map', 'guide', 'about']) { const b = $('#nav-' + n); if (n === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }
+  for (const n of VIEWS) if (n !== 'map') { const el = $('#' + n + 'View'); if (el) { const was = el.hidden; el.hidden = n !== v; if (was && !el.hidden) el.scrollTop = 0; } }
+  document.querySelectorAll('[data-v]').forEach(b => { if (b.dataset.v === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
   if (v !== 'map' && state.walk) stopWalk();
+  if (v !== 'map') $('#welcome').hidden = true;
 }
 
 /* ================================================================
@@ -2103,6 +2567,7 @@ function loop() {
   if (state.sunDir) { sun.position.copy(controls.target).addScaledVector(state.sunDir, 3000); sun.target.position.copy(controls.target); }
   renderer.render(scene, camera);
   updateMarkers();
+  drawRoute();
   if (!fpsChecked && elapsed > 4) { fpsAcc += dt; fpsN++; if (fpsN > 90) { fpsChecked = true; const fps = fpsN / fpsAcc; if (fps < 26) { renderer.setPixelRatio(1); movers.filter(m => m.kind === 'people').forEach(m => { m.im.visible = false; m.extra.forEach(e => e.visible = false); }); } } }
   requestAnimationFrame(loop);
 }
@@ -2114,7 +2579,7 @@ async function boot() {
   applyStaticUI();
   try { await loadData(); }
   catch (e) { hideIntro(); $('#markers').innerHTML = `<div class="nogl panel" style="margin:40px auto;max-width:420px;position:relative;inset:auto">The place data could not load (${esc(e.message)}). Reload the page to try again.</div>`; return; }
-  renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); applyLang();
+  renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderTips(); applyLang();
   try { initRenderer(); }
   catch (e) {
     hideIntro();
@@ -2140,6 +2605,8 @@ async function boot() {
   const deep = (location.hash || '').slice(1);
   const start = (animated) => {
     state.ready = true; clock.getDelta();
+    if (deep.startsWith('route-') && state.routes.some(r => 'route-' + r.id === deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openRoute(deep.slice(6)); return; }
+    setTimeout(maybeWelcome, animated ? 2600 : 400);
     if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
     if (animated) { camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target).add(new THREE.Vector3(0, 0, -600)); controls.update(); flyTo(HOME.pos, HOME.target, 2.4); }
     else { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); }
@@ -2175,7 +2642,7 @@ function initSheetSwipe() {
     if (y0 === null) return;
     y0 = null; dr.classList.remove('dragging'); dr.style.transform = '';
     const peek = dr.classList.contains('peek');
-    if (dy > 70) { if (peek || dy > dr.offsetHeight * 0.55) closeDrawer(); else dr.classList.add('peek'); }
+    if (dy > 70) { if (peek || dy > dr.offsetHeight * 0.55) closeX(); else dr.classList.add('peek'); }
     else if (dy < -50 && peek) dr.classList.remove('peek');
   };
   dr.addEventListener('touchend', end); dr.addEventListener('touchcancel', end);
@@ -2183,9 +2650,12 @@ function initSheetSwipe() {
 function applyStaticUI() {
   $('#skipIntro').onclick = hideIntro;
   $('#lang').onclick = () => { state.lang = state.lang === 'en' ? 'bn' : 'en'; store.set('cpd-lang', state.lang); applyLang(); };
-  $('#nav-map').onclick = () => showView('map'); $('#nav-guide').onclick = () => showView('guide'); $('#nav-about').onclick = () => showView('about');
-  $('#home').onclick = () => { showView('map'); closeDrawer(); if (state.ready) { stopWalk(); flyTo(HOME.pos, HOME.target, 1.4); } };
-  $('#closeDrawer').onclick = () => closeDrawer();
+  document.querySelectorAll('[data-v]').forEach(b => b.onclick = () => showView(b.dataset.v));
+  $('#tabbar').querySelectorAll('[data-v]').forEach(b => { b.querySelector('i').innerHTML = uiIcon({ map: 'map', routes: 'route', tips: 'tips', guide: 'places', about: 'about' }[b.dataset.v]); });
+  $('#wClose').onclick = closeWelcome; $('#wExplore').onclick = closeWelcome; $('#wTips').onclick = () => { closeWelcome(); showView('tips'); };
+  addEventListener('keydown', e => { if (e.key === 'Escape') { if (!$('#driver').hidden) hideDriver(); else if (!$('#welcome').hidden) closeWelcome(); } });
+  $('#home').onclick = () => { showView('map'); endRoute(); closeDrawer(); if (state.ready) { stopWalk(); flyTo(HOME.pos, HOME.target, 1.4); } };
+  $('#closeDrawer').onclick = () => closeX();
   $('#handle').onclick = () => $('#drawer').classList.toggle('peek');
   initSheetSwipe();
   $('#hour').addEventListener('input', e => { if (scene) applyTime(+e.target.value); });

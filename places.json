@@ -2347,5 +2347,570 @@
         }
       ]
     }
-  ]
+  ],
+  "routes": [
+    {
+      "id": "one-day",
+      "color": "#E5317A",
+      "name": {
+        "en": "Old Dhaka in one day",
+        "bn": "এক দিনে পুরান ঢাকা"
+      },
+      "blurb": {
+        "en": "The first-timer's day: a Mughal fort, two caravanserais, the best-known biryani, the star mosque, the Nawabs' pink palace, and a boat at sunset.",
+        "bn": "প্রথমবারের জন্য পুরো দিন: মোগল কেল্লা, কাটরা, নান্নার পোলাও, তারা মসজিদ, আহসান মঞ্জিল, আর সন্ধ্যায় নৌকা।"
+      },
+      "best": [
+        "Saturday",
+        "Tuesday",
+        "Wednesday"
+      ],
+      "note": {
+        "en": "Lalbagh Fort is closed on Sunday and opens only in the afternoon on Monday. Ahsan Manzil is closed on Thursday. On Friday, skip the mosques around midday prayer.",
+        "bn": "লালবাগ কেল্লা রবিবার বন্ধ, সোমবার খোলে দুপুরের পর। আহসান মঞ্জিল বৃহস্পতিবার বন্ধ। শুক্রবার জুমার সময় মসজিদে যাবেন না।"
+      },
+      "stops": [
+        {
+          "slug": "lalbagh-fort",
+          "at": "9:30",
+          "stay": 75,
+          "tip": "Start while it is cool. Pari Bibi's tomb sits in the middle of the lawns."
+        },
+        {
+          "slug": "bara-katra",
+          "at": "11:00",
+          "stay": 15,
+          "tip": "Only the southern gateway of this 1640s travellers' inn survives. Look from the lane and be polite with shopkeepers."
+        },
+        {
+          "slug": "choto-katra",
+          "at": "11:20",
+          "stay": 10,
+          "tip": "Look up: old arches sit above the modern shop signs."
+        },
+        {
+          "slug": "nanna-biryani",
+          "at": "11:45",
+          "stay": 40,
+          "tip": "Lunch. Order morog polao (chicken pulao) and borhani. The original is at 41 Becharam Dewri; other shops copy the name."
+        },
+        {
+          "slug": "tara-masjid",
+          "at": "13:15",
+          "stay": 25,
+          "tip": "Go after the midday prayer. No shorts; women cover their hair; shoes off at the prayer hall."
+        },
+        {
+          "slug": "armenian-church",
+          "at": "14:00",
+          "stay": 25,
+          "tip": "Ring at the gate. Walk among the 18th-century Armenian gravestones."
+        },
+        {
+          "slug": "ahsan-manzil",
+          "at": "14:45",
+          "stay": 75,
+          "tip": "Foreign visitors pay ৳500 (per our sources). From October to March it closes at 16:30."
+        },
+        {
+          "slug": "buriganga-boat-ride",
+          "at": "16:15",
+          "stay": 45,
+          "tip": "Hire a small wooden boat by the hour beside the terminal. Agree the price first; life jackets are not usually provided."
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "color": "#F08C00",
+      "name": {
+        "en": "Food crawl: biryani, lassi and bakarkhani",
+        "bn": "খাবারের পথে: বিরিয়ানি, লাচ্ছি, বাকরখানি"
+      },
+      "blurb": {
+        "en": "An afternoon into evening of Old Dhaka's classics. Share plates so you have room for the kebabs at the end.",
+        "bn": "দুপুর থেকে রাত, পুরান ঢাকার চেনা স্বাদ। ভাগ করে খান, শেষে কাবাবের জায়গা রাখুন।"
+      },
+      "best": [],
+      "note": {
+        "en": "Most of these shops do not publish their hours, so the times are suggestions. Popular biryani can sell out; go a little early.",
+        "bn": "বেশিরভাগ দোকানের খোলার সময় প্রকাশিত নয়, তাই সময়গুলো আনুমানিক। জনপ্রিয় বিরিয়ানি শেষ হয়ে যেতে পারে।"
+      },
+      "stops": [
+        {
+          "slug": "beauty-boarding",
+          "at": "14:00",
+          "stay": 50,
+          "tip": "A plain Bengali lunch in the courtyard where the country's poets used to meet."
+        },
+        {
+          "slug": "cafe-corner",
+          "at": "15:00",
+          "stay": 20,
+          "tip": "Across the road. Mutton crumb chop and milk tea."
+        },
+        {
+          "slug": "beauty-lassi",
+          "at": "15:40",
+          "stay": 20,
+          "tip": "Order the lebu sherbet (lemon) or the lassi. It is small; you may stand."
+        },
+        {
+          "slug": "agamasi-bakarkhani",
+          "at": "16:45",
+          "stay": 20,
+          "tip": "Evening batch: watch the bread slapped onto clay ovens and buy it warm."
+        },
+        {
+          "slug": "haji-biryani",
+          "at": "17:30",
+          "stay": 40,
+          "tip": "Goat biryani on a leaf plate since 1939. The original is at 70 Kazi Alauddin Road."
+        },
+        {
+          "slug": "bismillah-kabab",
+          "at": "18:45",
+          "stay": 40,
+          "tip": "Mutton chaap off the coals. Nazira Bazar turns into a food street after dark."
+        }
+      ]
+    },
+    {
+      "id": "river",
+      "color": "#0E8FB0",
+      "name": {
+        "en": "River and old houses at golden hour",
+        "bn": "বিকেলের আলোয় নদী আর পুরনো বাড়ি"
+      },
+      "blurb": {
+        "en": "A photo walk from the kite and bangle lanes to the riverbank mansions, timed so you are on the water as the light turns gold.",
+        "bn": "ঘুড়ি আর শাঁখার গলি থেকে নদীর ধারের প্রাসাদ, শেষে সূর্য ডোবার আগে নৌকায়।"
+      },
+      "best": [],
+      "note": {
+        "en": "Sunset is around 17:15 in winter and 18:45 in June; shift the start time to match. Shankhari Bazar is very crowded during Durga Puja.",
+        "bn": "শীতে সূর্য ডোবে প্রায় ৫:১৫-তে, জুনে ৬:৪৫-এ; শুরুর সময় সেই মতো ঠিক করুন। দুর্গাপূজায় শাঁখারীবাজারে খুব ভিড় হয়।"
+      },
+      "stops": [
+        {
+          "slug": "tanti-bazar",
+          "at": "14:30",
+          "stay": 15,
+          "tip": "Kite makers fill the shopfronts before Shakrain in January."
+        },
+        {
+          "slug": "shankhari-bazar",
+          "at": "14:50",
+          "stay": 30,
+          "tip": "Very narrow, very deep houses, small shrines and conch-bangle cutters. Look straight down the lane."
+        },
+        {
+          "slug": "bahadur-shah-park",
+          "at": "15:30",
+          "stay": 15,
+          "tip": "Memorial to the sepoys hanged here in 1857. Benches and toilets."
+        },
+        {
+          "slug": "pogose-school",
+          "at": "15:50",
+          "stay": 5,
+          "tip": "The country's first private school. View from the street; don't photograph students."
+        },
+        {
+          "slug": "banglabazar-books",
+          "at": "16:00",
+          "stay": 20,
+          "tip": "Porters carry fresh books on their heads through the publishing lanes."
+        },
+        {
+          "slug": "northbrook-hall",
+          "at": "16:30",
+          "stay": 15,
+          "tip": "The red 1880 town hall glows in late light. Include a domed corner tower."
+        },
+        {
+          "slug": "ruplal-house",
+          "at": "16:55",
+          "stay": 15,
+          "tip": "A crumbling columned mansion, now a spice market. Watch your footing."
+        },
+        {
+          "slug": "buriganga-boat-ride",
+          "at": "17:15",
+          "stay": 40,
+          "tip": "From mid-river, Ahsan Manzil, Ruplal House and the launches line up in one view."
+        }
+      ]
+    },
+    {
+      "id": "faiths",
+      "color": "#6A3FD9",
+      "name": {
+        "en": "Old Dhaka's many faiths",
+        "bn": "পুরান ঢাকার নানা ধর্মের উপাসনালয়"
+      },
+      "blurb": {
+        "en": "One morning: a Hindu temple, a Shia imambara, a Mughal mosque, the star mosque, an Armenian church and a Sikh gurdwara, then lunch on the same lane.",
+        "bn": "এক সকালে মন্দির, ইমামবাড়া, মোগল আমলের মসজিদ, তারা মসজিদ, আর্মেনিয়ান গির্জা আর গুরুদুয়ারা, শেষে দুপুরের খাবার।"
+      },
+      "best": [],
+      "note": {
+        "en": "Dress modestly and carry a scarf. Avoid Friday midday, when the mosques are full for prayer, and Thursday at the Armenian Church, when a food programme draws crowds.",
+        "bn": "শালীন পোশাক পরুন, একটা ওড়না বা স্কার্ফ রাখুন। শুক্রবার দুপুরে মসজিদে ভিড়, বৃহস্পতিবার আর্মেনিয়ান চার্চে ভিড় থাকে।"
+      },
+      "stops": [
+        {
+          "slug": "dhakeshwari-temple",
+          "at": "8:30",
+          "stay": 30,
+          "tip": "Bangladesh's largest Hindu temple, calm in the morning. Remove shoes where asked."
+        },
+        {
+          "slug": "hussaini-dalan",
+          "at": "9:15",
+          "stay": 20,
+          "tip": "A white Shia imambara with a pond in front; shoot the reflection from the south bank."
+        },
+        {
+          "slug": "chawk-shahi-mosque",
+          "at": "10:00",
+          "stay": 15,
+          "tip": "Shaista Khan's 1676 mosque on the market square. Keep valuables close in the crowd."
+        },
+        {
+          "slug": "tara-masjid",
+          "at": "10:30",
+          "stay": 25,
+          "tip": "Every surface is mosaic made from broken china. No shorts; women cover their hair."
+        },
+        {
+          "slug": "armenian-church",
+          "at": "11:10",
+          "stay": 25,
+          "tip": "A white 1781 church in a walled graveyard. Ring at the gate."
+        },
+        {
+          "slug": "gurdwara-sangat-tola",
+          "at": "12:00",
+          "stay": 15,
+          "tip": "Linked to Guru Tegh Bahadur's stay in the 1660s. Ask at the door before going in."
+        },
+        {
+          "slug": "beauty-boarding",
+          "at": "12:30",
+          "stay": 50,
+          "tip": "Lunch on the same lane, in the poets' old courtyard."
+        }
+      ]
+    }
+  ],
+  "tips": {
+    "sections": [
+      {
+        "id": "arrive",
+        "icon": "arrive",
+        "title": {
+          "en": "Getting to Old Dhaka",
+          "bn": "পুরান ঢাকায় যাওয়া"
+        },
+        "items": [
+          [
+            "Ride-hailing app.",
+            "Uber and Pathao both work in Dhaka, and drivers generally only accept cash. Ask to be dropped at Ahsan Manzil, Sadarghat or Lalbagh Fort; cars can't get into many of the lanes."
+          ],
+          [
+            "Metro Rail.",
+            "Line 6 runs from Uttara to Motijheel. From Motijheel it is about 2.5 km to Ahsan Manzil by rickshaw or CNG. Fares start at ৳20. Friday service has run in the afternoon only, so check before you go."
+          ],
+          [
+            "CNG auto-rickshaw.",
+            "The official fare is ৳40 for the first 2 km, then ৳12 per km, plus ৳2 a minute waiting. Meters are often not used, so agree the fare before you get in."
+          ]
+        ],
+        "src": [
+          "fcdo",
+          "ds",
+          "mrt",
+          "tbs",
+          "wv"
+        ]
+      },
+      {
+        "id": "around",
+        "icon": "rickshaw",
+        "title": {
+          "en": "Getting around the lanes",
+          "bn": "গলিতে চলাফেরা"
+        },
+        "items": [
+          [
+            "Walk, and take cycle rickshaws.",
+            "Distances are short but the lanes are narrow and busy. Each place card says whether a car, a rickshaw or only your feet can reach it."
+          ],
+          [
+            "Agree the fare first.",
+            "Rickshaws have no fixed fare. A common starting point is ৳15–20 per km. One 2025 guide puts an hour's rickshaw tour of the lanes at about ৳100."
+          ],
+          [
+            "Show the driver.",
+            "Tap “Show driver” on any place card to show its name in large Bangla. For Lalbagh Fort, drivers know it as “Lalbagh Kella”."
+          ],
+          [
+            "Leaving Sadarghat?",
+            "Walk a few hundred metres north before looking for a rickshaw. Traffic right by the port barely moves."
+          ]
+        ],
+        "src": [
+          "mesto",
+          "vb",
+          "wvo",
+          "wv",
+          "here"
+        ]
+      },
+      {
+        "id": "respect",
+        "icon": "respect",
+        "title": {
+          "en": "What to wear and how to behave",
+          "bn": "পোশাক ও আচরণ"
+        },
+        "items": [
+          [
+            "Cover up.",
+            "Women should cover shoulders and legs in public."
+          ],
+          [
+            "At mosques,",
+            "shorts are not allowed for anyone, and women cover their hair. Visit outside prayer times, and avoid Friday midday, when mosques are full for Jumu'ah."
+          ],
+          [
+            "Shoes off",
+            "before prayer halls and temple courtyards, where asked."
+          ],
+          [
+            "Photos.",
+            "Ask before photographing people up close, and don't photograph schoolchildren."
+          ]
+        ],
+        "src": [
+          "fcdo",
+          "nij",
+          "here"
+        ]
+      },
+      {
+        "id": "money",
+        "icon": "money",
+        "title": {
+          "en": "Money",
+          "bn": "টাকা-পয়সা"
+        },
+        "items": [
+          [
+            "Carry cash in small notes.",
+            "Rickshaws, food stalls and boats take cash, and Uber drivers generally only accept cash."
+          ],
+          [
+            "Budget.",
+            "A 2025 guide estimates ৳1,000–2,000 per person for a day in Old Dhaka with food and transport, before entry tickets."
+          ],
+          [
+            "Tickets.",
+            "Each place card shows the fee we found. Ahsan Manzil charges foreign visitors ৳500."
+          ]
+        ],
+        "src": [
+          "fcdo",
+          "vb",
+          "here"
+        ]
+      },
+      {
+        "id": "food",
+        "icon": "food",
+        "title": {
+          "en": "Food and water",
+          "bn": "খাবার ও পানি"
+        },
+        "items": [
+          [
+            "Pick busy stalls",
+            "with people eating or queuing, and drink bottled water."
+          ],
+          [
+            "Go early for biryani.",
+            "The famous shops cook a fixed amount and can sell out."
+          ],
+          [
+            "Check the address.",
+            "Famous names are copied all over the city. The cards give the original address, for example Nanna Biryani at 41 Becharam Dewri."
+          ]
+        ],
+        "src": [
+          "wv",
+          "wvo",
+          "here"
+        ]
+      },
+      {
+        "id": "safety",
+        "icon": "safety",
+        "title": {
+          "en": "Staying safe",
+          "bn": "নিরাপত্তা"
+        },
+        "items": [
+          [
+            "Hold on to your phone and bag",
+            "in rickshaws and CNGs. Thieves often work in pairs on motorbikes or CNGs."
+          ],
+          [
+            "Crowds.",
+            "Sadarghat and Chawkbazar are packed; watch your pockets, and your step on the pontoons."
+          ],
+          [
+            "Women travellers",
+            "can face harassment. Avoid isolated lanes, and avoid riding a rickshaw alone after dark."
+          ],
+          [
+            "Boats.",
+            "Don't board an overcrowded boat; overcrowding is worst on holidays and festivals."
+          ],
+          [
+            "Rallies and strikes (hartals).",
+            "Stay away from them; they can turn violent quickly."
+          ],
+          [
+            "Air.",
+            "Pollution is high, worst in winter. A mask helps on rickshaw rides."
+          ]
+        ],
+        "src": [
+          "fcdo",
+          "wv",
+          "ct"
+        ]
+      },
+      {
+        "id": "when",
+        "icon": "sun",
+        "title": {
+          "en": "When to go",
+          "bn": "কখন যাবেন"
+        },
+        "items": [
+          [
+            "Late November to February",
+            "is dry and mild, about 16–26°C. It is also when the air is worst."
+          ],
+          [
+            "March to May",
+            "is the hottest stretch, up to about 35°C. July and August bring rain on roughly half the days."
+          ],
+          [
+            "Start early.",
+            "Mornings are cooler and quieter. Friday and Saturday are the weekend, and afternoons at Ahsan Manzil and Lalbagh Fort get busy."
+          ]
+        ],
+        "src": [
+          "ct",
+          "here"
+        ]
+      },
+      {
+        "id": "dates",
+        "icon": "festival",
+        "title": {
+          "en": "Dates to know",
+          "bn": "যে তারিখগুলো জানা দরকার"
+        },
+        "items": [
+          [
+            "Durga Puja, 16–21 October 2026.",
+            "Big crowds, extra security and traffic around Hindu temples, including Dhakeshwari and Shankhari Bazar."
+          ],
+          [
+            "Shakrain, mid-January.",
+            "Kites fill the sky above Old Dhaka's rooftops."
+          ],
+          [
+            "Ramadan, expected from 9 February 2027.",
+            "The Chawkbazar iftar market runs every afternoon, and opening hours change (Ahsan Manzil closes at 15:00)."
+          ],
+          [
+            "Muharram.",
+            "The first ten days end with the Ashura procession from Hussaini Dalan."
+          ]
+        ],
+        "src": [
+          "fcdoW",
+          "ram",
+          "here"
+        ]
+      }
+    ],
+    "sources": {
+      "fcdo": {
+        "label": "UK FCDO travel advice: Bangladesh, safety and security (updated 9 Oct 2026)",
+        "url": "https://www.gov.uk/foreign-travel-advice/bangladesh/safety-and-security"
+      },
+      "fcdoW": {
+        "label": "UK FCDO travel advice: Bangladesh, warnings (updated 9 Oct 2026)",
+        "url": "https://www.gov.uk/foreign-travel-advice/bangladesh"
+      },
+      "tbs": {
+        "label": "The Business Standard: CNG fares and overcharging (Feb 2025)",
+        "url": "https://www.tbsnews.net/bangladesh/cng-drivers-face-tk50000-fine-6-months-imprisonment-charging-fare-higher-meter-1066706"
+      },
+      "ds": {
+        "label": "The Daily Star: How to move about in Dhaka (2017)",
+        "url": "https://www.thedailystar.net/shout/cover-story/how-move-about-dhaka-1504621"
+      },
+      "wv": {
+        "label": "Wikivoyage: Dhaka",
+        "url": "https://en.wikivoyage.org/wiki/Dhaka"
+      },
+      "wvo": {
+        "label": "Wikivoyage: Old Dhaka",
+        "url": "https://en.wikivoyage.org/wiki/Dhaka/Old_Dhaka"
+      },
+      "mrt": {
+        "label": "Wikipedia: MRT Line 6",
+        "url": "https://en.wikipedia.org/wiki/MRT_Line_6"
+      },
+      "mesto": {
+        "label": "MestoGo: Rickshaw fare and tips",
+        "url": "https://mestogo.theinfoport.com/rickshaw/"
+      },
+      "vb": {
+        "label": "Visit Bangladesh: Day trip to Old Dhaka (2025)",
+        "url": "https://visitbangladesh.com.bd/day-trip-to-old-dhaka-a-vibrant-journey-through-time-2025-guide/"
+      },
+      "nij": {
+        "label": "Nijhoom Tours: Star Mosque",
+        "url": "https://nijhoom.com/star-mosque/"
+      },
+      "unb": {
+        "label": "UNB: Foreigners can get 999 help in English (Feb 2025)",
+        "url": "https://unb.com.bd/category/Bangladesh/foreigners-in-bangladesh-can-now-access-emergency-help-via-999-in-english-igp/153428"
+      },
+      "ct": {
+        "label": "Champion Traveler: Best time to visit Dhaka",
+        "url": "https://championtraveler.com/dates/best-time-to-visit-dhaka-bd/"
+      },
+      "ram": {
+        "label": "Bangla Date Today: Ramadan 2027 start date",
+        "url": "https://www.bangladatetoday.com/blog/ramadan-2027-start-date-bangladesh"
+      },
+      "here": {
+        "label": "The place cards in this guide (each lists its own sources)",
+        "url": ""
+      }
+    },
+    "emergency": {
+      "number": "999",
+      "src": "unb"
+    }
+  }
 }
