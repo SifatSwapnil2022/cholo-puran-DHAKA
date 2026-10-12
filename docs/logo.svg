@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="Cholo Puran Dhaka logo: a map pin with a Mughal arch framing a red sun above river waves">
+  <path d="M100 250C100 250 20 160 20 100A80 80 0 0 1 180 100C180 160 100 250 100 250Z" fill="#006A4E"/>
+  <circle cx="100" cy="34" r="4.5" fill="#F7F4EC"/>
+  <path d="M64 150V98C64 72 84 58 100 44C116 58 136 72 136 98V150Z" fill="#F7F4EC"/>
+  <circle cx="100" cy="110" r="20" fill="#F42A41"/>
+  <path d="M52 168q12-8 24 0t24 0t24 0t24 0" fill="none" stroke="#F7F4EC" stroke-width="6" stroke-linecap="round"/>
+</svg>

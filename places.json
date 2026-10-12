@@ -1,0 +1,2351 @@
+{
+  "meta": {
+    "title": "Cholo Puran Dhaka — places dataset",
+    "version": "0.1.0",
+    "researched": "2026-10-12",
+    "fieldChecked": false,
+    "origin": {
+      "lat": 23.7085972,
+      "lng": 90.4060583,
+      "name": "Ahsan Manzil"
+    },
+    "notes": [
+      "Facts come from the sources listed on each place. Nothing has been checked on site yet.",
+      "pin: 'source' means the coordinate came from a published source (mostly Wikipedia). pin: 'approx' means it was placed by street or neighbourhood and must be confirmed standing at the entrance.",
+      "quiet and peak times are estimates from sources and general patterns, not observations.",
+      "Fees and hours change. Every card should show the research date until a field check replaces it."
+    ]
+  },
+  "places": [
+    {
+      "slug": "ahsan-manzil",
+      "name": {
+        "en": "Ahsan Manzil",
+        "bn": "আহসান মঞ্জিল"
+      },
+      "type": "palace",
+      "categories": [
+        "heritage",
+        "photo-spot",
+        "river"
+      ],
+      "mahalla": "Kumartoli",
+      "lat": 23.7085972,
+      "lng": 90.4060583,
+      "pin": "source",
+      "tagline": "The Nawabs' pink palace on the Buriganga",
+      "whyGo": "The one place everyone should see first. The palace of the Dhaka Nawabs is now a museum of their rooms, furniture and portraits, and the riverside staircase is the best-known view in Old Dhaka.",
+      "history": "Built 1859–1872 for Khwaja Abdul Ghani, with Martin & Co. as contractor. A tornado in 1888 wrecked everything except the Rangmahal, and the 1897 earthquake damaged it again. The government restored it from 1985 and it opened as a branch of the Bangladesh National Museum in 1992. The lotus-bud dome rises about 27 m.",
+      "underrated": 1,
+      "quiet": [
+        "Sat–Wed, first hour after opening"
+      ],
+      "peak": [
+        "Friday afternoon",
+        "Public-holiday weekends"
+      ],
+      "hours": "Oct–Mar: Sat–Wed 9:30–16:30, Fri 14:30–19:30. Apr–Sep: Sat–Wed 10:30–17:30, Fri 15:00–19:30. Ramadan: Sat–Wed 9:30–15:00.",
+      "closed": [
+        "Thursday",
+        "Public holidays",
+        "Eid day and the day before",
+        "Thursday and Friday in Ramadan"
+      ],
+      "fees": [
+        {
+          "who": "Bangladeshi adult",
+          "bdt": 50,
+          "note": "one source says 40"
+        },
+        {
+          "who": "Bangladeshi child",
+          "bdt": 20
+        },
+        {
+          "who": "SAARC visitor",
+          "bdt": 300
+        },
+        {
+          "who": "Other foreign visitor",
+          "bdt": 500
+        }
+      ],
+      "ticketing": "Same-day online tickets at ahsanmanzilticket.gov.bd (4% charge, limited quota) or at the gate.",
+      "spend": [
+        60,
+        120
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Shoot the south façade and staircase from the river side, or from a boat on the Buriganga late in the day when the pink warms up.",
+        "inside": "Ask at the gate"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "Car traffic on Islampur Road is slow; a rickshaw from Sadarghat or Bahadur Shah Park is often quicker."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Ahsan Manzil",
+          "url": "https://en.wikipedia.org/wiki/Ahsan_Manzil"
+        },
+        {
+          "label": "Nijhoom Tours: Ahsan Manzil",
+          "url": "https://nijhoom.com/ahsan-manzil/"
+        }
+      ]
+    },
+    {
+      "slug": "lalbagh-fort",
+      "name": {
+        "en": "Lalbagh Fort",
+        "bn": "লালবাগ কেল্লা"
+      },
+      "type": "fort",
+      "categories": [
+        "heritage",
+        "photo-spot"
+      ],
+      "mahalla": "Lalbagh",
+      "lat": 23.719,
+      "lng": 90.3881,
+      "pin": "source",
+      "tagline": "A Mughal fort that was never finished",
+      "whyGo": "Big lawns, red-brick gateways, and the tomb of Pari Bibi at the centre. It is the calmest large open space in Old Dhaka, which makes it a good stop between crowded lanes.",
+      "history": "Begun in 1678 by Prince Muhammad Azam, son of Aurangzeb, and continued by Shaista Khan. Work stopped after his daughter Pari Bibi died in 1684. Inside are the Diwan-i-Aam with its hammam, a three-domed mosque, the tomb and a square water tank. It was called Fort Aurangabad and renamed Lalbagh Fort in 1844.",
+      "underrated": 1,
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Friday and Saturday afternoons",
+        "Eid holidays"
+      ],
+      "hours": "Oct–Mar: Sat, Tue–Thu 9:00–17:00; Mon 13:30–17:00; Fri 9:00–12:00 and 14:00–17:00. Summer hours start an hour later.",
+      "closed": [
+        "Sunday",
+        "Public holidays"
+      ],
+      "fees": [],
+      "ticketing": "Ticket at the gate. Fees were not published in the sources checked — confirm on site.",
+      "spend": [
+        60,
+        90
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Pari Bibi's tomb framed through the south gateway, and its reflection in the water tank on a still evening.",
+        "inside": "Ask at the gate"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "Mostly flat lawns and paths."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Lalbagh Fort",
+          "url": "https://en.wikipedia.org/wiki/Lalbagh_Fort"
+        },
+        {
+          "label": "TripTourBD: visiting hours",
+          "url": "https://triptourbd.com/?p=14426"
+        }
+      ]
+    },
+    {
+      "slug": "tara-masjid",
+      "name": {
+        "en": "Tara Masjid (Star Mosque)",
+        "bn": "তারা মসজিদ"
+      },
+      "type": "mosque-star",
+      "categories": [
+        "heritage",
+        "worship",
+        "photo-spot"
+      ],
+      "mahalla": "Armanitola",
+      "lat": 23.715629,
+      "lng": 90.401728,
+      "pin": "source",
+      "tagline": "Covered in broken china and blue stars",
+      "whyGo": "Every surface is chinitikri, mosaic made from broken Japanese and English china, with blue stars over the domes. It is small, so you can see all of it in twenty minutes, and the detail rewards standing close.",
+      "history": "Built by Mirza Ghulam Pir (died 1860); sources disagree on whether it dates from the late 18th or early 19th century. Ali Jan Bepari added the star decoration in the early 20th century, and two domes were added in 1987, making five. It appears on the ৳100 note.",
+      "underrated": 2,
+      "quiet": [
+        "Mid-morning on weekdays"
+      ],
+      "peak": [
+        "Friday midday (Jumu'ah prayer)"
+      ],
+      "hours": "Open daily outside prayer times.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "Close-ups of the mosaic on the pillars and mihrabs; the courtyard gives a straight-on view of all five domes.",
+        "inside": "Ask permission and avoid prayer times"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Dress modestly; women should carry a scarf. Remove shoes before entering the prayer hall."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Star Mosque",
+          "url": "https://en.wikipedia.org/wiki/Star_Mosque"
+        }
+      ]
+    },
+    {
+      "slug": "armenian-church",
+      "name": {
+        "en": "Armenian Church of the Holy Resurrection",
+        "bn": "আর্মেনিয়ান চার্চ"
+      },
+      "type": "church",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "worship"
+      ],
+      "mahalla": "Armanitola",
+      "lat": 23.71249286,
+      "lng": 90.40208727,
+      "pin": "source",
+      "tagline": "Dhaka's Armenian past, behind a quiet gate",
+      "whyGo": "A white 1781 church in a walled graveyard, two minutes from the noise of Armanitola. Read the old Armenian gravestones; one has a statue of the man's wife.",
+      "history": "Built in 1781 on an Armenian burial ground. Its clock tower lost its clock in 1880 and fell in the 1897 earthquake. About 350 people are buried here. Mother Teresa stayed in the compound in 1996. It is a protected heritage site.",
+      "underrated": 4,
+      "quiet": [
+        "Most weekday daytimes"
+      ],
+      "peak": [
+        "Thursday (food assistance programme draws hundreds)"
+      ],
+      "hours": "Daytime visits; ring at the gate.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket. Sign the guestbook.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "couples",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The church front from the far side of the graveyard, with the gravestones in the foreground.",
+        "inside": "Ask the caretaker"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "On Armenian Street. Be respectful; it is a working church and a graveyard."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Armenian Church, Dhaka",
+          "url": "https://en.wikipedia.org/wiki/Armenian_Church,_Dhaka"
+        }
+      ]
+    },
+    {
+      "slug": "dhakeshwari-temple",
+      "name": {
+        "en": "Dhakeshwari National Temple",
+        "bn": "ঢাকেশ্বরী জাতীয় মন্দির"
+      },
+      "type": "temple",
+      "categories": [
+        "heritage",
+        "worship",
+        "festival"
+      ],
+      "mahalla": "Bakshibazar",
+      "lat": 23.7226056,
+      "lng": 90.3900222,
+      "pin": "source",
+      "tagline": "The goddess the city may be named after",
+      "whyGo": "Bangladesh's largest Hindu temple and Dhaka's biggest Durga Puja. Outside festival days it is peaceful, with red-ochre temple towers around a courtyard.",
+      "history": "Traditionally dated to the 12th century and credited to Ballal Sen of the Sena dynasty, though repeated rebuilding means the present structures are later. The original idol went to Kolkata at Partition; a replica is worshipped here. Renamed the National Temple in 1996.",
+      "underrated": 3,
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Durga Puja (Sept/Oct)",
+        "Janmashtami procession day"
+      ],
+      "hours": "Open daily.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        30,
+        45
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The temple towers across the courtyard in morning light; during Puja, the evening arati.",
+        "inside": "No photos of the deity without permission"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Remove shoes where asked."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Dhakeshwari Temple",
+          "url": "https://en.wikipedia.org/wiki/Dhakeshwari_Temple"
+        }
+      ]
+    },
+    {
+      "slug": "hussaini-dalan",
+      "name": {
+        "en": "Hussaini Dalan",
+        "bn": "হোসেনী দালান"
+      },
+      "type": "imambara",
+      "categories": [
+        "heritage",
+        "worship",
+        "festival"
+      ],
+      "mahalla": "Bakshibazar",
+      "lat": 23.7224,
+      "lng": 90.3979,
+      "pin": "source",
+      "tagline": "Where Old Dhaka marks Muharram",
+      "whyGo": "A white Shia imambara with a large pond in front. In the first ten days of Muharram it becomes the centre of Old Dhaka's mourning gatherings, ending with the Ashura procession.",
+      "history": "Traditionally founded in 1606–07 by Mir Murad with support from Prince Shah Shuja; the present building is attributed to a 1823 rebuilding by Naib Nazim Nusrat Jung. The flat roof was rebuilt after the 1897 earthquake.",
+      "underrated": 3,
+      "quiet": [
+        "Ordinary weekday afternoons"
+      ],
+      "peak": [
+        "Muharram 1–10, especially Ashura"
+      ],
+      "hours": "Open daily.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The façade reflected in the pond, shot from the south bank.",
+        "inside": "Ask first; be discreet during gatherings"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "During Muharram, expect crowds and security checks."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Hussaini Dalan",
+          "url": "https://en.wikipedia.org/wiki/Hussaini_Dalan"
+        }
+      ]
+    },
+    {
+      "slug": "bara-katra",
+      "name": {
+        "en": "Bara Katra",
+        "bn": "বড় কাটরা"
+      },
+      "type": "ruin",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "photo-spot"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.7128,
+      "lng": 90.3944,
+      "pin": "approx",
+      "tagline": "A Mughal caravanserai, slowly disappearing",
+      "whyGo": "What is left of a 1640s travellers' inn for merchants. Less than half survives, hemmed in by shops and new building, so see the southern gateway while you still can.",
+      "history": "Built 1644–1646 by Mir Abul Qasim, diwan of Prince Shah Shuja. Its south wing ran about 68 m along the river with a three-storey gateway. Part was demolished in 2022; ownership disputes have kept the Department of Archaeology out.",
+      "underrated": 4,
+      "quiet": [
+        "Early morning before the shops open"
+      ],
+      "peak": [
+        "Business hours (wholesale traffic)"
+      ],
+      "hours": "Visible from the street; the interior is privately occupied.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        15,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "The arched gateway from the lane to its south; go early before handcarts block the view.",
+        "inside": "Private property"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Narrow, busy lanes. Be polite with residents and shopkeepers."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Bara Katra",
+          "url": "https://en.wikipedia.org/wiki/Bara_Katra"
+        }
+      ]
+    },
+    {
+      "slug": "choto-katra",
+      "name": {
+        "en": "Choto Katra",
+        "bn": "ছোট কাটরা"
+      },
+      "type": "ruin",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.713,
+      "lng": 90.3962,
+      "pin": "source",
+      "tagline": "Shaista Khan's smaller inn, lost among shops",
+      "whyGo": "Bara Katra's younger sibling, 185 m to the east. Only fragments of the gateways show between shopfronts, so it is a find for people who like hunting for history.",
+      "history": "Built 1663–1671 by Subahdar Shaista Khan. Restoration attempts have not succeeded, and the tomb of Champa Bibi inside is now hidden among shops.",
+      "underrated": 5,
+      "quiet": [
+        "Early morning"
+      ],
+      "peak": [
+        "Business hours"
+      ],
+      "hours": "Street-side only.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Look up: the old arches sit above modern shop signs.",
+        "inside": "Private property"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Combine with Bara Katra on one walk."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Choto Katra",
+          "url": "https://en.wikipedia.org/wiki/Choto_Katra"
+        }
+      ]
+    },
+    {
+      "slug": "khan-mohammad-mridha-mosque",
+      "name": {
+        "en": "Khan Mohammad Mridha Mosque",
+        "bn": "খান মোহাম্মদ মৃধা মসজিদ"
+      },
+      "type": "mosque",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "worship"
+      ],
+      "mahalla": "Lalbagh",
+      "lat": 23.7206,
+      "lng": 90.3853,
+      "pin": "source",
+      "tagline": "A Mughal mosque raised on its own platform",
+      "whyGo": "Climb the steps to a three-domed mosque standing on a platform about 5 m high, with vaulted rooms underneath. Few visitors come, though it is a short walk from Lalbagh Fort.",
+      "history": "Built around 1704–1706 by Khan Mohammad Mridha under Qadi Ibadullah. The platform holds vaulted rooms (tahkhana); the site also had a madrasa.",
+      "underrated": 5,
+      "quiet": [
+        "Most of the day outside prayer times"
+      ],
+      "peak": [
+        "Friday midday"
+      ],
+      "hours": "Open daily outside prayer times.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        15,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Shoot up the staircase to the domes; the platform gives a view over the lane roofs.",
+        "inside": "Ask permission"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Steep steps up to the platform."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Khan Mohammad Mridha Mosque",
+          "url": "https://en.wikipedia.org/wiki/Khan_Mohammad_Mridha_Mosque"
+        }
+      ]
+    },
+    {
+      "slug": "binat-bibi-mosque",
+      "name": {
+        "en": "Binat Bibi Mosque",
+        "bn": "বিনত বিবির মসজিদ"
+      },
+      "type": "mosque",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "worship"
+      ],
+      "mahalla": "Narinda",
+      "lat": 23.7111007,
+      "lng": 90.4181458,
+      "pin": "source",
+      "tagline": "Dhaka's oldest surviving mosque, from 1454",
+      "whyGo": "A small single-domed mosque older than the Mughals in Dhaka. It is being expanded, so the original building may not look the same for long.",
+      "history": "Built in 1454 by Bakht Binat, daughter of Marhamat, in the reign of Sultan Nasiruddin Mahmud Shah. A renovation plan adds a 70-foot minaret and more storeys, and part of the old structure is being demolished.",
+      "underrated": 5,
+      "quiet": [
+        "Outside prayer times"
+      ],
+      "peak": [
+        "Friday midday"
+      ],
+      "hours": "Open daily outside prayer times.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo"
+      ],
+      "photo": {
+        "tips": "Find the original single-dome section and frame it apart from the new construction.",
+        "inside": "Ask permission"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Beside Hayat Bepari's Bridge in Narinda."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Binat Bibi Mosque",
+          "url": "https://en.wikipedia.org/wiki/Binat_Bibi_Mosque"
+        }
+      ]
+    },
+    {
+      "slug": "northbrook-hall",
+      "name": {
+        "en": "Northbrook Hall (Lalkuthi)",
+        "bn": "নর্থব্রুক হল (লালকুঠি)"
+      },
+      "type": "colonial-red",
+      "categories": [
+        "heritage",
+        "photo-spot",
+        "river"
+      ],
+      "mahalla": "Farashganj",
+      "lat": 23.7055,
+      "lng": 90.4115,
+      "pin": "approx",
+      "tagline": "The red town hall on the riverbank",
+      "whyGo": "A red Indo-Saracenic town hall from 1880, freshly restored. The outside is the reason to come; good for photos with the river behind you.",
+      "history": "Funded in 1874 and inaugurated in 1880 as Dhaka's town hall. Later used as a telegraph office and a women's college. Restoration by Dhaka South City Corporation began in 2023 and was largely complete by May 2026, with a library planned in Johnson Hall.",
+      "underrated": 3,
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Late afternoon on weekends"
+      ],
+      "hours": "Exterior visible any time. Interior access was not confirmed as of May 2026.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Check current opening with Dhaka South City Corporation.",
+      "spend": [
+        15,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples"
+      ],
+      "photo": {
+        "tips": "Late-afternoon light on the red façade; include a domed corner tower.",
+        "inside": "Unknown"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "On Farashganj Road; traffic is heavy."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Northbrook Hall",
+          "url": "https://en.wikipedia.org/wiki/Northbrook_Hall"
+        },
+        {
+          "label": "Dhaka Tribune, 9 May 2026",
+          "url": "https://www.dhakatribune.com/bangladesh/409749/historic-lalkuthi-set-to-reopen-after-major"
+        }
+      ]
+    },
+    {
+      "slug": "ruplal-house",
+      "name": {
+        "en": "Ruplal House",
+        "bn": "রূপলাল হাউস"
+      },
+      "type": "colonial-columns",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "river",
+        "photo-spot"
+      ],
+      "mahalla": "Farashganj",
+      "lat": 23.703639,
+      "lng": 90.413639,
+      "pin": "source",
+      "tagline": "Ahsan Manzil's old rival, now a spice market",
+      "whyGo": "A riverside mansion with a grand columned portico, once Ahsan Manzil's rival for parties and music. Today spice and vegetable traders work in its halls. It is crumbling, crowded and fascinating.",
+      "history": "Built in 1825 by Armenian merchant Stephen Aratoon, later bought by Ruplal and Raghunath Das and rebuilt by Martin & Co. Ruplal Das hosted a ball for Viceroy Lord Dufferin in 1886. The 1897 earthquake damaged its watchtower. It is protected but badly deteriorated.",
+      "underrated": 5,
+      "quiet": [
+        "Early morning before trading"
+      ],
+      "peak": [
+        "Market hours"
+      ],
+      "hours": "Occupied by traders and residents; outside view any time.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket. Parts are private; ask before entering courtyards.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "The fluted columns of the portico, and the long façade seen from a boat on the river.",
+        "inside": "Private; ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Beside Buckland Bund. Watch your footing near the market."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Ruplal House",
+          "url": "https://en.wikipedia.org/wiki/Ruplal_House"
+        }
+      ]
+    },
+    {
+      "slug": "rose-garden-palace",
+      "name": {
+        "en": "Rose Garden Palace",
+        "bn": "রোজ গার্ডেন প্যালেস"
+      },
+      "type": "colonial-columns",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "photo-spot"
+      ],
+      "mahalla": "Tikatuli",
+      "lat": 23.71806,
+      "lng": 90.42639,
+      "pin": "source",
+      "tagline": "Where the Awami League was founded in 1949",
+      "whyGo": "A pastel late-19th-century mansion with a garden and fountain. The state bought it in 2018 to turn it into a museum; check access before you go.",
+      "history": "Built by zamindar Hrishikesh Das to rival nearby Baldha Garden. The Awami League was formed here on 23 June 1949. The government bought it for Tk 331.70 crore in 2018 with plans for a museum.",
+      "underrated": 4,
+      "quiet": [
+        "Unknown — access needs checking"
+      ],
+      "peak": [
+        "Unknown"
+      ],
+      "hours": "Access not confirmed.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Check access before visiting.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "couples"
+      ],
+      "photo": {
+        "tips": "The façade and fountain from the garden axis.",
+        "inside": "Unknown"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "In Tikatuli, east of Wari."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Rose Garden Palace",
+          "url": "https://en.wikipedia.org/wiki/Rose_Garden_Palace"
+        }
+      ]
+    },
+    {
+      "slug": "bahadur-shah-park",
+      "name": {
+        "en": "Bahadur Shah Park",
+        "bn": "বাহাদুর শাহ পার্ক"
+      },
+      "type": "park",
+      "categories": [
+        "heritage",
+        "photo-spot"
+      ],
+      "mahalla": "Laxmibazar",
+      "lat": 23.7092,
+      "lng": 90.4123,
+      "pin": "source",
+      "tagline": "A small park with a big 1857 story",
+      "whyGo": "A green pause between Sadarghat and the lanes, with a memorial to the sepoys hanged here in 1857. Refurbished in 2020 with a walking loop, benches and toilets.",
+      "history": "Once the Armenian club ground 'Antaghar'. Sepoys were hanged here during the 1857 uprising, and Queen Victoria's rule was proclaimed here in 1858 (Victoria Park). Renamed after the last Mughal emperor in 1957.",
+      "underrated": 3,
+      "quiet": [
+        "Morning"
+      ],
+      "peak": [
+        "After school and college hours"
+      ],
+      "hours": "Open all year.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        15,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "The sepoy memorial with the star-shaped fountain in front.",
+        "inside": "Open air"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "Good meeting point; Jagannath University is next door."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Bahadur Shah Park",
+          "url": "https://en.wikipedia.org/wiki/Bahadur_Shah_Park"
+        }
+      ]
+    },
+    {
+      "slug": "pogose-school",
+      "name": {
+        "en": "Pogose School",
+        "bn": "পোগোজ স্কুল"
+      },
+      "type": "colonial",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Laxmibazar",
+      "lat": 23.7094,
+      "lng": 90.4102,
+      "pin": "source",
+      "tagline": "The country's first private school, founded 1848",
+      "whyGo": "An Armenian merchant's school that Vivekananda and Michael Madhusudan Dutta visited. Look at it from Chittaranjan Avenue on your way to Bahadur Shah Park.",
+      "history": "Founded 12 June 1848 by Nicholas Pogose, who was also its first headmaster. Moved to Chittaranjan Avenue after 1896 and joined Jagannath University in 2015.",
+      "underrated": 5,
+      "quiet": [
+        "Weekends"
+      ],
+      "peak": [
+        "School hours"
+      ],
+      "hours": "A working school; view from outside.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No public entry without permission.",
+      "spend": [
+        5,
+        15
+      ],
+      "goodFor": [
+        "solo"
+      ],
+      "photo": {
+        "tips": "Street view only; don't photograph students.",
+        "inside": "No"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "6 Chittaranjan Avenue."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Pogose School",
+          "url": "https://en.wikipedia.org/wiki/Pogose_School"
+        }
+      ]
+    },
+    {
+      "slug": "gurdwara-sangat-tola",
+      "name": {
+        "en": "Gurdwara Sangat Tola",
+        "bn": "গুরুদুয়ারা সঙ্গত টোলা"
+      },
+      "type": "gurdwara",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "worship"
+      ],
+      "mahalla": "Banglabazar",
+      "lat": 23.7067,
+      "lng": 90.4127,
+      "pin": "approx",
+      "tagline": "Where Guru Tegh Bahadur stayed in the 1660s",
+      "whyGo": "A two-storey Sikh shrine on the same lane as Beauty Boarding, linked to the ninth Sikh Guru's stay in Dhaka (1666–68). Few people in Dhaka know it exists.",
+      "history": "The original building is gone; the present one has a round balcony and an upstairs prayer room with paintings of Guru Tegh Bahadur. Volunteers from Gurdwara Nanak Shahi hold a morning prayer daily and kirtan on Saturdays.",
+      "underrated": 5,
+      "quiet": [
+        "Weekdays"
+      ],
+      "peak": [
+        "Saturday kirtan"
+      ],
+      "hours": "Ask at the door; morning prayer daily.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The round balcony from across the lane.",
+        "inside": "Ask; cover your head inside"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "14 Sreesh Das Lane, Banglabazar."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Gurdwara Sangat Tola",
+          "url": "https://en.wikipedia.org/wiki/Gurdwara_Sangat_Tola"
+        }
+      ]
+    },
+    {
+      "slug": "chawk-shahi-mosque",
+      "name": {
+        "en": "Chawkbazar Shahi Mosque",
+        "bn": "চকবাজার শাহী মসজিদ"
+      },
+      "type": "mosque",
+      "categories": [
+        "heritage",
+        "worship"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.715,
+      "lng": 90.396,
+      "pin": "approx",
+      "tagline": "Shaista Khan's 1676 mosque on the market square",
+      "whyGo": "The three-domed mosque at the heart of Chawkbazar. It anchors any walk through the market, and during Ramadan the iftar bazaar spreads out around it.",
+      "history": "Built in 1676 by Subahdar Shaista Khan beside the Mughal market square; about 94 × 80 feet with three domes.",
+      "underrated": 3,
+      "quiet": [
+        "Mid-morning"
+      ],
+      "peak": [
+        "Friday midday",
+        "Ramadan afternoons"
+      ],
+      "hours": "Open daily outside prayer times.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "The domes above the market crowd from a nearby rooftop or upper floor, if a shopkeeper lets you up.",
+        "inside": "Ask permission"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Chawkbazar lanes are packed; keep valuables close."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Chowk Bazaar",
+          "url": "https://en.wikipedia.org/wiki/Chowk_Bazaar"
+        }
+      ]
+    },
+    {
+      "slug": "baldha-garden",
+      "name": {
+        "en": "Baldha Garden",
+        "bn": "বলধা গার্ডেন"
+      },
+      "type": "garden",
+      "categories": [
+        "hidden-gem",
+        "photo-spot"
+      ],
+      "mahalla": "Wari",
+      "lat": 23.71833,
+      "lng": 90.41778,
+      "pin": "source",
+      "tagline": "A zamindar's 1909 botanical garden",
+      "whyGo": "672 plant species packed into a walled garden in Wari, with old glasshouses and a pond. Quiet, shaded, and a real break from the traffic outside.",
+      "history": "Created from 1909 by Narendra Narayan Roy Chaudhury, landlord of the Balda estate, who kept adding to it until his death in 1943.",
+      "underrated": 4,
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Friday afternoons"
+      ],
+      "hours": "Open all year; hours not published in sources checked.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Ticket at the gate. Visitors reported a fivefold fee increase in July 2024 — check the current price.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "solo",
+        "couples",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Macro shots of rare plants; the lily pond in soft morning light.",
+        "inside": "Open air"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "In Wari, a short rickshaw ride from Narinda."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Baldha Garden",
+          "url": "https://en.wikipedia.org/wiki/Baldha_Garden"
+        }
+      ]
+    },
+    {
+      "slug": "narinda-christian-cemetery",
+      "name": {
+        "en": "Christian Cemetery, Narinda",
+        "bn": "নারিন্দা খ্রিস্টান কবরস্থান"
+      },
+      "type": "cemetery",
+      "categories": [
+        "hidden-gem",
+        "photo-spot",
+        "heritage"
+      ],
+      "mahalla": "Narinda",
+      "lat": 23.7135,
+      "lng": 90.4168,
+      "pin": "approx",
+      "tagline": "Colonial tombs under old trees",
+      "whyGo": "Dhaka's old Christian burial ground, with domed and obelisk tombs from the colonial era. Shaded and silent; walk slowly and read the stones.",
+      "history": "Details not yet researched from a reliable source; to be added after a site visit.",
+      "underrated": 5,
+      "quiet": [
+        "Most of the day"
+      ],
+      "peak": [
+        "Rarely crowded"
+      ],
+      "hours": "Ask the caretaker at the gate.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket known.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "couples"
+      ],
+      "photo": {
+        "tips": "Side light through the trees on the domed tombs, late afternoon.",
+        "inside": "Open air; be respectful"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Go in daylight and preferably not alone."
+      },
+      "sources": [
+        {
+          "label": "Listed for field research; no verified source yet"
+        }
+      ]
+    },
+    {
+      "slug": "sadarghat",
+      "name": {
+        "en": "Sadarghat Launch Terminal",
+        "bn": "সদরঘাট লঞ্চ টার্মিনাল"
+      },
+      "type": "ghat",
+      "categories": [
+        "river",
+        "photo-spot"
+      ],
+      "mahalla": "Sadarghat",
+      "lat": 23.7062,
+      "lng": 90.4098,
+      "pin": "approx",
+      "tagline": "The country's busiest passenger river port",
+      "whyGo": "Triple-decked launches, vendors leaping between boats, and men praying on deck at sunset. Loud, chaotic and unlike anywhere else in Dhaka.",
+      "history": "A river port since Mughal times; Buckland Bund, the 1864 embankment promenade, ran along this waterfront. Overnight launches to Barishal and the south, such as Sundarban-12, Parabat-18 and Surovi-7, leave in the evening, roughly 18:00–20:00. Since the Padma Bridge opened in 2022 the fleet has shrunk from 90 launches on 42 routes to 62 on 36 (TBS, March 2025).",
+      "underrated": 2,
+      "quiet": [
+        "Midday"
+      ],
+      "peak": [
+        "Early morning and evening, when launches arrive and depart"
+      ],
+      "hours": "Open daily.",
+      "closed": [],
+      "fees": [
+        {
+          "who": "Port entry",
+          "bdt": 5
+        }
+      ],
+      "ticketing": "Pay the small entry fee at the gate. Overnight cabins to Barishal cost about Tk 1,000–2,000 and sell out; book through an agency or arrive by 17:00.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Sunrise or the hour before sunset, from a pontoon or a small boat looking back at the launches.",
+        "inside": "Open air; ask before photographing people up close"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": true,
+        "note": "Busy, noisy and dirty. Watch your pockets and your step on pontoons."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Port of Dhaka (Sadarghat)",
+          "url": "https://en.wikipedia.org/wiki/Sadarghat"
+        },
+        {
+          "label": "Nijhoom Tours: Sadarghat",
+          "url": "https://nijhoom.com/sadarghat-port-dhaka/"
+        },
+        {
+          "label": "TBS: Sadarghat's legacy struggles (8 Mar 2025)",
+          "url": "https://www.tbsnews.net/node/1087601"
+        },
+        {
+          "label": "Dhaka Tribune: Barisal–Dhaka launches (9 Dec 2022)",
+          "url": "https://www.dhakatribune.com/bangladesh/300183/operations-of-launch-service-on-barisal-dhaka"
+        },
+        {
+          "label": "Away with the Steiners: Dhaka to Barisal by launch",
+          "url": "https://awaywiththesteiners.com/launch-boat-dhaka-to-barisal-bangladesh/"
+        }
+      ]
+    },
+    {
+      "slug": "buriganga-boat-ride",
+      "name": {
+        "en": "Boat ride on the Buriganga",
+        "bn": "বুড়িগঙ্গায় নৌকা ভ্রমণ"
+      },
+      "type": "boat",
+      "categories": [
+        "river",
+        "photo-spot"
+      ],
+      "mahalla": "Sadarghat",
+      "lat": 23.7055,
+      "lng": 90.4085,
+      "pin": "approx",
+      "tagline": "See Old Dhaka from the water",
+      "whyGo": "Hire a small wooden boat with one oarsman by the hour, from beside the terminal. From mid-river, Ahsan Manzil, Ruplal House and the launches line up in one view.",
+      "history": "Old Dhaka was once called the 'Venice of the East' for its river trade.",
+      "underrated": 3,
+      "quiet": [
+        "Midday"
+      ],
+      "peak": [
+        "Sunset"
+      ],
+      "hours": "Daylight.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Agree the price per hour before you get in; rates are rising as more tourists come.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "friends",
+        "couples",
+        "solo"
+      ],
+      "photo": {
+        "tips": "Late afternoon: the light falls on the Old Dhaka bank.",
+        "inside": "Open air"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "moderate",
+        "seating": true,
+        "washroom": false,
+        "note": "Boats are small and low. Not ideal for elders or small children; no life jackets are usually provided."
+      },
+      "sources": [
+        {
+          "label": "Nijhoom Tours: Sadarghat",
+          "url": "https://nijhoom.com/sadarghat-port-dhaka/"
+        }
+      ]
+    },
+    {
+      "slug": "shankhari-bazar",
+      "name": {
+        "en": "Shankhari Bazar",
+        "bn": "শাঁখারী বাজার"
+      },
+      "type": "street",
+      "categories": [
+        "market",
+        "hidden-gem",
+        "festival",
+        "photo-spot"
+      ],
+      "mahalla": "Shankhari Bazar",
+      "lat": 23.7097,
+      "lng": 90.4087,
+      "pin": "approx",
+      "tagline": "The conch-bangle lane",
+      "whyGo": "A narrow street of 12-foot-wide, very deep houses, small shrines, and shops cutting conch-shell bangles. During Durga Puja it is lit up end to end; on normal days it is quieter and worn.",
+      "history": "Named after the Shankhari community of conch-shell artisans. The 1971 massacre here devastated the community. Houses are about 12 ft wide and 70–100 ft deep, each traditionally with a shrine room.",
+      "underrated": 3,
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Durga Puja evenings",
+        "Shakrain week in January"
+      ],
+      "hours": "Shops open daytime into evening.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples"
+      ],
+      "photo": {
+        "tips": "Look straight down the lane to compress the narrow façades; at Puja, the lights after dark.",
+        "inside": "Ask before photographing inside homes or shrines"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Near Islampur Road and Nawabpur Road, one block north of the river."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Shankhari Bazaar",
+          "url": "https://en.wikipedia.org/wiki/Shankhari_Bazaar"
+        },
+        {
+          "label": "The Daily Star: Shankhari Bazar at Durga Puja",
+          "url": "https://www.thedailystar.net/life-living/news/shankhari-bazar-the-street-transforms-durga-puja-3710471"
+        }
+      ]
+    },
+    {
+      "slug": "tanti-bazar",
+      "name": {
+        "en": "Tanti Bazar",
+        "bn": "তাঁতীবাজার"
+      },
+      "type": "street",
+      "categories": [
+        "market",
+        "festival"
+      ],
+      "mahalla": "Tanti Bazar",
+      "lat": 23.709,
+      "lng": 90.4068,
+      "pin": "approx",
+      "tagline": "Kite makers before Shakrain",
+      "whyGo": "In the weeks before Shakrain, the kite makers here and in Shankhari Bazar are busy with paper kites and spools of string. Come in early January to see it.",
+      "history": "One of the old artisan quarters next to Shankhari Bazar.",
+      "underrated": 4,
+      "quiet": [
+        "Most of the year"
+      ],
+      "peak": [
+        "Early to mid January"
+      ],
+      "hours": "Shop hours.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Stacks of kites in shopfronts; hands working string.",
+        "inside": "Ask the shopkeeper"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Walk it together with Shankhari Bazar."
+      },
+      "sources": [
+        {
+          "label": "The Financial Express: Shakrain 2026",
+          "url": "https://thefinancialexpress.com.bd/lifestyle/culture/transition-of-shakrain-old-dhakas-festival-in-2026"
+        }
+      ]
+    },
+    {
+      "slug": "islampur",
+      "name": {
+        "en": "Islampur cloth market",
+        "bn": "ইসলামপুর কাপড়ের বাজার"
+      },
+      "type": "market",
+      "categories": [
+        "market"
+      ],
+      "mahalla": "Islampur",
+      "lat": 23.7088,
+      "lng": 90.4045,
+      "pin": "approx",
+      "tagline": "Bolts of colour behind Ahsan Manzil",
+      "whyGo": "A wholesale cloth district of fabric shops stacked floor to ceiling. Walk it on the way to or from Ahsan Manzil.",
+      "history": "One of Old Dhaka's main wholesale textile streets.",
+      "underrated": 3,
+      "quiet": [
+        "Friday mornings (many shops shut)"
+      ],
+      "peak": [
+        "Before Eid"
+      ],
+      "hours": "Shop hours, roughly 10:00 to evening.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        20,
+        45
+      ],
+      "goodFor": [
+        "friends",
+        "solo"
+      ],
+      "photo": {
+        "tips": "Shopfronts of stacked fabric; look for colour, not faces.",
+        "inside": "Ask the shopkeeper"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Porters carry heavy loads; step aside for them."
+      },
+      "sources": [
+        {
+          "label": "Nijhoom Tours: Old Dhaka",
+          "url": "https://nijhoom.com/old-dhaka/"
+        }
+      ]
+    },
+    {
+      "slug": "chawkbazar-iftar",
+      "name": {
+        "en": "Chawkbazar iftar market",
+        "bn": "চকবাজারের ইফতার বাজার"
+      },
+      "type": "market",
+      "categories": [
+        "food",
+        "market",
+        "festival"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.7145,
+      "lng": 90.3955,
+      "pin": "approx",
+      "tagline": "Ramadan's most famous food street",
+      "whyGo": "Every Ramadan afternoon the square fills with stalls: shahi jilapi, keema paratha, koel roast and the legendary 'boro baper polay khay'. Go for the spectacle, even if the food doesn't always match the hype.",
+      "history": "Chawkbazar has been a market since the 17th century. Iftar was added to UNESCO's Intangible Cultural Heritage list in 2023.",
+      "underrated": 1,
+      "quiet": [
+        "Outside Ramadan"
+      ],
+      "peak": [
+        "Ramadan, roughly 14:00 to Maghrib"
+      ],
+      "hours": "Ramadan only, afternoons until iftar.",
+      "closed": [
+        "Outside Ramadan"
+      ],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        45,
+        90
+      ],
+      "goodFor": [
+        "friends",
+        "solo"
+      ],
+      "photo": {
+        "tips": "The giant jilapi coils and the crowd under stall lights.",
+        "inside": "Open air"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "hard",
+        "seating": false,
+        "washroom": false,
+        "note": "Roads close to vehicles at peak hours. Extremely crowded; not for elders or small children."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Chowk Bazaar",
+          "url": "https://en.wikipedia.org/wiki/Chowk_Bazaar"
+        },
+        {
+          "label": "Asia News Network: Is Dhakaiya food worth the hype?",
+          "url": "https://asianews.network/?p=131071"
+        }
+      ]
+    },
+    {
+      "slug": "banglabazar-books",
+      "name": {
+        "en": "Banglabazar book market",
+        "bn": "বাংলাবাজার বইয়ের বাজার"
+      },
+      "type": "market",
+      "categories": [
+        "market",
+        "hidden-gem"
+      ],
+      "mahalla": "Banglabazar",
+      "lat": 23.7072,
+      "lng": 90.412,
+      "pin": "approx",
+      "tagline": "The book publishing heart of the country",
+      "whyGo": "Nearly 200 publishers and thousands of bookshops in narrow lanes, with porters carrying fresh books on their heads. Busiest in the weeks before the Ekushey Book Fair.",
+      "history": "Bookshops appeared after 1857. Buddhadeb Basu's first poetry book was published here in 1925, and after 1947 it became the base of East Pakistan's publishers.",
+      "underrated": 4,
+      "quiet": [
+        "Friday"
+      ],
+      "peak": [
+        "December–January, before the February book fair"
+      ],
+      "hours": "Shop hours.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Free.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Porters with book stacks; printing presses through open doors.",
+        "inside": "Ask the shopkeeper"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Combine with Beauty Boarding and Cafe Corner."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Banglabazar, all things book",
+          "url": "https://www.thedailystar.net/weekend-read/news/banglabazar-all-things-book-3529221"
+        }
+      ]
+    },
+    {
+      "slug": "beauty-boarding",
+      "name": {
+        "en": "Beauty Boarding",
+        "bn": "বিউটি বোর্ডিং"
+      },
+      "type": "shop-boarding",
+      "categories": [
+        "food",
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Banglabazar",
+      "lat": 23.7063,
+      "lng": 90.4131,
+      "pin": "source",
+      "tagline": "Where Bangladesh's poets drank their evening tea",
+      "whyGo": "A plain Bengali lunch in a courtyard where Shamsur Rahman, Al Mahmud and Syed Shamsul Huq once gathered. Come for the history and the room, not a fancy meal.",
+      "history": "The building housed the Shonar Bangla newspaper before 1947. A restaurant and boarding house opened here around 1951 and became a meeting place for writers and artists.",
+      "underrated": 3,
+      "quiet": [
+        "After 15:00"
+      ],
+      "peak": [
+        "Lunch (local traders)"
+      ],
+      "hours": "Lunch and tea hours; not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Pay for what you eat.",
+      "spend": [
+        45,
+        75
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The courtyard and the old signboard.",
+        "inside": "Ask the staff"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "1 Sreesh Das Lane, Banglabazar. Basic facilities."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Beauty Boarding",
+          "url": "https://en.wikipedia.org/wiki/Beauty_Boarding"
+        },
+        {
+          "label": "Moha-Mushkil: best food in Puran Dhaka",
+          "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
+        }
+      ]
+    },
+    {
+      "slug": "cafe-corner",
+      "name": {
+        "en": "Cafe Corner",
+        "bn": "ক্যাফে কর্নার"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Banglabazar",
+      "lat": 23.7068,
+      "lng": 90.4136,
+      "pin": "approx",
+      "tagline": "Mutton crumb chop and tea in white cups",
+      "whyGo": "A tiny non-AC snack room across the road from Beauty Boarding. Order the mutton crumb chop and milk tea.",
+      "history": "",
+      "underrated": 5,
+      "quiet": [
+        "Mid-morning"
+      ],
+      "peak": [
+        "Afternoon tea"
+      ],
+      "hours": "Not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        20,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Tea service on the marble tables.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Seats about 20–25."
+      },
+      "sources": [
+        {
+          "label": "Moha-Mushkil: best food in Puran Dhaka",
+          "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
+        }
+      ]
+    },
+    {
+      "slug": "haji-biryani",
+      "name": {
+        "en": "Haji Biryani",
+        "bn": "হাজী বিরিয়ানি"
+      },
+      "type": "shop-biryani",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Nazira Bazar",
+      "lat": 23.7185,
+      "lng": 90.408,
+      "pin": "approx",
+      "tagline": "Goat biryani on a leaf, since 1939",
+      "whyGo": "Haji Mohammad Hossain's goat (chevon) biryani, cooked with mustard oil and served on a jackfruit-leaf plate with borhani. The original shop on Kazi Alauddin Road is the one to go to.",
+      "history": "Started in 1939 as a roadside food corner with one pot; the family still runs it.",
+      "underrated": 1,
+      "quiet": [
+        "Late morning, soon after 11:00"
+      ],
+      "peak": [
+        "Lunch and after 20:00"
+      ],
+      "hours": "11:00 to midnight (per one source).",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The big pot being opened, and the leaf plate.",
+        "inside": "Usually fine; ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "70 Kazi Alauddin Road, Nazira Bazar. Many shops copy the name; the original says it has few branches."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Haji biryani",
+          "url": "https://en.wikipedia.org/wiki/Haji_biryani"
+        },
+        {
+          "label": "S M Shahinul Islam: Biryani scene of Dhaka",
+          "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ]
+    },
+    {
+      "slug": "nanna-biryani",
+      "name": {
+        "en": "Nanna Biryani",
+        "bn": "নান্না বিরিয়ানি"
+      },
+      "type": "shop-biryani",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Becharam Dewri",
+      "lat": 23.716,
+      "lng": 90.399,
+      "pin": "approx",
+      "tagline": "Morog polao from Baburchi Nanna Mia's kitchen",
+      "whyGo": "The original Nanna Mia shop for morog polao (chicken pulao), biryani, rezala, firni and borhani. Look for the Becharam Dewri address; the name is copied all over the city.",
+      "history": "Started by Baburchi Nanna Mia in the 1960s; the family still runs it.",
+      "underrated": 1,
+      "quiet": [
+        "Opening time, 11:00"
+      ],
+      "peak": [
+        "Lunch, and evenings on weekends"
+      ],
+      "hours": "11:00–23:00 (per one source).",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The polao being served from the degchi.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "41 Becharam Dewri, Moulvibazar area. Copycat shops use the same name."
+      },
+      "sources": [
+        {
+          "label": "S M Shahinul Islam: Biryani scene of Dhaka",
+          "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        },
+        {
+          "label": "Daily Observer, 28 Feb 2026",
+          "url": "https://www.observerbd.com/news/567860"
+        }
+      ]
+    },
+    {
+      "slug": "beauty-lassi",
+      "name": {
+        "en": "Beauty Lassi",
+        "bn": "বিউটি লাচ্ছি"
+      },
+      "type": "shop-lassi",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Johnson Road",
+      "lat": 23.71306,
+      "lng": 90.41139,
+      "pin": "source",
+      "tagline": "Lassi and lemon sherbet since 1922",
+      "whyGo": "Order the lebu sherbet: gondhoraj lemon with the slice rubbed on the rim. The lassi is made with sweet curd, and the falooda is heavy and generous. A short menu done well for a century.",
+      "history": "Founded by Abdul Aziz on 15 June 1922; the original shop is at 30/1 Johnson Road, with branches in Nazira Bazar and elsewhere. Falooda was added in 2000.",
+      "underrated": 2,
+      "quiet": [
+        "Morning"
+      ],
+      "peak": [
+        "Hot afternoons",
+        "Ramadan iftar time"
+      ],
+      "hours": "Not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Falooda was Tk 100 in one recent review.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "The glasses lined up on the counter.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "30/1 Johnson Road. Small; you may stand."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Beauty Lacchi and Faluda",
+          "url": "https://en.wikipedia.org/wiki/Beauty_Lacchi_and_Faluda"
+        },
+        {
+          "label": "Moha-Mushkil: best food in Puran Dhaka",
+          "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
+        }
+      ]
+    },
+    {
+      "slug": "nirob-hotel",
+      "name": {
+        "en": "Nirob Hotel",
+        "bn": "নীরব হোটেল"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Nazimuddin Road",
+      "lat": 23.7203,
+      "lng": 90.3978,
+      "pin": "approx",
+      "tagline": "Rows of bhorta and a cheap, honest lunch",
+      "whyGo": "A long-time student favourite for a spread of bhortas, ilish, shutki and curries at low prices. Go hungry and point at the bowls.",
+      "history": "Near the old Central Jail on Nazimuddin Road; popular with Dhaka University and BUET students for decades.",
+      "underrated": 2,
+      "quiet": [
+        "Before 12:30"
+      ],
+      "peak": [
+        "13:00–14:30"
+      ],
+      "hours": "Lunch into evening; not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        30,
+        45
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "photo": {
+        "tips": "The bhorta bowls laid out at the counter.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "Nazimuddin Road."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Dhaka's food joints",
+          "url": "https://www.thedailystar.net/news/dhakas-food-joints-a-retrospective"
+        },
+        {
+          "label": "Daily Observer, 28 Feb 2026",
+          "url": "https://www.observerbd.com/news/567860"
+        }
+      ]
+    },
+    {
+      "slug": "bismillah-kabab",
+      "name": {
+        "en": "Bismillah Kabab",
+        "bn": "বিসমিল্লাহ কাবাব"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Nazira Bazar",
+      "lat": 23.718,
+      "lng": 90.4072,
+      "pin": "approx",
+      "tagline": "Mutton chaap off the coals at night",
+      "whyGo": "Known for mutton chaap and beef gurda (kidney) kebab, best after dark when Nazira Bazar turns into a late-night food street.",
+      "history": "",
+      "underrated": 2,
+      "quiet": [
+        "Afternoon"
+      ],
+      "peak": [
+        "After 20:00"
+      ],
+      "hours": "Evening to late; not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "friends",
+        "solo"
+      ],
+      "photo": {
+        "tips": "Smoke and flame at the grill; shoot from the side, not over the cook.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Vehicles can't enter Nazira Bazar lanes at night."
+      },
+      "sources": [
+        {
+          "label": "Daily Observer, 28 Feb 2026",
+          "url": "https://www.observerbd.com/news/567860"
+        }
+      ]
+    },
+    {
+      "slug": "al-razzaque",
+      "name": {
+        "en": "Hotel Al-Razzaque",
+        "bn": "হোটেল আল-রাজ্জাক"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Bangshal",
+      "lat": 23.7195,
+      "lng": 90.4062,
+      "pin": "approx",
+      "tagline": "Kacchi, morog polao and mutton 'glassy'",
+      "whyGo": "A big, busy Old Dhaka restaurant for kacchi biryani, morog polao and the mutton 'glassy'. Good when you want a sit-down meal with family.",
+      "history": "",
+      "underrated": 2,
+      "quiet": [
+        "Mid-afternoon"
+      ],
+      "peak": [
+        "Lunch and dinner"
+      ],
+      "hours": "Not published.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        40,
+        60
+      ],
+      "goodFor": [
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Plates at the table.",
+        "inside": "Usually fine"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": true,
+        "note": "Bangshal area."
+      },
+      "sources": [
+        {
+          "label": "Daily Observer, 28 Feb 2026",
+          "url": "https://www.observerbd.com/news/567860"
+        }
+      ]
+    },
+    {
+      "slug": "makhon-biryani",
+      "name": {
+        "en": "Makhon Biryani",
+        "bn": "মাখন বিরিয়ানি"
+      },
+      "type": "shop-biryani",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Raisaheb Bazar",
+      "lat": 23.7122,
+      "lng": 90.4125,
+      "pin": "approx",
+      "tagline": "Nolli biryani, gone by four",
+      "whyGo": "Famous for nolli (bone-marrow) biryani. It is a daytime shop, so go before lunch ends.",
+      "history": "Founded by Abdul Kader Mia in 1950 and continued by his son Hazi Makhon.",
+      "underrated": 4,
+      "quiet": [
+        "Opening, around 9:00"
+      ],
+      "peak": [
+        "Lunch"
+      ],
+      "hours": "9:00–16:00 (per one source).",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        20,
+        40
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "The marrow bone on the plate.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Nasir Uddin Sardar Lane, Raisaheb Bazar."
+      },
+      "sources": [
+        {
+          "label": "S M Shahinul Islam: Biryani scene of Dhaka",
+          "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ]
+    },
+    {
+      "slug": "shah-sahib-biryani",
+      "name": {
+        "en": "Shah Sahib's Biryani",
+        "bn": "শাহ সাহেবের বিরিয়ানি"
+      },
+      "type": "shop-biryani",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.7148,
+      "lng": 90.3966,
+      "pin": "approx",
+      "tagline": "A breakfast biryani that sells out by nine",
+      "whyGo": "A morning-only biryani with light spicing, in the lane opposite the Shahi Mosque. Chicken pulao on Mondays and Wednesdays. Arrive early or miss it.",
+      "history": "Running since the 1960s.",
+      "underrated": 5,
+      "quiet": [
+        "Never — it sells out"
+      ],
+      "peak": [
+        "7:00–9:00"
+      ],
+      "hours": "Mornings only, usually sold out by 9:00.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "",
+      "spend": [
+        15,
+        30
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "Morning light in the lane.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "In the Banik Samiti lane, opposite Chawkbazar Shahi Mosque."
+      },
+      "sources": [
+        {
+          "label": "S M Shahinul Islam: Biryani scene of Dhaka",
+          "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ]
+    },
+    {
+      "slug": "manik-chan-pulao",
+      "name": {
+        "en": "Manik Chan's midnight pulao",
+        "bn": "মানিক চানের পোলাও"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Dighubabu Lane",
+      "lat": 23.7108,
+      "lng": 90.4105,
+      "pin": "approx",
+      "tagline": "Tokens at 3 am, sold out before dawn",
+      "whyGo": "A pulao sold in the middle of the night from a stall with no proper shop. Tokens go out from about 3 am and when they run out, you go home hungry. For the committed only.",
+      "history": "Started by Manik Chan's father about 70 years ago.",
+      "underrated": 5,
+      "quiet": [
+        "Never"
+      ],
+      "peak": [
+        "3:00 until sold out"
+      ],
+      "hours": "Roughly 3:00 until dawn.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Token system.",
+      "spend": [
+        30,
+        90
+      ],
+      "goodFor": [
+        "friends"
+      ],
+      "photo": {
+        "tips": "The queue under a single bulb.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Dighubabu Lane — ask locally; the pin is a rough guess. Go with friends at that hour."
+      },
+      "sources": [
+        {
+          "label": "S M Shahinul Islam: Biryani scene of Dhaka",
+          "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ]
+    },
+    {
+      "slug": "agamasi-bakarkhani",
+      "name": {
+        "en": "Bakarkhani on Agamasi Lane",
+        "bn": "আগামসি লেনের বাকরখানি"
+      },
+      "type": "shop-bakery",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Agamasi Lane",
+      "lat": 23.7192,
+      "lng": 90.4035,
+      "pin": "approx",
+      "tagline": "Flaky bread from clay ovens",
+      "whyGo": "Watch bakarkhani slapped onto the walls of clay tandoors and buy it warm: sweet, salty, butter-fried or cheese. Old Dhaka's classic breakfast with tea.",
+      "history": "A Mughal-era bread kept alive in Old Dhaka, especially in Lalbagh, Chankharpul, Nazimuddin Road and Agamasi Lane.",
+      "underrated": 3,
+      "quiet": [
+        "Midday"
+      ],
+      "peak": [
+        "Morning and evening"
+      ],
+      "hours": "Morning and evening batches.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "About Tk 110–120 per kg in 2019; check current prices.",
+      "spend": [
+        10,
+        20
+      ],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "photo": {
+        "tips": "The baker's arm reaching into the tandoor, and stacks of fresh bread.",
+        "inside": "Ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Several roadside shops along the lane."
+      },
+      "sources": [
+        {
+          "label": "TBS: Still in love with Bakarkhani",
+          "url": "https://www.tbsnews.net/feature/food/still-love-bakarkhani"
+        }
+      ]
+    },
+    {
+      "slug": "shakrain",
+      "name": {
+        "en": "Shakrain kite festival",
+        "bn": "সাকরাইন"
+      },
+      "type": "festival",
+      "categories": [
+        "festival",
+        "photo-spot"
+      ],
+      "mahalla": "Sutrapur & Gendaria",
+      "lat": 23.7055,
+      "lng": 90.419,
+      "pin": "approx",
+      "tagline": "Rooftops full of kites every January",
+      "whyGo": "On Poush Sankranti in mid-January, Old Dhaka's rooftops fill with families flying and fighting kites. After dark the rooftops get loud with music.",
+      "history": "In 2026 some groups protested the festival, and police banned paper lanterns and fireworks over fire risk and limited sound systems. Check the year's rules before you go.",
+      "underrated": 2,
+      "quiet": [
+        "Morning of the day"
+      ],
+      "peak": [
+        "Afternoon kite fights, evening"
+      ],
+      "hours": "One day in mid-January (Poush Sankranti).",
+      "closed": [],
+      "fees": [],
+      "ticketing": "Rooftops are private; go with someone who lives here.",
+      "spend": [
+        120,
+        300
+      ],
+      "goodFor": [
+        "friends",
+        "kids"
+      ],
+      "photo": {
+        "tips": "Kites against the late-afternoon sky from a rooftop.",
+        "inside": "Ask the host"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Roofs can have low or no railings; watch children."
+      },
+      "sources": [
+        {
+          "label": "The Financial Express: Shakrain 2026",
+          "url": "https://thefinancialexpress.com.bd/lifestyle/culture/transition-of-shakrain-old-dhakas-festival-in-2026"
+        }
+      ]
+    },
+    {
+      "slug": "jinjira-palace",
+      "name": {
+        "en": "Jinjira Palace",
+        "bn": "জিনজিরা প্রাসাদ"
+      },
+      "type": "ruin-palace",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "river"
+      ],
+      "mahalla": "Keraniganj",
+      "lat": 23.70806,
+      "lng": 90.39639,
+      "pin": "source",
+      "tagline": "A Mughal palace across the river, almost forgotten",
+      "whyGo": "Across the Buriganga from Bara Katra, the remains of a late-17th-century palace hide among houses: seven rooms, two octagonal towers and a broken south gateway. Go for the story and the river crossing, not for polish.",
+      "history": "Built in the late 17th century by Ibrahim Khan II, Bengal's last subedar before Azim-ush-Shan. Legend says a wooden bridge linked it to Bara Katra and a tunnel ran under the river to Lalbagh Fort. What survives is in very poor condition, and locals call it a haveli.",
+      "underrated": 5,
+      "quiet": [
+        "Most of the day"
+      ],
+      "peak": [
+        "Rarely crowded"
+      ],
+      "hours": "Not a managed site; surrounded by private houses.",
+      "closed": [],
+      "fees": [],
+      "ticketing": "No ticket. Ask locals for directions; it is tucked between buildings.",
+      "spend": [
+        30,
+        60
+      ],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "photo": {
+        "tips": "The octagonal towers from the lane, and Old Dhaka's skyline from the boat on the way over.",
+        "inside": "Private surroundings; ask"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "On the Keraniganj side. Cross by nouka from the Old Dhaka bank, or by road over Babu Bazar Bridge, then ask for Jinjira Palace. Route details not yet field-checked."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Jinjira Palace",
+          "url": "https://en.wikipedia.org/wiki/Jinjira_Palace"
+        }
+      ]
+    }
+  ]
+}
