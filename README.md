@@ -8,7 +8,16 @@
 
 <p align="center"><b><a href="https://cholopurandhaka.netlify.app">Open the live site →</a></b><br><sub>Works on desktop, Android and iPhone. No sign-up, no install.</sub></p>
 
-<p align="center"><img src="docs/screenshots/overview.jpg" alt="3D overview of Old Dhaka along the Buriganga with place markers"></p>
+
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/6822ec8d-0fea-49e7-a6aa-cfe1f780b196" width="480" controls playsinline></video>
+</div>
+
+
+
+
+
 
 ## Why I built it
 
