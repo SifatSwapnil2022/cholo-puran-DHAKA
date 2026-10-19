@@ -2393,6 +2393,7 @@ function openDrawer(p) {
   enterLayer('#' + p.slug);
 }
 /* App shortcuts and shared links: #routes, #tips, #places, #about, #festivals, #crafts, #say, #near */
+const DEEP_VIEWS = ['routes', 'tips', 'about', 'places', 'festivals', 'crafts', 'say', 'near'];
 function openDeepView(h) {
   if (['routes', 'tips', 'about'].includes(h)) { showView(h); return true; }
   if (h === 'places') { showView('guide'); return true; }
@@ -3084,10 +3085,10 @@ async function boot() {
   const deep = (location.hash || '').slice(1);
   const start = (animated) => {
     state.ready = true; clock.getDelta();
-    if (openDeepView(deep)) { setTimeout(() => { try { history.replaceState(null, '', location.pathname + location.search); } catch {} }, 0); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); return; }
+    if (store.get('cpd-mode') === '2d') setMode2d(true, { keep: true });
+    if (DEEP_VIEWS.includes(deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openDeepView(deep); return; }
     if (deep.startsWith('route-') && state.routes.some(r => 'route-' + r.id === deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openRoute(deep.slice(6)); return; }
     setTimeout(maybeWelcome, animated ? 2600 : 400);
-    if (store.get('cpd-mode') === '2d') setMode2d(true, { keep: true });
     if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
     if (animated) { camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target).add(new THREE.Vector3(0, 0, -600)); controls.update(); flyTo(HOME.pos, HOME.target, 2.4); }
     else { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); }
