@@ -91,6 +91,16 @@ The site is built to feel like an app on Android and iPhone:
   <img src="docs/screenshots/phone-walk.jpg" width="230" alt="Walk mode with the on-screen pad on a phone">
 </p>
 
+## Browser support
+
+Tested on phone, tablet and desktop sizes from a 280 px folded Galaxy Fold to 1920 px desktops, in portrait and landscape, in English and Bangla.
+
+- **iPhone and iPad:** iOS 15 and newer. Import maps only arrived in Safari 16.4, so a small shim (`vendor/es-module-shims.js`) loads the app on older iOS; it does nothing on newer browsers.
+- **Android:** Chrome 90+ and Samsung Internet 15+. Colours that use `color-mix()` have plain fallbacks for browsers older than Chrome 111 and Safari 16.2.
+- **Desktop:** current Chrome, Edge, Firefox and Safari.
+- **Without 3D (WebGL):** the street map opens instead.
+- **Accessibility:** checked with axe-core; icon-only buttons have spoken names, and tap targets are at least 36–44 px on touch screens.
+
 ## The places
 
 Heritage sites (Ahsan Manzil, Lalbagh Fort, Tara Masjid, the Armenian Church, Dhakeshwari Temple, Hussaini Dalan, Bara and Choto Katra, Ruplal House, Northbrook Hall, Jinjira Palace across the river and more), food (Haji Biryani, Nanna Biryani, Beauty Lassi, Nirob Hotel, Bismillah Kabab, Beauty Boarding, bakarkhani on Agamasi Lane and others), markets (Shankhari Bazar, Islampur, Banglabazar, the Chawkbazar iftar market), the river (Sadarghat and a nouka ride on the Buriganga) and festivals (Shakrain).

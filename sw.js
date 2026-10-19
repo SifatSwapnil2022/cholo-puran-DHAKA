@@ -4,7 +4,7 @@
    - App files, icons, preview images, fonts: served from the saved copy, refreshed in the background.
    - Street-map tiles: the ones you have looked at are kept (up to MAX_TILES) so the map still works offline. */
 
-const V = 'v5';
+const V = 'v6';
 const CORE = `cpd-core-${V}`, RUN = `cpd-run-${V}`, CDN = 'cpd-cdn-1', TILES = 'cpd-tiles-1';
 const MAX_TILES = 600, NET_TIMEOUT = 4000;
 const THREE = 'https://cdn.jsdelivr.net/npm/three@0.160.0/';
@@ -12,7 +12,7 @@ const THREE = 'https://cdn.jsdelivr.net/npm/three@0.160.0/';
 const CORE_FILES = [
   './', 'index.html', 'places.json', 'manifest.webmanifest', 'docs/logo.svg', 'docs/profile.jpg',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'place/', 'history/',
-  'vendor/leaflet/leaflet.js', 'vendor/leaflet/leaflet.css', 'vendor/leaflet/leaflet.markercluster.js', 'vendor/leaflet/MarkerCluster.css'
+  'vendor/es-module-shims.js', 'vendor/leaflet/leaflet.js', 'vendor/leaflet/leaflet.css', 'vendor/leaflet/leaflet.markercluster.js', 'vendor/leaflet/MarkerCluster.css'
 ];
 const CDN_FILES = [
   `${THREE}build/three.module.js`, `${THREE}examples/jsm/controls/OrbitControls.js`, `${THREE}examples/jsm/utils/BufferGeometryUtils.js`

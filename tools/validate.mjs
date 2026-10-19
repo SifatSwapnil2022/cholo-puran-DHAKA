@@ -154,6 +154,18 @@ if (hist) {
   }
 }
 
+// Interface labels: a key defined twice silently overwrites the first (this once broke "opens tomorrow 9:30").
+try {
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const i = html.indexOf('const T = {'), j = html.indexOf('\n};', i);
+  const block = html.slice(i, j), en = block.indexOf('\n  en: {'), bn = block.indexOf('\n  bn: {');
+  const keys = part => { const out = []; const re = /(?:^|[,{\s])([A-Za-z_]\w*)\s*:\s*(?=['"`\[])/g; let m; while ((m = re.exec(part))) out.push(m[1]); return out; };
+  for (const [lang, part] of [['en', block.slice(en, bn)], ['bn', block.slice(bn)]]) {
+    const seen = new Set();
+    for (const k of keys(part)) { if (seen.has(k)) err(`labels ${lang}`, `"${k}" is defined twice; the second hides the first`); seen.add(k); }
+  }
+} catch (e) { warn('labels', 'could not read index.html: ' + e.message); }
+
 for (const m of warnings) console.warn('warn  ' + m);
 for (const m of errors) console.error('ERROR ' + m);
 console.log(`${d.places.length} places, ${(d.routes || []).length} routes: ${errors.length} errors, ${warnings.length} warnings`);
