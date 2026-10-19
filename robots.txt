@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sifatswapnil2022.github.io/cholo-puran-DHAKA/sitemap.xml

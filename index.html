@@ -5,10 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#006A4E">
 <meta property="og:title" content="Cholo Puran Dhaka · চলো পুরান ঢাকা">
-<meta property="og:description" content="Walk Old Dhaka in 3D: 40 places, food spots and hidden lanes, with fees, hours, best times and how to get there.">
+<meta property="og:description" content="Walk Old Dhaka in 3D: 62 places, food spots and hidden lanes, with opening hours, fees, fares, walking routes and a street map that works offline.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://cholopurandhaka.netlify.app/">
-<meta property="og:image" content="https://cholopurandhaka.netlify.app/docs/video-cover.jpg">
+<meta property="og:url" content="https://sifatswapnil2022.github.io/cholo-puran-DHAKA/">
+<link rel="canonical" href="https://sifatswapnil2022.github.io/cholo-puran-DHAKA/">
+<meta property="og:image" content="https://sifatswapnil2022.github.io/cholo-puran-DHAKA/docs/og/site.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="docs/logo.svg" type="image/svg+xml">
 <link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
@@ -20,7 +23,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="format-detection" content="telephone=no">
 <title>Cholo Puran Dhaka</title>
-<meta name="description" content="Walk Old Dhaka in 3D: 40 places, food spots and hidden lanes, with fees, hours, best times and how to get there.">
+<meta name="description" content="Walk Old Dhaka in 3D: 62 places, food spots and hidden lanes, with opening hours, fees, fares, walking routes and a street map that works offline.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -367,6 +370,49 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .tipjump a i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--tc);color:#fff}
 .tipjump a svg{width:14px;height:14px}
 .tipgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 36px}
+.tseg{position:sticky;top:0;z-index:2;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -4px 18px;padding:8px 4px;background:var(--paper)}
+.tseg::-webkit-scrollbar{display:none}
+.tseg button{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 8px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.tseg button i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--tc) 14%,transparent);color:var(--tc)}
+.tseg button svg{width:16px;height:16px}
+.tseg button[aria-selected="true"]{background:var(--tc);border-color:var(--tc);color:#fff}
+.tseg button[aria-selected="true"] i{background:rgba(255,255,255,.22);color:#fff}
+.tpanel .lede{margin-bottom:16px}
+.fnow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-radius:14px;background:var(--tc);color:#fff;margin:0 0 16px;font-size:15px}
+.fnow b{padding:2px 10px;border-radius:99px;background:rgba(255,255,255,.22);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.fgrid,.cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fcard{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:16px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.fcard.live{border:2px solid var(--tc);box-shadow:0 10px 28px -18px var(--tc)}
+.fdate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:76px;border-radius:14px;background:color-mix(in srgb,var(--tc) 12%,#fff);color:var(--tc);text-align:center;line-height:1}
+.fdate b{font-size:24px;font-weight:800;letter-spacing:-.02em}.fdate b svg{width:26px;height:26px}
+.fdate span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.fcard h3,.ccard h3{margin:0 0 4px;font-size:19px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
+.fcard h3 small,.ccard h3 small{font-family:var(--f-bn);font-weight:500;font-size:15px;color:var(--ink-3);letter-spacing:0}
+.fwhen{margin:0 0 8px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.fwhen em{font-style:normal;display:inline-block;margin-left:4px;padding:1px 8px;border-radius:99px;background:color-mix(in srgb,var(--tc) 14%,transparent);color:var(--tc);font-size:12.5px;font-weight:700}
+.fcard p,.ccard p{margin:0 0 8px;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.ftip{padding:8px 12px;border-radius:10px;background:var(--paper-2)}
+.fcard .from,.ccard .from,#tp-say .from{margin:6px 0 0;font-size:12.5px;color:var(--ink-3)}
+.fcard .from a,.ccard .from a,#tp-say .from a,#tp-festivals>.from a{color:var(--ink-3)}
+.pchips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.pchip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px 0 10px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.pchip i{width:9px;height:9px;border-radius:3px;background:var(--c)}
+.pchip:hover{border-color:var(--c)}
+.ccard{padding:16px 18px;border-radius:18px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--tc)}
+.ccard dl{display:grid;gap:8px;margin:4px 0 8px}.ccard dt{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--tc)}.ccard dd{margin:2px 0 0;font-size:14.5px;color:var(--ink-2)}
+.say{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.say li{position:relative;padding:14px 60px 14px 16px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.sayen{font-size:13px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}
+.saybn{font-family:var(--f-bn);font-size:24px;font-weight:600;line-height:1.35;color:var(--ink);margin:2px 0}
+.sayro b{display:block;font-size:16px;color:#6A3FD9}.sayro span{font-size:13px;color:var(--ink-3)}
+.say button{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:color-mix(in srgb,#6A3FD9 12%,transparent);color:#6A3FD9;display:grid;place-items:center;cursor:pointer}
+.say button svg{width:22px;height:22px}.say button.on{background:#6A3FD9;color:#fff}
+.status.ok{color:#0B7A57;font-weight:600}.status.ok svg{color:#0B7A57}
+.fest{display:flex;gap:8px;align-items:flex-start;margin:6px 0 8px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,#E0263F 9%,var(--paper));color:var(--ink-2);font-size:14px;line-height:1.45}.fest svg{flex:none;width:18px;height:18px;color:#E0263F;margin-top:1px}.fest b{color:#B5172B}
+.report{margin:4px 0 0;font-size:13px;display:flex;gap:16px;flex-wrap:wrap}
+.help{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:28px 0 8px;padding:20px 22px;border-radius:18px;background:var(--paper-2);border:1px solid var(--line)}
+.help h3{margin:0 0 4px;font-size:19px;font-weight:800;letter-spacing:-.01em}.help p{margin:0;color:var(--ink-2);max-width:56ch;font-size:15px}.hbtns{display:flex;gap:8px;flex-wrap:wrap}.report a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-3)}.report svg{width:15px;height:15px}
+@media (max-width:760px){.fgrid,.cgrid,.say{grid-template-columns:1fr}.fcard{grid-template-columns:62px 1fr;gap:12px;padding:14px}.fdate{height:66px}.fdate b{font-size:20px}}
 .tsec{scroll-margin-top:16px}
 .tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
 .tsec h2 i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tc);color:#fff;flex:0 0 auto}
@@ -420,8 +466,25 @@ table.fees small{color:var(--ink-3);font-weight:400}
 #nearBtn.busy svg{animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ---------- 2D street map ---------- */
+#map2d{position:absolute;inset:0;z-index:1;background:#E8E4DA}
+body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2d #walkBtn{display:none!important}
+.leaflet-container{font:inherit}
+.pin2{position:relative;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;box-shadow:0 0 0 2px #fff,0 5px 12px -5px rgba(0,0,0,.6)}
+.pin2::after{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top:7px solid #fff}
+.pin2 svg{width:17px;height:17px}
+.pin2.approx{box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(28,27,58,.35),0 5px 12px -5px rgba(0,0,0,.6)}
+.pin2 .n{font-weight:800;font-size:15px}
+.pin2.sel{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--red)}
+.cl2{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:15px;box-shadow:0 0 0 3px #fff,0 0 0 8px rgba(0,106,78,.25)}
+.lbl2{background:rgba(255,252,246,.95);color:#1C1B3A;border:0;border-radius:999px;padding:2px 8px;font-weight:700;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.lbl2::before{display:none}
+.me2{width:16px;height:16px;border-radius:50%;background:#1A73E8;box-shadow:0 0 0 3px #fff,0 0 0 9px rgba(26,115,232,.25)}
+
 /* ---------- phone tab bar ---------- */
 .tabbar{display:none}
+.offl{flex:none;display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:700;letter-spacing:.02em}
+.offl::before{content:"";width:7px;height:7px;border-radius:50%;background:#F5A300}
 
 /* ---------- phone ---------- */
 @media (max-width:760px){
@@ -511,6 +574,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
     <svg viewBox="0 0 200 260" aria-hidden="true"><path d="M100 250C100 250 20 160 20 100A80 80 0 0 1 180 100C180 160 100 250 100 250Z" fill="#006A4E"/><path d="M64 150V98C64 72 84 58 100 44C116 58 136 72 136 98V150Z" fill="#F7F4EC"/><circle cx="100" cy="110" r="20" fill="#F42A41"/><path d="M52 168q12-8 24 0t24 0t24 0t24 0" fill="none" stroke="#F7F4EC" stroke-width="10" stroke-linecap="round"/></svg>
     <span class="txt"><b>Cholo Puran Dhaka</b><small>চলো পুরান ঢাকা</small></span>
   </button>
+  <span class="offl" id="offline" role="status" title="No internet. You are using the saved copy: places, routes and tips work; the street map shows only areas you have already viewed." hidden>Offline</span>
   <nav class="nav" aria-label="Sections">
     <button id="nav-map" data-v="map" aria-current="page"><span data-i="map">Map</span></button>
     <button id="nav-routes" data-v="routes"><span data-i="routes">Routes</span></button>
@@ -531,6 +595,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 <main>
   <section id="mapView" aria-label="3D map of Old Dhaka">
     <canvas id="scene" tabindex="0" aria-label="3D model of Old Dhaka. Use the place markers, the search box, or Places for a list."></canvas>
+    <div id="map2d" hidden aria-label="Street map of Old Dhaka"></div>
     <svg id="routeLayer" aria-hidden="true"><path class="case" id="rCase"/><path class="ln" id="rWalk"/><path class="ln ride" id="rRide"/></svg>
     <div id="markers"></div>
     <div class="chips" id="chips" role="toolbar" aria-label="Filter by category"></div>
@@ -545,7 +610,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
     <div class="tools" id="tools">
       <span class="legend"><span class="dot"></span><span data-i="legendHidden">lesser-known place</span></span>
       <button class="tool" id="nearBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/></svg><span class="t" data-i="nearMe">Near me</span></button>
-      <button class="tool" id="planBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span class="t" data-i="plan">Top-down</span></button>
+      <button class="tool" id="modeBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span class="t" id="modeLbl">Street map</span></button>
       <button class="tool primary" id="walkBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4.5" r="1.8"/><path d="M10 21l2.2-6.2 2.6 2.4V21M8 11.5l3.4-3 3.1.8 2 3M11.4 8.5l-1 5"/></svg><span class="t" data-i="walkHere2">Walk the lanes</span></button>
     </div>
 
@@ -587,10 +652,16 @@ table.fees small{color:var(--ink-3);font-weight:400}
   <section class="page" id="tipsView" hidden aria-labelledby="tTitle">
     <div class="wrap">
       <h1 id="tTitle"><span data-i="tTitle">Before you go</span><span class="bn">যাওয়ার আগে জেনে নিন</span></h1>
-      <p class="lede" data-i="tLede">The practical things first-time visitors ask about. Each section lists where the information comes from.</p>
-      <div class="sos" id="sos"></div>
-      <nav class="tipjump" id="tipjump" aria-label="Jump to a topic"></nav>
-      <div class="tipgrid" id="tipgrid"></div>
+      <p class="lede" data-i="tLede">What first-time visitors ask about, plus the festivals, crafts and words of Old Dhaka. Each part says where the information comes from.</p>
+      <div class="tseg" id="tseg" role="tablist" aria-label="Sections"></div>
+      <div class="tpanel" id="tp-practical" role="tabpanel">
+        <div class="sos" id="sos"></div>
+        <nav class="tipjump" id="tipjump" aria-label="Jump to a topic"></nav>
+        <div class="tipgrid" id="tipgrid"></div>
+      </div>
+      <div class="tpanel" id="tp-festivals" role="tabpanel" hidden></div>
+      <div class="tpanel" id="tp-crafts" role="tabpanel" hidden></div>
+      <div class="tpanel" id="tp-say" role="tabpanel" hidden></div>
     </div>
   </section>
 
@@ -609,6 +680,10 @@ table.fees small{color:var(--ink-3);font-weight:400}
         </select>
       </div>
       <ul class="glist" id="glist"></ul>
+      <div class="help">
+        <div><h3 data-i="helpT">Know a place that should be here?</h3><p data-i="helpP">A tea stall, a sweet shop, an old house with a story. Tell us and we'll check it and add it. You need a free GitHub account to post.</p></div>
+        <div class="hbtns"><a class="btn pink" href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new?template=suggest-place.yml" target="_blank" rel="noopener" data-i="helpSuggest">Suggest a place</a><a class="btn" href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new?template=owner-update.yml" target="_blank" rel="noopener" data-i="helpOwner">I run a place</a></div>
+      </div>
     </div>
   </section>
 
@@ -634,8 +709,15 @@ table.fees small{color:var(--ink-3);font-weight:400}
             <li>3D rendering: three.js</li>
             <li>Type: Bricolage Grotesque, Hind Siliguri, Galada, IBM Plex Mono (Google Fonts, SIL Open Font License)</li>
             <li>Bangladesh outline: Natural Earth via world-atlas</li>
-            <li>Something wrong on a card? Tell me and I'll check it on my next visit.</li>
+            <li>Street map: Leaflet, map data &copy; OpenStreetMap contributors</li>
+            <li>Dhakaiya phrases: Wikipedia, Dhakaiya Kutti dialect</li>
           </ul>
+        </div>
+        <div>
+          <h3 data-i="aHelp">Help keep it right</h3>
+          <p>Hours and prices change, shops move. If something on a card is wrong, tap <b>Report a mistake</b> at the bottom of that card. If you run a place, you can send your own hours and menu. Places that someone has checked in person get a green <b>Checked on site</b> badge with the date.</p>
+          <p><a href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new?template=report-mistake.yml" target="_blank" rel="noopener">Report a mistake</a> · <a href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new?template=suggest-place.yml" target="_blank" rel="noopener">Suggest a place</a> · <a href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new?template=owner-update.yml" target="_blank" rel="noopener">I run a place</a></p>
+          <p class="small" style="color:var(--ink-3)">Posting needs a free GitHub account. Every place also has its own page you can share: <a href="place/">all places</a>.</p>
         </div>
       </div>
     </div>
@@ -741,7 +823,14 @@ const UI = {
   shirt: '<path d="M8.5 3L3.5 6l2 4.2 2.7-1.4V21h7.6V8.8l2.7 1.4 2-4.2-5-3c-.6 1.6-2 2.6-3.5 2.6S9.1 4.6 8.5 3z"/>',
   shield: '<path d="M12 3l7 3v5.2c0 4.4-3 8.2-7 9.8-4-1.6-7-5.4-7-9.8V6z"/><path d="M9 12l2.2 2.2L15.4 10"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
-  phone: '<path d="M6.6 3h3l1.5 4.6-2 1.5a11 11 0 0 0 5.8 5.8l1.5-2 4.6 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.6 5a2 2 0 0 1 2-2z"/>'
+  phone: '<path d="M6.6 3h3l1.5 4.6-2 1.5a11 11 0 0 0 5.8 5.8l1.5-2 4.6 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.6 5a2 2 0 0 1 2-2z"/>',
+  speak: '<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
+  stop: '<rect x="6.5" y="6.5" width="11" height="11" rx="2"/>',
+  flag: '<path d="M5 21V4M5 4.5c4-2 6.5 2 11 0v8c-4.5 2-7-2-11 0"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16.2 9.5"/>',
+  cal: '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  brush: '<path d="M14.5 4.5l5 5-7.5 7.5-5-5zM7 12l-2.5 2.5c-1.4 1.4-1 4.5-1 4.5s3.1.4 4.5-1L10.5 15.5"/>',
+  chat: '<path d="M4 5.5h16v10H10l-4.5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/>'
 };
 const uiIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${UI[k]}</svg>`;
 
@@ -764,7 +853,7 @@ const T = {
     bnNote: '', noResults: 'Nothing found. Try a mahalla name like Lalbagh or Chawkbazar.', all: 'All',
     nogl: 'Your browser could not start the 3D view. Everything is still in Places.',
     rTitle: 'Walking routes', rLede: 'Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.',
-    tTitle: 'Before you go', tLede: 'The practical things first-time visitors ask about. Each section lists where the information comes from.',
+    tTitle: 'Before you go', tLede: 'What first-time visitors ask about, plus the festivals, crafts and words of Old Dhaka. Each part says where the information comes from.',
     wTitle: 'New to Old Dhaka?', wLede: 'Pick a walking route and follow it stop by stop, or explore the map on your own.', readTips: 'Traveller tips', explore: 'Explore the map',
     showDriver: 'Show driver', driverHint: 'Show this to your rickshaw or CNG driver', takeMe: 'Please take me here.', fareQ: 'How much will the fare be?', walkOnlyDrop: "Vehicles can't get in. Please drop me at the nearest road.", nearTo: 'Near', oldDhaka: 'Old Dhaka', done: 'Done',
     startRoute: 'Start this route', showRoute: 'Show on map', endRoute: 'End route', firstStop: 'Go to stop 1', stopsN: 'stops', stopOf: 'Stop {a} of {b}', routeLabel: 'Route', open: 'Open',
@@ -772,10 +861,16 @@ const T = {
     openNow: 'Open now', closedNow: 'Closed now', hoursUnknown: 'Hours not published', untilT: 'until {t}', allDay: 'open 24 hours', opensT: 'opens {d}{t}', tomorrow: 'tomorrow ',
     regularHours: 'Regular hours; public holidays may differ.', order: 'What to order', priceNote: 'Prices from {y} sources; expect them to be higher now.',
     fareRick: 'rickshaw about ৳{a}–{b}', fareCng: 'CNG about ৳{a} by the meter', fareBasis: 'Fares are estimates from distance: rickshaw ৳15–20 per km, at least ৳20; CNG at the official rate. Agree the fare before you get in.', untilMidnight: 'until midnight',
+    streetMap: 'Street map', view3d: '3D view', mapAttr: 'Street map © OpenStreetMap contributors',
     nearMe: 'Near me', nearTitle: 'Near you', locDenied: 'Location is turned off for this site. Allow location in your browser settings, or search for a place instead.', locFailed: "Couldn't get your location. Check that location is on and try again.",
     locFar: 'You are about {k} km from Old Dhaka. Near me works once you are there; until then, here is how to get there.', refreshLoc: 'Update my location', accuracy: 'Accurate to about {m} m', nearDist: '{m} m · {w} min walk', fromYou: 'From your location: {f}',
     fOpen: 'Open now', fBudget: 'Budget ৳', fFamily: 'Good for families', fHidden: 'Lesser-known', fWash: 'Has a washroom', noMatch: 'Nothing matches all of these filters. Turn one off to see more.', orderShort: 'Order: {x}',
-    closedTodayAt: 'Closed today', walkKm: 'km on foot', sosText: 'Emergency: police, fire or ambulance. After dialling, press 2 for English.', call: 'Call 999', from: 'Sources:', jump: 'Jump to'
+    closedTodayAt: 'Closed today', walkKm: 'km on foot', sosText: 'Emergency: police, fire or ambulance. After dialling, press 2 for English.', call: 'Call 999', from: 'Sources:', jump: 'Jump to',
+    segPractical: 'Practical', segFest: 'Festivals', segCrafts: 'Crafts', segSay: 'Say it', onNow: 'On now', today: 'Today', inDays: 'in {n} days', tomorrow: 'Tomorrow', datesVary: 'Date varies',
+    tipLabel: 'Tip', seeIt: 'Where to see it', buyIt: 'What to buy', sourcesPlace: 'Sources: see the place card.', listen: 'Listen', stopListen: 'Stop', owner: 'I run this place',
+    helpT: 'Know a place that should be here?', helpP: "A tea stall, a sweet shop, an old house with a story. Tell us and we'll check it and add it. You need a free GitHub account to post.", helpSuggest: 'Suggest a place', helpOwner: 'I run a place', aHelp: 'Help keep it right', standard: 'Standard Bangla',
+    checkedOn: 'Checked on site {d}', report: 'Report a mistake', festNote: 'Lunar dates move by a day or two with the moon. Check locally before you plan around one.',
+    fLede: 'What happens in Old Dhaka through the year, and how to be a good guest at each.', cLede: 'Old Dhaka still makes things by hand. Here is where to watch, and what is worth carrying home.'
   },
   bn: {
     map: 'ম্যাপ', guide: 'জায়গা', about: 'পরিচিতি', routes: 'পথ', tips: 'টিপস', search: 'জায়গা, খাবার বা মহল্লা খুঁজুন', searchLabel: 'জায়গা খুঁজুন',
@@ -792,7 +887,7 @@ const T = {
     bnNote: 'বিস্তারিত বর্ণনা এখন ইংরেজিতে। বাংলা লেখা আসছে।', noResults: 'কিছু পাওয়া যায়নি। লালবাগ বা চকবাজারের মতো মহল্লার নাম লিখে দেখুন।', all: 'সব',
     nogl: 'আপনার ব্রাউজারে থ্রিডি ভিউ চালু হয়নি। "জায়গা" পাতায় সব তথ্য আছে।',
     rTitle: 'হেঁটে ঘোরার পথ', rLede: 'গুছিয়ে সাজানো দিনের পরিকল্পনা, এক জায়গা থেকে আরেক জায়গায় হাঁটার সময়সহ। দূরের পথে রিকশা নিন। সময়গুলো পরামর্শ; কোন জায়গা কবে বন্ধ, তা চিহ্নিত।',
-    tTitle: 'যাওয়ার আগে জেনে নিন', tLede: 'প্রথমবার যাঁরা আসছেন, তাঁদের দরকারি তথ্য। প্রতিটি অংশে তথ্যসূত্র দেওয়া আছে। বিস্তারিত এখন ইংরেজিতে।',
+    tTitle: 'যাওয়ার আগে জেনে নিন', tLede: 'প্রথমবার যাঁরা আসছেন, তাঁদের দরকারি তথ্য, সঙ্গে পুরান ঢাকার উৎসব, হস্তশিল্প আর বুলি। প্রতিটি অংশে তথ্যসূত্র দেওয়া আছে। বিস্তারিত এখন ইংরেজিতে।',
     wTitle: 'প্রথমবার পুরান ঢাকায়?', wLede: 'একটা হাঁটার পথ বেছে নিন, ধাপে ধাপে চলুন। অথবা নিজের মতো ম্যাপ ঘুরে দেখুন।', readTips: 'ভ্রমণ টিপস', explore: 'ম্যাপ ঘুরে দেখুন',
     showDriver: 'চালককে দেখান', driverHint: 'রিকশা বা সিএনজি চালককে দেখান', takeMe: 'দয়া করে আমাকে এখানে নিয়ে যান।', fareQ: 'ভাড়া কত হবে?', walkOnlyDrop: 'গাড়ি ভেতরে যায় না। কাছের রাস্তায় নামিয়ে দিন।', nearTo: 'কাছেই', oldDhaka: 'পুরান ঢাকা', done: 'ঠিক আছে',
     startRoute: 'এই পথে চলুন', showRoute: 'ম্যাপে দেখুন', endRoute: 'পথ শেষ করুন', firstStop: 'প্রথম জায়গায় যান', stopsN: 'জায়গা', stopOf: '{b}টির মধ্যে {a} নম্বর', routeLabel: 'পথ', open: 'দেখুন',
@@ -800,10 +895,16 @@ const T = {
     openNow: 'এখন খোলা', closedNow: 'এখন বন্ধ', hoursUnknown: 'খোলার সময় জানা নেই', untilT: '{t} পর্যন্ত', allDay: '২৪ ঘণ্টা খোলা', opensT: 'খুলবে {d}{t}', tomorrow: 'আগামীকাল ',
     regularHours: 'নিয়মিত সময়; সরকারি ছুটিতে বদলাতে পারে।', order: 'কী খাবেন', priceNote: '{y} সালের সূত্র থেকে দাম; এখন বেশি হতে পারে।',
     fareRick: 'রিকশা প্রায় ৳{a}–{b}', fareCng: 'সিএনজি মিটারে প্রায় ৳{a}', fareBasis: 'দূরত্ব ধরে আনুমানিক ভাড়া: রিকশা কিমি প্রতি ৳১৫–২০, কমপক্ষে ৳২০; সিএনজি সরকারি হারে। ওঠার আগে ভাড়া ঠিক করে নিন।', untilMidnight: 'মাঝরাত পর্যন্ত',
+    streetMap: 'রাস্তার ম্যাপ', view3d: 'থ্রিডি', mapAttr: 'রাস্তার ম্যাপ © OpenStreetMap অবদানকারীরা',
     nearMe: 'আমার কাছে', nearTitle: 'আপনার কাছাকাছি', locDenied: 'এই সাইটের জন্য লোকেশন বন্ধ। ব্রাউজারের সেটিংসে লোকেশন চালু করুন, অথবা জায়গার নাম লিখে খুঁজুন।', locFailed: 'লোকেশন পাওয়া যায়নি। লোকেশন চালু আছে কি না দেখে আবার চেষ্টা করুন।',
     locFar: 'আপনি পুরান ঢাকা থেকে প্রায় {k} কিমি দূরে। সেখানে পৌঁছালে "আমার কাছে" কাজ করবে; ততক্ষণ যাওয়ার উপায় দেখুন।', refreshLoc: 'লোকেশন আবার নিন', accuracy: 'প্রায় {m} মিটার নির্ভুল', nearDist: '{m} মিটার · হেঁটে {w} মিনিট', fromYou: 'আপনার জায়গা থেকে: {f}',
     fOpen: 'এখন খোলা', fBudget: 'কম খরচ ৳', fFamily: 'পরিবারের জন্য', fHidden: 'কম-চেনা', fWash: 'ওয়াশরুম আছে', noMatch: 'সব ফিল্টার মেলে এমন কিছু নেই। একটা ফিল্টার বন্ধ করে দেখুন।', orderShort: 'অর্ডার: {x}',
-    closedTodayAt: 'আজ বন্ধ', walkKm: 'কিমি হাঁটা', sosText: 'জরুরি: পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স।', call: '৯৯৯-এ ফোন করুন', from: 'তথ্যসূত্র:', jump: 'বিষয়'
+    closedTodayAt: 'আজ বন্ধ', walkKm: 'কিমি হাঁটা', sosText: 'জরুরি: পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স।', call: '৯৯৯-এ ফোন করুন', from: 'তথ্যসূত্র:', jump: 'বিষয়',
+    segPractical: 'দরকারি', segFest: 'উৎসব', segCrafts: 'হস্তশিল্প', segSay: 'ঢাকাইয়া বুলি', onNow: 'এখন চলছে', today: 'আজ', inDays: '{n} দিন পর', tomorrow: 'আগামীকাল', datesVary: 'তারিখ বদলায়',
+    tipLabel: 'পরামর্শ', seeIt: 'কোথায় দেখবেন', buyIt: 'কী কিনবেন', sourcesPlace: 'তথ্যসূত্র: জায়গার কার্ডে দেখুন।', listen: 'শুনুন', stopListen: 'থামুন', owner: 'এটি আমার দোকান',
+    helpT: 'এখানে থাকা উচিত এমন জায়গা চেনেন?', helpP: 'চায়ের দোকান, মিষ্টির দোকান, গল্প আছে এমন পুরোনো বাড়ি। জানালে আমরা যাচাই করে যোগ করব। পোস্ট করতে একটি ফ্রি GitHub অ্যাকাউন্ট লাগবে।', helpSuggest: 'জায়গা প্রস্তাব করুন', helpOwner: 'আমার একটি দোকান আছে', aHelp: 'তথ্য ঠিক রাখতে সাহায্য করুন', standard: 'প্রমিত বাংলা',
+    checkedOn: 'সরেজমিনে যাচাই {d}', report: 'ভুল জানান', festNote: 'চাঁদের হিসাবে তারিখ এক-দুই দিন এদিক-ওদিক হয়। পরিকল্পনার আগে স্থানীয়ভাবে জেনে নিন।',
+    fLede: 'সারা বছর পুরান ঢাকায় কী হয়, আর প্রতিটিতে ভালো অতিথি হবেন কীভাবে।', cLede: 'পুরান ঢাকায় এখনো হাতে জিনিস বানানো হয়। কোথায় দেখবেন, কী কিনে নেবেন।'
   }
 };
 const CATNAME = {
@@ -842,7 +943,7 @@ const BEST = {
   'manik-chan-pulao': [[3, 5]], 'agamasi-bakarkhani': [[6.5, 9.5], [17, 20]], 'shakrain': [[14, 21]], 'jinjira-palace': [[9, 12], [15, 17]],
   'alauddin-sweetmeat': [[10, 20]], 'maa-shahi-nihari': [[7, 8.5]], 'peshwarain': [[18, 22]], 'pannu-khan-tea': [[16, 23.5]], 'bukhari-restaurant': [[19, 23]],
   'nazira-bazar-food-street': [[19.5, 23.5]], 'medina-mishtanna': [[7, 10]], 'kartalab-khan-mosque': [[9, 11.5]], 'st-thomas-church': [[10, 16]], 'nimtali-deuri': [[10, 15]],
-  'haturia-house': [[10, 15]], 'sutrapur-zamindar-bari': [[15.5, 17.5]], 'mangalabash': [[15.5, 17.5]], 'sadhana-aushadhalaya': [[9, 11]], 'simanta-pathagar': [[16, 19]]
+  'haturia-house': [[10, 15]], 'dhaka-collegiate-school': [[15, 17]], 'jagannath-university': [[10, 15]], 'chowrangi-restaurant': [[7, 10]], 'bangshal-rickshaw-market': [[11, 17]], 'joy-kali-temple': [[8, 11]], 'ramakrishna-mission': [[8, 11], [17, 19]], 'swamibagh-temple': [[8, 11]], 'sutrapur-zamindar-bari': [[15.5, 17.5]], 'mangalabash': [[15.5, 17.5]], 'sadhana-aushadhalaya': [[9, 11]], 'simanta-pathagar': [[16, 19]]
 };
 
 /* Footprint radius (m) kept clear of generated houses, and spawn distance for walking. */
@@ -860,7 +961,7 @@ async function loadData() {
   const r = await fetch('places.json');
   if (!r.ok) throw new Error('places.json ' + r.status);
   const d = await r.json();
-  state.places = d.places; state.routes = d.routes || []; state.tips = d.tips || null;
+  state.places = d.places; state.routes = d.routes || []; state.tips = d.tips || null; state.culture = d.culture || null; state.siteUrl = d.meta?.siteUrl || '';
   const n = d.places.length; T.en.gTitle = `${n} places worth the trip`; T.bn.gTitle = `যাওয়ার মতো ${bnNum(n)}টি জায়গা`;
   for (const p of d.places) {
     const [x, z] = W(p.lat, p.lng);
@@ -2089,6 +2190,8 @@ function spawnFor(p) {
   return fallback || { x: p.x, z: p.z + foot + 8, yaw: 0 };
 }
 function startWalk(p) {
+  if (state.no3d) return;
+  if (state.mode2d) setMode2d(false, { keep: true });
   if (!$('#welcome').hidden) closeWelcome();
   if (!p) {
     const tg = controls.target; let best = null, bd = 1e9;
@@ -2184,8 +2287,8 @@ function renderChips(boxId) {
   const box = $(boxId);
   const count = c => state.places.filter(p => p.categories.includes(c)).length;
   box.innerHTML = (boxId === '#chips' ? `<button type="button" class="ochip" data-open aria-pressed="${state.f.open}">${t('fOpen')}</button>` : '') + CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
-  box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); });
-  const oc = box.querySelector('[data-open]'); if (oc) oc.onclick = () => { state.f.open = !state.f.open; renderChips('#chips'); renderFilters(); renderGuide(); };
+  box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d(); });
+  const oc = box.querySelector('[data-open]'); if (oc) oc.onclick = () => { state.f.open = !state.f.open; renderChips('#chips'); renderFilters(); renderGuide(); refresh2d(); };
 }
 function dhakaWeekday() { try { return new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Asia/Dhaka' }).format(new Date()); } catch { return ''; } }
 function minutes(a, b) {
@@ -2228,7 +2331,7 @@ function openDrawer(p) {
   const meter = n => `<span class="meter" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= 6 - n ? 'on' : ''}"></i>`).join('')}</span>`;
   const fees = (p.fees || []).length ? `<table class="fees">${p.fees.map(f => `<tr><td>${esc(f.who)}${f.note ? ` <small>(${esc(f.note)})</small>` : ''}</td><td>৳ ${num(f.bdt)}</td></tr>`).join('')}</table>` : '';
   const near = (p.near || []).slice(0, 3).map(o => `<li><button data-slug="${o.q.slug}" style="--c:var(--c-${o.q.cat})"><i></i><span>${esc(pName(o.q))}<small>${esc(o.q.tagline)}</small></span><span class="mins">${num(Math.max(1, Math.ceil(o.d * 1.3 / 75)))} ${t('walkMin')}</span></button></li>`).join('');
-  const dirUrl = p.pin === 'source' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=walking` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
+  const dirUrl = p.pin !== 'approx' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=walking` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
   $('#drawerBody').style.cssText = `--c:var(--c-${p.cat})` + (rs ? ';' + rstyle(state.route) : '');
   $('#drawerBody').innerHTML = `
     ${rs ? `<div class="rstrip"><button id="rsBack" aria-label="${t('routeLabel')}">${uiIcon('back')}${t('routeLabel')}</button><span>${fill('stopOf', { a: num(ri + 1), b: num(rs.length) })}</span>${ri > 0 ? `<button id="rsPrev" aria-label="Previous stop">${uiIcon('back')}</button>` : ''}${ri < rs.length - 1 ? `<button id="rsNext" aria-label="Next stop">${uiIcon('next')}</button>` : ''}</div>` : ''}
@@ -2239,14 +2342,16 @@ function openDrawer(p) {
     </div>
     <p class="tagline">${esc(p.tagline)}</p>
     <div class="orow">${ostatHtml(p)}${p.open ? `<small>${t('regularHours')}</small>` : ''}</div>
-    <p class="status">${uiIcon('info')}<span>${t('researched')}</span></p>
+    ${p.checked ? `<p class="status ok">${uiIcon('check')}<span>${fill('checkedOn', { d: esc(p.checked.date) })}${p.checked.by ? ` · ${esc(p.checked.by)}` : ''}</span></p>` : `<p class="status">${uiIcon('info')}<span>${t('researched')}</span></p>`}
+    ${festNoteFor(p)}
     ${closedToday ? `<p class="warn"><b>${t('closedToday')}</b> <span>(${esc(today)})</span></p>` : ''}
-    ${p.pin !== 'source' ? `<p class="warn soft">${t('approx')}</p>` : ''}
+    ${p.pin === 'approx' ? `<p class="warn soft">${t('approx')}</p>` : ''}
     ${L === 'bn' ? `<p class="status">${t('bnNote')}</p>` : ''}
     <div class="actions">
       <button class="btn pink" id="dDriver">${uiIcon('rickshaw')}${t('showDriver')}</button>
       <button class="btn primary" id="dWalk">${uiIcon('walk')}${t('walk')}</button>
       <a class="btn" href="${dirUrl}" target="_blank" rel="noopener">${uiIcon('dir')}${t('directions')}</a>
+      ${'speechSynthesis' in window ? `<button class="btn" id="dListen" aria-pressed="false">${uiIcon('speak')}<span>${t('listen')}</span></button>` : ''}
       <button class="btn" id="dCopy">${uiIcon('link')}<span>${navigator.share && matchMedia('(pointer:coarse)').matches ? t('share') : t('copy')}</span></button>
     </div>
     <div class="sec"><h3>${t('why')}</h3><p>${esc(p.whyGo)}</p></div>
@@ -2272,18 +2377,66 @@ function openDrawer(p) {
     ${p.history ? `<div class="sec"><h3>${t('history')}</h3><p>${esc(p.history)}</p></div>` : ''}
     ${near ? `<div class="sec"><h3>${t('nearby')}</h3><ul class="near">${near}</ul></div>` : ''}
     <div class="sec"><h3>${t('sources')}</h3><ol class="src">${p.sources.map(s => s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>` : `<li>${esc(s.label)}</li>`).join('')}</ol></div>
-    <p class="coords">${p.lat.toFixed(4)}° N · ${p.lng.toFixed(4)}° E${p.pin !== 'source' ? ' · approx.' : ''}</p>`;
+    <p class="coords">${p.lat.toFixed(4)}° N · ${p.lng.toFixed(4)}° E${p.pin === 'approx' ? ' · approx.' : ''}</p>
+    <p class="report"><a href="${reportUrl(p)}" target="_blank" rel="noopener">${uiIcon('flag')}${t('report')}</a><a href="${REPO}/issues/new?template=owner-update.yml&title=${encodeURIComponent('Owner update: ' + p.name.en)}&place=${encodeURIComponent(p.name.en)}" target="_blank" rel="noopener">${t('owner')}</a></p>`;
   const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek'); dr.classList.toggle('inroute', !!rs); dr.setAttribute('aria-hidden', 'false');
   dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
   $('#dWalk').onclick = () => startWalk(p);
   $('#dDriver').onclick = () => showDriver(p);
   if (rs) { $('#rsBack').onclick = () => showRouteList(); if ($('#rsPrev')) $('#rsPrev').onclick = () => select(rs[ri - 1].slug); if ($('#rsNext')) $('#rsNext').onclick = () => select(rs[ri + 1].slug); }
-  $('#dCopy').onclick = () => { const url = location.href.split('#')[0] + '#' + p.slug;
+  if ($('#dListen')) $('#dListen').onclick = () => speakPlace(p);
+  $('#dCopy').onclick = () => { const url = placeUrl(p);
     if (navigator.share && matchMedia('(pointer:coarse)').matches) { navigator.share({ title: p.name.en + ' · Cholo Puran Dhaka', text: p.tagline, url }).catch(() => {}); return; }
     const done = () => { $('#dCopy span').textContent = t('copied'); setTimeout(() => { const s = $('#dCopy span'); if (s) s.textContent = t('copy'); }, 1800); }; try { navigator.clipboard.writeText(url).then(done, () => prompted(url)); } catch { prompted(url); } };
   $('#drawerBody').querySelectorAll('.near button').forEach(b => b.onclick = () => select(b.dataset.slug));
   enterLayer('#' + p.slug);
+}
+/* App shortcuts and shared links: #routes, #tips, #places, #about, #festivals, #crafts, #say, #near */
+function openDeepView(h) {
+  if (['routes', 'tips', 'about'].includes(h)) { showView(h); return true; }
+  if (h === 'places') { showView('guide'); return true; }
+  if (['festivals', 'crafts', 'say'].includes(h)) { showView('tips'); setSeg(h); return true; }
+  if (h === 'near') { locateMe(); return true; }
+  return false;
+}
+/* A festival at this place that is on now or starts within 30 days. */
+function festNoteFor(p) {
+  const fs = state.culture?.festivals; if (!fs) return '';
+  const today = dhakaDate();
+  for (const f of fs) {
+    if (!f.from || !(f.places || []).includes(p.slug)) continue;
+    const w = festWhen(f, today);
+    if (w.now || (w.k === 1 && w.n <= 30)) return `<p class="fest">${uiIcon('cal')}<span><b>${esc(state.lang === 'bn' ? f.name.bn : f.name.en)}</b> · ${w.label} · ${esc(f.when)}${f.tip ? `. ${esc(f.tip)}` : ''}</span></p>`;
+  }
+  return '';
+}
+/* The shareable address of a place: its own page (rich link preview), falling back to the app link. */
+function placeUrl(p) { return new URL(`place/${p.slug}/`, location.href.split('#')[0]).href; }
+const REPO = 'https://github.com/SifatSwapnil2022/cholo-puran-DHAKA';
+function reportUrl(p) {
+  const q = new URLSearchParams({ template: 'report-mistake.yml', title: `Mistake: ${p.name.en}`, place: p.slug });
+  return `${REPO}/issues/new?${q}`;
+}
+/* Listen: read the card aloud with the phone's own voice. */
+let speaking = null;
+function hush() { try { if (speaking) speechSynthesis.cancel(); } catch {} speaking = null; const b = $('#dListen'); if (b) { b.setAttribute('aria-pressed', 'false'); b.innerHTML = `${uiIcon('speak')}<span>${t('listen')}</span>`; } document.querySelectorAll('.say button.on').forEach(x => x.classList.remove('on')); }
+function voiceFor(lang) {
+  const vs = speechSynthesis.getVoices(); const l = lang.toLowerCase();
+  return vs.find(v => v.lang.toLowerCase() === l) || vs.find(v => v.lang.toLowerCase().startsWith(l.slice(0, 2))) || null;
+}
+function speak(text, lang, onend) {
+  const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = lang.startsWith('bn') ? 0.85 : 0.95;
+  const v = voiceFor(lang); if (v) u.voice = v;
+  u.onend = u.onerror = () => { if (speaking === u) { speaking = null; onend && onend(); } };
+  speechSynthesis.cancel(); speaking = u; speechSynthesis.speak(u);
+}
+function speakPlace(p) {
+  if (speaking) { hush(); return; }
+  const parts = [p.name.en + '.', p.tagline + '.', p.whyGo];
+  const st = openState(p); if (st.s !== 'unknown') parts.push(openLabel(st).replace(/<[^>]+>/g, '') + '.');
+  speak(parts.join(' '), 'en-GB', hush);
+  const b = $('#dListen'); b.setAttribute('aria-pressed', 'true'); b.innerHTML = `${uiIcon('stop')}<span>${t('stopListen')}</span>`;
 }
 function prompted(url) { const s = $('#dCopy span'); if (s) s.textContent = url; }
 /* The X (or a full swipe down): inside a route, a stop goes back to the route list; the list ends the route. */
@@ -2293,7 +2446,9 @@ function closeX() {
   closeDrawer();
 }
 function closeDrawer(silent) {
-  const dr = $('#drawer'); dr.classList.remove('open', 'peek', 'inroute'); state.drawerMode = null; dr.setAttribute('aria-hidden', 'true'); state.selected = null;
+  hush();
+  const dr = $('#drawer'); dr.classList.remove('open', 'peek', 'inroute'); state.drawerMode = null;
+  if (state.mode2d && state.selected) { state.selected = null; refresh2d(); } dr.setAttribute('aria-hidden', 'true'); state.selected = null;
   markerEls.forEach(e => e.classList.remove('sel'));
   dr.style.transform = '';
   if (!silent) { if (layerOpen) leaveLayer(); else try { history.replaceState(null, '', location.pathname + location.search); } catch {} }
@@ -2301,6 +2456,7 @@ function closeDrawer(silent) {
 function select(slug) {
   const p = state.bySlug[slug]; if (!p) return;
   if (state.view !== 'map') showView('map');
+  if (state.mode2d) { openDrawer(p); refresh2d(); focus2d(p); return; }
   if (state.walk) { openDrawer(p); return; }
   openDrawer(p);
   if (state.ready && renderer) { const v = viewFor(p); flyTo(v.pos, v.target, 1.4); }
@@ -2373,7 +2529,7 @@ function placeFilter(p) {
 function renderFilters() {
   const keys = [['open', 'fOpen'], ['budget', 'fBudget'], ['family', 'fFamily'], ['hidden', 'fHidden'], ['washroom', 'fWash']];
   $('#fbar').innerHTML = keys.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${state.f[k]}">${t(l)}</button>`).join('');
-  $('#fbar').querySelectorAll('[data-f]').forEach(b => b.onclick = () => { state.f[b.dataset.f] = !state.f[b.dataset.f]; renderFilters(); renderChips('#chips'); renderGuide(); });
+  $('#fbar').querySelectorAll('[data-f]').forEach(b => b.onclick = () => { state.f[b.dataset.f] = !state.f[b.dataset.f]; renderFilters(); renderChips('#chips'); renderGuide(); refresh2d(); });
 }
 let meEl = null;
 function locateMe() {
@@ -2383,9 +2539,10 @@ function locateMe() {
     $('#nearBtn').classList.remove('busy');
     const [x, z] = W(pos.coords.latitude, pos.coords.longitude);
     const far = Math.hypot(x - HOME.target.x, z - HOME.target.z);
-    state.me = { x, z, acc: pos.coords.accuracy, far: far > 3500 ? far : 0 };
+    state.me = { x, z, lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy, far: far > 3500 ? far : 0 };
     showNear();
-    if (!state.me.far && state.ready) flyTo(new THREE.Vector3(x + 110, 480, z + 560), new THREE.Vector3(x, 0, z), 1.4);
+    if (!state.me.far && state.mode2d) { showMe2(); focus2d({ lat: state.me.lat, lng: state.me.lng }); }
+    else if (!state.me.far && state.ready) flyTo(new THREE.Vector3(x + 110, 480, z + 560), new THREE.Vector3(x, 0, z), 1.4);
   }, e => { $('#nearBtn').classList.remove('busy'); showNear({ err: e.code === 1 ? 'denied' : 'failed' }); }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
 }
 function showNear(o = {}) {
@@ -2421,6 +2578,95 @@ function renderGuide() {
     <span class="rt"><b>${KNOWN[state.lang][p.underrated]}</b>${minutes(p.spend[0], p.spend[1])}</span></button></li>`).join('');
   if (!list.length) $('#glist').innerHTML = `<li class="empty">${t('noMatch')}</li>`;
   $('#glist').querySelectorAll('.grow').forEach(b => b.onclick = () => select(b.dataset.slug));
+}
+/* ================================================================
+   2D street map (Leaflet + OpenStreetMap tiles), loaded on first use
+   ================================================================ */
+let L2 = null, map2 = null, pins2 = null, route2 = null, me2 = null, pinBySlug = {};
+function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+function loadCss(href) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href; document.head.appendChild(l); }
+async function ensure2d() {
+  if (map2) return true;
+  try {
+    loadCss('vendor/leaflet/leaflet.css'); loadCss('vendor/leaflet/MarkerCluster.css');
+    await loadScript('vendor/leaflet/leaflet.js'); await loadScript('vendor/leaflet/leaflet.markercluster.js');
+  } catch { return false; }
+  L2 = window.L;
+  map2 = L2.map('map2d', { zoomControl: false, attributionControl: true, minZoom: 13, maxZoom: 19, maxBounds: [[23.66, 90.33], [23.76, 90.48]], tap: true }).setView([23.7128, 90.4045], 15);
+  L2.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, crossOrigin: true, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors' }).addTo(map2);
+  L2.control.zoom({ position: 'bottomleft' }).addTo(map2);
+  map2.attributionControl.setPrefix('');
+  return true;
+}
+function pinIcon(p, n) {
+  const sel = state.selected === p.slug ? ' sel' : '', ap = p.pin === 'approx' ? ' approx' : '';
+  const style = n ? `--c:${state.route.color}` : `--c:var(--c-${p.cat})`;
+  return L2.divIcon({ className: '', html: `<span class="pin2${sel}${ap}" style="${style}">${n ? `<b class="n">${num(n)}</b>` : svgIcon(p.cat, 2)}</span>`, iconSize: [30, 38], iconAnchor: [15, 38], tooltipAnchor: [16, -22] });
+}
+function refresh2d() {
+  if (!map2) return;
+  if (pins2) map2.removeLayer(pins2);
+  if (route2) { map2.removeLayer(route2); route2 = null; }
+  pinBySlug = {};
+  const info = state.routeInfo;
+  if (info) {
+    route2 = L2.layerGroup();
+    info.stops.forEach((s, i) => {
+      const n = info.stops[i + 1];
+      if (n) L2.polyline([[s.p.lat, s.p.lng], [n.p.lat, n.p.lng]], { color: state.route.color, weight: s.ride ? 5 : 6, opacity: 0.95, dashArray: s.ride ? '2 10' : null, lineCap: 'round' }).addTo(route2);
+    });
+    info.stops.forEach((s, i) => {
+      const m = L2.marker([s.p.lat, s.p.lng], { icon: pinIcon(s.p, i + 1), zIndexOffset: 1000, keyboard: true, title: pName(s.p) }).addTo(route2);
+      m.bindTooltip(esc(pName(s.p)), { permanent: true, direction: 'right', className: 'lbl2', offset: [4, -18] });
+      m.on('click', () => select(s.slug)); pinBySlug[s.slug] = m;
+    });
+    route2.addTo(map2);
+    pins2 = null; return;
+  }
+  pins2 = L2.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 46, spiderfyOnMaxZoom: true, iconCreateFunction: c => L2.divIcon({ className: '', html: `<span class="cl2">${num(c.getChildCount())}</span>`, iconSize: [40, 40] }) });
+  for (const p of state.places) {
+    if (!placeFilter(p)) continue;
+    const m = L2.marker([p.lat, p.lng], { icon: pinIcon(p), keyboard: true, title: pName(p) });
+    m.bindTooltip(esc(pName(p)), { direction: 'right', className: 'lbl2', offset: [4, -18] });
+    m.on('click', () => select(p.slug)); pins2.addLayer(m); pinBySlug[p.slug] = m;
+  }
+  map2.addLayer(pins2);
+  if (state.me && !state.me.far) showMe2();
+}
+function showMe2() {
+  if (!map2 || !state.me) return;
+  if (me2) map2.removeLayer(me2);
+  me2 = L2.layerGroup([L2.circle([state.me.lat, state.me.lng], { radius: Math.min(state.me.acc, 300), color: '#1A73E8', weight: 1, fillOpacity: 0.08 }),
+    L2.marker([state.me.lat, state.me.lng], { icon: L2.divIcon({ className: '', html: '<span class="me2" style="display:block"></span>', iconSize: [16, 16] }), interactive: false })]).addTo(map2);
+}
+function fit2d(latlngs, maxZoom = 17) {
+  if (!map2 || !latlngs.length) return;
+  const phone = matchMedia('(max-width:760px)').matches;
+  const drawerOpen = $('#drawer').classList.contains('open');
+  const pad = phone ? { paddingTopLeft: [30, 70], paddingBottomRight: [30, drawerOpen ? 170 : 60] } : { paddingTopLeft: [40, 70], paddingBottomRight: [drawerOpen ? 470 : 60, 40] };
+  map2.fitBounds(L2.latLngBounds(latlngs), { ...pad, maxZoom });
+}
+function focus2d(p) {
+  if (!map2) return;
+  const phone = matchMedia('(max-width:760px)').matches;
+  const z = Math.max(map2.getZoom(), 17);
+  const pt = map2.project([p.lat, p.lng], z).add(phone ? [0, map2.getSize().y * 0.22] : [215, 0]);
+  map2.flyTo(map2.unproject(pt, z), z, { duration: reduced ? 0 : 0.8 });
+}
+async function setMode2d(on, opts = {}) {
+  if (on && !(await ensure2d())) return false;
+  state.mode2d = on; document.body.classList.toggle('m2d', on);
+  $('#map2d').hidden = !on;
+  $('#modeBtn').setAttribute('aria-pressed', String(on));
+  $('#modeLbl').textContent = on ? t('view3d') : t('streetMap');
+  if (!opts.keep) store.set('cpd-mode', on ? '2d' : '3d');
+  if (on) {
+    if (state.walk) stopWalk();
+    map2.invalidateSize(); refresh2d();
+    if (state.routeInfo) fit2d(state.routeInfo.stops.map(s => [s.p.lat, s.p.lng]));
+    else if (state.selected) focus2d(state.bySlug[state.selected]);
+  }
+  return true;
 }
 /* ================================================================
    Walking routes
@@ -2508,13 +2754,15 @@ function openRoute(id, opts = {}) {
   $('#routeLayer').style.setProperty('--rc', r.color);
   showRouteList();
   if (matchMedia('(max-width:760px)').matches && !opts.full) $('#drawer').classList.add('peek');
-  if (state.ready) fitRoute(r);
+  if (state.mode2d) { refresh2d(); fit2d(info.stops.map(s => [s.p.lat, s.p.lng])); }
+  else if (state.ready) fitRoute(r);
 }
 function endRoute() {
   if (!state.route) return;
   state.route = null; state.routeInfo = null; document.body.classList.remove('inroute');
   markerEls.forEach(e => { e._ri = 0; e.classList.remove('rt', 'off'); });
   ['#rCase', '#rWalk', '#rRide'].forEach(id => $(id).setAttribute('d', ''));
+  if (state.mode2d) refresh2d();
 }
 function showRouteList() {
   const r = state.route; if (!r) return;
@@ -2583,7 +2831,7 @@ function showDriver(p) {
   if (!p) return;
   const anchor = ANCHORS.map(s => state.bySlug[s]).filter(q => q && q.slug !== p.slug).map(q => ({ q, d: straight(p, q) })).sort((a, b) => a.d - b.d)[0];
   const near = anchor && anchor.d < 900 ? anchor.q : null;
-  const dirUrl = p.pin === 'source' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
+  const dirUrl = p.pin !== 'approx' ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name.en + ', ' + p.mahalla + ', Old Dhaka')}`;
   const g = (bn, en) => `<p class="line" lang="bn">${bn}<span class="gloss" lang="en">${en}</span></p>`;
   const d = $('#driver');
   d.style.setProperty('--c', `var(--c-${p.cat})`);
@@ -2626,6 +2874,80 @@ function renderTips() {
       <p class="from">${t('from')} ${src}</p></section>`;
   }).join('') + `<p class="from" style="grid-column:1/-1;padding:0">${esc(S[tp.emergency.src].label)} — <a href="${esc(S[tp.emergency.src].url)}" target="_blank" rel="noopener">999</a></p>`;
   $('#tipjump').querySelectorAll('[data-to]').forEach(a => a.onclick = e => { e.preventDefault(); document.getElementById(a.dataset.to).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
+  renderCulture();
+}
+
+/* ================================================================
+   Festivals, crafts and the Dhakaiya phrasebook (Tips page segments)
+   ================================================================ */
+const SEGS = [['practical', 'segPractical', 'tips', '#006A4E'], ['festivals', 'segFest', 'cal', '#E0263F'], ['crafts', 'segCrafts', 'brush', '#E07F00'], ['say', 'segSay', 'chat', '#6A3FD9']];
+const FCOL = ['#E0263F', '#0E8FB0', '#E07F00', '#2E9A3E', '#6A3FD9', '#E5317A'];
+function dhakaDate() { try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date()); } catch { return new Date().toISOString().slice(0, 10); } }
+const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
+function festWhen(f, today) {
+  if (!f.from) return { k: 3, label: t('datesVary') };
+  if (today >= f.from && today <= f.to) return { k: 0, label: t('onNow'), now: true };
+  if (today > f.to) return { k: 4, label: '' };
+  const n = dayDiff(today, f.from);
+  return { k: 1, n, label: n === 0 ? t('today') : n === 1 ? t('tomorrow') : fill('inDays', { n: num(n) }) };
+}
+const fmtDay = iso => { const d = new Date(iso + 'T12:00:00Z'); return { d: d.getUTCDate(), m: d.toLocaleString(state.lang === 'bn' ? 'bn-BD' : 'en-GB', { month: 'short', timeZone: 'UTC' }) }; };
+function srcLine(keys, fallback) {
+  const S = state.tips?.sources || {};
+  const list = (keys || []).map(k => S[k]).filter(Boolean).map(x => x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label));
+  return list.length ? `<p class="from">${t('from')} ${list.join('; ')}</p>` : (fallback ? `<p class="from">${t('sourcesPlace')}</p>` : '');
+}
+const placeChips = slugs => (slugs || []).map(sl => state.bySlug[sl]).filter(Boolean).map(q => `<button class="pchip" data-slug="${q.slug}" style="--c:var(--c-${q.cat})"><i></i>${esc(pName(q))}</button>`).join('');
+function setSeg(k) {
+  state.tipSeg = k;
+  for (const [id] of SEGS) { const on = id === k; $('#tp-' + id).hidden = !on; const b = $(`#tseg [data-seg="${id}"]`); if (b) { b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; } }
+  if (k !== 'say') hush();
+}
+function renderCulture() {
+  const c = state.culture, L = state.lang;
+  $('#tseg').innerHTML = SEGS.filter(([id]) => id === 'practical' || c).map(([id, key, ic, col]) => `<button role="tab" data-seg="${id}" aria-controls="tp-${id}" style="--tc:${col}"><i>${uiIcon(ic)}</i>${t(key)}</button>`).join('');
+  $('#tseg').querySelectorAll('[data-seg]').forEach(b => b.onclick = () => setSeg(b.dataset.seg));
+  $('#tseg').onkeydown = e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const ids = SEGS.map(x => x[0]); const i = (ids.indexOf(state.tipSeg || 'practical') + (e.key === 'ArrowRight' ? 1 : ids.length - 1)) % ids.length; setSeg(ids[i]); $(`#tseg [data-seg="${ids[i]}"]`).focus(); };
+  setSeg(state.tipSeg || 'practical');
+  if (!c) return;
+  const today = dhakaDate();
+  const fs = c.festivals.map((f, i) => ({ f, w: festWhen(f, today), col: FCOL[i % FCOL.length] })).filter(x => x.w.k !== 4).sort((a, b) => a.w.k - b.w.k || (a.w.n ?? 0) - (b.w.n ?? 0));
+  const now = fs.filter(x => x.w.now);
+  $('#tp-festivals').innerHTML = `<p class="lede">${t('fLede')}</p>
+    ${now.map(x => `<div class="fnow" style="--tc:${x.col}"><b>${t('onNow')}</b><span>${esc(L === 'bn' ? x.f.name.bn : x.f.name.en)} · ${esc(x.f.when)}</span></div>`).join('')}
+    <div class="fgrid">${fs.map(({ f, w, col }) => {
+      const a = f.from && fmtDay(f.from), b = f.to && f.to !== f.from && fmtDay(f.to);
+      const date = a ? `<b>${num(a.d)}${b ? `–${num(b.d)}` : ''}</b><span>${esc(a.m === (b && b.m) || !b ? a.m : a.m + '–' + b.m)}</span>` : `<b>${uiIcon('cal')}</b><span>${t('datesVary')}</span>`;
+      return `<article class="fcard${w.now ? ' live' : ''}" style="--tc:${col}">
+        <div class="fdate">${date}</div>
+        <div class="fbody">
+          <h3>${esc(f.name.en)} <small lang="bn">${esc(f.name.bn)}</small></h3>
+          <p class="fwhen">${esc(f.when)}${w.label && f.from ? ` <em>${w.label}</em>` : ''}</p>
+          <p>${esc(f.what)}</p>
+          ${f.tip ? `<p class="ftip"><b>${t('tipLabel')}:</b> ${esc(f.tip)}</p>` : ''}
+          <div class="pchips">${placeChips(f.places)}</div>
+          ${srcLine(f.src)}
+        </div></article>`; }).join('')}</div>
+    <p class="from" style="margin-top:14px">${t('festNote')}</p>`;
+  $('#tp-crafts').innerHTML = `<p class="lede">${t('cLede')}</p><div class="cgrid">${c.crafts.map((k, i) => `<article class="ccard" style="--tc:${FCOL[(i + 2) % FCOL.length]}">
+      <h3>${esc(k.name.en)} <small lang="bn">${esc(k.name.bn)}</small></h3>
+      <p>${esc(k.what)}</p>
+      <dl><div><dt>${t('seeIt')}</dt><dd>${esc(k.see)}</dd></div><div><dt>${t('buyIt')}</dt><dd>${esc(k.buy)}</dd></div></dl>
+      <div class="pchips">${placeChips(k.places)}</div>
+      ${srcLine(k.src, true)}</article>`).join('')}</div>`;
+  const ph = c.phrases, canSpeak = 'speechSynthesis' in window;
+  $('#tp-say').innerHTML = `<p class="lede">${esc(ph.intro)}</p><ul class="say">${ph.items.map((x, i) => `<li>
+      <div class="sayen">${esc(x.en)}</div>
+      <div class="saybn" lang="bn">${esc(x.kutti)}</div>
+      <div class="sayro"><b>${esc(x.say)}</b>${x.std ? `<span>${t('standard')}: ${esc(x.std)}</span>` : ''}</div>
+      ${canSpeak ? `<button data-i="${i}" aria-label="${t('listen')}: ${esc(x.en)}">${uiIcon('speak')}</button>` : ''}</li>`).join('')}</ul>${srcLine(ph.src)}`;
+  $('#tp-say').querySelectorAll('button[data-i]').forEach(b => b.onclick = () => {
+    const was = b.classList.contains('on'); hush(); if (was) return;
+    const x = ph.items[+b.dataset.i]; b.classList.add('on');
+    // A Bangla voice reads the script; without one, an English voice reads the romanised form.
+    if (voiceFor('bn-BD')) speak(x.kutti, 'bn-BD', hush); else speak(x.say.replace(/·/g, ','), 'en-IN', hush);
+  });
+  document.querySelectorAll('#tipsView .pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
 
 /* ================================================================
@@ -2672,6 +2994,8 @@ function applyLang() {
   markerEls.forEach(e => { const p = e._place; e.querySelector('.lbl').innerHTML = state.lang === 'bn' ? `${esc(p.name.bn)}` : `${esc(p.name.en)}<i>${esc(p.name.bn)}</i>`; });
   renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow();
   if (scene) $('#hourOut').textContent = fmtHour(state.hour);
+  if ($('#modeLbl')) $('#modeLbl').textContent = state.mode2d ? t('view3d') : t('streetMap');
+  refresh2d();
   renderRoutes(); renderTips(); renderFilters(); if (!$('#welcome').hidden) renderWelcome();
   if (state.drawerMode === 'near') showNear(state.nearErr ? { err: state.nearErr } : {});
   else if (state.drawerMode === 'route' && state.route) showRouteList();
@@ -2720,9 +3044,7 @@ function loop() {
   if (state.walk) stepWalk(dt); else controls.update();
   updateLife(dt, elapsed);
   if (state.sunDir) { sun.position.copy(controls.target).addScaledVector(state.sunDir, 3000); sun.target.position.copy(controls.target); }
-  renderer.render(scene, camera);
-  updateMarkers();
-  drawRoute();
+  if (!state.mode2d) { renderer.render(scene, camera); updateMarkers(); drawRoute(); }
   if (!fpsChecked && elapsed > 4) { fpsAcc += dt; fpsN++; if (fpsN > 90) { fpsChecked = true; const fps = fpsN / fpsAcc; if (fps < 26) { renderer.setPixelRatio(1); movers.filter(m => m.kind === 'people').forEach(m => { m.im.visible = false; m.extra.forEach(e => e.visible = false); }); } } }
   requestAnimationFrame(loop);
 }
@@ -2738,7 +3060,8 @@ async function boot() {
   renderFilters(); renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderTips(); applyLang();
   try { initRenderer(); }
   catch (e) {
-    hideIntro();
+    hideIntro(); state.no3d = true;
+    if (await setMode2d(true, { keep: true })) { $('#walkBtn').hidden = true; $('#modeBtn').hidden = true; state.ready = true; window.__cpd = { state, select }; return; }
     $('#mapView').innerHTML = `<div class="nogl"><div class="panel" style="padding:20px;max-width:420px"><p>${t('nogl')}</p><button class="btn primary" id="toGuide">${t('guide')}</button></div></div>`;
     $('#toGuide').onclick = () => showView('guide'); showView('guide'); return;
   }
@@ -2761,8 +3084,10 @@ async function boot() {
   const deep = (location.hash || '').slice(1);
   const start = (animated) => {
     state.ready = true; clock.getDelta();
+    if (openDeepView(deep)) { setTimeout(() => { try { history.replaceState(null, '', location.pathname + location.search); } catch {} }, 0); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); return; }
     if (deep.startsWith('route-') && state.routes.some(r => 'route-' + r.id === deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openRoute(deep.slice(6)); return; }
     setTimeout(maybeWelcome, animated ? 2600 : 400);
+    if (store.get('cpd-mode') === '2d') setMode2d(true, { keep: true });
     if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
     if (animated) { camera.position.set(HOME.target.x + 900, 4600, HOME.target.z + 5200); controls.target.copy(HOME.target).add(new THREE.Vector3(0, 0, -600)); controls.update(); flyTo(HOME.pos, HOME.target, 2.4); }
     else { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); }
@@ -2819,16 +3144,16 @@ function applyStaticUI() {
   $('#hour').addEventListener('input', e => { if (scene) applyTime(+e.target.value); });
   $('#sort').addEventListener('change', renderGuide);
   $('#walkBtn').onclick = () => { if (!state.ready) return; const sel = state.selected && state.bySlug[state.selected]; startWalk(sel || null); };
-  $('#planBtn').onclick = () => {
-    if (!state.ready) return; state.plan = !state.plan; $('#planBtn').setAttribute('aria-pressed', String(state.plan));
-    const tg = controls.target.clone(); const d = Math.max(700, camera.position.distanceTo(tg));
-    if (state.plan) { controls.maxPolarAngle = 0.05; flyTo(tg.clone().add(new THREE.Vector3(0, d, 0.1)), tg, 1); }
-    else { controls.maxPolarAngle = 1.36; flyTo(tg.clone().add(new THREE.Vector3(d * 0.25, d * 0.6, d * 0.75)), tg, 1); }
-  };
+  $('#modeBtn').onclick = () => { if (state.no3d) return; setMode2d(!state.mode2d); };
   addEventListener('keydown', e => { if (e.key === 'Escape' && !state.walk && $('#drawer').classList.contains('open')) closeDrawer(); });
   initSearch();
 }
 boot();
+
+/* Offline: keep a saved copy of the app, the data and the map tiles already seen. */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+const netState = () => { const off = !navigator.onLine; $('#offline').hidden = !off; document.body.classList.toggle('offline', off); };
+addEventListener('online', netState); addEventListener('offline', netState); netState();
 </script>
 </body>
 </html>

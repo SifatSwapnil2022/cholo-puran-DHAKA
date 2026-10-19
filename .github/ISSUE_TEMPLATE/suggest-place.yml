@@ -1,0 +1,63 @@
+name: Suggest a place
+description: A spot in Old Dhaka that should be on the map, from a famous mosque to a tea stall locals love.
+title: "Place: "
+labels: ["new place"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping. Only places inside Old Dhaka, roughly between Lalbagh, Sadarghat, Gendaria and Nazira Bazar.
+        A link we can check (news story, Wikipedia, Google Maps) makes it much faster to add.
+  - type: input
+    id: name
+    attributes:
+      label: Name of the place
+      description: In English, and in Bangla if you know it.
+      placeholder: "Beauty Boarding / বিউটি বোর্ডিং"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of place?
+      options:
+        - Food or drink
+        - Heritage building
+        - Mosque, temple, church or gurdwara
+        - Market or craft street
+        - River or ghat
+        - Hidden gem
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where is it?
+      description: Street and mahalla, or a Google Maps link. Say what it is next to.
+      placeholder: "1 Shirish Das Lane, Banglabazar, next to the book market"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should a visitor go?
+      description: What to see or order, and anything a first-timer should know.
+    validations:
+      required: true
+  - type: input
+    id: hours
+    attributes:
+      label: Opening hours and prices, if you know them
+      placeholder: "Every day 7:00–22:00. Morog polao ৳250 (Oct 2026)"
+  - type: textarea
+    id: sources
+    attributes:
+      label: Where can we check this?
+      description: Links to news stories, official pages or Google Maps. Photos you took are welcome too (drag them in).
+  - type: checkboxes
+    id: been
+    attributes:
+      label: Have you been there?
+      options:
+        - label: I have been there in the last 12 months

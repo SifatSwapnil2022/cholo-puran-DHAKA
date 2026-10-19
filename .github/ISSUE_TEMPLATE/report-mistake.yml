@@ -1,0 +1,47 @@
+name: Report a mistake
+description: Wrong hours, a closed shop, a price that changed, a pin in the wrong spot.
+title: "Mistake: "
+labels: ["fix"]
+body:
+  - type: input
+    id: place
+    attributes:
+      label: Which place?
+      description: Filled in for you when you tap "Report a mistake" on a place card.
+      placeholder: "ahsan-manzil"
+    validations:
+      required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: What is wrong?
+      multiple: true
+      options:
+        - Opening hours or closed days
+        - Ticket or food prices
+        - Pin is in the wrong place
+        - Place has closed or moved
+        - History or description
+        - Bangla name or spelling
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct?
+      description: Be as exact as you can, e.g. "Closed on Thursdays, not Fridays" or "the entrance is on the north side of the lane".
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When did you see this?
+      placeholder: "19 Oct 2026"
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Proof, if you have it
+      description: A photo of the sign or menu board, or a link. Drag photos in here.

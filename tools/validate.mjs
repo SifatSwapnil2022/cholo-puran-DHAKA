@@ -35,7 +35,7 @@ for (const [i, p] of (d.places || []).entries()) {
   for (const k of ['mahalla', 'tagline', 'whyGo', 'hours']) if (!isStr(p[k])) err(w, `${k} is required`);
   if (typeof p.lat !== 'number' || typeof p.lng !== 'number') err(w, 'lat and lng must be numbers');
   else if (p.lat < BOX.lat[0] || p.lat > BOX.lat[1] || p.lng < BOX.lng[0] || p.lng > BOX.lng[1]) err(w, `coordinates ${p.lat}, ${p.lng} fall outside Old Dhaka`);
-  if (!['source', 'approx'].includes(p.pin)) err(w, 'pin must be "source" or "approx"');
+  if (!['source', 'approx', 'checked'].includes(p.pin)) err(w, 'pin must be "source", "approx" or "checked"');
   if (!Number.isInteger(p.underrated) || p.underrated < 1 || p.underrated > 5) err(w, 'underrated must be 1 to 5');
   for (const k of ['quiet', 'peak', 'closed']) if (!strArr(p[k])) err(w, `${k} must be a list of strings`);
   if (!Array.isArray(p.spend) || p.spend.length !== 2 || p.spend[0] > p.spend[1]) err(w, 'spend must be [min, max] minutes');
@@ -65,6 +65,14 @@ for (const [i, p] of (d.places || []).entries()) {
     if (p.dishes?.some(x => x.price) && !p.priceYear) warn(w, 'dish prices without priceYear');
   }
   if (p.priceBand !== undefined && ![1, 2, 3].includes(p.priceBand)) err(w, 'priceBand must be 1, 2 or 3');
+  if (p.checked != null) {
+    const c = p.checked;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(c.date || '') || isNaN(Date.parse(c.date))) err(w, 'checked.date must be YYYY-MM-DD');
+    else if (c.date > new Date().toISOString().slice(0, 10)) err(w, 'checked.date is in the future');
+    if (!isStr(c.by)) err(w, 'checked.by is required (who stood there)');
+    if (c.notes !== undefined && typeof c.notes !== 'string') err(w, 'checked.notes must be text');
+    if (p.pin === 'approx') warn(w, 'checked on site but pin is still approx; update lat/lng and set pin to "checked"');
+  }
   if (p.categories?.includes('food') && !p.dishes) warn(w, 'food place without dishes');
 }
 
@@ -87,6 +95,33 @@ const tips = d.tips;
 if (tips) {
   for (const sec of tips.sections) for (const k of sec.src) if (!tips.sources[k]) err(`tips ${sec.id}`, `unknown source key "${k}"`);
   if (!tips.sources[tips.emergency?.src]) err('tips emergency', 'unknown source key');
+}
+
+const cul = d.culture;
+if (cul) {
+  const src = k => tips?.sources?.[k];
+  const date = s => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s));
+  for (const f of cul.festivals || []) {
+    const w = `festival ${f.id}`;
+    if (!isStr(f.name?.en) || !isStr(f.name?.bn) || !isStr(f.when) || !isStr(f.what)) err(w, 'name.en, name.bn, when and what are required');
+    if ((f.from || f.to) && !(date(f.from) && date(f.to) && f.from <= f.to)) err(w, 'from and to must both be YYYY-MM-DD, from first');
+    if (f.to && f.to < (d.meta.updated || '')) warn(w, `date ${f.to} has passed; add next year's date`);
+    for (const s of f.places || []) if (!slugs.has(s)) err(w, `place "${s}" does not exist`);
+    if (!f.src?.length) err(w, 'needs at least one source');
+    for (const k of f.src || []) if (!src(k)) err(w, `unknown source key "${k}"`);
+  }
+  for (const c of cul.crafts || []) {
+    const w = `craft ${c.id}`;
+    if (!isStr(c.name?.en) || !isStr(c.name?.bn) || !isStr(c.what)) err(w, 'name.en, name.bn and what are required');
+    for (const s of c.places || []) if (!slugs.has(s)) err(w, `place "${s}" does not exist`);
+    for (const k of c.src || []) if (!src(k)) err(w, `unknown source key "${k}"`);
+    if (!c.src?.length && !c.places?.length) err(w, 'needs a source or a place whose sources cover it');
+  }
+  const ph = cul.phrases;
+  if (ph) {
+    for (const k of ph.src || []) if (!src(k)) err('phrases', `unknown source key "${k}"`);
+    for (const x of ph.items || []) if (!isStr(x.en) || !isStr(x.kutti) || !isStr(x.say)) err('phrases', `"${x.en}" needs en, kutti and say`);
+  }
 }
 
 for (const m of warnings) console.warn('warn  ' + m);

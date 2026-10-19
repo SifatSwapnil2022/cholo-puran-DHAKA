@@ -1,0 +1,45 @@
+name: I run this place
+description: Owners and staff can correct their own hours, prices and menu.
+title: "Owner update: "
+labels: ["owner update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The guide is free and lists places for visitors; nobody pays to be listed, and owners cannot pay to be ranked higher.
+        We will check your update before it goes live, so a photo of your signboard or menu helps.
+  - type: input
+    id: place
+    attributes:
+      label: Your place
+      placeholder: "Haji Biryani, 70 Kazi Alauddin Road"
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Your role
+      placeholder: "Owner / manager / family member"
+    validations:
+      required: true
+  - type: textarea
+    id: hours
+    attributes:
+      label: Opening hours
+      description: Each day, and whether it changes in Ramadan.
+      placeholder: "Sat–Thu 11:00–23:00, Fri 14:00–23:00. Ramadan: from iftar to 01:00."
+  - type: textarea
+    id: menu
+    attributes:
+      label: What visitors should order, with today's prices
+      placeholder: "Kacchi biryani ৳380, Borhani ৳60"
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else visitors should know
+      description: Seating for women and families, washroom, card payment, how to find the entrance.
+  - type: input
+    id: contact
+    attributes:
+      label: How can we confirm with you?
+      description: Optional. A phone number or Facebook page will be visible to everyone on this page, so only share a business contact.

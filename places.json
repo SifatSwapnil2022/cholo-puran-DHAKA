@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Cholo Puran Dhaka — places dataset",
-    "version": "0.2.0",
+    "version": "0.3.0",
+    "siteUrl": "https://sifatswapnil2022.github.io/cholo-puran-DHAKA/",
     "researched": "2026-10-12",
     "fieldChecked": false,
     "origin": {
@@ -3599,6 +3600,429 @@
         }
       ],
       "ticketing": ""
+    },
+    {
+      "quiet": [],
+      "peak": [
+        "School hours"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "underrated": 4,
+      "pin": "source",
+      "checked": null,
+      "ticketing": "",
+      "slug": "dhaka-collegiate-school",
+      "name": {
+        "en": "Dhaka Collegiate School",
+        "bn": "ঢাকা কলেজিয়েট স্কুল"
+      },
+      "type": "colonial",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Sadarghat",
+      "lat": 23.707728,
+      "lng": 90.410757,
+      "tagline": "The school where J.C. Bose and Meghnad Saha studied",
+      "whyGo": "One of the oldest schools in the country, at the Sadarghat crossing by the Buriganga. Physicists Jagadish Chandra Bose and Meghnad Saha and the poet Buddhadeva Bose studied here. Look in from the gate on your way between Bahadur Shah Park and the river.",
+      "history": "Founded on 21 June 1835 as the Dhaka English Seminary. Its old main building was demolished during redevelopment despite protests by heritage activists.",
+      "hours": "A working school; view from outside.",
+      "spend": [
+        5,
+        15
+      ],
+      "photo": {
+        "tips": "The gate and the crossing from across the road.",
+        "inside": "Not allowed; don't photograph students"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "1 Loyal Street, Sadarghat. A working school: keep it brief."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Dhaka Collegiate School",
+          "url": "https://en.wikipedia.org/wiki/Dhaka_Collegiate_School"
+        },
+        {
+          "label": "The Business Standard: Activists rally against demolition of the old Collegiate School building",
+          "url": "https://www.tbsnews.net/node/813011"
+        }
+      ]
+    },
+    {
+      "quiet": [],
+      "peak": [
+        "Weekday class hours"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 3,
+      "pin": "source",
+      "checked": null,
+      "ticketing": "",
+      "slug": "jagannath-university",
+      "name": {
+        "en": "Jagannath University",
+        "bn": "জগন্নাথ বিশ্ববিদ্যালয়"
+      },
+      "type": "colonial-columns",
+      "categories": [
+        "heritage"
+      ],
+      "mahalla": "Sadarghat",
+      "lat": 23.71028,
+      "lng": 90.41111,
+      "tagline": "From a 1858 school to a university",
+      "whyGo": "A crowded, lively campus beside Bahadur Shah Park whose roots go back to 1858. It shows how Old Dhaka's education grew up around the river port.",
+      "history": "Founded in 1858 as the Dhaka Brahma School, renamed Jagannath School in 1872 after a zamindar's father, became Jagannath College in 1884, and a university in 2005.",
+      "hours": "A working university; ask at the gate.",
+      "spend": [
+        10,
+        20
+      ],
+      "photo": {
+        "tips": "From Bahadur Shah Park looking toward the campus.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Next to Bahadur Shah Park and St Thomas Church."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Jagannath University",
+          "url": "https://en.wikipedia.org/wiki/Jagannath_University"
+        }
+      ]
+    },
+    {
+      "quiet": [
+        "After 10:00"
+      ],
+      "peak": [
+        "Early morning"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "ticketing": "",
+      "slug": "chowrangi-restaurant",
+      "name": {
+        "en": "Chowrangi Restaurant",
+        "bn": "চৌরঙ্গী রেস্টুরেন্ট"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Banglabazar",
+      "lat": 23.70712,
+      "lng": 90.41218,
+      "tagline": "Luchi and dal for breakfast, for almost a century",
+      "whyGo": "A roadside breakfast place with a short menu: puffed luchi with house-seasoned dal topped with onion and coriander, and eggs finished with black salt. Light, cheap, and close to Beauty Boarding and the book lanes.",
+      "history": "It had been running for almost a hundred years when The Business Standard wrote about it in 2020.",
+      "hours": "Breakfast; hours not published.",
+      "spend": [
+        15,
+        30
+      ],
+      "priceBand": 1,
+      "priceYear": 2020,
+      "dishes": [
+        {
+          "en": "Four luchis with dal",
+          "bn": "চারটি লুচি ও ডাল",
+          "price": "৳15"
+        },
+        {
+          "en": "Poached egg or omelette",
+          "bn": "পোচ / অমলেট",
+          "price": "৳15"
+        }
+      ],
+      "photo": {
+        "tips": "Luchi and dal on the plate, onion on top.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "47 North Brook Hall Road, Banglabazar."
+      },
+      "sources": [
+        {
+          "label": "The Business Standard: 5 classic breakfast places in Dhaka (Nov 2020)",
+          "url": "https://www.tbsnews.net/node/163855"
+        }
+      ]
+    },
+    {
+      "quiet": [
+        "Morning"
+      ],
+      "peak": [
+        "Afternoon trading"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "ticketing": "",
+      "slug": "bangshal-rickshaw-market",
+      "name": {
+        "en": "Bangshal Road rickshaw market",
+        "bn": "বংশাল রোডের রিকশা বাজার"
+      },
+      "type": "market",
+      "categories": [
+        "market",
+        "hidden-gem",
+        "photo-spot"
+      ],
+      "mahalla": "Bangshal",
+      "lat": 23.72075,
+      "lng": 90.40725,
+      "tagline": "Rickshaw parts, rickshaw art, even whole rickshaws",
+      "whyGo": "The street to buy rickshaw parts and the painted tin panels that decorate the back of Dhaka's rickshaws. The panels roll up to fit in a suitcase, which makes them the best souvenir in Old Dhaka.",
+      "history": "Rickshaws and rickshaw painting in Dhaka were added to UNESCO's list of the Intangible Cultural Heritage of Humanity in 2023.",
+      "hours": "Shop hours.",
+      "spend": [
+        20,
+        45
+      ],
+      "priceBand": 1,
+      "photo": {
+        "tips": "Stacks of painted panels and chrome parts in the shopfronts.",
+        "inside": "Ask the shopkeeper first"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Bangshal Road, next to Kazi Alauddin Road. Budget around ৳200 for a painted panel and be ready to bargain."
+      },
+      "sources": [
+        {
+          "label": "Lonely Planet: Bangshal Road",
+          "url": "https://www.lonelyplanet.com/bangladesh/dhaka/shopping/bangshal-rd/a/poi-sho/1431929/355783"
+        },
+        {
+          "label": "UNESCO: Rickshaws and rickshaw painting in Dhaka (inscribed 2023)",
+          "url": "https://ich.unesco.org/en/RL/rickshaws-and-rickshaw-painting-in-dhaka-01589"
+        }
+      ]
+    },
+    {
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "underrated": 5,
+      "pin": "approx",
+      "checked": null,
+      "ticketing": "",
+      "slug": "joy-kali-temple",
+      "name": {
+        "en": "Joy Kali Temple",
+        "bn": "জয়কালী মন্দির"
+      },
+      "type": "temple",
+      "categories": [
+        "heritage",
+        "worship",
+        "hidden-gem"
+      ],
+      "mahalla": "Wari",
+      "lat": 23.71955,
+      "lng": 90.41705,
+      "tagline": "Tiled walls of gods on Joy Kali Temple Road",
+      "whyGo": "A small, old temple with a mosaic floor, walls tiled with images of Hindu deities, thick square columns and arched upper walls. Few visitors find it.",
+      "history": "Said to be nearly 400 years old, established in the Bengali year 1001 under Tulsi Narayan Ghosh and Naw Narayan Ghosh.",
+      "hours": "Not published; ask locally.",
+      "spend": [
+        15,
+        30
+      ],
+      "photo": {
+        "tips": "The tiled walls up close.",
+        "inside": "Ask first; remove shoes where asked"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "24 Joy Kali Temple Road, between Thatari Bazar and Wari."
+      },
+      "sources": [
+        {
+          "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
+          "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
+        }
+      ]
+    },
+    {
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [
+        "Durga Puja",
+        "Birth anniversaries of Sri Ramakrishna, Sarada Devi and Vivekananda"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "underrated": 4,
+      "pin": "source",
+      "checked": null,
+      "ticketing": "",
+      "slug": "ramakrishna-mission",
+      "name": {
+        "en": "Ramakrishna Mission Temple",
+        "bn": "রামকৃষ্ণ মিশন মন্দির"
+      },
+      "type": "temple",
+      "categories": [
+        "heritage",
+        "worship",
+        "hidden-gem"
+      ],
+      "mahalla": "Tikatuli",
+      "lat": 23.7209,
+      "lng": 90.4236,
+      "tagline": "A domed hall with symbols of six faiths",
+      "whyGo": "A hexagonal prayer hall for about 600 people, with five entrances and a main dome ringed by six small domes, each topped with the symbol of a different religion, after Ramakrishna's teaching 'as many faiths, so many paths'.",
+      "history": "The Dhaka centre's foundation was laid on 13 February 1916 by Swami Brahmananda and Swami Premananda. The temple was rebuilt from 2000 after 85 years of use.",
+      "hours": "Not published; see dhakarkmm.org.",
+      "spend": [
+        20,
+        40
+      ],
+      "photo": {
+        "tips": "The ring of small domes from the courtyard.",
+        "inside": "Ask first; remove shoes"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "R. K. Mission Road. About a 30-minute walk from Gulistan."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Ramakrishna Mission Temple, Dhaka",
+          "url": "https://en.wikipedia.org/wiki/Ramakrishna_Mission_Temple,_Dhaka"
+        },
+        {
+          "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
+          "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
+        }
+      ]
+    },
+    {
+      "quiet": [],
+      "peak": [
+        "Rath Yatra day"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "ticketing": "",
+      "slug": "swamibagh-temple",
+      "name": {
+        "en": "Swamibagh ISKCON Temple",
+        "bn": "স্বামীবাগ ইসকন মন্দির"
+      },
+      "type": "temple",
+      "categories": [
+        "worship",
+        "festival",
+        "hidden-gem"
+      ],
+      "mahalla": "Gendaria",
+      "lat": 23.7068,
+      "lng": 90.4262,
+      "tagline": "Where Dhaka's Rath Yatra begins",
+      "whyGo": "The starting point of Dhaka's annual Jagannath Rath Yatra chariot procession, which ends at Dhakeshwari Temple. On ordinary days it is a working temple.",
+      "history": "Established in 1899 under Shri Rudra Tridandi Tripurlinga Swami as the Sri Sri Radha Govinda Temple; handed to ISKCON Bangladesh in 2000.",
+      "hours": "Not published; ask at the gate.",
+      "spend": [
+        15,
+        30
+      ],
+      "photo": {
+        "tips": "On Rath Yatra day, the chariot leaving the gate.",
+        "inside": "Ask first; remove shoes"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "79 Swamibagh Road, Gendaria."
+      },
+      "sources": [
+        {
+          "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
+          "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
+        }
+      ]
     }
   ],
   "routes": [
@@ -4169,11 +4593,317 @@
       "tbs2": {
         "label": "The Business Standard: BRTA withdraws move to enforce CNG meters (Feb 2025)",
         "url": "https://www.tbsnews.net/bangladesh/cng-autorickshaw-drivers-block-dhaka-roads-again-demanding-withdrawal-brta-move-1069471"
+      },
+      "wikiKutti": {
+        "label": "Wikipedia: Dhakaiya Kutti dialect",
+        "url": "https://en.wikipedia.org/wiki/Dhakaiya_Kutti_dialect"
+      },
+      "unescoRick": {
+        "label": "UNESCO: Rickshaws and rickshaw painting in Dhaka (inscribed 2023)",
+        "url": "https://ich.unesco.org/en/RL/rickshaws-and-rickshaw-painting-in-dhaka-01589"
+      },
+      "dsRick": {
+        "label": "The Daily Star: The last rickshaw artists",
+        "url": "https://www.thedailystar.net/city-in-frame/the-last-rickshaw-artists-1538908"
+      },
+      "dsShakha": {
+        "label": "The Daily Star: The art of the Shakhari (2014)",
+        "url": "https://www.thedailystar.net/the-art-of-the-shakhari-24385"
+      },
+      "dsSak": {
+        "label": "The Daily Star: A subdued Sakrain (14 Jan 2026)",
+        "url": "https://www.thedailystar.net/culture/news/subdued-sakrain-4081001"
+      },
+      "wikiSwami": {
+        "label": "Wikipedia: Swami Bagh Temple",
+        "url": "https://en.wikipedia.org/wiki/Swami_Bagh_Temple"
+      },
+      "wikiDhak": {
+        "label": "Wikipedia: Dhakeshwari Temple",
+        "url": "https://en.wikipedia.org/wiki/Dhakeshwari_Temple"
+      },
+      "ashura": {
+        "label": "Islamic.app: Day of Ashura 2027",
+        "url": "https://islamic.app/hijri/day-of-ashura/2027"
       }
     },
     "emergency": {
       "number": "999",
       "src": "unb"
+    }
+  },
+  "culture": {
+    "festivals": [
+      {
+        "id": "durga-puja",
+        "name": {
+          "en": "Durga Puja",
+          "bn": "দুর্গাপূজা"
+        },
+        "from": "2026-10-16",
+        "to": "2026-10-21",
+        "when": "16–21 October 2026",
+        "what": "Dhaka's biggest Durga Puja is at Dhakeshwari, and Shankhari Bazar is lit up end to end. It ends with processions taking the idols to the river.",
+        "tip": "Evenings are packed. Go in the late morning, keep your bag in front, and expect security checks at the temple gates.",
+        "places": [
+          "dhakeshwari-temple",
+          "shankhari-bazar"
+        ],
+        "src": [
+          "fcdoW",
+          "wikiDhak"
+        ]
+      },
+      {
+        "id": "shakrain",
+        "name": {
+          "en": "Shakrain",
+          "bn": "সাকরাইন"
+        },
+        "from": "2027-01-14",
+        "to": "2027-01-14",
+        "when": "14 January, the last day of Poush",
+        "what": "Families fly and fight kites from the rooftops of Shankhari Bazar, Sutrapur, Gendaria, Narinda and Lakshmibazar, and make pitha at home. After dark it turns into fireworks, lanterns and loud music.",
+        "tip": "The kites are on the roofs, not in the street. Go with a local friend or ask your guesthouse; a rooftop invitation is the whole point.",
+        "places": [
+          "shakrain",
+          "tanti-bazar",
+          "shankhari-bazar"
+        ],
+        "src": [
+          "dsSak"
+        ]
+      },
+      {
+        "id": "ramadan",
+        "name": {
+          "en": "Ramadan",
+          "bn": "রমজান"
+        },
+        "from": "2027-02-09",
+        "to": "2027-03-10",
+        "when": "Expected from 9 February 2027, about 30 days",
+        "what": "The Chawkbazar iftar market fills the square every afternoon before sunset. Opening hours change across the city; Ahsan Manzil closes at 15:00. Eid ul-Fitr follows at the end of the month.",
+        "tip": "Don't eat or drink openly in the street during the day. Reach Chawkbazar by 15:00; the crush peaks just before sunset.",
+        "places": [
+          "chawkbazar-iftar",
+          "ahsan-manzil"
+        ],
+        "src": [
+          "ram",
+          "here"
+        ]
+      },
+      {
+        "id": "ashura",
+        "name": {
+          "en": "Muharram and Ashura",
+          "bn": "মহররম ও আশুরা"
+        },
+        "from": "2027-06-14",
+        "to": "2027-06-14",
+        "when": "Ashura expected on 14 June 2027, set by the moon",
+        "what": "For the first ten days of Muharram, Hussaini Dalan is the centre of Old Dhaka's Shia mourning gatherings. On Ashura a procession leaves from here.",
+        "tip": "This is mourning, not a festival. Watch quietly from the side, dress modestly and ask before taking photos.",
+        "places": [
+          "hussaini-dalan"
+        ],
+        "src": [
+          "ashura",
+          "here"
+        ]
+      },
+      {
+        "id": "rath-yatra",
+        "name": {
+          "en": "Rath Yatra",
+          "bn": "রথযাত্রা"
+        },
+        "when": "June or July, set by the Hindu calendar",
+        "what": "Jagannath's chariot is pulled from the Swamibagh temple to Dhakeshwari.",
+        "tip": "Check the date with the temple a few weeks before, and expect big crowds along the route.",
+        "places": [
+          "swamibagh-temple",
+          "dhakeshwari-temple"
+        ],
+        "src": [
+          "wikiSwami"
+        ]
+      },
+      {
+        "id": "janmashtami",
+        "name": {
+          "en": "Janmashtami",
+          "bn": "জন্মাষ্টমী"
+        },
+        "when": "August or September, set by the Hindu calendar",
+        "what": "Krishna's birthday. A procession starts at Dhakeshwari and winds through the streets of Old Dhaka. It was stopped in 1948 and has run again since 1989.",
+        "tip": "The procession moves slowly through narrow lanes. Pick a spot on the route early rather than following it.",
+        "places": [
+          "dhakeshwari-temple"
+        ],
+        "src": [
+          "wikiDhak"
+        ]
+      }
+    ],
+    "crafts": [
+      {
+        "id": "rickshaw-art",
+        "name": {
+          "en": "Rickshaw painting",
+          "bn": "রিকশা চিত্র"
+        },
+        "what": "Dhaka's rickshaws and their painting were added to UNESCO's list of the intangible heritage of humanity in 2023. Painters cover the back panels with flowers, birds, film stars and city scenes.",
+        "see": "Only a handful of painters are left in Old Dhaka. The Daily Star found them earning about ৳250 a painting.",
+        "buy": "Painted tin panels on Bangshal Road. They roll up to fit in a suitcase.",
+        "places": [
+          "bangshal-rickshaw-market"
+        ],
+        "src": [
+          "unescoRick",
+          "dsRick"
+        ]
+      },
+      {
+        "id": "shakha",
+        "name": {
+          "en": "Conch-shell bangles",
+          "bn": "শাঁখা"
+        },
+        "what": "The Shankhari community, named after the shakha, has cut conch shell here since before the Mughals. Married Hindu women wear the white bangles.",
+        "see": "Watch the cutters at work in the tiny shops of Shankhari Bazar. The shells come from Sri Lanka.",
+        "buy": "Bangles and carved conch shells, from the workshops themselves.",
+        "places": [
+          "shankhari-bazar"
+        ],
+        "src": [
+          "dsShakha"
+        ]
+      },
+      {
+        "id": "kites",
+        "name": {
+          "en": "Paper kites",
+          "bn": "ঘুড়ি"
+        },
+        "what": "Light paper kites and coated string (manja) for kite fighting are made by hand for Shakrain.",
+        "see": "Tanti Bazar and Shankhari Bazar in the first two weeks of January.",
+        "buy": "Kites cost little; a spool of manja is the real purchase. Handle it carefully, it cuts.",
+        "places": [
+          "tanti-bazar",
+          "shakrain"
+        ],
+        "src": []
+      },
+      {
+        "id": "bakarkhani",
+        "name": {
+          "en": "Bakarkhani bakers",
+          "bn": "বাকরখানি"
+        },
+        "what": "Layered, flaky bread baked against the walls of clay ovens, the classic Old Dhaka breakfast with tea.",
+        "see": "Early morning on Agamasi Lane, when the dough is slapped onto the oven walls.",
+        "buy": "By the piece or by weight, warm from the oven.",
+        "places": [
+          "agamasi-bakarkhani"
+        ],
+        "src": []
+      },
+      {
+        "id": "chinitikri",
+        "name": {
+          "en": "Chinitikri mosaic",
+          "bn": "চিনিটিকরি"
+        },
+        "what": "Mosaic made from broken china plates and tiles, pressed into plaster. The Star Mosque is covered in it.",
+        "see": "Stand close to the walls of Tara Masjid: you can spot pieces of patterned teacups and plates.",
+        "buy": "Not for sale; this one you only look at.",
+        "places": [
+          "tara-masjid"
+        ],
+        "src": []
+      }
+    ],
+    "phrases": {
+      "intro": "Old Dhaka has its own Bangla, Dhakaiya Kutti. It is named after the rice-husking (kuta) workers who settled here around 1760, and it borrows words from Urdu and Persian. Fewer people speak it now, but older shopkeepers will light up if you try.",
+      "src": [
+        "wikiKutti"
+      ],
+      "items": [
+        {
+          "en": "Will you come with me?",
+          "kutti": "আমার লগে যাইবেন নিকি?",
+          "say": "amar loge jaiben niki?",
+          "std": "amar shonge jaben naki?"
+        },
+        {
+          "en": "What did you buy at the market?",
+          "kutti": "বাজার থেইকা কী কিনছেন?",
+          "say": "bazar theika ki kinchhen?",
+          "std": "bazar theke ki kinechhen?"
+        },
+        {
+          "en": "Why?",
+          "kutti": "ক্যালা?",
+          "say": "kela?",
+          "std": "keno?"
+        },
+        {
+          "en": "How?",
+          "kutti": "ক্যামতে?",
+          "say": "kemte?",
+          "std": "kemon kore?"
+        },
+        {
+          "en": "Listen",
+          "kutti": "হোন",
+          "say": "hon",
+          "std": "shon"
+        },
+        {
+          "en": "True / really",
+          "kutti": "হাচা",
+          "say": "hacha",
+          "std": "shotti"
+        },
+        {
+          "en": "Me too",
+          "kutti": "আমি বি",
+          "say": "ami bi",
+          "std": "amio"
+        },
+        {
+          "en": "But",
+          "kutti": "মগর",
+          "say": "mogor",
+          "std": "kintu"
+        },
+        {
+          "en": "I'm doing it",
+          "kutti": "করতাছি",
+          "say": "kortachhi",
+          "std": "korchhi"
+        },
+        {
+          "en": "I will do it",
+          "kutti": "করমু",
+          "say": "kormu",
+          "std": "korbo"
+        },
+        {
+          "en": "Boy · girl · kids",
+          "kutti": "পোলা · মাইয়া · পোলাপান",
+          "say": "pola · maiya · polapan",
+          "std": "chhele · meye · chhelemeye"
+        },
+        {
+          "en": "From",
+          "kutti": "থেইকা / থন",
+          "say": "theika / thon",
+          "std": "theke"
+        }
+      ]
     }
   }
 }

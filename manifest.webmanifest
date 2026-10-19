@@ -1,18 +1,136 @@
 {
+  "id": "./",
   "name": "Cholo Puran Dhaka",
   "short_name": "Puran Dhaka",
-  "description": "A walkable 3D guide to Old Dhaka: 40 places with fees, hours, closed days and the best time to go.",
+  "description": "A walkable 3D guide to Old Dhaka: 62 places with opening hours, fees, food prices, walking routes, festivals and a street map that works offline.",
   "lang": "en",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "any",
   "background_color": "#0B2A21",
   "theme_color": "#006A4E",
-  "categories": ["travel", "navigation"],
+  "categories": [
+    "travel",
+    "navigation"
+  ],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Walking routes",
+      "short_name": "Routes",
+      "url": "./#routes",
+      "icons": [
+        {
+          "src": "icons/sc-routes.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Places near me",
+      "short_name": "Near me",
+      "url": "./#near",
+      "icons": [
+        {
+          "src": "icons/sc-near.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Festivals",
+      "short_name": "Festivals",
+      "url": "./#festivals",
+      "icons": [
+        {
+          "src": "icons/sc-festivals.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Before you go",
+      "short_name": "Tips",
+      "url": "./#tips",
+      "icons": [
+        {
+          "src": "icons/sc-tips.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "docs/screenshots/phone-start.jpg",
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "The 3D map of Old Dhaka"
+    },
+    {
+      "src": "docs/screenshots/phone-card.jpg",
+      "sizes": "390x664",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "A place card with hours, fees and what to order"
+    },
+    {
+      "src": "docs/screenshots/phone-festivals.jpg",
+      "sizes": "780x1688",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Festivals happening in Old Dhaka"
+    },
+    {
+      "src": "docs/screenshots/phone-tips.jpg",
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Practical tips before you go"
+    },
+    {
+      "src": "docs/screenshots/overview.jpg",
+      "sizes": "1440x900",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Old Dhaka in 3D on a laptop"
+    },
+    {
+      "src": "docs/screenshots/route.jpg",
+      "sizes": "1366x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "A one-day walking route"
+    }
   ]
 }
