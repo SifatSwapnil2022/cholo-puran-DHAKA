@@ -4625,6 +4625,78 @@
       "ashura": {
         "label": "Islamic.app: Day of Ashura 2027",
         "url": "https://islamic.app/hijri/day-of-ashura/2027"
+      },
+      "bdt27": {
+        "label": "Bangla Date Today: expected Bangladesh holidays 2027 (estimates until the gazette)",
+        "url": "https://www.bangladatetoday.com/blog/bangladesh-government-holidays-2027"
+      },
+      "bdtShab": {
+        "label": "Bangla Date Today: Shab-e-Barat 2027",
+        "url": "https://www.bangladatetoday.com/blog/shab-e-barat-shab-e-qadr-2027-dates"
+      },
+      "dsShab": {
+        "label": "The Daily Star: Shab-e-Barat and Old Dhaka foods (2015)",
+        "url": "https://www.thedailystar.net/lifestyle/shab-e-barat-and-old-dhaka-foods-90946"
+      },
+      "dtShab": {
+        "label": "Dhaka Tribune: Shab-e-Barat with traditional foods and lit graveyards (Feb 2026)",
+        "url": "https://www.dhakatribune.com/bangladesh/402489/muslims-observe-shab-e-barat-with-traditional"
+      },
+      "ajKasida": {
+        "label": "Al Jazeera: South Asia's dying traditions of waking the faithful (2021)",
+        "url": "https://www.aljazeera.com/news/2021/5/6/ramadan-south-asias-dying-traditions-on-waking-up-the-faithful"
+      },
+      "dsSehri": {
+        "label": "The Daily Star: Old vs new town, a sehri story (2019)",
+        "url": "https://www.thedailystar.net/city/news/old-vs-new-town-sehri-story-1748191"
+      },
+      "dsEid": {
+        "label": "The Daily Star: Historical glimpses of Eid processions in Dhaka (Mar 2026)",
+        "url": "https://www.thedailystar.net/slow-reads/focus/news/historical-glimpses-eid-processions-dhaka-4131826"
+      },
+      "tbsEid": {
+        "label": "TBS: Dhaka celebrates Eid with a Mughal-style procession (Mar 2025)",
+        "url": "https://www.tbsnews.net/node/1105556"
+      },
+      "feHal": {
+        "label": "The Financial Express: Old Dhaka traders begin Halkhata (2018)",
+        "url": "https://old.thefinancialexpress.com.bd/national/old-dhaka-traders-begin-halkhata-1523691504"
+      },
+      "dsHoli": {
+        "label": "The Daily Star: Holi at Shankhari Bazar (2015)",
+        "url": "https://www.thedailystar.net/shout/old-town-diaries/holi-shakhari-bazar-70726"
+      },
+      "paSaras": {
+        "label": "Prothom Alo: Saraswati Puja celebrated with religious fervour (2020)",
+        "url": "https://en.prothomalo.com/bangladesh/Saraswati-Puja-celebrated-with-religious-fervour"
+      },
+      "phVasant": {
+        "label": "PublicHolidays.in: Vasant Panchami 2027 and 2028",
+        "url": "https://publicholidays.in/vasant-panchami/"
+      },
+      "feKali": {
+        "label": "The Financial Express (BSS): Kali Puja in Old Dhaka (Nov 2023)",
+        "url": "https://thefinancialexpress.com.bd/national/gorgeous-kali-puja-celebration-in-old-dhaka-for-second-day"
+      },
+      "kali26": {
+        "label": "Ved Panchang: Kali Puja 2026",
+        "url": "https://vedpanchang.com/festivals/kali-puja-2026"
+      },
+      "kali27": {
+        "label": "Office Holidays: Kali Puja 2027",
+        "url": "https://www.officeholidays.com/holidays/india/odisha/kali-puja"
+      },
+      "holi27": {
+        "label": "Drik Panchang: Holi 2027",
+        "url": "https://www.drikpanchang.com/festivals/holi/festivals-holi-rangwali.html?year=2027"
+      },
+      "durga27": {
+        "label": "Drik Panchang: Durga Puja 2027 calendar",
+        "url": "https://www.drikpanchang.com/navratri/durga-puja/durga-puja-calendar.html?year=2027"
+      },
+      "rath27": {
+        "label": "Drik Panchang: Rath Yatra 2027",
+        "url": "https://www.drikpanchang.com/festivals/ratha-yatra/jagannatha-rathayatra-date-time.html?year=2027"
       }
     },
     "emergency": {
@@ -4640,9 +4712,7 @@
           "en": "Durga Puja",
           "bn": "দুর্গাপূজা"
         },
-        "from": "2026-10-16",
-        "to": "2026-10-21",
-        "when": "16–21 October 2026",
+        "when": "Five days in late September or October; 5–9 October in 2027",
         "what": "Dhaka's biggest Durga Puja is at Dhakeshwari, and Shankhari Bazar is lit up end to end. It ends with processions taking the idols to the river.",
         "tip": "Evenings are packed. Go in the late morning, keep your bag in front, and expect security checks at the temple gates.",
         "places": [
@@ -4651,8 +4721,22 @@
         ],
         "src": [
           "fcdoW",
-          "wikiDhak"
-        ]
+          "wikiDhak",
+          "durga27",
+          "bdt27"
+        ],
+        "dates": [
+          {
+            "from": "2026-10-16",
+            "to": "2026-10-21"
+          },
+          {
+            "from": "2027-10-05",
+            "to": "2027-10-09"
+          }
+        ],
+        "community": "hindu",
+        "mood": "festive"
       },
       {
         "id": "shakrain",
@@ -4660,8 +4744,6 @@
           "en": "Shakrain",
           "bn": "সাকরাইন"
         },
-        "from": "2027-01-14",
-        "to": "2027-01-14",
         "when": "14 January, the last day of Poush",
         "what": "Families fly and fight kites from the rooftops of Shankhari Bazar, Sutrapur, Gendaria, Narinda and Lakshmibazar, and make pitha at home. After dark it turns into fireworks, lanterns and loud music.",
         "tip": "The kites are on the roofs, not in the street. Go with a local friend or ask your guesthouse; a rooftop invitation is the whole point.",
@@ -4672,7 +4754,19 @@
         ],
         "src": [
           "dsSak"
-        ]
+        ],
+        "dates": [
+          {
+            "from": "2027-01-14",
+            "to": "2027-01-14"
+          },
+          {
+            "from": "2028-01-14",
+            "to": "2028-01-14"
+          }
+        ],
+        "community": "everyone",
+        "mood": "festive"
       },
       {
         "id": "ramadan",
@@ -4680,8 +4774,6 @@
           "en": "Ramadan",
           "bn": "রমজান"
         },
-        "from": "2027-02-09",
-        "to": "2027-03-10",
         "when": "Expected from 9 February 2027, about 30 days",
         "what": "The Chawkbazar iftar market fills the square every afternoon before sunset. Opening hours change across the city; Ahsan Manzil closes at 15:00. Eid ul-Fitr follows at the end of the month.",
         "tip": "Don't eat or drink openly in the street during the day. Reach Chawkbazar by 15:00; the crush peaks just before sunset.",
@@ -4692,7 +4784,16 @@
         "src": [
           "ram",
           "here"
-        ]
+        ],
+        "dates": [
+          {
+            "from": "2027-02-09",
+            "to": "2027-03-09"
+          }
+        ],
+        "moon": true,
+        "community": "muslim",
+        "mood": "devotional"
       },
       {
         "id": "ashura",
@@ -4700,9 +4801,7 @@
           "en": "Muharram and Ashura",
           "bn": "মহররম ও আশুরা"
         },
-        "from": "2027-06-14",
-        "to": "2027-06-14",
-        "when": "Ashura expected on 14 June 2027, set by the moon",
+        "when": "Ashura expected 14–16 June 2027, set by the moon",
         "what": "For the first ten days of Muharram, Hussaini Dalan is the centre of Old Dhaka's Shia mourning gatherings. On Ashura a procession leaves from here.",
         "tip": "This is mourning, not a festival. Watch quietly from the side, dress modestly and ask before taking photos.",
         "places": [
@@ -4710,8 +4809,18 @@
         ],
         "src": [
           "ashura",
+          "bdt27",
           "here"
-        ]
+        ],
+        "dates": [
+          {
+            "from": "2027-06-14",
+            "to": "2027-06-16"
+          }
+        ],
+        "moon": true,
+        "community": "muslim",
+        "mood": "mourning"
       },
       {
         "id": "rath-yatra",
@@ -4719,7 +4828,7 @@
           "en": "Rath Yatra",
           "bn": "রথযাত্রা"
         },
-        "when": "June or July, set by the Hindu calendar",
+        "when": "June or July; 5 July in 2027",
         "what": "Jagannath's chariot is pulled from the Swamibagh temple to Dhakeshwari.",
         "tip": "Check the date with the temple a few weeks before, and expect big crowds along the route.",
         "places": [
@@ -4727,8 +4836,17 @@
           "dhakeshwari-temple"
         ],
         "src": [
-          "wikiSwami"
-        ]
+          "wikiSwami",
+          "rath27"
+        ],
+        "dates": [
+          {
+            "from": "2027-07-05",
+            "to": "2027-07-05"
+          }
+        ],
+        "community": "hindu",
+        "mood": "festive"
       },
       {
         "id": "janmashtami",
@@ -4736,14 +4854,220 @@
           "en": "Janmashtami",
           "bn": "জন্মাষ্টমী"
         },
-        "when": "August or September, set by the Hindu calendar",
+        "when": "August or September; 25 August in 2027",
         "what": "Krishna's birthday. A procession starts at Dhakeshwari and winds through the streets of Old Dhaka. It was stopped in 1948 and has run again since 1989.",
         "tip": "The procession moves slowly through narrow lanes. Pick a spot on the route early rather than following it.",
         "places": [
           "dhakeshwari-temple"
         ],
         "src": [
-          "wikiDhak"
+          "wikiDhak",
+          "bdt27"
+        ],
+        "dates": [
+          {
+            "from": "2027-08-25",
+            "to": "2027-08-25"
+          }
+        ],
+        "community": "hindu",
+        "mood": "devotional"
+      },
+      {
+        "id": "kali-puja",
+        "name": {
+          "en": "Kali Puja and Diwali",
+          "bn": "কালীপূজা ও দীপাবলি"
+        },
+        "dates": [
+          {
+            "from": "2026-11-08",
+            "to": "2026-11-08"
+          },
+          {
+            "from": "2027-10-28",
+            "to": "2027-10-28"
+          }
+        ],
+        "when": "The new-moon night of Kartik; 8 November 2026",
+        "community": "hindu",
+        "mood": "festive",
+        "what": "Around a hundred pandals hang over the narrow lanes of Shankhari Bazar and Tanti Bazar, and you walk underneath them to see the goddess. Families light clay lamps at home, at temples and at crematoriums to remember their elders. The pandals stay up for five or six days before the immersion.",
+        "tip": "Go after dark for the lamps. The lanes are narrow and packed, so keep children close and your bag in front.",
+        "places": [
+          "shankhari-bazar",
+          "tanti-bazar"
+        ],
+        "src": [
+          "feKali",
+          "kali26",
+          "kali27"
+        ]
+      },
+      {
+        "id": "shab-e-barat",
+        "name": {
+          "en": "Shab-e-Barat",
+          "bn": "শবে বরাত"
+        },
+        "dates": [
+          {
+            "from": "2027-01-23",
+            "to": "2027-01-24"
+          }
+        ],
+        "moon": true,
+        "when": "The night of 14–15 Shaban; expected on the night of 23 January 2027",
+        "community": "muslim",
+        "mood": "devotional",
+        "what": "Old Dhaka's night of bread and halwa. After sunset the century-old roti and halua market reopens around the Chawkbazar Shahi Mosque, and bakeries in Bangshal pile huge breads and halwa across their floors. Families share food door to door, mosques stay full, and graveyards are lit for prayers for the dead.",
+        "tip": "Go after sunset; it gets busier as the night goes on. In 2026 bread sold for ৳250–300 a kilo and halwa for ৳250–350. Graveyards are for prayer, so keep your camera down there.",
+        "places": [
+          "chawk-shahi-mosque",
+          "chawkbazar-iftar"
+        ],
+        "src": [
+          "dsShab",
+          "dtShab",
+          "bdtShab"
+        ]
+      },
+      {
+        "id": "saraswati-puja",
+        "name": {
+          "en": "Saraswati Puja",
+          "bn": "সরস্বতী পূজা"
+        },
+        "dates": [
+          {
+            "from": "2027-02-11",
+            "to": "2027-02-11"
+          },
+          {
+            "from": "2028-01-31",
+            "to": "2028-01-31"
+          }
+        ],
+        "when": "Vasant Panchami, late January or February; 11 February 2027",
+        "community": "hindu",
+        "mood": "festive",
+        "what": "The goddess of learning, and above all a students' festival. In Old Dhaka the puja is held in Shankhari Bazar, Tanti Bazar and at Jagannath University, with pandals in schools, temples and lanes.",
+        "tip": "Mornings are for the puja itself; the afternoon is for walking between pandals. Take your shoes off at the altar and ask before photographing people praying.",
+        "places": [
+          "shankhari-bazar",
+          "tanti-bazar",
+          "jagannath-university"
+        ],
+        "src": [
+          "paSaras",
+          "phVasant"
+        ]
+      },
+      {
+        "id": "eid-ul-fitr",
+        "name": {
+          "en": "Eid ul-Fitr and the Eid procession",
+          "bn": "ঈদুল ফিতর ও ঈদ মিছিল"
+        },
+        "dates": [
+          {
+            "from": "2027-03-10",
+            "to": "2027-03-10"
+          }
+        ],
+        "moon": true,
+        "when": "The day after Ramadan ends; expected 10 March 2027",
+        "community": "muslim",
+        "mood": "festive",
+        "what": "Dhaka's Eid procession probably began with the Naib Nazims after they moved into Nimtali Palace in the 18th century: processions came from Churihatta, Bangshal and Nawabpur to the Eidgah. Alam Musawwir painted 39 scenes of Dhaka's Eid and Muharram processions, now in the National Museum. It was stopped in 1954, revived in 1994, and the city corporation has run a large procession since 2025.",
+        "tip": "Where the procession runs changes year to year (in 2025 it was in Agargaon, not Old Dhaka), so check the news the week before. Many shops and restaurants close for a few days around Eid.",
+        "places": [
+          "nimtali-deuri"
+        ],
+        "src": [
+          "dsEid",
+          "tbsEid",
+          "bdt27"
+        ]
+      },
+      {
+        "id": "kasida",
+        "name": {
+          "en": "Kasida at sehri",
+          "bn": "রমজানের কাসিদা"
+        },
+        "dates": [
+          {
+            "from": "2027-02-09",
+            "to": "2027-03-09"
+          }
+        ],
+        "moon": true,
+        "when": "Every night of Ramadan, from about 2 am",
+        "community": "muslim",
+        "mood": "devotional",
+        "what": "Volunteer groups walk the lanes singing qasida, mostly in Dhaka's own Urdu, to wake people for the pre-dawn meal. The tradition goes back to the Mughals and is fading, but a few groups still sing, including one in Lalbagh.",
+        "tip": "There is no schedule; you hear them rather than find them. Nazira Bazar stays open all night in Ramadan for sehri, so it makes a good base.",
+        "places": [
+          "nazira-bazar-food-street"
+        ],
+        "src": [
+          "ajKasida",
+          "dsSehri"
+        ]
+      },
+      {
+        "id": "holi",
+        "name": {
+          "en": "Holi (Dol Purnima)",
+          "bn": "দোলযাত্রা ও হোলি"
+        },
+        "dates": [
+          {
+            "from": "2027-03-22",
+            "to": "2027-03-22"
+          }
+        ],
+        "when": "The full moon of Falgun, in March; 22 March 2027",
+        "community": "everyone",
+        "mood": "festive",
+        "what": "Shankhari Bazar turns into a street party: powder colours, water guns, buckets from the balconies and loud music. It is Hindu in origin, but people of every faith join in and plenty come from outside Old Dhaka to take part.",
+        "tip": "Wear old clothes, rub oil on your skin and hair first so the colour washes off, and keep your phone in a zip bag. If you don't want to get coloured, don't go.",
+        "places": [
+          "shankhari-bazar"
+        ],
+        "src": [
+          "dsHoli",
+          "holi27"
+        ]
+      },
+      {
+        "id": "pohela-boishakh",
+        "name": {
+          "en": "Pohela Boishakh and Hal Khata",
+          "bn": "পহেলা বৈশাখ ও হালখাতা"
+        },
+        "dates": [
+          {
+            "from": "2027-04-14",
+            "to": "2027-04-14"
+          },
+          {
+            "from": "2028-04-14",
+            "to": "2028-04-14"
+          }
+        ],
+        "when": "14 April, the Bengali New Year",
+        "community": "everyone",
+        "mood": "festive",
+        "what": "Old Dhaka's traders clean and decorate their shops, open a new account book (hal khata) and invite customers in for sweets, a custom that goes back to the Mughals. You will see it in the old markets around Babu Bazar.",
+        "tip": "If a shopkeeper offers you sweets, accept: it's a welcome, not a sales pitch. Wear something red and white to fit in.",
+        "places": [
+          "islampur"
+        ],
+        "src": [
+          "feHal",
+          "bdt27"
         ]
       }
     ],

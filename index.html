@@ -385,7 +385,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .fcard.live{border:2px solid var(--tc);box-shadow:0 10px 28px -18px var(--tc)}
 .fdate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:76px;border-radius:14px;background:color-mix(in srgb,var(--tc) 12%,#fff);color:var(--tc);text-align:center;line-height:1}
 .fdate b{font-size:24px;font-weight:800;letter-spacing:-.02em}.fdate b svg{width:26px;height:26px}
-.fdate span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.fdate span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.fdate .to{font-size:10.5px;letter-spacing:0;text-transform:none;opacity:.85;margin-top:2px}
 .fcard h3,.ccard h3{margin:0 0 4px;font-size:19px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
 .fcard h3 small,.ccard h3 small{font-family:var(--f-bn);font-weight:500;font-size:15px;color:var(--ink-3);letter-spacing:0}
 .fwhen{margin:0 0 8px;font-size:14px;font-weight:600;color:var(--ink-2)}
@@ -413,6 +413,33 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .help{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:28px 0 8px;padding:20px 22px;border-radius:18px;background:var(--paper-2);border:1px solid var(--line)}
 .help h3{margin:0 0 4px;font-size:19px;font-weight:800;letter-spacing:-.01em}.help p{margin:0;color:var(--ink-2);max-width:56ch;font-size:15px}.hbtns{display:flex;gap:8px;flex-wrap:wrap}.report a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-3)}.report svg{width:15px;height:15px}
 @media (max-width:760px){.fgrid,.cgrid,.say{grid-template-columns:1fr}.fcard{grid-template-columns:62px 1fr;gap:12px;padding:14px}.fdate{height:66px}.fdate b{font-size:20px}}
+.yearstrip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin:0 0 12px}
+.yearstrip button{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:58px;padding:8px 2px 7px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;cursor:pointer}
+.yearstrip .mo{font-size:13px;font-weight:700;line-height:1;text-align:center}.yearstrip .mo small{display:block;font-size:10px;font-weight:600;color:var(--ink-3);margin-top:3px}
+.yearstrip .dots{display:flex;gap:3px;min-height:7px}.yearstrip .dots i{width:7px;height:7px;border-radius:50%}
+.yearstrip button.empty{background:transparent;color:var(--ink-3)}
+.yearstrip button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}.yearstrip button[aria-pressed="true"] small{color:rgba(255,255,255,.7)}
+.comfilter{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.comfilter button{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.comfilter button i{width:9px;height:9px;border-radius:50%;background:var(--cc)}
+.comfilter button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.comfilter .clearm{background:var(--paper-2)}
+.fempty{color:var(--ink-3);font-size:15px}
+.fbadges{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.fb{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:99px;background:var(--paper-2);font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.fb.com i{width:8px;height:8px;border-radius:50%;background:var(--cc)}
+.fb.mood-mourning{background:#2E2C4D;color:#fff}
+.fcard.mourn .fdate{background:#ECEAF3;color:#2E2C4D}
+.factions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}.factions .btn{min-height:40px;font-size:14px}
+.fnow .fmap{margin-left:auto;display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border-radius:99px;border:0;background:rgba(255,255,255,.22);color:#fff;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}.fnow .fmap svg{width:16px;height:16px}
+.chips .fchip{background:#E0263F;border-color:#E0263F;color:#fff;font-weight:700}
+.chips .fchip i{width:9px;height:9px;border-radius:50%;background:#fff;animation:livedot 1.6s ease-in-out infinite}
+.chips .fchip.on{background:var(--ink);border-color:var(--ink)}.chips .fchip.on i{background:#F5A300;animation:none}.chips .fchip b{margin-left:2px;opacity:.8}
+.mk.live .chip::after,.pin2.live::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2.5px solid #E0263F;animation:livering 1.8s ease-out infinite;pointer-events:none}
+@keyframes livering{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.55);opacity:0}}
+@keyframes livedot{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.mk.live .chip::after,.pin2.live::after,.chips .fchip i{animation:none}}
+@media (max-width:760px){.yearstrip{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .tsec{scroll-margin-top:16px}
 .tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
 .tsec h2 i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tc);color:#fff;flex:0 0 auto}
@@ -870,7 +897,10 @@ const T = {
     tipLabel: 'Tip', seeIt: 'Where to see it', buyIt: 'What to buy', sourcesPlace: 'Sources: see the place card.', listen: 'Listen', stopListen: 'Stop', owner: 'I run this place',
     helpT: 'Know a place that should be here?', helpP: "A tea stall, a sweet shop, an old house with a story. Tell us and we'll check it and add it. You need a free GitHub account to post.", helpSuggest: 'Suggest a place', helpOwner: 'I run a place', aHelp: 'Help keep it right', standard: 'Standard Bangla',
     checkedOn: 'Checked on site {d}', report: 'Report a mistake', festNote: 'Lunar dates move by a day or two with the moon. Check locally before you plan around one.',
-    fLede: 'What happens in Old Dhaka through the year, and how to be a good guest at each.', cLede: 'Old Dhaka still makes things by hand. Here is where to watch, and what is worth carrying home.'
+    fLede: 'What happens in Old Dhaka through the year, and how to be a good guest at each.',
+    com_all: 'All', com_everyone: 'Everyone', com_muslim: 'Muslim', com_hindu: 'Hindu', com_christian: 'Christian', com_sikh: 'Sikh', com_buddhist: 'Buddhist',
+    moodFestive: 'Festive', moodDevotional: 'Devotional', moodMourning: 'Mourning: watch quietly', moonNote: 'Set by the moon', until: 'to', showMap: 'Show on map', addCal: 'Add to calendar',
+    clearFest: 'Show all places again', allMonths: 'All months', nothingMonth: 'Nothing listed for this month yet.', byMonth: 'Filter by month', byCommunity: 'Filter by community', cLede: 'Old Dhaka still makes things by hand. Here is where to watch, and what is worth carrying home.'
   },
   bn: {
     map: 'ম্যাপ', guide: 'জায়গা', about: 'পরিচিতি', routes: 'পথ', tips: 'টিপস', search: 'জায়গা, খাবার বা মহল্লা খুঁজুন', searchLabel: 'জায়গা খুঁজুন',
@@ -904,7 +934,10 @@ const T = {
     tipLabel: 'পরামর্শ', seeIt: 'কোথায় দেখবেন', buyIt: 'কী কিনবেন', sourcesPlace: 'তথ্যসূত্র: জায়গার কার্ডে দেখুন।', listen: 'শুনুন', stopListen: 'থামুন', owner: 'এটি আমার দোকান',
     helpT: 'এখানে থাকা উচিত এমন জায়গা চেনেন?', helpP: 'চায়ের দোকান, মিষ্টির দোকান, গল্প আছে এমন পুরোনো বাড়ি। জানালে আমরা যাচাই করে যোগ করব। পোস্ট করতে একটি ফ্রি GitHub অ্যাকাউন্ট লাগবে।', helpSuggest: 'জায়গা প্রস্তাব করুন', helpOwner: 'আমার একটি দোকান আছে', aHelp: 'তথ্য ঠিক রাখতে সাহায্য করুন', standard: 'প্রমিত বাংলা',
     checkedOn: 'সরেজমিনে যাচাই {d}', report: 'ভুল জানান', festNote: 'চাঁদের হিসাবে তারিখ এক-দুই দিন এদিক-ওদিক হয়। পরিকল্পনার আগে স্থানীয়ভাবে জেনে নিন।',
-    fLede: 'সারা বছর পুরান ঢাকায় কী হয়, আর প্রতিটিতে ভালো অতিথি হবেন কীভাবে।', cLede: 'পুরান ঢাকায় এখনো হাতে জিনিস বানানো হয়। কোথায় দেখবেন, কী কিনে নেবেন।'
+    fLede: 'সারা বছর পুরান ঢাকায় কী হয়, আর প্রতিটিতে ভালো অতিথি হবেন কীভাবে।',
+    com_all: 'সব', com_everyone: 'সবার', com_muslim: 'মুসলিম', com_hindu: 'হিন্দু', com_christian: 'খ্রিস্টান', com_sikh: 'শিখ', com_buddhist: 'বৌদ্ধ',
+    moodFestive: 'উৎসব', moodDevotional: 'ধর্মীয়', moodMourning: 'শোক: নীরবে দেখুন', moonNote: 'চাঁদ দেখার ওপর নির্ভর', until: '–', showMap: 'ম্যাপে দেখুন', addCal: 'ক্যালেন্ডারে রাখুন',
+    clearFest: 'সব জায়গা আবার দেখুন', allMonths: 'সব মাস', nothingMonth: 'এই মাসে এখনো কিছু নেই।', byMonth: 'মাস অনুযায়ী', byCommunity: 'সম্প্রদায় অনুযায়ী', cLede: 'পুরান ঢাকায় এখনো হাতে জিনিস বানানো হয়। কোথায় দেখবেন, কী কিনে নেবেন।'
   }
 };
 const CATNAME = {
@@ -2286,8 +2319,14 @@ const pName = p => state.lang === 'bn' ? p.name.bn : p.name.en;
 function renderChips(boxId) {
   const box = $(boxId);
   const count = c => state.places.filter(p => p.categories.includes(c)).length;
-  box.innerHTML = (boxId === '#chips' ? `<button type="button" class="ochip" data-open aria-pressed="${state.f.open}">${t('fOpen')}</button>` : '') + CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
-  box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d(); });
+  const fsh = state.festShow && state.culture?.festivals.find(x => x.id === state.festShow.id);
+  const live = boxId === '#chips' && !fsh ? liveFests() : [];
+  box.innerHTML = (fsh ? `<button type="button" class="fchip on" data-unfest aria-label="${t('clearFest')}"><i></i><span>${esc(festName(fsh))}</span><b aria-hidden="true">✕</b></button>` : '')
+    + live.map(f => `<button type="button" class="fchip" data-fest="${f.id}"><i></i><span>${t('onNow')}: ${esc(festName(f))}</span></button>`).join('')
+    + (boxId === '#chips' ? `<button type="button" class="ochip" data-open aria-pressed="${state.f.open}">${t('fOpen')}</button>` : '') + CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
+  box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.festShow = null; state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d(); });
+  box.querySelectorAll('[data-fest]').forEach(b => b.onclick = () => showFestOnMap(b.dataset.fest));
+  const uf = box.querySelector('[data-unfest]'); if (uf) uf.onclick = clearFestShow;
   const oc = box.querySelector('[data-open]'); if (oc) oc.onclick = () => { state.f.open = !state.f.open; renderChips('#chips'); renderFilters(); renderGuide(); refresh2d(); };
 }
 function dhakaWeekday() { try { return new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Asia/Dhaka' }).format(new Date()); } catch { return ''; } }
@@ -2406,7 +2445,7 @@ function festNoteFor(p) {
   const fs = state.culture?.festivals; if (!fs) return '';
   const today = dhakaDate();
   for (const f of fs) {
-    if (!f.from || !(f.places || []).includes(p.slug)) continue;
+    if (!(f.places || []).includes(p.slug)) continue;
     const w = festWhen(f, today);
     if (w.now || (w.k === 1 && w.n <= 30)) return `<p class="fest">${uiIcon('cal')}<span><b>${esc(state.lang === 'bn' ? f.name.bn : f.name.en)}</b> · ${w.label} · ${esc(f.when)}${f.tip ? `. ${esc(f.tip)}` : ''}</span></p>`;
   }
@@ -2519,6 +2558,7 @@ function fareText(dStraight) {
 }
 function placeFilter(p) {
   const f = state.f;
+  if (state.festShow && !state.festShow.slugs.has(p.slug)) return false;
   if (state.filter && !p.categories.includes(state.filter)) return false;
   if (f.open && ost(p).s !== 'open') return false;
   if (f.budget && p.priceBand !== 1) return false;
@@ -2600,9 +2640,9 @@ async function ensure2d() {
   return true;
 }
 function pinIcon(p, n) {
-  const sel = state.selected === p.slug ? ' sel' : '', ap = p.pin === 'approx' ? ' approx' : '';
+  const sel = state.selected === p.slug ? ' sel' : '', ap = p.pin === 'approx' ? ' approx' : '', lv = state.liveSlugs?.has(p.slug) ? ' live' : '';
   const style = n ? `--c:${state.route.color}` : `--c:var(--c-${p.cat})`;
-  return L2.divIcon({ className: '', html: `<span class="pin2${sel}${ap}" style="${style}">${n ? `<b class="n">${num(n)}</b>` : svgIcon(p.cat, 2)}</span>`, iconSize: [30, 38], iconAnchor: [15, 38], tooltipAnchor: [16, -22] });
+  return L2.divIcon({ className: '', html: `<span class="pin2${sel}${ap}${lv}" style="${style}">${n ? `<b class="n">${num(n)}</b>` : svgIcon(p.cat, 2)}</span>`, iconSize: [30, 38], iconAnchor: [15, 38], tooltipAnchor: [16, -22] });
 }
 function refresh2d() {
   if (!map2) return;
@@ -2718,13 +2758,13 @@ function renderRoutes() {
 }
 /* Frame the whole route in the part of the screen the panel doesn't cover: project the stops with a
    test camera, then nudge the target and distance until they sit inside that area (perspective-correct). */
-function fitRoute(r) {
-  const pts = routeInfo(r).stops.map(s => new THREE.Vector3(s.p.x, 4, s.p.z));
-  const phone = matchMedia('(max-width:760px)').matches;
+function fitRoute(r) { fitPts(routeInfo(r).stops.map(s => new THREE.Vector3(s.p.x, 4, s.p.z))); }
+function fitPts(pts, opts = {}) {
+  const phone = matchMedia('(max-width:760px)').matches, drawer = opts.drawer !== false;
   const dir = new THREE.Vector3(0.16, 0.74, 0.66).normalize();
   const fwd = new THREE.Vector3(-dir.x, 0, -dir.z).normalize(), right = new THREE.Vector3(-fwd.z, 0, fwd.x);
   const rect = canvas.getBoundingClientRect(), W = rect.width, H = rect.height;
-  const areaW = phone ? W : W - Math.min(460, W * 0.45), areaH = phone ? H - 150 : H;
+  const areaW = phone || !drawer ? W : W - Math.min(460, W * 0.45), areaH = phone && drawer ? H - 150 : phone ? H - 70 : H;
   const padL = 40, padR = phone ? 92 : 150, padTop = 56, padBottom = 22;
   const sinP = dir.y;
   const cam = camera.clone(); cam.aspect = W / H; cam.updateProjectionMatrix();
@@ -2748,7 +2788,7 @@ function openRoute(id, opts = {}) {
   $('#welcome').hidden = true; store.set('cpd-welcome', '1');
   if (state.walk) stopWalk();
   showView('map');
-  state.route = r; state.filter = null; renderChips('#chips');
+  state.route = r; state.filter = null; state.festShow = null; renderChips('#chips');
   document.body.classList.add('inroute');
   const info = routeInfo(r); state.routeInfo = info;
   markerEls.forEach(e => { const i = info.stops.findIndex(s => s.slug === e.dataset.slug); e._ri = i >= 0 ? i + 1 : 0; e.classList.toggle('rt', i >= 0); e.classList.toggle('off', i < 0); e.style.setProperty('--rc', r.color); const n = e.querySelector('.n'); if (n) n.textContent = i >= 0 ? num(i + 1) : ''; });
@@ -2885,13 +2925,59 @@ const SEGS = [['practical', 'segPractical', 'tips', '#006A4E'], ['festivals', 's
 const FCOL = ['#E0263F', '#0E8FB0', '#E07F00', '#2E9A3E', '#6A3FD9', '#E5317A'];
 function dhakaDate() { try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date()); } catch { return new Date().toISOString().slice(0, 10); } }
 const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
+const COMM = { everyone: '#0E8FB0', muslim: '#0B7A57', hindu: '#E07F00', christian: '#6A3FD9', sikh: '#D98A00', buddhist: '#E5317A' };
+/* The occurrence that is on now or comes next; null when every listed date has passed. */
+function festOcc(f, today) { for (const o of f.dates || []) if (today <= o.to) return o; return null; }
 function festWhen(f, today) {
-  if (!f.from) return { k: 3, label: t('datesVary') };
-  if (today >= f.from && today <= f.to) return { k: 0, label: t('onNow'), now: true };
-  if (today > f.to) return { k: 4, label: '' };
-  const n = dayDiff(today, f.from);
-  return { k: 1, n, label: n === 0 ? t('today') : n === 1 ? t('tomorrow') : fill('inDays', { n: num(n) }) };
+  if (!f.dates) return { k: 3, label: t('datesVary') };
+  const o = festOcc(f, today); if (!o) return { k: 4, label: '' };
+  if (today >= o.from) return { k: 0, label: t('onNow'), now: true, o };
+  const n = dayDiff(today, o.from);
+  return { k: 1, n, o, label: n === 0 ? t('today') : n === 1 ? t('tomorrow') : fill('inDays', { n: num(n) }) };
 }
+const festName = f => state.lang === 'bn' ? f.name.bn : f.name.en;
+function liveFests() { const today = dhakaDate(); return (state.culture?.festivals || []).filter(f => festWhen(f, today).now); }
+/* Pins of places with a celebration on today get a pulsing ring. */
+function markLive() {
+  const live = new Set(liveFests().flatMap(f => f.places || []));
+  state.liveSlugs = live;
+  markerEls.forEach(e => e.classList.toggle('live', live.has(e.dataset.slug)));
+}
+const monthKey = iso => iso.slice(0, 7);
+function occMonths(o) { const out = []; let d = new Date(o.from.slice(0, 7) + '-01T12:00:00Z'); const last = monthKey(o.to); while (monthKey(d.toISOString()) <= last) { out.push(monthKey(d.toISOString())); d.setUTCMonth(d.getUTCMonth() + 1); } return out; }
+/* Calendar file for one occurrence, so a visitor can keep the date in their phone. */
+function icsFor(f, o) {
+  const ymd = x => x.replace(/-/g, '');
+  const end = new Date(Date.parse(o.to + 'T00:00:00Z') + 864e5).toISOString().slice(0, 10);
+  const tx = x => String(x).replace(/\\/g, '\\\\').replace(/[;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
+  const fold = l => { const out = []; while (l.length > 60) { out.push(l.slice(0, 60)); l = ' ' + l.slice(60); } out.push(l); return out.join('\r\n'); };
+  const where = (f.places || []).map(x => state.bySlug[x]?.name.en).filter(Boolean).join(', ');
+  const desc = f.what + (f.tip ? '\n\nTip: ' + f.tip : '') + (f.moon ? '\n\nThe date is set by the moon and may move by a day.' : '') + '\n\n' + location.href.split('#')[0] + '#festivals';
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cholo Puran Dhaka//Celebrations//EN', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+    `UID:${f.id}-${o.from}@cholo-puran-dhaka`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`,
+    `DTSTART;VALUE=DATE:${ymd(o.from)}`, `DTEND;VALUE=DATE:${ymd(end)}`, `SUMMARY:${tx(f.name.en + ' in Old Dhaka')}`,
+    `LOCATION:${tx((where ? where + ', ' : '') + 'Old Dhaka')}`, `DESCRIPTION:${tx(desc)}`, 'TRANSP:TRANSPARENT', 'END:VEVENT', 'END:VCALENDAR'].map(fold).join('\r\n') + '\r\n';
+}
+function downloadIcs(f) {
+  const o = festOcc(f, dhakaDate()); if (!o) return;
+  const url = URL.createObjectURL(new Blob([icsFor(f, o)], { type: 'text/calendar;charset=utf-8' }));
+  const a = document.createElement('a'); a.href = url; a.download = `${f.id}-${o.from.slice(0, 4)}.ics`; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+/* Show on map: only this celebration's places, framed on the 3D or street map. */
+function showFestOnMap(id) {
+  const f = state.culture.festivals.find(x => x.id === id); if (!f) return;
+  const ps = (f.places || []).map(x => state.bySlug[x]).filter(Boolean); if (!ps.length) return;
+  if (state.walk) stopWalk();
+  if (state.route) endRoute();
+  if ($('#drawer').classList.contains('open')) closeDrawer();
+  state.filter = null; state.festShow = { id, slugs: new Set(f.places) };
+  showView('map'); renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d();
+  if (ps.length === 1) { select(ps[0].slug); return; }
+  if (state.mode2d) fit2d(ps.map(q => [q.lat, q.lng]));
+  else if (state.ready) fitPts(ps.map(q => new THREE.Vector3(q.x, 4, q.z)), { drawer: false });
+}
+function clearFestShow() { state.festShow = null; renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d(); }
 const fmtDay = iso => { const d = new Date(iso + 'T12:00:00Z'); return { d: d.getUTCDate(), m: d.toLocaleString(state.lang === 'bn' ? 'bn-BD' : 'en-GB', { month: 'short', timeZone: 'UTC' }) }; };
 function srcLine(keys, fallback) {
   const S = state.tips?.sources || {};
@@ -2911,25 +2997,7 @@ function renderCulture() {
   $('#tseg').onkeydown = e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const ids = SEGS.map(x => x[0]); const i = (ids.indexOf(state.tipSeg || 'practical') + (e.key === 'ArrowRight' ? 1 : ids.length - 1)) % ids.length; setSeg(ids[i]); $(`#tseg [data-seg="${ids[i]}"]`).focus(); };
   setSeg(state.tipSeg || 'practical');
   if (!c) return;
-  const today = dhakaDate();
-  const fs = c.festivals.map((f, i) => ({ f, w: festWhen(f, today), col: FCOL[i % FCOL.length] })).filter(x => x.w.k !== 4).sort((a, b) => a.w.k - b.w.k || (a.w.n ?? 0) - (b.w.n ?? 0));
-  const now = fs.filter(x => x.w.now);
-  $('#tp-festivals').innerHTML = `<p class="lede">${t('fLede')}</p>
-    ${now.map(x => `<div class="fnow" style="--tc:${x.col}"><b>${t('onNow')}</b><span>${esc(L === 'bn' ? x.f.name.bn : x.f.name.en)} · ${esc(x.f.when)}</span></div>`).join('')}
-    <div class="fgrid">${fs.map(({ f, w, col }) => {
-      const a = f.from && fmtDay(f.from), b = f.to && f.to !== f.from && fmtDay(f.to);
-      const date = a ? `<b>${num(a.d)}${b ? `–${num(b.d)}` : ''}</b><span>${esc(a.m === (b && b.m) || !b ? a.m : a.m + '–' + b.m)}</span>` : `<b>${uiIcon('cal')}</b><span>${t('datesVary')}</span>`;
-      return `<article class="fcard${w.now ? ' live' : ''}" style="--tc:${col}">
-        <div class="fdate">${date}</div>
-        <div class="fbody">
-          <h3>${esc(f.name.en)} <small lang="bn">${esc(f.name.bn)}</small></h3>
-          <p class="fwhen">${esc(f.when)}${w.label && f.from ? ` <em>${w.label}</em>` : ''}</p>
-          <p>${esc(f.what)}</p>
-          ${f.tip ? `<p class="ftip"><b>${t('tipLabel')}:</b> ${esc(f.tip)}</p>` : ''}
-          <div class="pchips">${placeChips(f.places)}</div>
-          ${srcLine(f.src)}
-        </div></article>`; }).join('')}</div>
-    <p class="from" style="margin-top:14px">${t('festNote')}</p>`;
+  renderFestivals(); markLive();
   $('#tp-crafts').innerHTML = `<p class="lede">${t('cLede')}</p><div class="cgrid">${c.crafts.map((k, i) => `<article class="ccard" style="--tc:${FCOL[(i + 2) % FCOL.length]}">
       <h3>${esc(k.name.en)} <small lang="bn">${esc(k.name.bn)}</small></h3>
       <p>${esc(k.what)}</p>
@@ -2949,6 +3017,52 @@ function renderCulture() {
     if (voiceFor('bn-BD')) speak(x.kutti, 'bn-BD', hush); else speak(x.say.replace(/·/g, ','), 'en-IN', hush);
   });
   document.querySelectorAll('#tipsView .pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
+}
+
+function renderFestivals() {
+  const c = state.culture; if (!c) return;
+  const L = state.lang, today = dhakaDate(), com = state.festCom || 'all', mon = state.festMonth || null;
+  const all = c.festivals.map((f, i) => ({ f, w: festWhen(f, today), col: FCOL[i % FCOL.length] })).filter(x => x.w.k !== 4);
+  // Twelve months from this one, each with the celebrations that fall in it
+  const months = []; const d0 = new Date(today.slice(0, 7) + '-01T12:00:00Z');
+  for (let i = 0; i < 12; i++) { const d = new Date(d0); d.setUTCMonth(d0.getUTCMonth() + i); const k = monthKey(d.toISOString());
+    months.push({ k, label: d.toLocaleString(L === 'bn' ? 'bn-BD' : 'en-GB', { month: 'short', timeZone: 'UTC' }), yr: d.getUTCMonth() === 0 || i === 0 ? num(d.getUTCFullYear()) : '',
+      fs: all.filter(x => (x.f.dates || []).some(o => o.to >= today && occMonths(o).includes(k))) }); }
+  const inMonth = (x, k) => (x.f.dates || []).some(o => o.to >= today && occMonths(o).includes(k));
+  const fs = all.filter(x => (com === 'all' || x.f.community === com) && (!mon || inMonth(x, mon))).sort((a, b) => a.w.k - b.w.k || (a.w.n ?? 0) - (b.w.n ?? 0));
+  const coms = ['all', ...Object.keys(COMM).filter(k => c.festivals.some(f => f.community === k))];
+  const now = all.filter(x => x.w.now);
+  const MOOD = { festive: 'moodFestive', devotional: 'moodDevotional', mourning: 'moodMourning' };
+  $('#tp-festivals').innerHTML = `<p class="lede">${t('fLede')}</p>
+    ${now.map(x => `<div class="fnow" style="--tc:${x.col}"><b>${t('onNow')}</b><span>${esc(festName(x.f))} · ${esc(x.f.when)}</span><button class="fmap" data-map="${x.f.id}">${uiIcon('map')}${t('showMap')}</button></div>`).join('')}
+    <div class="yearstrip" role="group" aria-label="${t('byMonth')}">${months.map(m => `<button data-month="${m.k}" aria-pressed="${mon === m.k}"${m.fs.length ? '' : ' class="empty"'}><span class="mo">${esc(m.label)}${m.yr ? `<small>${m.yr}</small>` : ''}</span><span class="dots">${m.fs.slice(0, 4).map(x => `<i style="background:${x.col}"></i>`).join('')}</span></button>`).join('')}</div>
+    <div class="comfilter" role="group" aria-label="${t('byCommunity')}">${coms.map(k => `<button data-com="${k}" aria-pressed="${com === k}"${k !== 'all' ? ` style="--cc:${COMM[k]}"` : ''}>${k !== 'all' ? '<i></i>' : ''}${t('com_' + k)}</button>`).join('')}${mon ? `<button class="clearm" data-month="">${t('allMonths')} ✕</button>` : ''}</div>
+    ${fs.length ? '' : `<p class="fempty">${t('nothingMonth')}</p>`}
+    <div class="fgrid">${fs.map(({ f, w, col }) => {
+      const o = w.o, a = o && fmtDay(o.from), b = o && o.to !== o.from && fmtDay(o.to);
+      const date = !a ? `<b>${uiIcon('cal')}</b><span>${t('datesVary')}</span>`
+        : !b ? `<b>${num(a.d)}</b><span>${esc(a.m)}</span>`
+        : a.m === b.m ? `<b>${num(a.d)}–${num(b.d)}</b><span>${esc(a.m)}</span>`
+        : `<b>${num(a.d)}</b><span>${esc(a.m)}</span><span class="to">${t('until')} ${num(b.d)} ${esc(b.m)}</span>`;
+      return `<article class="fcard${w.now ? ' live' : ''}${f.mood === 'mourning' ? ' mourn' : ''}" style="--tc:${col}" id="fest-${f.id}">
+        <div class="fdate">${date}</div>
+        <div class="fbody">
+          <h3>${esc(f.name.en)} <small lang="bn">${esc(f.name.bn)}</small></h3>
+          <p class="fwhen">${esc(f.when)}${w.label && o ? ` <em>${w.label}</em>` : ''}</p>
+          <div class="fbadges"><span class="fb com" style="--cc:${COMM[f.community]}"><i></i>${t('com_' + f.community)}</span><span class="fb mood-${f.mood}">${t(MOOD[f.mood])}</span>${f.moon ? `<span class="fb">${t('moonNote')}</span>` : ''}</div>
+          <p>${esc(f.what)}</p>
+          ${f.tip ? `<p class="ftip"><b>${t('tipLabel')}:</b> ${esc(f.tip)}</p>` : ''}
+          <div class="pchips">${placeChips(f.places)}</div>
+          <div class="factions">${(f.places || []).length ? `<button class="btn" data-map="${f.id}">${uiIcon('map')}${t('showMap')}</button>` : ''}${o ? `<button class="btn" data-ics="${f.id}">${uiIcon('cal')}${t('addCal')}</button>` : ''}</div>
+          ${srcLine(f.src)}
+        </div></article>`; }).join('')}</div>
+    <p class="from" style="margin-top:14px">${t('festNote')}</p>`;
+  const P = $('#tp-festivals');
+  P.querySelectorAll('[data-month]').forEach(b => b.onclick = () => { const k = b.dataset.month; state.festMonth = !k || state.festMonth === k ? null : k; renderFestivals(); });
+  P.querySelectorAll('[data-com]').forEach(b => b.onclick = () => { state.festCom = b.dataset.com; renderFestivals(); });
+  P.querySelectorAll('[data-map]').forEach(b => b.onclick = () => showFestOnMap(b.dataset.map));
+  P.querySelectorAll('[data-ics]').forEach(b => b.onclick = () => downloadIcs(c.festivals.find(x => x.id === b.dataset.ics)));
+  P.querySelectorAll('.pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
 
 /* ================================================================
@@ -3074,7 +3188,7 @@ async function boot() {
     await buildLandmarks(); await nextFrame();
     await buildFacades(state.blds, state.bldRng); await nextFrame();
     buildTrees(); buildLife(); await nextFrame();
-    buildMarkers(); applyLang();
+    buildMarkers(); markLive(); applyLang();
     initWalkInput();
   } catch (e) {
     hideIntro(); console.error(e);

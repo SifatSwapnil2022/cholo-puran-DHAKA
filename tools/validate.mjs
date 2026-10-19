@@ -104,8 +104,20 @@ if (cul) {
   for (const f of cul.festivals || []) {
     const w = `festival ${f.id}`;
     if (!isStr(f.name?.en) || !isStr(f.name?.bn) || !isStr(f.when) || !isStr(f.what)) err(w, 'name.en, name.bn, when and what are required');
-    if ((f.from || f.to) && !(date(f.from) && date(f.to) && f.from <= f.to)) err(w, 'from and to must both be YYYY-MM-DD, from first');
-    if (f.to && f.to < (d.meta.updated || '')) warn(w, `date ${f.to} has passed; add next year's date`);
+    if (f.from || f.to) err(w, 'use dates: [{from, to}] instead of from/to');
+    if (f.dates !== undefined) {
+      if (!Array.isArray(f.dates) || !f.dates.length) err(w, 'dates must be a non-empty list');
+      let prev = '';
+      for (const x of f.dates || []) {
+        if (!(date(x.from) && date(x.to) && x.from <= x.to)) err(w, `dates entry needs from and to as YYYY-MM-DD, from first: ${JSON.stringify(x)}`);
+        else if (x.from <= prev) err(w, 'dates must be in order'); else prev = x.to;
+      }
+      const last = (f.dates || []).at(-1)?.to;
+      if (last && last < (d.meta.updated || '')) warn(w, `every date has passed (last ${last}); add the next one`);
+    }
+    if (!['everyone', 'muslim', 'hindu', 'christian', 'sikh', 'buddhist'].includes(f.community)) err(w, 'community must be everyone, muslim, hindu, christian, sikh or buddhist');
+    if (!['festive', 'devotional', 'mourning'].includes(f.mood)) err(w, 'mood must be festive, devotional or mourning');
+    if (f.moon !== undefined && typeof f.moon !== 'boolean') err(w, 'moon must be true or false');
     for (const s of f.places || []) if (!slugs.has(s)) err(w, `place "${s}" does not exist`);
     if (!f.src?.length) err(w, 'needs at least one source');
     for (const k of f.src || []) if (!src(k)) err(w, `unknown source key "${k}"`);
