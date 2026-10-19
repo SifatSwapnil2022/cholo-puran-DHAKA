@@ -391,6 +391,35 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .welcome .x{position:absolute;right:10px;top:10px;width:36px;height:36px;border-radius:50%;border:0;background:var(--paper-2);display:grid;place-items:center;cursor:pointer}
 .welcome .x svg{width:18px;height:18px}
 
+/* ---------- open-now pills, filters, near me ---------- */
+.ostat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;line-height:1.4;white-space:nowrap}
+.ostat::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:0 0 auto}
+.ostat.open{background:color-mix(in srgb,#2E9A3E 14%,var(--paper));color:color-mix(in srgb,#2E9A3E 70%,var(--ink))}
+.ostat.closed{background:color-mix(in srgb,var(--red) 11%,var(--paper));color:var(--red-ink)}
+.ostat.unknown{background:var(--paper-2);color:var(--ink-3)}
+.orow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.orow small{color:var(--ink-3);font-size:12.5px}
+.fbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.fbar button{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-weight:600;font-size:14px;cursor:pointer}
+.fbar button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.empty{padding:24px 4px;color:var(--ink-2)}
+.chips .ochip{gap:7px;padding:0 12px}
+.chips .ochip::before{content:"";width:9px;height:9px;border-radius:50%;background:#2E9A3E;box-shadow:0 0 0 3px color-mix(in srgb,#2E9A3E 25%,transparent)}
+.chips .ochip[aria-pressed="true"]{background:#2E9A3E;color:#fff;border-color:#2E9A3E}
+.chips .ochip[aria-pressed="true"]::before{background:#fff}
+.grow .ord{display:block;font-size:13px;color:var(--ink-2);margin-top:4px}
+.grow .ostat{margin-top:6px}
+.dishes small{display:block;font-family:var(--f-bn);color:var(--ink-3);font-size:13px}
+.nlist{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.nlist button{width:100%;display:flex;gap:10px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:10px;cursor:pointer}
+.nlist i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;flex:0 0 auto}
+.nlist i svg{width:18px;height:18px}
+.nlist b{display:block;font-size:15px;line-height:1.3}
+.nlist small{display:block;color:var(--ink-2);font-size:13px;margin:2px 0 6px}
+.me{position:absolute;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#1A73E8;box-shadow:0 0 0 3px #fff,0 0 0 10px rgba(26,115,232,.25);pointer-events:none;z-index:3}
+#nearBtn.busy svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 /* ---------- phone tab bar ---------- */
 .tabbar{display:none}
 
@@ -515,6 +544,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 
     <div class="tools" id="tools">
       <span class="legend"><span class="dot"></span><span data-i="legendHidden">lesser-known place</span></span>
+      <button class="tool" id="nearBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/></svg><span class="t" data-i="nearMe">Near me</span></button>
       <button class="tool" id="planBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span class="t" data-i="plan">Top-down</span></button>
       <button class="tool primary" id="walkBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4.5" r="1.8"/><path d="M10 21l2.2-6.2 2.6 2.4V21M8 11.5l3.4-3 3.1.8 2 3M11.4 8.5l-1 5"/></svg><span class="t" data-i="walkHere2">Walk the lanes</span></button>
     </div>
@@ -568,6 +598,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
     <div class="wrap">
       <h1 id="gTitle"><span data-i="gTitle">39 places worth the trip</span><span class="bn">পুরান ঢাকা ও বুড়িগঙ্গার ওপার</span></h1>
       <p class="lede" data-i="gLede">Heritage sites, food, markets and quiet corners, with what each costs, when it is closed and the best hour to go. Lesser-known places are marked so you can go beyond the usual three.</p>
+      <div class="fbar" id="fbar" role="group" aria-label="Filters"></div>
       <div class="gtools">
         <div class="chips" id="gchips" role="toolbar" aria-label="Filter by category"></div>
         <label class="sr" for="sort" data-i="sortLabel">Sort</label>
@@ -738,6 +769,12 @@ const T = {
     showDriver: 'Show driver', driverHint: 'Show this to your rickshaw or CNG driver', takeMe: 'Please take me here.', fareQ: 'How much will the fare be?', walkOnlyDrop: "Vehicles can't get in. Please drop me at the nearest road.", nearTo: 'Near', oldDhaka: 'Old Dhaka', done: 'Done',
     startRoute: 'Start this route', showRoute: 'Show on map', endRoute: 'End route', firstStop: 'Go to stop 1', stopsN: 'stops', stopOf: 'Stop {a} of {b}', routeLabel: 'Route', open: 'Open',
     walkLeg: '{m} min walk to the next stop', rideLeg: 'About {m} min by rickshaw to the next stop ({d} km)', bestDays: 'Best days', anyDay: 'Any day; check hours locally', swipeUp: 'Swipe up for the stops',
+    openNow: 'Open now', closedNow: 'Closed now', hoursUnknown: 'Hours not published', untilT: 'until {t}', allDay: 'open 24 hours', opensT: 'opens {d}{t}', tomorrow: 'tomorrow ',
+    regularHours: 'Regular hours; public holidays may differ.', order: 'What to order', priceNote: 'Prices from {y} sources; expect them to be higher now.',
+    fareRick: 'rickshaw about ৳{a}–{b}', fareCng: 'CNG about ৳{a} by the meter', fareBasis: 'Fares are estimates from distance: rickshaw ৳15–20 per km, at least ৳20; CNG at the official rate. Agree the fare before you get in.', untilMidnight: 'until midnight',
+    nearMe: 'Near me', nearTitle: 'Near you', locDenied: 'Location is turned off for this site. Allow location in your browser settings, or search for a place instead.', locFailed: "Couldn't get your location. Check that location is on and try again.",
+    locFar: 'You are about {k} km from Old Dhaka. Near me works once you are there; until then, here is how to get there.', refreshLoc: 'Update my location', accuracy: 'Accurate to about {m} m', nearDist: '{m} m · {w} min walk', fromYou: 'From your location: {f}',
+    fOpen: 'Open now', fBudget: 'Budget ৳', fFamily: 'Good for families', fHidden: 'Lesser-known', fWash: 'Has a washroom', noMatch: 'Nothing matches all of these filters. Turn one off to see more.', orderShort: 'Order: {x}',
     closedTodayAt: 'Closed today', walkKm: 'km on foot', sosText: 'Emergency: police, fire or ambulance. After dialling, press 2 for English.', call: 'Call 999', from: 'Sources:', jump: 'Jump to'
   },
   bn: {
@@ -760,6 +797,12 @@ const T = {
     showDriver: 'চালককে দেখান', driverHint: 'রিকশা বা সিএনজি চালককে দেখান', takeMe: 'দয়া করে আমাকে এখানে নিয়ে যান।', fareQ: 'ভাড়া কত হবে?', walkOnlyDrop: 'গাড়ি ভেতরে যায় না। কাছের রাস্তায় নামিয়ে দিন।', nearTo: 'কাছেই', oldDhaka: 'পুরান ঢাকা', done: 'ঠিক আছে',
     startRoute: 'এই পথে চলুন', showRoute: 'ম্যাপে দেখুন', endRoute: 'পথ শেষ করুন', firstStop: 'প্রথম জায়গায় যান', stopsN: 'জায়গা', stopOf: '{b}টির মধ্যে {a} নম্বর', routeLabel: 'পথ', open: 'দেখুন',
     walkLeg: 'পরের জায়গা হেঁটে {m} মিনিট', rideLeg: 'পরের জায়গা রিকশায় প্রায় {m} মিনিট ({d} কিমি)', bestDays: 'ভালো দিন', anyDay: 'যেকোনো দিন; সময় জেনে যান', swipeUp: 'জায়গাগুলো দেখতে ওপরে টানুন',
+    openNow: 'এখন খোলা', closedNow: 'এখন বন্ধ', hoursUnknown: 'খোলার সময় জানা নেই', untilT: '{t} পর্যন্ত', allDay: '২৪ ঘণ্টা খোলা', opensT: 'খুলবে {d}{t}', tomorrow: 'আগামীকাল ',
+    regularHours: 'নিয়মিত সময়; সরকারি ছুটিতে বদলাতে পারে।', order: 'কী খাবেন', priceNote: '{y} সালের সূত্র থেকে দাম; এখন বেশি হতে পারে।',
+    fareRick: 'রিকশা প্রায় ৳{a}–{b}', fareCng: 'সিএনজি মিটারে প্রায় ৳{a}', fareBasis: 'দূরত্ব ধরে আনুমানিক ভাড়া: রিকশা কিমি প্রতি ৳১৫–২০, কমপক্ষে ৳২০; সিএনজি সরকারি হারে। ওঠার আগে ভাড়া ঠিক করে নিন।', untilMidnight: 'মাঝরাত পর্যন্ত',
+    nearMe: 'আমার কাছে', nearTitle: 'আপনার কাছাকাছি', locDenied: 'এই সাইটের জন্য লোকেশন বন্ধ। ব্রাউজারের সেটিংসে লোকেশন চালু করুন, অথবা জায়গার নাম লিখে খুঁজুন।', locFailed: 'লোকেশন পাওয়া যায়নি। লোকেশন চালু আছে কি না দেখে আবার চেষ্টা করুন।',
+    locFar: 'আপনি পুরান ঢাকা থেকে প্রায় {k} কিমি দূরে। সেখানে পৌঁছালে "আমার কাছে" কাজ করবে; ততক্ষণ যাওয়ার উপায় দেখুন।', refreshLoc: 'লোকেশন আবার নিন', accuracy: 'প্রায় {m} মিটার নির্ভুল', nearDist: '{m} মিটার · হেঁটে {w} মিনিট', fromYou: 'আপনার জায়গা থেকে: {f}',
+    fOpen: 'এখন খোলা', fBudget: 'কম খরচ ৳', fFamily: 'পরিবারের জন্য', fHidden: 'কম-চেনা', fWash: 'ওয়াশরুম আছে', noMatch: 'সব ফিল্টার মেলে এমন কিছু নেই। একটা ফিল্টার বন্ধ করে দেখুন।', orderShort: 'অর্ডার: {x}',
     closedTodayAt: 'আজ বন্ধ', walkKm: 'কিমি হাঁটা', sosText: 'জরুরি: পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স।', call: '৯৯৯-এ ফোন করুন', from: 'তথ্যসূত্র:', jump: 'বিষয়'
   }
 };
@@ -796,7 +839,10 @@ const BEST = {
   'chawkbazar-iftar': [[14, 18]], 'banglabazar-books': [[11, 17]], 'beauty-boarding': [[12.5, 16]], 'cafe-corner': [[10, 12], [16, 19]],
   'haji-biryani': [[11, 13], [19, 23.5]], 'nanna-biryani': [[11, 14], [19, 22.5]], 'beauty-lassi': [[10, 18]], 'nirob-hotel': [[12, 15]],
   'bismillah-kabab': [[19.5, 23.5]], 'al-razzaque': [[12.5, 15], [19.5, 22.5]], 'makhon-biryani': [[9, 13]], 'shah-sahib-biryani': [[6.5, 9]],
-  'manik-chan-pulao': [[3, 5]], 'agamasi-bakarkhani': [[6.5, 9.5], [17, 20]], 'shakrain': [[14, 21]], 'jinjira-palace': [[9, 12], [15, 17]]
+  'manik-chan-pulao': [[3, 5]], 'agamasi-bakarkhani': [[6.5, 9.5], [17, 20]], 'shakrain': [[14, 21]], 'jinjira-palace': [[9, 12], [15, 17]],
+  'alauddin-sweetmeat': [[10, 20]], 'maa-shahi-nihari': [[7, 8.5]], 'peshwarain': [[18, 22]], 'pannu-khan-tea': [[16, 23.5]], 'bukhari-restaurant': [[19, 23]],
+  'nazira-bazar-food-street': [[19.5, 23.5]], 'medina-mishtanna': [[7, 10]], 'kartalab-khan-mosque': [[9, 11.5]], 'st-thomas-church': [[10, 16]], 'nimtali-deuri': [[10, 15]],
+  'haturia-house': [[10, 15]], 'sutrapur-zamindar-bari': [[15.5, 17.5]], 'mangalabash': [[15.5, 17.5]], 'sadhana-aushadhalaya': [[9, 11]], 'simanta-pathagar': [[16, 19]]
 };
 
 /* Footprint radius (m) kept clear of generated houses, and spawn distance for walking. */
@@ -805,7 +851,7 @@ const FOOT = { palace: 95, fort: 160, 'mosque-star': 22, mosque: 20, church: 40,
   'shop-boarding': 13, 'shop-bakery': 6, festival: 0, 'ruin-palace': 34 };
 
 const state = { places: [], bySlug: {}, lang: store.get('cpd-lang') === 'bn' ? 'bn' : 'en', filter: null, selected: null, view: 'map', hour: 16.5,
-  walk: null, plan: false, low: false, tween: null, ready: false };
+  walk: null, plan: false, low: false, tween: null, ready: false, f: { open: false, budget: false, family: false, hidden: false, washroom: false }, openCache: {}, me: null };
 
 /* ================================================================
    Data
@@ -1915,6 +1961,7 @@ const MAHALLA = [
 const markerEls = [], mahEls = [];
 function buildMarkers() {
   const box = $('#markers'); box.innerHTML = '';
+  meEl = document.createElement('div'); meEl.className = 'me'; meEl.style.display = 'none'; box.appendChild(meEl);
   for (const [n, la, ln] of MAHALLA) { const e = document.createElement('div'); e.className = 'mah'; e.textContent = n; const [x, z] = W(la, ln); e._p = new THREE.Vector3(x, 30, z); box.appendChild(e); mahEls.push(e); }
   for (const p of state.places) {
     const b = document.createElement('button'); b.className = 'mk'; b.type = 'button'; b.dataset.slug = p.slug;
@@ -1932,7 +1979,7 @@ function updateMarkers() {
   const camD = camera.position.distanceTo(controls.target);
   const walking = !!state.walk;
   for (const e of markerEls) {
-    const p = e._place; const show = !state.filter || p.categories.includes(state.filter);
+    const p = e._place; const show = placeFilter(p);
     _v3.copy(e._p).project(camera);
     const d = camera.position.distanceTo(e._p);
     const vis = _v3.z < 1 && Math.abs(_v3.x) < 1.15 && Math.abs(_v3.y) < 1.2 && (!walking || d < 420) && d < 6500;
@@ -1961,6 +2008,11 @@ function updateMarkers() {
     e.classList.toggle('labels', lab);
   }
   const showMah = !walking && camD > 650;
+  if (meEl) {
+    const on = state.me && !state.me.far && !walking;
+    if (on) { _v3.set(state.me.x, 2, state.me.z).project(camera); if (_v3.z < 1) { meEl.style.display = ''; meEl.style.transform = `translate(${(_v3.x * 0.5 + 0.5) * w}px, ${(-_v3.y * 0.5 + 0.5) * h}px)`; } else meEl.style.display = 'none'; }
+    else meEl.style.display = 'none';
+  }
   for (const e of mahEls) {
     if (!showMah) { e.style.display = 'none'; continue; }
     _v3.copy(e._p).project(camera);
@@ -2131,8 +2183,9 @@ const pName = p => state.lang === 'bn' ? p.name.bn : p.name.en;
 function renderChips(boxId) {
   const box = $(boxId);
   const count = c => state.places.filter(p => p.categories.includes(c)).length;
-  box.innerHTML = CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
-  box.querySelectorAll('button').forEach(b => b.onclick = () => { state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); });
+  box.innerHTML = (boxId === '#chips' ? `<button type="button" class="ochip" data-open aria-pressed="${state.f.open}">${t('fOpen')}</button>` : '') + CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
+  box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); });
+  const oc = box.querySelector('[data-open]'); if (oc) oc.onclick = () => { state.f.open = !state.f.open; renderChips('#chips'); renderFilters(); renderGuide(); };
 }
 function dhakaWeekday() { try { return new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Asia/Dhaka' }).format(new Date()); } catch { return ''; } }
 function minutes(a, b) {
@@ -2185,6 +2238,7 @@ function openDrawer(p) {
       <div class="meta">${p.categories.map(c => `<span class="cat" style="--cc:var(--c-${c})"><i></i>${CATNAME[L][c]}</span>`).join('')}<span>${esc(p.mahalla)}</span></div>
     </div>
     <p class="tagline">${esc(p.tagline)}</p>
+    <div class="orow">${ostatHtml(p)}${p.open ? `<small>${t('regularHours')}</small>` : ''}</div>
     <p class="status">${uiIcon('info')}<span>${t('researched')}</span></p>
     ${closedToday ? `<p class="warn"><b>${t('closedToday')}</b> <span>(${esc(today)})</span></p>` : ''}
     ${p.pin !== 'source' ? `<p class="warn soft">${t('approx')}</p>` : ''}
@@ -2196,6 +2250,7 @@ function openDrawer(p) {
       <button class="btn" id="dCopy">${uiIcon('link')}<span>${navigator.share && matchMedia('(pointer:coarse)').matches ? t('share') : t('copy')}</span></button>
     </div>
     <div class="sec"><h3>${t('why')}</h3><p>${esc(p.whyGo)}</p></div>
+    ${p.dishes ? `<div class="sec"><h3>${t('order')}${p.priceBand ? ` <span style="font-weight:700;color:var(--ink-3)">${'৳'.repeat(p.priceBand)}</span>` : ''}</h3><table class="fees dishes">${p.dishes.map(x => `<tr><td>${esc(x.en)}<small lang="bn">${esc(x.bn)}</small></td><td>${x.price ? esc(x.price) : ''}</td></tr>`).join('')}</table>${p.priceYear && p.dishes.some(x => x.price) ? `<p class="status" style="margin-top:6px">${fill('priceNote', { y: num(p.priceYear) })}</p>` : ''}</div>` : ''}
     <div class="sec"><h3>${t('glance')}</h3>
       <dl class="facts">
         <div><dt>${t('spend')}</dt><dd>${minutes(p.spend[0], p.spend[1])}</dd></div>
@@ -2257,16 +2312,114 @@ function renderNow() {
   $('#nowList').innerHTML = list.map(p => `<li><button data-slug="${p.slug}" style="--c:var(--c-${p.cat})"><b></b>${esc(pName(p))}</button></li>`).join('');
   $('#nowList').querySelectorAll('button').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
+/* ================================================================
+   Opening hours in Dhaka time, fare estimates, near me
+   ================================================================ */
+const ORDER = ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri'];
+function dhakaNow() {
+  try {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', weekday: 'short', month: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date()).map(x => [x.type, x.value]));
+    return { day: parts.weekday.toLowerCase().slice(0, 3), min: (+parts.hour % 24) * 60 + +parts.minute, month: +parts.month };
+  } catch { const n = new Date(); return { day: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][n.getDay()], min: n.getHours() * 60 + n.getMinutes(), month: n.getMonth() + 1 }; }
+}
+const inMonths = (m, month) => { if (!m) return true; const [a, b] = m.split('-').map(Number); return a <= b ? month >= a && month <= b : month >= a || month <= b; };
+const hm = x => { const [h, m] = x.split(':').map(Number); return h * 60 + m; };
+function openState(p, now = dhakaNow()) {
+  if (!p.open || !p.open.some(o => inMonths(o.m, now.month))) return { s: 'unknown' };
+  const spans = day => p.open.filter(o => inMonths(o.m, now.month) && o.d.split(',').includes(day)).map(o => o.t.split('-').map(hm)).sort((a, b) => a[0] - b[0]);
+  const today = spans(now.day);
+  const cur = today.find(([a, b]) => now.min >= a && now.min < b);
+  if (cur) return { s: 'open', until: cur[1] >= 1440 ? null : cur[1], allDay: cur[0] === 0 && cur[1] >= 1440 };
+  const later = today.find(([a]) => a > now.min);
+  if (later) return { s: 'closed', next: later[0], inDays: 0 };
+  const i = ORDER.indexOf(now.day);
+  for (let k = 1; k <= 7; k++) { const d = ORDER[(i + k) % 7]; const sp = spans(d); if (sp.length) return { s: 'closed', next: sp[0][0], inDays: k, day: d }; }
+  return { s: 'closed' };
+}
+function openLabel(st) {
+  if (st.s === 'unknown') return t('hoursUnknown');
+  if (st.s === 'open') return t('openNow') + ' · ' + (st.allDay ? t('allDay') : st.until != null ? fill('untilT', { t: fmtClock(st.until) }) : t('untilMidnight'));
+  if (st.next == null) return t('closedNow');
+  const d = st.inDays === 0 ? '' : st.inDays === 1 ? t('tomorrow') : DAYSHORT[state.lang][ORDER.indexOf(st.day)] + ' ';
+  return t('closedNow') + ' · ' + fill('opensT', { d, t: fmtClock(st.next) });
+}
+function refreshOpen() {
+  const now = dhakaNow(); state.openCache = {};
+  for (const p of state.places) state.openCache[p.slug] = openState(p, now);
+}
+const ost = p => state.openCache[p.slug] || openState(p);
+const ostatHtml = p => { const st = ost(p); return st.s === 'unknown' ? '' : `<span class="ostat ${st.s}">${openLabel(st)}</span>`; };
+/* Rickshaw ৳15–20 per km of road (road ≈ 1.4 × straight line), at least ৳20 (Dhaka University's campus chart starts
+   short trips at ৳20); CNG official ৳40 for 2 km + ৳12 per km. Under 0.8 km, walk. */
+function fareText(dStraight) {
+  const kmRoad = dStraight * 1.4 / 1000;
+  if (kmRoad < 0.8) return '';
+  const r10 = v => Math.ceil(v / 10) * 10;
+  const lo = Math.max(20, Math.floor(kmRoad * 15 / 10) * 10), hi = Math.max(lo + 10, r10(kmRoad * 20));
+  let out = fill('fareRick', { a: num(lo), b: num(hi) });
+  if (kmRoad > 2) out += ' · ' + fill('fareCng', { a: num(r10(40 + 12 * (kmRoad - 2))) });
+  return out;
+}
+function placeFilter(p) {
+  const f = state.f;
+  if (state.filter && !p.categories.includes(state.filter)) return false;
+  if (f.open && ost(p).s !== 'open') return false;
+  if (f.budget && p.priceBand !== 1) return false;
+  if (f.family && !p.goodFor.some(g => g === 'family-elders' || g === 'kids')) return false;
+  if (f.hidden && p.underrated < 4) return false;
+  if (f.washroom && !p.access.washroom) return false;
+  return true;
+}
+function renderFilters() {
+  const keys = [['open', 'fOpen'], ['budget', 'fBudget'], ['family', 'fFamily'], ['hidden', 'fHidden'], ['washroom', 'fWash']];
+  $('#fbar').innerHTML = keys.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${state.f[k]}">${t(l)}</button>`).join('');
+  $('#fbar').querySelectorAll('[data-f]').forEach(b => b.onclick = () => { state.f[b.dataset.f] = !state.f[b.dataset.f]; renderFilters(); renderChips('#chips'); renderGuide(); });
+}
+let meEl = null;
+function locateMe() {
+  if (!navigator.geolocation) { showNear({ err: 'failed' }); return; }
+  $('#nearBtn').classList.add('busy');
+  navigator.geolocation.getCurrentPosition(pos => {
+    $('#nearBtn').classList.remove('busy');
+    const [x, z] = W(pos.coords.latitude, pos.coords.longitude);
+    const far = Math.hypot(x - HOME.target.x, z - HOME.target.z);
+    state.me = { x, z, acc: pos.coords.accuracy, far: far > 3500 ? far : 0 };
+    showNear();
+    if (!state.me.far && state.ready) flyTo(new THREE.Vector3(x + 110, 480, z + 560), new THREE.Vector3(x, 0, z), 1.4);
+  }, e => { $('#nearBtn').classList.remove('busy'); showNear({ err: e.code === 1 ? 'denied' : 'failed' }); }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+}
+function showNear(o = {}) {
+  if (state.route) endRoute();
+  if (state.view !== 'map') showView('map');
+  if (!$('#welcome').hidden) closeWelcome();
+  state.drawerMode = 'near'; state.nearErr = o.err || null; state.selected = null; markerEls.forEach(e => e.classList.remove('sel'));
+  let body = '';
+  if (o.err) body = `<p class="rnote">${t(o.err === 'denied' ? 'locDenied' : 'locFailed')}</p>`;
+  else if (state.me.far) body = `<p class="rnote">${fill('locFar', { k: km(state.me.far / 1000) })}</p><div class="ractions"><button class="btn big" id="nTips">${uiIcon('tips')}${t('readTips')}</button></div>`;
+  else {
+    const list = state.places.map(p => ({ p, d: Math.hypot(p.x - state.me.x, p.z - state.me.z) })).sort((a, b) => a.d - b.d).slice(0, 10);
+    body = `<ul class="nlist">${list.map(({ p, d }) => { const f = fareText(d); return `<li><button data-slug="${p.slug}" style="--c:var(--c-${p.cat})"><i>${svgIcon(p.cat, 2)}</i><span><b>${esc(pName(p))}</b><small>${fill('nearDist', { m: num(Math.round(d * 1.3 / 10) * 10), w: num(Math.max(1, Math.ceil(d * 1.3 / 75))) })}${f ? ' · ' + f : ''}</small>${ostatHtml(p)}</span></button></li>`; }).join('')}</ul><p class="status" style="margin-top:12px">${t('fareBasis')}</p>`;
+  }
+  $('#drawerBody').style.cssText = '--c:#0E8FB0;--rc:#0E8FB0;--rink:#FFFFFF';
+  $('#drawerBody').innerHTML = `<div class="rpanel rtrim"><span class="bn" lang="bn">আমার কাছে</span><h2 id="dTitle">${t('nearTitle')}</h2>${state.me && !o.err && !state.me.far ? `<div class="stats"><span>${fill('accuracy', { m: num(Math.round(state.me.acc)) })}</span></div>` : ''}</div>${body}<div class="ractions"><button class="btn" id="nRefresh">${uiIcon('dir')}${t('refreshLoc')}</button></div>`;
+  const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek', 'inroute'); dr.setAttribute('aria-hidden', 'false'); dr.setAttribute('aria-labelledby', 'dTitle');
+  $('#drawerBody').scrollTop = 0;
+  $('#drawerBody').querySelectorAll('.nlist [data-slug]').forEach(b => b.onclick = () => select(b.dataset.slug));
+  $('#nRefresh').onclick = locateMe;
+  if ($('#nTips')) $('#nTips').onclick = () => { closeDrawer(); showView('tips'); };
+  enterLayer('#near');
+}
 function renderGuide() {
   const sort = $('#sort').value;
-  let list = state.places.filter(p => !state.filter || p.categories.includes(state.filter));
+  let list = state.places.filter(placeFilter);
   if (sort === 'hidden') list.sort((a, b) => b.underrated - a.underrated || a.name.en.localeCompare(b.name.en));
   else if (sort === 'name') list.sort((a, b) => pName(a).localeCompare(pName(b), state.lang));
   else list.sort((a, b) => a.mahalla.localeCompare(b.mahalla) || a.name.en.localeCompare(b.name.en));
   $('#glist').innerHTML = list.map(p => `<li><button class="grow" data-slug="${p.slug}">
-    <span><span class="nm">${esc(p.name.en)}<span class="bn">${esc(p.name.bn)}</span></span><span class="tg" style="display:block">${esc(p.tagline)}</span><span class="mahh">${esc(p.mahalla)}</span></span>
+    <span><span class="nm">${esc(p.name.en)}<span class="bn">${esc(p.name.bn)}</span></span><span class="tg" style="display:block">${esc(p.tagline)}</span>${p.dishes ? `<span class="ord">${fill('orderShort', { x: p.dishes.slice(0, 2).map(x => esc(state.lang === 'bn' ? x.bn : x.en)).join(', ') })}${p.priceBand ? ' · ' + '৳'.repeat(p.priceBand) : ''}</span>` : ''}<span class="mahh" style="--c:var(--c-${p.cat})">${esc(p.mahalla)}</span>${ostatHtml(p)}</span>
     <span class="cats">${p.categories.map(c => `<span style="--c:var(--c-${c})"><i></i>${CATNAME[state.lang][c]}</span>`).join('')}</span>
     <span class="rt"><b>${KNOWN[state.lang][p.underrated]}</b>${minutes(p.spend[0], p.spend[1])}</span></button></li>`).join('');
+  if (!list.length) $('#glist').innerHTML = `<li class="empty">${t('noMatch')}</li>`;
   $('#glist').querySelectorAll('.grow').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
 /* ================================================================
@@ -2386,7 +2539,7 @@ function showRouteList() {
         ${shut ? `<p class="warn">${t('closedToday')}</p>` : ''}
         <p>${esc(s.tip)}</p>
         <div class="acts"><button class="btn" data-open="${s.slug}">${t('open')}</button><button class="btn" data-drv="${s.slug}">${uiIcon('rickshaw')}${t('showDriver')}</button><button class="btn" data-walk="${s.slug}">${uiIcon('walk')}${t('walk')}</button></div>
-        ${s.d ? `<div class="leg">${uiIcon(s.ride ? 'rickshaw' : 'steps')}${s.ride ? fill('rideLeg', { m: num(s.mins), d: km(s.d * 1.4 / 1000) }) : fill('walkLeg', { m: num(s.mins) })}</div>` : ''}</li>`;
+        ${s.d ? `<div class="leg">${uiIcon(s.ride ? 'rickshaw' : 'steps')}${s.ride ? fill('rideLeg', { m: num(s.mins), d: km(s.d * 1.4 / 1000) }) + (fareText(s.d) ? ' · ' + fareText(s.d) : '') : fill('walkLeg', { m: num(s.mins) })}</div>` : ''}</li>`;
     }).join('')}</ol>`;
   const dr = $('#drawer'); dr.classList.add('open', 'inroute'); dr.setAttribute('aria-hidden', 'false'); dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
@@ -2422,7 +2575,8 @@ function drawRoute() {
 const MAH_BN = { 'Kumartoli': 'কুমারটুলি', 'Lalbagh': 'লালবাগ', 'Armanitola': 'আরমানিটোলা', 'Bakshibazar': 'বকশীবাজার', 'Chawkbazar': 'চকবাজার', 'Narinda': 'নারিন্দা',
   'Farashganj': 'ফরাশগঞ্জ', 'Tikatuli': 'টিকাটুলি', 'Laxmibazar': 'লক্ষ্মীবাজার', 'Banglabazar': 'বাংলাবাজার', 'Wari': 'ওয়ারী', 'Sadarghat': 'সদরঘাট', 'Shankhari Bazar': 'শাঁখারীবাজার',
   'Tanti Bazar': 'তাঁতীবাজার', 'Islampur': 'ইসলামপুর', 'Nazira Bazar': 'নাজিরাবাজার', 'Becharam Dewri': 'বেচারাম দেউড়ি', 'Johnson Road': 'জনসন রোড', 'Nazimuddin Road': 'নাজিমুদ্দিন রোড',
-  'Bangshal': 'বংশাল', 'Raisaheb Bazar': 'রায়সাহেব বাজার', 'Dighubabu Lane': 'দিগুবাবু লেন', 'Agamasi Lane': 'আগামসি লেন', 'Sutrapur & Gendaria': 'সূত্রাপুর ও গেন্ডারিয়া', 'Keraniganj': 'কেরানীগঞ্জ' };
+  'Bangshal': 'বংশাল', 'Raisaheb Bazar': 'রায়সাহেব বাজার', 'Dighubabu Lane': 'দিগুবাবু লেন', 'Agamasi Lane': 'আগামসি লেন', 'Sutrapur & Gendaria': 'সূত্রাপুর ও গেন্ডারিয়া', 'Keraniganj': 'কেরানীগঞ্জ',
+  'Begum Bazar': 'বেগম বাজার', 'Nimtali': 'নিমতলী', 'Sutrapur': 'সূত্রাপুর', 'Shyambazar': 'শ্যামবাজার', 'Gendaria': 'গেন্ডারিয়া' };
 const ANCHORS = ['ahsan-manzil', 'lalbagh-fort', 'sadarghat', 'bahadur-shah-park', 'chawk-shahi-mosque', 'dhakeshwari-temple', 'hussaini-dalan', 'tara-masjid', 'haji-biryani', 'islampur'];
 let wakeLock = null, drvPushed = false;
 function showDriver(p) {
@@ -2434,7 +2588,7 @@ function showDriver(p) {
   const d = $('#driver');
   d.style.setProperty('--c', `var(--c-${p.cat})`);
   d.innerHTML = `<div class="band"></div>
-    <p class="hint2">${t('driverHint')}</p>
+    <p class="hint2">${t('driverHint')}${state.me && !state.me.far && fareText(Math.hypot(p.x - state.me.x, p.z - state.me.z)) ? `<br><span style="font-weight:500">${fill('fromYou', { f: fareText(Math.hypot(p.x - state.me.x, p.z - state.me.z)) })}</span>` : ''}</p>
     <h1 class="dname" id="drvName" lang="bn">${esc(p.name.bn)}</h1>
     ${g(`${esc(MAH_BN[p.mahalla] || p.mahalla)}, পুরান ঢাকা`, `${esc(p.mahalla)}, Old Dhaka`)}
     ${near ? g(`কাছেই ${esc(near.name.bn)}`, `Near ${esc(near.name.en)}`) : ''}
@@ -2493,7 +2647,7 @@ function initSearch() {
   const norm = s => s.toLowerCase().normalize('NFKD');
   const run = () => {
     const v = norm(q.value.trim()); if (!v) { res.hidden = true; q.setAttribute('aria-expanded', 'false'); return; }
-    items = state.places.filter(p => [p.name.en, p.name.bn, p.mahalla, p.tagline, ...p.categories.map(c => CATNAME.en[c] + ' ' + CATNAME.bn[c])].some(s => norm(s).includes(v))).slice(0, 8);
+    items = state.places.filter(p => [p.name.en, p.name.bn, p.mahalla, p.tagline, ...p.categories.map(c => CATNAME.en[c] + ' ' + CATNAME.bn[c]), ...(p.dishes || []).flatMap(x => [x.en, x.bn])].some(s => norm(s).includes(v))).slice(0, 8);
     on = -1;
     res.innerHTML = items.length ? items.map((p, i) => `<li role="option"><button data-i="${i}" style="--c:var(--c-${p.cat})"><span class="chip" style="display:grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--c);color:#fff">${svgIcon(p.cat, 2)}</span><span><b>${esc(pName(p))}</b><small>${esc(p.mahalla)} · ${esc(p.tagline)}</small></span></button></li>`).join('') : `<li style="padding:10px;color:var(--ink-3)">${t('noResults')}</li>`;
     res.hidden = false; q.setAttribute('aria-expanded', 'true');
@@ -2518,8 +2672,9 @@ function applyLang() {
   markerEls.forEach(e => { const p = e._place; e.querySelector('.lbl').innerHTML = state.lang === 'bn' ? `${esc(p.name.bn)}` : `${esc(p.name.en)}<i>${esc(p.name.bn)}</i>`; });
   renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow();
   if (scene) $('#hourOut').textContent = fmtHour(state.hour);
-  renderRoutes(); renderTips(); if (!$('#welcome').hidden) renderWelcome();
-  if (state.drawerMode === 'route' && state.route) showRouteList();
+  renderRoutes(); renderTips(); renderFilters(); if (!$('#welcome').hidden) renderWelcome();
+  if (state.drawerMode === 'near') showNear(state.nearErr ? { err: state.nearErr } : {});
+  else if (state.drawerMode === 'route' && state.route) showRouteList();
   else if (state.selected) openDrawer(state.bySlug[state.selected]);
 }
 const VIEWS = ['map', 'routes', 'tips', 'guide', 'about'];
@@ -2579,7 +2734,8 @@ async function boot() {
   applyStaticUI();
   try { await loadData(); }
   catch (e) { hideIntro(); $('#markers').innerHTML = `<div class="nogl panel" style="margin:40px auto;max-width:420px;position:relative;inset:auto">The place data could not load (${esc(e.message)}). Reload the page to try again.</div>`; return; }
-  renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderTips(); applyLang();
+  refreshOpen(); setInterval(() => { refreshOpen(); if (state.view === 'guide') renderGuide(); }, 60000);
+  renderFilters(); renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderTips(); applyLang();
   try { initRenderer(); }
   catch (e) {
     hideIntro();
@@ -2619,6 +2775,7 @@ async function boot() {
   loop();
   runIntro(start);
   window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets };
+  window.__T = { openState, openLabel, fareText, placeFilter };
 }
 /* Phone bottom sheet: drag the handle or the coloured header down to shrink or close, up to expand */
 function initSheetSwipe() {
@@ -2651,6 +2808,7 @@ function applyStaticUI() {
   $('#skipIntro').onclick = hideIntro;
   $('#lang').onclick = () => { state.lang = state.lang === 'en' ? 'bn' : 'en'; store.set('cpd-lang', state.lang); applyLang(); };
   document.querySelectorAll('[data-v]').forEach(b => b.onclick = () => showView(b.dataset.v));
+  $('#nearBtn').onclick = locateMe;
   $('#tabbar').querySelectorAll('[data-v]').forEach(b => { b.querySelector('i').innerHTML = uiIcon({ map: 'map', routes: 'route', tips: 'tips', guide: 'places', about: 'about' }[b.dataset.v]); });
   $('#wClose').onclick = closeWelcome; $('#wExplore').onclick = closeWelcome; $('#wTips').onclick = () => { closeWelcome(); showView('tips'); };
   addEventListener('keydown', e => { if (e.key === 'Escape') { if (!$('#driver').hidden) hideDriver(); else if (!$('#welcome').hidden) closeWelcome(); } });

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Cholo Puran Dhaka — places dataset",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "researched": "2026-10-12",
     "fieldChecked": false,
     "origin": {
@@ -14,7 +14,8 @@
       "pin: 'source' means the coordinate came from a published source (mostly Wikipedia). pin: 'approx' means it was placed by street or neighbourhood and must be confirmed standing at the entrance.",
       "quiet and peak times are estimates from sources and general patterns, not observations.",
       "Fees and hours change. Every card should show the research date until a field check replaces it."
-    ]
+    ],
+    "updated": "2026-10-19"
   },
   "places": [
     {
@@ -101,7 +102,30 @@
           "label": "Nijhoom Tours: Ahsan Manzil",
           "url": "https://nijhoom.com/ahsan-manzil/"
         }
-      ]
+      ],
+      "open": [
+        {
+          "m": "10-3",
+          "d": "sat,sun,mon,tue,wed",
+          "t": "09:30-16:30"
+        },
+        {
+          "m": "10-3",
+          "d": "fri",
+          "t": "14:30-19:30"
+        },
+        {
+          "m": "4-9",
+          "d": "sat,sun,mon,tue,wed",
+          "t": "10:30-17:30"
+        },
+        {
+          "m": "4-9",
+          "d": "fri",
+          "t": "15:00-19:30"
+        }
+      ],
+      "checked": null
     },
     {
       "slug": "lalbagh-fort",
@@ -167,7 +191,30 @@
           "label": "TripTourBD: visiting hours",
           "url": "https://triptourbd.com/?p=14426"
         }
-      ]
+      ],
+      "open": [
+        {
+          "m": "10-3",
+          "d": "sat,tue,wed,thu",
+          "t": "09:00-17:00"
+        },
+        {
+          "m": "10-3",
+          "d": "mon",
+          "t": "13:30-17:00"
+        },
+        {
+          "m": "10-3",
+          "d": "fri",
+          "t": "09:00-12:00"
+        },
+        {
+          "m": "10-3",
+          "d": "fri",
+          "t": "14:00-17:00"
+        }
+      ],
+      "checked": null
     },
     {
       "slug": "tara-masjid",
@@ -224,7 +271,8 @@
           "label": "Wikipedia: Star Mosque",
           "url": "https://en.wikipedia.org/wiki/Star_Mosque"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "armenian-church",
@@ -281,7 +329,8 @@
           "label": "Wikipedia: Armenian Church, Dhaka",
           "url": "https://en.wikipedia.org/wiki/Armenian_Church,_Dhaka"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "dhakeshwari-temple",
@@ -339,7 +388,8 @@
           "label": "Wikipedia: Dhakeshwari Temple",
           "url": "https://en.wikipedia.org/wiki/Dhakeshwari_Temple"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "hussaini-dalan",
@@ -396,7 +446,8 @@
           "label": "Wikipedia: Hussaini Dalan",
           "url": "https://en.wikipedia.org/wiki/Hussaini_Dalan"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "bara-katra",
@@ -452,7 +503,8 @@
           "label": "Wikipedia: Bara Katra",
           "url": "https://en.wikipedia.org/wiki/Bara_Katra"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "choto-katra",
@@ -507,7 +559,8 @@
           "label": "Wikipedia: Choto Katra",
           "url": "https://en.wikipedia.org/wiki/Choto_Katra"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "khan-mohammad-mridha-mosque",
@@ -563,7 +616,8 @@
           "label": "Wikipedia: Khan Mohammad Mridha Mosque",
           "url": "https://en.wikipedia.org/wiki/Khan_Mohammad_Mridha_Mosque"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "binat-bibi-mosque",
@@ -618,7 +672,8 @@
           "label": "Wikipedia: Binat Bibi Mosque",
           "url": "https://en.wikipedia.org/wiki/Binat_Bibi_Mosque"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "northbrook-hall",
@@ -679,7 +734,8 @@
           "label": "Dhaka Tribune, 9 May 2026",
           "url": "https://www.dhakatribune.com/bangladesh/409749/historic-lalkuthi-set-to-reopen-after-major"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "ruplal-house",
@@ -736,7 +792,8 @@
           "label": "Wikipedia: Ruplal House",
           "url": "https://en.wikipedia.org/wiki/Ruplal_House"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "rose-garden-palace",
@@ -792,7 +849,8 @@
           "label": "Wikipedia: Rose Garden Palace",
           "url": "https://en.wikipedia.org/wiki/Rose_Garden_Palace"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "bahadur-shah-park",
@@ -849,7 +907,8 @@
           "label": "Wikipedia: Bahadur Shah Park",
           "url": "https://en.wikipedia.org/wiki/Bahadur_Shah_Park"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "pogose-school",
@@ -903,7 +962,8 @@
           "label": "Wikipedia: Pogose School",
           "url": "https://en.wikipedia.org/wiki/Pogose_School"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "gurdwara-sangat-tola",
@@ -959,7 +1019,8 @@
           "label": "Wikipedia: Gurdwara Sangat Tola",
           "url": "https://en.wikipedia.org/wiki/Gurdwara_Sangat_Tola"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "chawk-shahi-mosque",
@@ -1015,7 +1076,8 @@
           "label": "Wikipedia: Chowk Bazaar",
           "url": "https://en.wikipedia.org/wiki/Chowk_Bazaar"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "baldha-garden",
@@ -1072,7 +1134,8 @@
           "label": "Wikipedia: Baldha Garden",
           "url": "https://en.wikipedia.org/wiki/Baldha_Garden"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "narinda-christian-cemetery",
@@ -1127,7 +1190,8 @@
         {
           "label": "Listed for field research; no verified source yet"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "sadarghat",
@@ -1203,7 +1267,8 @@
           "label": "Away with the Steiners: Dhaka to Barisal by launch",
           "url": "https://awaywiththesteiners.com/launch-boat-dhaka-to-barisal-bangladesh/"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "buriganga-boat-ride",
@@ -1259,7 +1324,8 @@
           "label": "Nijhoom Tours: Sadarghat",
           "url": "https://nijhoom.com/sadarghat-port-dhaka/"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "shankhari-bazar",
@@ -1322,7 +1388,8 @@
           "label": "The Daily Star: Shankhari Bazar at Durga Puja",
           "url": "https://www.thedailystar.net/life-living/news/shankhari-bazar-the-street-transforms-durga-puja-3710471"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "tanti-bazar",
@@ -1378,7 +1445,8 @@
           "label": "The Financial Express: Shakrain 2026",
           "url": "https://thefinancialexpress.com.bd/lifestyle/culture/transition-of-shakrain-old-dhakas-festival-in-2026"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "islampur",
@@ -1432,7 +1500,8 @@
           "label": "Nijhoom Tours: Old Dhaka",
           "url": "https://nijhoom.com/old-dhaka/"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "chawkbazar-iftar",
@@ -1494,6 +1563,25 @@
           "label": "Asia News Network: Is Dhakaiya food worth the hype?",
           "url": "https://asianews.network/?p=131071"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Shahi jilapi",
+          "bn": "শাহী জিলাপি"
+        },
+        {
+          "en": "Keema paratha",
+          "bn": "কিমা পরোটা"
+        },
+        {
+          "en": "Koel roast (quail)",
+          "bn": "কোয়েল রোস্ট"
+        },
+        {
+          "en": "Boro baper polay khay",
+          "bn": "বড় বাপের পোলায় খায়"
+        }
       ]
     },
     {
@@ -1549,7 +1637,8 @@
           "label": "The Daily Star: Banglabazar, all things book",
           "url": "https://www.thedailystar.net/weekend-read/news/banglabazar-all-things-book-3529221"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "beauty-boarding",
@@ -1611,6 +1700,13 @@
           "label": "Moha-Mushkil: best food in Puran Dhaka",
           "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Plain Bengali lunch (rice, dal, curry)",
+          "bn": "ভাত, ডাল, তরকারি"
+        }
       ]
     },
     {
@@ -1665,6 +1761,17 @@
         {
           "label": "Moha-Mushkil: best food in Puran Dhaka",
           "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Mutton crumb chop",
+          "bn": "মাটন ক্রাম্ব চপ"
+        },
+        {
+          "en": "Milk tea",
+          "bn": "দুধ চা"
         }
       ]
     },
@@ -1725,6 +1832,24 @@
           "label": "S M Shahinul Islam: Biryani scene of Dhaka",
           "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
         }
+      ],
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "11:00-24:00",
+          "note": "per one source"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Goat (chevon) biryani",
+          "bn": "খাসির বিরিয়ানি"
+        },
+        {
+          "en": "Borhani",
+          "bn": "বোরহানি"
+        }
       ]
     },
     {
@@ -1783,6 +1908,36 @@
         {
           "label": "Daily Observer, 28 Feb 2026",
           "url": "https://www.observerbd.com/news/567860"
+        }
+      ],
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "11:00-23:00",
+          "note": "per one source"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Morog polao (chicken pulao)",
+          "bn": "মোরগ পোলাও"
+        },
+        {
+          "en": "Biryani",
+          "bn": "বিরিয়ানি"
+        },
+        {
+          "en": "Rezala",
+          "bn": "রেজালা"
+        },
+        {
+          "en": "Firni",
+          "bn": "ফিরনি"
+        },
+        {
+          "en": "Borhani",
+          "bn": "বোরহানি"
         }
       ]
     },
@@ -1845,6 +2000,21 @@
           "label": "Moha-Mushkil: best food in Puran Dhaka",
           "url": "https://moha-mushkil.com/best-food-puran-dhaka/"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Lebu sherbet (lemon)",
+          "bn": "লেবুর শরবত"
+        },
+        {
+          "en": "Lassi",
+          "bn": "লাচ্ছি"
+        },
+        {
+          "en": "Falooda",
+          "bn": "ফালুদা"
+        }
       ]
     },
     {
@@ -1904,6 +2074,21 @@
           "label": "Daily Observer, 28 Feb 2026",
           "url": "https://www.observerbd.com/news/567860"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Bhortas (mashed sides)",
+          "bn": "ভর্তা"
+        },
+        {
+          "en": "Ilish (hilsa)",
+          "bn": "ইলিশ"
+        },
+        {
+          "en": "Shutki (dried fish)",
+          "bn": "শুটকি"
+        }
       ]
     },
     {
@@ -1957,6 +2142,17 @@
         {
           "label": "Daily Observer, 28 Feb 2026",
           "url": "https://www.observerbd.com/news/567860"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Mutton chaap",
+          "bn": "খাসির চাপ"
+        },
+        {
+          "en": "Beef gurda (kidney) kebab",
+          "bn": "গরুর গুর্দা কাবাব"
         }
       ]
     },
@@ -2013,6 +2209,21 @@
           "label": "Daily Observer, 28 Feb 2026",
           "url": "https://www.observerbd.com/news/567860"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Kacchi biryani",
+          "bn": "কাচ্চি বিরিয়ানি"
+        },
+        {
+          "en": "Morog polao",
+          "bn": "মোরগ পোলাও"
+        },
+        {
+          "en": "Mutton glassy",
+          "bn": "খাসির গ্লাসি"
+        }
       ]
     },
     {
@@ -2067,6 +2278,20 @@
         {
           "label": "S M Shahinul Islam: Biryani scene of Dhaka",
           "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ],
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "09:00-16:00",
+          "note": "per one source"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Nolli (bone-marrow) biryani",
+          "bn": "নলি বিরিয়ানি"
         }
       ]
     },
@@ -2123,6 +2348,17 @@
           "label": "S M Shahinul Islam: Biryani scene of Dhaka",
           "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
         }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Morning biryani",
+          "bn": "বিরিয়ানি"
+        },
+        {
+          "en": "Chicken pulao (Mon and Wed)",
+          "bn": "মোরগ পোলাও"
+        }
       ]
     },
     {
@@ -2176,6 +2412,13 @@
         {
           "label": "S M Shahinul Islam: Biryani scene of Dhaka",
           "url": "https://smshahinulislam.substack.com/p/biryani-scene-of-dhaka-part-two"
+        }
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Night pulao (by token)",
+          "bn": "পোলাও"
         }
       ]
     },
@@ -2233,8 +2476,26 @@
         {
           "label": "TBS: Still in love with Bakarkhani",
           "url": "https://www.tbsnews.net/feature/food/still-love-bakarkhani"
+        },
+        {
+          "label": "BSS: Bakarkhani still reigns as Old Dhaka's timeless delight (May 2026)",
+          "url": "https://www.bssnews.net/special-stories/387442"
         }
-      ]
+      ],
+      "checked": null,
+      "dishes": [
+        {
+          "en": "Cheese or sesame bakarkhani",
+          "bn": "পনির / তিল বাকরখানি",
+          "price": "about ৳300 a kg"
+        },
+        {
+          "en": "Sweet or salty bakarkhani",
+          "bn": "মিষ্টি / নোনতা বাকরখানি",
+          "price": "cheaper"
+        }
+      ],
+      "priceYear": 2026
     },
     {
       "slug": "shakrain",
@@ -2289,7 +2550,8 @@
           "label": "The Financial Express: Shakrain 2026",
           "url": "https://thefinancialexpress.com.bd/lifestyle/culture/transition-of-shakrain-old-dhakas-festival-in-2026"
         }
-      ]
+      ],
+      "checked": null
     },
     {
       "slug": "jinjira-palace",
@@ -2345,7 +2607,998 @@
           "label": "Wikipedia: Jinjira Palace",
           "url": "https://en.wikipedia.org/wiki/Jinjira_Palace"
         }
+      ],
+      "checked": null
+    },
+    {
+      "quiet": [
+        "Mid-morning"
+      ],
+      "peak": [
+        "Before Eid",
+        "Ramadan evenings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "underrated": 2,
+      "pin": "approx",
+      "checked": null,
+      "slug": "alauddin-sweetmeat",
+      "name": {
+        "en": "Alauddin Sweetmeat",
+        "bn": "আলাউদ্দিন সুইটমিট"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "heritage"
+      ],
+      "mahalla": "Chawkbazar",
+      "lat": 23.71485,
+      "lng": 90.39575,
+      "tagline": "Dhaka's sweet shop since 1864",
+      "whyGo": "The original Chawkbazar shop of a sweetmaker family from Lucknow. Small, with a hand-run counter and a few seats. Come for shar malai, irani bhog and malai bhog, or pick up a box of mixed sweets to share.",
+      "history": "Alauddin Halwai came from Lucknow and opened in Chawkbazar in the 1860s. A Daily Star look back at old Dacca's eateries places 'Alauddin Haluwai' beside Chawkbazar's old hotels, selling puri, jilapi and halwa. The firm now has several outlets, but Chawkbazar is the oldest.",
+      "hours": "Not published.",
+      "spend": [
+        10,
+        25
+      ],
+      "priceBand": 2,
+      "priceYear": 2019,
+      "dishes": [
+        {
+          "en": "Assorted sweet box (Jamdani, Special, Variety)",
+          "bn": "মিষ্টির বাক্স",
+          "price": "৳240–500"
+        },
+        {
+          "en": "Shar malai, irani bhog, malai bhog",
+          "bn": "সর মালাই, ইরানি ভোগ, মালাই ভোগ",
+          "price": "৳500–650 a kg"
+        },
+        {
+          "en": "Laccha shemai (Eid special)",
+          "bn": "লাচ্ছা সেমাই"
+        }
+      ],
+      "photo": {
+        "tips": "The old counter and the trays of sweets behind the glass.",
+        "inside": "Ask first; it is a working shop"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "In the Chawkbazar lanes; there are several branches, so look for the Chawkbazar one."
+      },
+      "sources": [
+        {
+          "label": "The Business Standard: Alauddin Sweets, a story that began in 1864 (Dec 2020)",
+          "url": "https://www.tbsnews.net/feature/panorama/alauddin-sweets-story-began-1864-178363"
+        },
+        {
+          "label": "The Business Standard: Guilty pleasures of Alauddin Sweetmeat (Nov 2019)",
+          "url": "https://www.tbsnews.net/feature/food/guilty-pleasures-alauddin-sweetmeat"
+        },
+        {
+          "label": "The Daily Star: Eateries of Dacca (Aug 2013)",
+          "url": "https://www.thedailystar.net/news/eateries-of-dacca"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Weekdays at 7:00 sharp"
+      ],
+      "peak": [
+        "Friday mornings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "slug": "maa-shahi-nihari",
+      "name": {
+        "en": "Maa Shahi Haleem & Nihari",
+        "bn": "মা শাহী হালিম ও নেহারি"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Lalbagh",
+      "lat": 23.7213,
+      "lng": 90.3871,
+      "tagline": "Nihari for breakfast, gone by eight",
+      "whyGo": "Slow-cooked shank nihari with bone marrow, eaten hot with butter naan or tandoor roti. The cook works through the night, the pot opens at seven, and it usually sells out within the hour. Haleem takes over in the evening.",
+      "history": "Nihari was traditionally a breakfast dish, and this is one of the few places in Dhaka that still serves it that way. The owners say Old Dhaka's nihari was once cooked with nut oils.",
+      "hours": "Daily from 7:00 until the nihari sells out (often by 8:00). Haleem in the evening. Friday special from 10:00.",
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "07:00-08:30",
+          "note": "until sold out"
+        }
+      ],
+      "spend": [
+        20,
+        40
+      ],
+      "priceBand": 1,
+      "priceYear": 2022,
+      "dishes": [
+        {
+          "en": "Regular nihari",
+          "bn": "নেহারি",
+          "price": "৳150"
+        },
+        {
+          "en": "Special nihari (Friday)",
+          "bn": "স্পেশাল নেহারি",
+          "price": "৳250"
+        },
+        {
+          "en": "Butter naan or tandoor roti",
+          "bn": "বাটার নান / তন্দুর রুটি"
+        },
+        {
+          "en": "Haleem (evenings)",
+          "bn": "হালিম"
+        }
+      ],
+      "photo": {
+        "tips": "Steam off the bowls in the early light.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Subal Das Road, Lalbagh. Arrive by 7:00; on Fridays it is busier and they cook extra."
+      },
+      "sources": [
+        {
+          "label": "The Business Standard: 5 restaurants around Dhaka for nihari (Nov 2022)",
+          "url": "https://www.tbsnews.net/features/food/5-restaurants-around-dhaka-satisfy-your-nihari-cravings-525830"
+        },
+        {
+          "label": "The Daily Star: Why Old Dhaka's Siddiqui Bhai nihari is a must-try (Aug 2025)",
+          "url": "https://www.thedailystar.net/my-dhaka/news/why-old-dhakas-siddiqui-bhai-nihari-must-try-3972511"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Afternoon"
+      ],
+      "peak": [
+        "Evenings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "slug": "peshwarain",
+      "name": {
+        "en": "Peshwarain",
+        "bn": "পেশোয়ারাইন"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Wari",
+      "lat": 23.7179,
+      "lng": 90.4196,
+      "tagline": "Thick nolli nihari on Rankin Street",
+      "whyGo": "A small, cosy room in Wari known for nolli gosht nihari with a thicker gravy than most, and soft, spongy naan. Expect to wait for a table in the evening; takeaway is quicker.",
+      "history": "The Business Standard calls Wari 'old Dhaka's aristocratic lane', and Rankin Street is one of its old roads.",
+      "hours": "Not published; busiest in the evening.",
+      "spend": [
+        30,
+        50
+      ],
+      "priceBand": 2,
+      "priceYear": 2022,
+      "dishes": [
+        {
+          "en": "Nolli gosht nihari",
+          "bn": "নলি গোশত নেহারি",
+          "price": "৳230"
+        },
+        {
+          "en": "Naan",
+          "bn": "নান"
+        }
+      ],
+      "photo": {
+        "tips": "The nihari bowl with the marrow bone.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Rankin Street, Wari. Dine in or take away."
+      },
+      "sources": [
+        {
+          "label": "The Business Standard: 5 restaurants around Dhaka for nihari (Nov 2022)",
+          "url": "https://www.tbsnews.net/features/food/5-restaurants-around-dhaka-satisfy-your-nihari-cravings-525830"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Mid-afternoon"
+      ],
+      "peak": [
+        "Late evening"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "slug": "pannu-khan-tea",
+      "name": {
+        "en": "Pannu Khan Tea Store",
+        "bn": "পান্নু খান টি স্টোর"
+      },
+      "type": "shop-lassi",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Nazira Bazar",
+      "lat": 23.71915,
+      "lng": 90.40765,
+      "tagline": "Malai tea, any hour of the day or night",
+      "whyGo": "A tea stall on Kazi Alauddin Road that never closes. Order the creamy malai tea, a plain liquor tea, or the 'Pannu special'. It is the natural stop between biryani and kebabs in Nazira Bazar.",
+      "history": "The family ran a tea stall in New Market from 2008 and opened this store, the first full tea shop on the road, around 2016.",
+      "hours": "Open 24 hours, every day.",
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "00:00-24:00"
+        }
+      ],
+      "spend": [
+        10,
+        20
+      ],
+      "priceBand": 1,
+      "dishes": [
+        {
+          "en": "Malai tea (with cream)",
+          "bn": "মালাই চা"
+        },
+        {
+          "en": "Liquor tea (black, no sugar)",
+          "bn": "লিকার চা"
+        },
+        {
+          "en": "Pannu special tea",
+          "bn": "পান্নু স্পেশাল চা"
+        }
+      ],
+      "photo": {
+        "tips": "The tea being pulled and poured at the counter.",
+        "inside": "Fine, it is open to the street"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "37/2 Kazi Alauddin Road, Nazira Bazar."
+      },
+      "sources": [
+        {
+          "label": "The Business Standard: A precious little tea store (Oct 2019)",
+          "url": "https://www.tbsnews.net/feature/precious-little-tea-store"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [],
+      "peak": [
+        "Evenings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 3,
+      "pin": "approx",
+      "checked": null,
+      "slug": "bukhari-restaurant",
+      "name": {
+        "en": "Bukhari Restaurant",
+        "bn": "বুখারি রেস্টুরেন্ট"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food"
+      ],
+      "mahalla": "Nazira Bazar",
+      "lat": 23.7189,
+      "lng": 90.4064,
+      "tagline": "Chaap with three kinds of naan",
+      "whyGo": "Known for chaap (flattened, spiced and fried meat) eaten with naan. The signature is chicken vegetable chaap with three kinds of naan. A good dinner stop on a Nazira Bazar food walk.",
+      "history": "Nazira Bazar takes its name from the Mughal-era officials called nazir who lived here.",
+      "hours": "Not published.",
+      "spend": [
+        30,
+        45
+      ],
+      "priceBand": 1,
+      "dishes": [
+        {
+          "en": "Chicken vegetable chaap with three naans",
+          "bn": "চিকেন ভেজিটেবল চাপ ও নান"
+        }
+      ],
+      "photo": {
+        "tips": "The chaap on the tawa.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "In the Nazira Bazar lanes near Kazi Alauddin Road."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Nazirabazar",
+          "url": "https://en.wikipedia.org/wiki/Nazirabazar"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Mid-afternoon"
+      ],
+      "peak": [
+        "After 20:00",
+        "Ramadan evenings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "couples"
+      ],
+      "underrated": 2,
+      "pin": "source",
+      "checked": null,
+      "slug": "nazira-bazar-food-street",
+      "name": {
+        "en": "Nazira Bazar food street",
+        "bn": "নাজিরাবাজারের খাবারের গলি"
+      },
+      "type": "street",
+      "categories": [
+        "food",
+        "market",
+        "photo-spot"
+      ],
+      "mahalla": "Nazira Bazar",
+      "lat": 23.7195063,
+      "lng": 90.4073558,
+      "tagline": "Old Dhaka's food street, open at all hours",
+      "whyGo": "Stalls line both sides of Kazi Alauddin Road around the Nazira Bazar crossing: biryani, chaap, kebab, fried beef belly, sweets and bakarkhani. In the morning, look for mattha and chhena; at night, try a fire paan on Agasadek Road.",
+      "history": "The neighbourhood is named after the Mughal-era nazirs. In 1954 Sheikh Fazilatunnesa Mujib moved into a house here after Sheikh Mujibur Rahman's arrest.",
+      "hours": "Stalls are open at almost all hours.",
+      "open": [
+        {
+          "d": "sat,sun,mon,tue,wed,thu,fri",
+          "t": "00:00-24:00"
+        }
+      ],
+      "spend": [
+        45,
+        120
+      ],
+      "priceBand": 1,
+      "dishes": [
+        {
+          "en": "Morning mattha and chhena",
+          "bn": "মাঠা ও ছানা"
+        },
+        {
+          "en": "Fire paan",
+          "bn": "ফায়ার পান"
+        },
+        {
+          "en": "Kebab and chaap",
+          "bn": "কাবাব ও চাপ"
+        }
+      ],
+      "photo": {
+        "tips": "After dark, from the crossing, with the grill smoke and shop lights.",
+        "inside": "Street; ask before close-ups of people"
+      },
+      "access": {
+        "vehicle": "walk-only",
+        "walking": "moderate",
+        "seating": false,
+        "washroom": false,
+        "note": "Vehicles can't get through at night. It is a walk from Bangabazar, near Gulistan. Keep valuables close in the crowd."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Nazirabazar",
+          "url": "https://en.wikipedia.org/wiki/Nazirabazar"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Weekdays"
+      ],
+      "peak": [
+        "Friday mornings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "slug": "medina-mishtanna",
+      "name": {
+        "en": "Medina Mishtanna Bhandar",
+        "bn": "মদিনা মিষ্টান্ন ভান্ডার"
+      },
+      "type": "shop-food",
+      "categories": [
+        "food",
+        "hidden-gem"
+      ],
+      "mahalla": "Lalbagh",
+      "lat": 23.7181,
+      "lng": 90.3906,
+      "tagline": "Luchi, bhaji and bhundia for breakfast",
+      "whyGo": "A Lalbagh sweet shop whose breakfast has drawn crowds for about fifty years: deep-fried luchi with mixed vegetable bhaji, and bhundia (gram-flour pearls in syrup) to finish.",
+      "history": "Old Dhaka's sweet shops double as breakfast places, a tradition that goes back generations.",
+      "hours": "Breakfast; hours not published.",
+      "spend": [
+        15,
+        30
+      ],
+      "priceBand": 1,
+      "dishes": [
+        {
+          "en": "Luchi with vegetable bhaji",
+          "bn": "লুচি ও সবজি ভাজি"
+        },
+        {
+          "en": "Bhundia",
+          "bn": "বুন্দিয়া"
+        }
+      ],
+      "photo": {
+        "tips": "Luchi puffing up in the kadai.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "In Lalbagh; combine with an early visit to the fort."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Feasting on Fridays, Dhaka's breakfast traditions (Sep 2025)",
+          "url": "https://www.thedailystar.net/my-dhaka/news/feasting-fridays-dhakas-rich-breakfast-traditions-3978901"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Mid-morning"
+      ],
+      "peak": [
+        "Friday midday (Jumu'ah prayer)"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders"
+      ],
+      "underrated": 4,
+      "pin": "source",
+      "checked": null,
+      "slug": "kartalab-khan-mosque",
+      "name": {
+        "en": "Kartalab Khan Mosque",
+        "bn": "করতলব খান মসজিদ"
+      },
+      "type": "mosque",
+      "categories": [
+        "heritage",
+        "worship",
+        "hidden-gem"
+      ],
+      "mahalla": "Begum Bazar",
+      "lat": 23.7169,
+      "lng": 90.3986,
+      "tagline": "A Mughal mosque with Bengal's only baoli",
+      "whyGo": "A five-domed Mughal mosque raised on a platform with shops underneath, in the middle of Begum Bazar. Look for the baoli, a stepped well to the east, described as the only one of its kind in Bengal.",
+      "history": "Built between 1700 and 1704 by Murshid Quli Khan, then Dhaka's diwan, also known as Kartalab Khan. Mirza Golam Pir renovated it extensively in the 19th century. Locals also call it the Begum Bazar Mosque.",
+      "hours": "Open daily outside prayer times.",
+      "ticketing": "No ticket.",
+      "spend": [
+        15,
+        30
+      ],
+      "photo": {
+        "tips": "The domes and corner kiosks from the platform; the stepped well from above.",
+        "inside": "Ask permission and avoid prayer times"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "An active mosque. Dress modestly; women should carry a scarf. Remove shoes before the prayer hall."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Kartalab Khan Mosque",
+          "url": "https://en.wikipedia.org/wiki/Kartalab_Khan_Mosque"
+        },
+        {
+          "label": "Banglapedia: Kartalab Khan's Mosque",
+          "url": "https://en.banglapedia.org/index.php/Kartalab_Khan%E2%80%99s_Mosque"
+        }
       ]
+    },
+    {
+      "quiet": [
+        "Weekdays"
+      ],
+      "peak": [
+        "Sunday services",
+        "Christmas"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "couples"
+      ],
+      "underrated": 4,
+      "pin": "source",
+      "checked": null,
+      "slug": "st-thomas-church",
+      "name": {
+        "en": "St Thomas Church",
+        "bn": "সেন্ট টমাস চার্চ"
+      },
+      "type": "church",
+      "categories": [
+        "heritage",
+        "worship",
+        "hidden-gem"
+      ],
+      "mahalla": "Johnson Road",
+      "lat": 23.7102,
+      "lng": 90.4122,
+      "tagline": "A white Gothic church from 1821",
+      "whyGo": "A white-plastered Gothic church with a square clock tower, a short walk north of Bahadur Shah Park. Inside: teak furnishings, a stone font and old memorial tablets.",
+      "history": "Built from 1819 to 1821 and consecrated in 1824. It became a cathedral in 1951 and is now the seat of the Church of Bangladesh's Diocese of Dhaka. It was renovated in 2005.",
+      "hours": "Not published; ask at the gate.",
+      "ticketing": "No ticket.",
+      "spend": [
+        15,
+        30
+      ],
+      "photo": {
+        "tips": "The clock tower from Johnson Road.",
+        "inside": "Ask first; don't photograph during services"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "An active church. Combine with Bahadur Shah Park and Pogose School."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: St Thomas Church, Dhaka",
+          "url": "https://en.wikipedia.org/wiki/St_Thomas_Church,_Dhaka"
+        }
+      ]
+    },
+    {
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "family-elders",
+        "kids"
+      ],
+      "underrated": 4,
+      "pin": "source",
+      "checked": null,
+      "slug": "nimtali-deuri",
+      "name": {
+        "en": "Nimtali Deuri (Asiatic Society Heritage Museum)",
+        "bn": "নিমতলী দেউড়ি"
+      },
+      "type": "ruin",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Nimtali",
+      "lat": 23.72444,
+      "lng": 90.4025,
+      "tagline": "The last gateway of the Naib Nazims' palace",
+      "whyGo": "The surviving gate of the 18th-century Nimtali Palace, restored and opened in 2019 as a small museum of Dhaka's 18th and 19th centuries: a recreated Naib Nazim's court, porcelain, coins, paintings and muslin.",
+      "history": "The Naib Nazims, Dhaka's deputy governors, built the palace around 1765–66. The office was abolished in 1843 and the palace fell to ruin. The Asiatic Society, founded on the grounds in 1953, restored the gate in 2009–11.",
+      "hours": "Not published; check with the Asiatic Society before you go.",
+      "spend": [
+        30,
+        60
+      ],
+      "photo": {
+        "tips": "The restored gate from the courtyard.",
+        "inside": "Ask at the desk"
+      },
+      "access": {
+        "vehicle": "car-to-gate",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "5 Old Secretariat Road, Nimtali, on the northern edge of Old Dhaka near Chankharpul."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Nimtali arch",
+          "url": "https://en.wikipedia.org/wiki/Nimtali_arch"
+        },
+        {
+          "label": "The Business Standard: How the Nimtali Deuri was restored",
+          "url": "https://www.tbsnews.net/features/habitat/how-nimtali-deuri-old-dhaka-was-restored-295549"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Weekday daytime"
+      ],
+      "peak": [
+        "Annual Oors and Eid-e-Miladunnabi gatherings"
+      ],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 5,
+      "pin": "approx",
+      "checked": null,
+      "slug": "haturia-house",
+      "name": {
+        "en": "Haturia House (Baghbari)",
+        "bn": "হাটুরিয়া হাউস (বাঘবাড়ি)"
+      },
+      "type": "colonial-red",
+      "categories": [
+        "heritage",
+        "hidden-gem",
+        "photo-spot"
+      ],
+      "mahalla": "Bangshal",
+      "lat": 23.72115,
+      "lng": 90.40435,
+      "tagline": "A red mansion with tiger trophies",
+      "whyGo": "A red Indo-Saracenic mansion on Abul Hasnat Road with cusped arches, a double-height hall, century-old chandeliers and mirrors, and hunting trophies that gave it the name 'tiger house'. It is a family-run waqf; visitors have been welcomed by the caretaker.",
+      "history": "Built around 1917–20 by Khan Bahadur Muhammad Fazlul Karim of the Indian Civil Service, named after the family's Haturia estate. It is linked to Dhaka's first electric lighting in 1927, and now houses a spiritual centre (Khankay-e-Alia).",
+      "hours": "A private residence; visits at the caretaker's discretion.",
+      "spend": [
+        20,
+        40
+      ],
+      "photo": {
+        "tips": "The façade from the front lawn under the big trees.",
+        "inside": "Only with the caretaker's permission"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "14 Abul Hasnat Road, Bangshal. Be respectful: it is a home and a religious space. A 360° tour is on Hidden Heritage's website."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Heritage homes of Old Dhaka (Sep 2023)",
+          "url": "https://www.thedailystar.net/star-holiday/news/link-bygone-era-3425706"
+        },
+        {
+          "label": "Hidden Heritage: Haturia House",
+          "url": "https://hiddenheritage.org/haturia-house"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 5,
+      "pin": "approx",
+      "checked": null,
+      "slug": "sutrapur-zamindar-bari",
+      "name": {
+        "en": "Sutrapur Zamindar Bari",
+        "bn": "সূত্রাপুর জমিদার বাড়ি"
+      },
+      "type": "colonial-columns",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Sutrapur",
+      "lat": 23.70685,
+      "lng": 90.42045,
+      "tagline": "A zamindar's palace, now a fire station",
+      "whyGo": "Two linked mansions with 35 rooms and tall entrances framed by Corinthian columns. Today it houses fire service quarters, so you see it from the gate, but the façade still shows how Old Dhaka's landlords lived.",
+      "history": "Built about a century ago in the time of Ray Bahadur Satyendra Kumar Das. The road is named after his father, Revati Mohan Das. The family left at Partition in 1947 and it became vested property. It is a listed heritage site.",
+      "hours": "Exterior only; entry is restricted.",
+      "spend": [
+        10,
+        20
+      ],
+      "photo": {
+        "tips": "The south-facing entrance and its columns from the road.",
+        "inside": "Not allowed"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "33 Revati Mohan Das Road, Sutrapur. A working fire station: don't block the gate."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Sutrapur Zamindar Palace (Oct 2021)",
+          "url": "https://d11.thedailystar.net/news/bangladesh/news/sutrapur-zamindar-palace-putting-flame-out-heritage-site-2204226"
+        },
+        {
+          "label": "The Daily Star: Heritage homes of Old Dhaka (Sep 2023)",
+          "url": "https://www.thedailystar.net/star-holiday/news/link-bygone-era-3425706"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends"
+      ],
+      "underrated": 5,
+      "pin": "approx",
+      "checked": null,
+      "slug": "mangalabash",
+      "name": {
+        "en": "Mangalabash",
+        "bn": "মঙ্গলাবাস"
+      },
+      "type": "colonial-columns",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Shyambazar",
+      "lat": 23.70415,
+      "lng": 90.41905,
+      "tagline": "A zamindar's house turned student hostel",
+      "whyGo": "A Neo-Classical house with three courtyards, fluted Corinthian columns, coloured-glass windows and old tiles. It is now a crowded college dormitory, so look from outside unless invited in.",
+      "history": "Built at the end of the 19th century by zamindar Jotindra Kumar Saha. Locals call it the Khelaghar building; after 1971 it became the Shaheed Shamsul Alam dormitory of Kabi Nazrul Government College.",
+      "hours": "A student dormitory; exterior only.",
+      "spend": [
+        10,
+        20
+      ],
+      "photo": {
+        "tips": "The curved front with its arches.",
+        "inside": "Only if students invite you"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Shyambazar, next to Farashganj. Combine with Ruplal House and Northbrook Hall."
+      },
+      "sources": [
+        {
+          "label": "Prothom Alo: Dhaka house of Zamindar Jotindra Kumar still stands (Oct 2025)",
+          "url": "https://en.prothomalo.com/lifestyle/tcbns10q0i"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [
+        "Weekday mornings"
+      ],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo",
+        "friends",
+        "kids"
+      ],
+      "underrated": 4,
+      "pin": "approx",
+      "checked": null,
+      "slug": "sadhana-aushadhalaya",
+      "name": {
+        "en": "Sadhana Aushadhalaya",
+        "bn": "সাধনা ঔষধালয়"
+      },
+      "type": "colonial",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Gendaria",
+      "lat": 23.7024,
+      "lng": 90.42585,
+      "tagline": "An ayurvedic factory from 1914, with resident monkeys",
+      "whyGo": "Bangladesh's first ayurvedic medicine laboratory, still working on about two acres in Gendaria. A troop of monkeys lives on the grounds, one of the neighbourhood's best-known sights.",
+      "history": "Founded in 1914 by Jogesh Chandra Ghosh and modernised in 1917. Ghosh was killed during the Liberation War in 1971. The company once made about 450 medicines and still has sales centres across the country.",
+      "hours": "A working factory; view from outside.",
+      "spend": [
+        10,
+        20
+      ],
+      "photo": {
+        "tips": "The monkeys on the walls and trees; keep your distance and don't feed them.",
+        "inside": "Not open to visitors"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": false,
+        "washroom": false,
+        "note": "Din Nath Sen Road, Gendaria."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia: Sadhana Aushadhalaya",
+          "url": "https://en.wikipedia.org/wiki/Sadhana_Aushadhalaya"
+        },
+        {
+          "label": "The Daily Star: Historic tale of Gandaria (Feb 2022)",
+          "url": "https://www.thedailystar.net/weekend-read/news/historic-tale-gandaria-2954686"
+        }
+      ],
+      "ticketing": ""
+    },
+    {
+      "quiet": [],
+      "peak": [],
+      "closed": [],
+      "fees": [],
+      "goodFor": [
+        "solo"
+      ],
+      "underrated": 5,
+      "pin": "approx",
+      "checked": null,
+      "slug": "simanta-pathagar",
+      "name": {
+        "en": "Simanta Pathagar",
+        "bn": "সীমান্ত পাঠাগার"
+      },
+      "type": "colonial",
+      "categories": [
+        "heritage",
+        "hidden-gem"
+      ],
+      "mahalla": "Gendaria",
+      "lat": 23.7033,
+      "lng": 90.42405,
+      "tagline": "A neighbourhood library in a revolutionaries' house",
+      "whyGo": "A small community library in an old house on Din Nath Sen Road, run by the children's organisation Khelaghar Ashar. A quiet corner of Gendaria that few visitors know.",
+      "history": "Started by Nasim Ali in his home and moved in 1946 to Ambika Charan Chakravarty's house, which sheltered anti-British revolutionaries around Partition.",
+      "hours": "Not published; ask locally.",
+      "spend": [
+        10,
+        20
+      ],
+      "photo": {
+        "tips": "The old house front.",
+        "inside": "Ask first"
+      },
+      "access": {
+        "vehicle": "rickshaw-only",
+        "walking": "easy",
+        "seating": true,
+        "washroom": false,
+        "note": "Din Nath Sen Road, Gendaria, near Sadhana Aushadhalaya."
+      },
+      "sources": [
+        {
+          "label": "The Daily Star: Historic tale of Gandaria (Feb 2022)",
+          "url": "https://www.thedailystar.net/weekend-read/news/historic-tale-gandaria-2954686"
+        }
+      ],
+      "ticketing": ""
     }
   ],
   "routes": [
@@ -2624,7 +3877,7 @@
           ],
           [
             "CNG auto-rickshaw.",
-            "The official fare is ৳40 for the first 2 km, then ৳12 per km, plus ৳2 a minute waiting. Meters are often not used, so agree the fare before you get in."
+            "The official fare is ৳40 for the first 2 km, then ৳12 per km, plus ৳2 a minute waiting. Meters are often not used, and in February 2025 the authority dropped a plan to enforce them, so agree the fare before you get in."
           ]
         ],
         "src": [
@@ -2632,7 +3885,8 @@
           "ds",
           "mrt",
           "tbs",
-          "wv"
+          "wv",
+          "tbs2"
         ]
       },
       {
@@ -2649,7 +3903,7 @@
           ],
           [
             "Agree the fare first.",
-            "Rickshaws have no fixed fare. A common starting point is ৳15–20 per km. One 2025 guide puts an hour's rickshaw tour of the lanes at about ৳100."
+            "Rickshaws have no fixed fare. A common starting point is ৳15–20 per km, and short hops start at about ৳20 (Dhaka University's own campus chart runs ৳20–30). One 2025 guide puts an hour's rickshaw tour of the lanes at about ৳100. The routes and Near me show estimates."
           ],
           [
             "Show the driver.",
@@ -2665,7 +3919,8 @@
           "vb",
           "wvo",
           "wv",
-          "here"
+          "here",
+          "du"
         ]
       },
       {
@@ -2906,6 +4161,14 @@
       "here": {
         "label": "The place cards in this guide (each lists its own sources)",
         "url": ""
+      },
+      "du": {
+        "label": "Dhaka Tribune: Dhaka University fixes rickshaw fares for campus (May 2023)",
+        "url": "https://www.dhakatribune.com/bangladesh/311523/dhaka-university-fixes-rickshaw-fares-for-campus"
+      },
+      "tbs2": {
+        "label": "The Business Standard: BRTA withdraws move to enforce CNG meters (Feb 2025)",
+        "url": "https://www.tbsnews.net/bangladesh/cng-autorickshaw-drivers-block-dhaka-roads-again-demanding-withdrawal-brta-move-1069471"
       }
     },
     "emergency": {

@@ -4,7 +4,7 @@
 
 <h1 align="center">Cholo Puran Dhaka · চলো পুরান ঢাকা</h1>
 
-<p align="center">A walkable 3D guide to Old Dhaka for first-time visitors: 40 places (for now), ready-made walking routes,<br>a card to show your rickshaw driver, and practical tips, each with its source.</p>
+<p align="center">A walkable 3D guide to Old Dhaka for first-time visitors: 55 places (for now), ready-made walking routes,<br>what to order and whether it is open now, a card to show your rickshaw driver, and practical tips, each with its source.</p>
 
 <p align="center"><b><a href="https://cholopurandhaka.netlify.app">Open the live site →</a></b><br><sub>Works on desktop, Android and iPhone. No sign-up, no install.</sub></p>
 
@@ -32,12 +32,17 @@ It is also an HCI question I care about: does a 3D street-level view help people
 - **Walking routes.** Four ready-made days out: *Old Dhaka in one day*, a food crawl, a golden-hour river walk, and a morning of Old Dhaka's many faiths. The route is drawn on the 3D map with numbered stops, suggested times, walking minutes between stops (longer hops marked for a rickshaw), and the days each stop is closed. Every route has its own link, for example [`#route-one-day`](https://cholopurandhaka.netlify.app/#route-one-day).
 - **Show the driver.** One tap shows the place name in large Bangla with its area and a well-known landmark nearby, plus "Please take me here" and "How much will the fare be?" in Bangla, each with an English line underneath. The screen stays on while it is open.
 - **Before you go.** Getting there, getting around the lanes, what to wear, money, food and water, staying safe, when to go and dates to know, with a 999 emergency button (press 2 for English). Every section lists its sources.
+- **Open now.** Places with published hours show "Open now · until 16:30" or "Closed now · opens tomorrow 9:30", always in Dhaka time, with seasonal hours (Ahsan Manzil, Lalbagh Fort) and 24-hour places handled.
+- **Near me.** On a phone in Old Dhaka, one tap lists the ten closest places with walking minutes, whether they are open, and a rickshaw fare estimate. Your location stays on your phone; it is never sent anywhere.
+- **What to order.** Food places list their dishes in English and Bangla, with prices where a source gives them and the year of that price.
+- **Fare estimates.** Rickshaw hops on the routes and in Near me show an estimate (৳15–20 per km, at least ৳20) and, for longer trips, the official CNG fare.
+- **Filters.** Open now, budget, good for families, lesser-known, and has a washroom, on the map and in the list. Search also finds dishes, so typing "nihari" finds the nihari shops.
 - **Start here.** First-time visitors get a short welcome with the four routes, the tips and an option to explore the map on their own.
 - **3D Old Dhaka.** Orbit, pan and zoom over the old city and the Buriganga. Tap a marker and the camera flies to the place.
 - **Walk mode.** Drop to street level in front of any place and walk with W A S D, the arrow keys or an on-screen pad. Walls and the river block you, and nearby places show distance and direction.
 - **Place cards.** Why go, history, entry fees, hours and closed days (with a warning if it is closed today), quieter and busiest times, photo tips, vehicle access, seating and washrooms, nearby places, and the sources for every fact.
 - **Time of day.** A slider moves the light from dawn to night and suggests places that suit that hour.
-- **Guide view.** The same 40 places as a plain list that works without 3D, sortable by neighbourhood or by how little known they are.
+- **Places view.** The same 55 places as a plain list that works without 3D, sortable by neighbourhood or by how little known they are.
 - **Bangla and English** throughout the interface. Place names are shown in both scripts.
 - **Shareable links.** Every place has its own address, for example [`#ahsan-manzil`](https://cholopurandhaka.netlify.app/#ahsan-manzil).
 
@@ -80,7 +85,9 @@ The site is built to feel like an app on Android and iPhone:
 
 Heritage sites (Ahsan Manzil, Lalbagh Fort, Tara Masjid, the Armenian Church, Dhakeshwari Temple, Hussaini Dalan, Bara and Choto Katra, Ruplal House, Northbrook Hall, Jinjira Palace across the river and more), food (Haji Biryani, Nanna Biryani, Beauty Lassi, Nirob Hotel, Bismillah Kabab, Beauty Boarding, bakarkhani on Agamasi Lane and others), markets (Shankhari Bazar, Islampur, Banglabazar, the Chawkbazar iftar market), the river (Sadarghat and a nouka ride on the Buriganga) and festivals (Shakrain).
 
-Lesser-known places are marked with a red dot so visitors can go beyond the usual three. More places are being added.
+Added in October 2026: Alauddin Sweetmeat (since 1864), Maa Shahi Haleem & Nihari (breakfast nihari that sells out by eight), Peshwarain, Pannu Khan Tea Store (open 24 hours), Bukhari Restaurant, Medina Mishtanna Bhandar, the Nazira Bazar food street, Kartalab Khan Mosque (1704, with Bengal's only baoli), St Thomas Church (1821), the Nimtali Deuri museum, Haturia House, Sutrapur Zamindar Bari, Mangalabash, Sadhana Aushadhalaya and Simanta Pathagar.
+
+Lesser-known places are marked with a red dot so visitors can go beyond the usual three. More places are being added in batches.
 
 ## How it works
 
@@ -118,7 +125,8 @@ Any static host works with no build command and the repo root as the publish fol
 `places.json` holds one record per place: bilingual name, categories, coordinates, why go, history, fees, hours, closed days, crowd times, time to spend, who it suits, photography notes, access, and sources. It also holds the walking routes (stops, suggested times and notes) and the traveller tips with their sources.
 
 - Facts were collected from published sources on 12 October 2026: Wikipedia, The Daily Star, Dhaka Tribune, The Financial Express, The Business Standard, Daily Observer, Bangladesh Monitor, Nijhoom Tours and food writers. Each place lists its own sources.
-- **Nothing has been checked on site yet.** 17 coordinates come from sources; 23 are placed by street or neighbourhood and are marked approximate in the app.
+- **Nothing has been checked on site yet.** 21 coordinates come from sources; 34 are placed by street or neighbourhood and are marked approximate in the app.
+- Every change to `places.json` is checked by `tools/validate.mjs` (required fields, coordinates inside Old Dhaka, opening-hours format, dishes, sources, and that routes and tips point at things that exist). GitHub runs it on every push.
 - The traveller tips draw on UK FCDO travel advice (updated 9 October 2026), The Business Standard (official CNG fares, February 2025), UNB (999 in English, February 2025), Wikipedia (Metro Line 6), Wikivoyage, Nijhoom Tours and weather data. Each tips section links its sources.
 - Route walking times are estimates from straight-line distance (× 1.3 for the lanes, at about 75 m a minute). Legs over about 900 m are suggested by rickshaw.
 - Hours and fees change. If you spot something wrong, please open an issue.
@@ -126,7 +134,8 @@ Any static host works with no build command and the repo root as the publish fol
 ## Roadmap
 
 - [x] Phone support: bottom sheets, back gesture, Add to Home Screen
-- [ ] More places
+- [x] Open now, Near me, filters, what to order and fare estimates
+- [ ] More places (next batch: Old Dhaka's sweet shops, breakfast places and craft lanes)
 - [ ] Replace the generated streets and houses with real OpenStreetMap data
 - [ ] Field-check every card and fix the approximate pins
 - [ ] Full Bangla descriptions
@@ -138,7 +147,8 @@ Any static host works with no build command and the repo root as the publish fol
 
 ```
 index.html            the whole app: UI, 3D scene, landmarks, walk mode
-places.json           the places and their sources
+places.json           the places, routes, tips and their sources
+tools/validate.mjs    checks places.json; runs on every push (.github/workflows/check.yml)
 manifest.webmanifest  app name, colours and icons for Add to Home Screen
 icons/                home-screen and app icons
 docs/                 logo, profile picture, screenshots, video cover

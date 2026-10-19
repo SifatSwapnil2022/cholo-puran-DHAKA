@@ -1,0 +1,95 @@
+// Checks places.json before it ships: required fields, types, coordinates inside Old Dhaka,
+// opening-hours format, dishes, sources, and that routes and tips point at things that exist.
+// Run: node tools/validate.mjs   (exits 1 on any error)
+import { readFileSync } from 'node:fs';
+
+const file = new URL('../places.json', import.meta.url);
+const d = JSON.parse(readFileSync(file, 'utf8'));
+const errors = [], warnings = [];
+const err = (where, msg) => errors.push(`${where}: ${msg}`);
+const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
+
+const CATS = ['heritage', 'food', 'hidden-gem', 'photo-spot', 'market', 'worship', 'river', 'festival'];
+const TYPES = ['palace', 'fort', 'mosque-star', 'mosque', 'church', 'temple', 'imambara', 'ruin', 'colonial-red', 'colonial-columns', 'colonial',
+  'park', 'gurdwara', 'garden', 'cemetery', 'ghat', 'boat', 'street', 'market', 'shop-biryani', 'shop-lassi', 'shop-food', 'shop-boarding',
+  'shop-bakery', 'festival', 'ruin-palace'];
+const VEH = ['car-to-gate', 'rickshaw-only', 'walk-only'];
+const WALK = ['easy', 'moderate', 'hard'];
+const GOOD = ['solo', 'friends', 'couples', 'family-elders', 'kids'];
+const DAYS = ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri'];
+const WEEK = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const BOX = { lat: [23.690, 23.730], lng: [90.374, 90.433] }; // the area the 3D city covers
+
+const isStr = v => typeof v === 'string' && v.trim().length > 0;
+const strArr = v => Array.isArray(v) && v.every(x => typeof x === 'string');
+const hhmm = s => /^([01]\d|2[0-4]):[0-5]\d$/.test(s);
+
+const slugs = new Set();
+for (const [i, p] of (d.places || []).entries()) {
+  const w = p.slug || `places[${i}]`;
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug || '')) err(w, 'slug must be lower-case words joined by hyphens');
+  if (slugs.has(p.slug)) err(w, 'duplicate slug'); slugs.add(p.slug);
+  if (!isStr(p.name?.en) || !isStr(p.name?.bn)) err(w, 'name.en and name.bn are required');
+  if (!TYPES.includes(p.type)) err(w, `unknown type "${p.type}"`);
+  if (!Array.isArray(p.categories) || !p.categories.length || p.categories.some(c => !CATS.includes(c))) err(w, 'categories must be a non-empty list of known categories');
+  for (const k of ['mahalla', 'tagline', 'whyGo', 'hours']) if (!isStr(p[k])) err(w, `${k} is required`);
+  if (typeof p.lat !== 'number' || typeof p.lng !== 'number') err(w, 'lat and lng must be numbers');
+  else if (p.lat < BOX.lat[0] || p.lat > BOX.lat[1] || p.lng < BOX.lng[0] || p.lng > BOX.lng[1]) err(w, `coordinates ${p.lat}, ${p.lng} fall outside Old Dhaka`);
+  if (!['source', 'approx'].includes(p.pin)) err(w, 'pin must be "source" or "approx"');
+  if (!Number.isInteger(p.underrated) || p.underrated < 1 || p.underrated > 5) err(w, 'underrated must be 1 to 5');
+  for (const k of ['quiet', 'peak', 'closed']) if (!strArr(p[k])) err(w, `${k} must be a list of strings`);
+  if (!Array.isArray(p.spend) || p.spend.length !== 2 || p.spend[0] > p.spend[1]) err(w, 'spend must be [min, max] minutes');
+  if (!Array.isArray(p.goodFor) || p.goodFor.some(g => !GOOD.includes(g))) err(w, 'goodFor has an unknown value');
+  if (!Array.isArray(p.fees) || p.fees.some(f => !isStr(f.who) || typeof f.bdt !== 'number')) err(w, 'fees must be [{who, bdt}]');
+  if (!isStr(p.photo?.tips) || !isStr(p.photo?.inside)) err(w, 'photo.tips and photo.inside are required');
+  const a = p.access || {};
+  if (!VEH.includes(a.vehicle) || !WALK.includes(a.walking) || typeof a.seating !== 'boolean' || typeof a.washroom !== 'boolean') err(w, 'access needs vehicle, walking, seating, washroom');
+  if (!Array.isArray(p.sources) || !p.sources.length) err(w, 'at least one source is required');
+  else for (const s of p.sources) {
+    if (!isStr(s.label)) err(w, 'every source needs a label');
+    if (s.url && !/^https:\/\//.test(s.url)) err(w, `source url must be https: ${s.url}`);
+  }
+  if (p.open !== undefined) {
+    if (!Array.isArray(p.open) || !p.open.length) err(w, 'open must be a non-empty list');
+    else for (const o of p.open) {
+      const days = (o.d || '').split(',');
+      if (!days.length || days.some(x => !DAYS.includes(x))) err(w, `open.d has an unknown day: "${o.d}"`);
+      const [s, e] = (o.t || '').split('-');
+      if (!hhmm(s || '') || !hhmm(e || '') || s >= e) err(w, `open.t must be "HH:MM-HH:MM" with start before end: "${o.t}"`);
+      if (o.m !== undefined && !/^(1[0-2]|[1-9])-(1[0-2]|[1-9])$/.test(o.m)) err(w, `open.m must be "fromMonth-toMonth": "${o.m}"`);
+      for (const day of days) if (p.closed.includes(WEEK[DAYS.indexOf(day)])) err(w, `open on ${day} but also listed as closed that day`);
+    }
+  }
+  if (p.dishes !== undefined) {
+    if (!Array.isArray(p.dishes) || p.dishes.some(x => !isStr(x.en) || !isStr(x.bn))) err(w, 'dishes must be [{en, bn, price?}]');
+    if (p.dishes?.some(x => x.price) && !p.priceYear) warn(w, 'dish prices without priceYear');
+  }
+  if (p.priceBand !== undefined && ![1, 2, 3].includes(p.priceBand)) err(w, 'priceBand must be 1, 2 or 3');
+  if (p.categories?.includes('food') && !p.dishes) warn(w, 'food place without dishes');
+}
+
+for (const r of d.routes || []) {
+  const w = `route ${r.id}`;
+  if (!isStr(r.name?.en) || !isStr(r.name?.bn)) err(w, 'name.en and name.bn are required');
+  if (!/^#[0-9A-Fa-f]{6}$/.test(r.color || '')) err(w, 'color must be #RRGGBB');
+  if (!Array.isArray(r.stops) || r.stops.length < 2) err(w, 'needs at least two stops');
+  let prev = -1;
+  for (const s of r.stops || []) {
+    if (!slugs.has(s.slug)) err(w, `stop "${s.slug}" is not a place`);
+    const m = /^(\d{1,2}):(\d{2})$/.exec(s.at || ''); if (!m) { err(w, `stop ${s.slug}: at must be H:MM`); continue; }
+    const t = +m[1] * 60 + +m[2]; if (t <= prev) err(w, `stop ${s.slug}: times must increase`); prev = t;
+    if (!isStr(s.tip)) err(w, `stop ${s.slug}: tip is required`);
+  }
+  for (const day of r.best || []) if (!WEEK.includes(day)) err(w, `unknown best day "${day}"`);
+}
+
+const tips = d.tips;
+if (tips) {
+  for (const sec of tips.sections) for (const k of sec.src) if (!tips.sources[k]) err(`tips ${sec.id}`, `unknown source key "${k}"`);
+  if (!tips.sources[tips.emergency?.src]) err('tips emergency', 'unknown source key');
+}
+
+for (const m of warnings) console.warn('warn  ' + m);
+for (const m of errors) console.error('ERROR ' + m);
+console.log(`${d.places.length} places, ${(d.routes || []).length} routes: ${errors.length} errors, ${warnings.length} warnings`);
+process.exit(errors.length ? 1 : 0);
