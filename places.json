@@ -1522,7 +1522,7 @@
       "pin": "approx",
       "tagline": "Ramadan's most famous food street",
       "whyGo": "Every Ramadan afternoon the square fills with stalls: shahi jilapi, keema paratha, koel roast and the legendary 'boro baper polay khay'. Go for the spectacle, even if the food doesn't always match the hype.",
-      "history": "Chawkbazar has been a market since the 17th century. Iftar was added to UNESCO's Intangible Cultural Heritage list in 2023.",
+      "history": "Chawkbazar has been the old city's market square since Mughal times; Subahdar Shaista Khan built the Chawk Mosque beside it in 1676, and the Naib Nazim Mirza Lutfullah rebuilt the bazaar in 1728.",
       "underrated": 1,
       "quiet": [
         "Outside Ramadan"
@@ -1563,6 +1563,10 @@
         {
           "label": "Asia News Network: Is Dhakaiya food worth the hype?",
           "url": "https://asianews.network/?p=131071"
+        },
+        {
+          "label": "Wikipedia: History of Dhaka",
+          "url": "https://en.wikipedia.org/wiki/History_of_Dhaka"
         }
       ],
       "checked": null,
@@ -4697,6 +4701,46 @@
       "rath27": {
         "label": "Drik Panchang: Rath Yatra 2027",
         "url": "https://www.drikpanchang.com/festivals/ratha-yatra/jagannatha-rathayatra-date-time.html?year=2027"
+      },
+      "ds26": {
+        "label": "The Daily Star: Govt announces official list of public holidays for 2026",
+        "url": "https://www.thedailystar.net/news/bangladesh/news/govt-announces-official-list-public-holidays-2026-4031596"
+      },
+      "ittSaras26": {
+        "label": "Daily Ittefaq: Saraswati Puja to be celebrated Friday (22 Jan 2026)",
+        "url": "https://en.ittefaq.com.bd/15050/saraswati-puja-to-be-celebrated-friday"
+      },
+      "ittRath26": {
+        "label": "Daily Ittefaq: Rath Yatra celebrated (16 Jul 2026)",
+        "url": "https://en.ittefaq.com.bd/17380/rath-yatra-celebrated-in-bangladesh"
+      },
+      "holi26": {
+        "label": "Hindutone: Holi 2026 in Bangladesh",
+        "url": "https://hindutone.com/festivals/holi-2026/holi-2026-bangladesh-dol-purnima-date-traditions/"
+      },
+      "ram26": {
+        "label": "Gulf News: Ramadan 2026 start dates in Asia",
+        "url": "https://gulfnews.com/uae/ramadan/ramadan-2026-asian-countries-officially-confirm-first-day-1.500446300"
+      },
+      "wikiHist": {
+        "label": "Wikipedia: History of Dhaka",
+        "url": "https://en.wikipedia.org/wiki/History_of_Dhaka"
+      },
+      "bpDhaka": {
+        "label": "Banglapedia: Dhaka",
+        "url": "https://en.banglapedia.org/index.php/Dhaka"
+      },
+      "wikiMuslin": {
+        "label": "Wikipedia: Dhaka muslin",
+        "url": "https://en.wikipedia.org/wiki/Dhaka_muslin"
+      },
+      "wiki71": {
+        "label": "Wikipedia: Shankharibazar massacre",
+        "url": "https://en.wikipedia.org/wiki/Shankharibazar_massacre"
+      },
+      "tbsFires": {
+        "label": "TBS: Deadly fires in old Dhaka (Aug 2022)",
+        "url": "https://www.tbsnews.net/bangladesh/deadly-fires-old-dhaka-477682"
       }
     },
     "emergency": {
@@ -4712,7 +4756,7 @@
           "en": "Durga Puja",
           "bn": "দুর্গাপূজা"
         },
-        "when": "Five days in late September or October; 5–9 October in 2027",
+        "when": "Five days in late September or October",
         "what": "Dhaka's biggest Durga Puja is at Dhakeshwari, and Shankhari Bazar is lit up end to end. It ends with processions taking the idols to the river.",
         "tip": "Evenings are packed. Go in the late morning, keep your bag in front, and expect security checks at the temple gates.",
         "places": [
@@ -4757,6 +4801,10 @@
         ],
         "dates": [
           {
+            "from": "2026-01-14",
+            "to": "2026-01-14"
+          },
+          {
             "from": "2027-01-14",
             "to": "2027-01-14"
           },
@@ -4774,7 +4822,7 @@
           "en": "Ramadan",
           "bn": "রমজান"
         },
-        "when": "Expected from 9 February 2027, about 30 days",
+        "when": "The ninth month of the Islamic calendar, about 30 days",
         "what": "The Chawkbazar iftar market fills the square every afternoon before sunset. Opening hours change across the city; Ahsan Manzil closes at 15:00. Eid ul-Fitr follows at the end of the month.",
         "tip": "Don't eat or drink openly in the street during the day. Reach Chawkbazar by 15:00; the crush peaks just before sunset.",
         "places": [
@@ -4783,9 +4831,15 @@
         ],
         "src": [
           "ram",
-          "here"
+          "here",
+          "ram26",
+          "ds26"
         ],
         "dates": [
+          {
+            "from": "2026-02-19",
+            "to": "2026-03-20"
+          },
           {
             "from": "2027-02-09",
             "to": "2027-03-09"
@@ -4801,7 +4855,7 @@
           "en": "Muharram and Ashura",
           "bn": "মহররম ও আশুরা"
         },
-        "when": "Ashura expected 14–16 June 2027, set by the moon",
+        "when": "10 Muharram, set by the moon",
         "what": "For the first ten days of Muharram, Hussaini Dalan is the centre of Old Dhaka's Shia mourning gatherings. On Ashura a procession leaves from here.",
         "tip": "This is mourning, not a festival. Watch quietly from the side, dress modestly and ask before taking photos.",
         "places": [
@@ -4810,9 +4864,14 @@
         "src": [
           "ashura",
           "bdt27",
-          "here"
+          "here",
+          "ds26"
         ],
         "dates": [
+          {
+            "from": "2026-06-26",
+            "to": "2026-06-26"
+          },
           {
             "from": "2027-06-14",
             "to": "2027-06-16"
@@ -4828,7 +4887,7 @@
           "en": "Rath Yatra",
           "bn": "রথযাত্রা"
         },
-        "when": "June or July; 5 July in 2027",
+        "when": "June or July, set by the Hindu calendar",
         "what": "Jagannath's chariot is pulled from the Swamibagh temple to Dhakeshwari.",
         "tip": "Check the date with the temple a few weeks before, and expect big crowds along the route.",
         "places": [
@@ -4837,9 +4896,14 @@
         ],
         "src": [
           "wikiSwami",
-          "rath27"
+          "rath27",
+          "ittRath26"
         ],
         "dates": [
+          {
+            "from": "2026-07-16",
+            "to": "2026-07-16"
+          },
           {
             "from": "2027-07-05",
             "to": "2027-07-05"
@@ -4854,7 +4918,7 @@
           "en": "Janmashtami",
           "bn": "জন্মাষ্টমী"
         },
-        "when": "August or September; 25 August in 2027",
+        "when": "August or September, set by the Hindu calendar",
         "what": "Krishna's birthday. A procession starts at Dhakeshwari and winds through the streets of Old Dhaka. It was stopped in 1948 and has run again since 1989.",
         "tip": "The procession moves slowly through narrow lanes. Pick a spot on the route early rather than following it.",
         "places": [
@@ -4862,9 +4926,14 @@
         ],
         "src": [
           "wikiDhak",
-          "bdt27"
+          "bdt27",
+          "ds26"
         ],
         "dates": [
+          {
+            "from": "2026-09-04",
+            "to": "2026-09-04"
+          },
           {
             "from": "2027-08-25",
             "to": "2027-08-25"
@@ -4889,7 +4958,7 @@
             "to": "2027-10-28"
           }
         ],
-        "when": "The new-moon night of Kartik; 8 November 2026",
+        "when": "The new-moon night of Kartik, in October or November",
         "community": "hindu",
         "mood": "festive",
         "what": "Around a hundred pandals hang over the narrow lanes of Shankhari Bazar and Tanti Bazar, and you walk underneath them to see the goddess. Families light clay lamps at home, at temples and at crematoriums to remember their elders. The pandals stay up for five or six days before the immersion.",
@@ -4912,12 +4981,16 @@
         },
         "dates": [
           {
+            "from": "2026-02-03",
+            "to": "2026-02-04"
+          },
+          {
             "from": "2027-01-23",
             "to": "2027-01-24"
           }
         ],
         "moon": true,
-        "when": "The night of 14–15 Shaban; expected on the night of 23 January 2027",
+        "when": "The night of 14–15 Shaban",
         "community": "muslim",
         "mood": "devotional",
         "what": "Old Dhaka's night of bread and halwa. After sunset the century-old roti and halua market reopens around the Chawkbazar Shahi Mosque, and bakeries in Bangshal pile huge breads and halwa across their floors. Families share food door to door, mosques stay full, and graveyards are lit for prayers for the dead.",
@@ -4929,7 +5002,8 @@
         "src": [
           "dsShab",
           "dtShab",
-          "bdtShab"
+          "bdtShab",
+          "ds26"
         ]
       },
       {
@@ -4940,6 +5014,10 @@
         },
         "dates": [
           {
+            "from": "2026-01-23",
+            "to": "2026-01-23"
+          },
+          {
             "from": "2027-02-11",
             "to": "2027-02-11"
           },
@@ -4948,7 +5026,7 @@
             "to": "2028-01-31"
           }
         ],
-        "when": "Vasant Panchami, late January or February; 11 February 2027",
+        "when": "Vasant Panchami, in late January or February",
         "community": "hindu",
         "mood": "festive",
         "what": "The goddess of learning, and above all a students' festival. In Old Dhaka the puja is held in Shankhari Bazar, Tanti Bazar and at Jagannath University, with pandals in schools, temples and lanes.",
@@ -4960,7 +5038,8 @@
         ],
         "src": [
           "paSaras",
-          "phVasant"
+          "phVasant",
+          "ittSaras26"
         ]
       },
       {
@@ -4971,12 +5050,16 @@
         },
         "dates": [
           {
+            "from": "2026-03-21",
+            "to": "2026-03-21"
+          },
+          {
             "from": "2027-03-10",
             "to": "2027-03-10"
           }
         ],
         "moon": true,
-        "when": "The day after Ramadan ends; expected 10 March 2027",
+        "when": "The day after Ramadan ends",
         "community": "muslim",
         "mood": "festive",
         "what": "Dhaka's Eid procession probably began with the Naib Nazims after they moved into Nimtali Palace in the 18th century: processions came from Churihatta, Bangshal and Nawabpur to the Eidgah. Alam Musawwir painted 39 scenes of Dhaka's Eid and Muharram processions, now in the National Museum. It was stopped in 1954, revived in 1994, and the city corporation has run a large procession since 2025.",
@@ -4987,7 +5070,8 @@
         "src": [
           "dsEid",
           "tbsEid",
-          "bdt27"
+          "bdt27",
+          "ds26"
         ]
       },
       {
@@ -4997,6 +5081,10 @@
           "bn": "রমজানের কাসিদা"
         },
         "dates": [
+          {
+            "from": "2026-02-19",
+            "to": "2026-03-20"
+          },
           {
             "from": "2027-02-09",
             "to": "2027-03-09"
@@ -5024,11 +5112,15 @@
         },
         "dates": [
           {
+            "from": "2026-03-04",
+            "to": "2026-03-04"
+          },
+          {
             "from": "2027-03-22",
             "to": "2027-03-22"
           }
         ],
-        "when": "The full moon of Falgun, in March; 22 March 2027",
+        "when": "The full moon of Falgun, in March",
         "community": "everyone",
         "mood": "festive",
         "what": "Shankhari Bazar turns into a street party: powder colours, water guns, buckets from the balconies and loud music. It is Hindu in origin, but people of every faith join in and plenty come from outside Old Dhaka to take part.",
@@ -5038,7 +5130,8 @@
         ],
         "src": [
           "dsHoli",
-          "holi27"
+          "holi27",
+          "holi26"
         ]
       },
       {
@@ -5048,6 +5141,10 @@
           "bn": "পহেলা বৈশাখ ও হালখাতা"
         },
         "dates": [
+          {
+            "from": "2026-04-14",
+            "to": "2026-04-14"
+          },
           {
             "from": "2027-04-14",
             "to": "2027-04-14"
@@ -5067,7 +5164,8 @@
         ],
         "src": [
           "feHal",
-          "bdt27"
+          "bdt27",
+          "ds26"
         ]
       }
     ],
@@ -5229,5 +5327,617 @@
         }
       ]
     }
+  },
+  "history": {
+    "title": {
+      "en": "Old Dhaka, 1608 to today",
+      "bn": "পুরান ঢাকা, ১৬০৮ থেকে আজ"
+    },
+    "intro": "Old Dhaka is the city the Mughals made their capital of Bengal in 1610. It lost that role a century later, lived on as a trading town under deputy governors and the East India Company, became the home of the Nawabs of Dhaka, and was the centre of the city until the new town grew north of it in the 20th century. This timeline keeps to the old city and says where each fact comes from. Dates from the 1600s are often given differently by different historians; where they disagree, both are shown.",
+    "eras": [
+      {
+        "id": "before",
+        "years": "Before 1608",
+        "title": {
+          "en": "Before the Mughals",
+          "bn": "মোগলদের আগে"
+        },
+        "color": "#6A3FD9",
+        "summary": "A riverside settlement with a goddess temple that may have given the city its name.",
+        "events": [
+          {
+            "year": "12th c.",
+            "text": "The Dhakeshwari Temple is traditionally dated to the Sena king Ballal Sen. The present buildings are much later.",
+            "places": [
+              "dhakeshwari-temple"
+            ],
+            "src": []
+          },
+          {
+            "year": "1602–1604",
+            "text": "Raja Man Singh, Akbar's general, camps in Dhaka while fighting the Bara-Bhuiyan chiefs and builds four Shiva temples at the old Dhakeshwari site.",
+            "places": [
+              "dhakeshwari-temple"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mughal",
+        "years": "1608–1717",
+        "title": {
+          "en": "Capital of Mughal Bengal",
+          "bn": "মোগল বাংলার রাজধানী"
+        },
+        "color": "#D2452B",
+        "summary": "Dhaka becomes Jahangirnagar, capital of the Mughal province of Bengal, and grows rich on muslin and river trade.",
+        "events": [
+          {
+            "year": "1608",
+            "text": "Mughal general Islam Khan Chishti defeats Musa Khan, and Dhaka comes under direct Mughal control.",
+            "places": [],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1610",
+            "text": "Islam Khan moves the capital of Bengal from Rajmahal to Dhaka and renames it Jahangirnagar, after the emperor. People keep calling it Dhaka.",
+            "places": [],
+            "src": [
+              "bpDhaka",
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1640",
+            "text": "The Portuguese traveller Sebastien Manrique puts the population of Dhaka and its suburbs at about 200,000.",
+            "places": [],
+            "src": [
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1644–1646",
+            "text": "Mir Abul Qasim, diwan of Prince Shah Shuja, builds the Bara Katra, a great travellers' inn facing the river.",
+            "places": [
+              "bara-katra"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1660",
+            "text": "Mir Jumla arrives as governor and Dhaka is the capital again. His roads and gate link the city to forts against the Magh pirates.",
+            "places": [],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1663–1671",
+            "text": "Subahdar Shaista Khan builds the Choto Katra.",
+            "places": [
+              "choto-katra"
+            ],
+            "src": []
+          },
+          {
+            "year": "1663–1682",
+            "text": "The Dutch (1663), English (1667–68) and French (1682) open trading factories. The French site later became Ahsan Manzil.",
+            "places": [
+              "ahsan-manzil"
+            ],
+            "src": [
+              "bpDhaka",
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1664–1688",
+            "text": "Shaista Khan's governorship is the city's biggest building boom. The Chawk Mosque by the market square dates from 1676.",
+            "places": [
+              "chawk-shahi-mosque"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1678",
+            "text": "Prince Muhammad Azam, son of Aurangzeb, begins the fort at Lalbagh. He is recalled before it is finished.",
+            "places": [
+              "lalbagh-fort"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1684",
+            "text": "Shaista Khan's daughter Pari Bibi dies and work on Lalbagh Fort stops. Her tomb stands at its centre.",
+            "places": [
+              "lalbagh-fort"
+            ],
+            "src": []
+          },
+          {
+            "year": "16th–18th c.",
+            "text": "Dhaka is the world centre of muslin, a cotton cloth so fine that the finest grades were reserved for the Mughal court.",
+            "places": [],
+            "src": [
+              "wikiMuslin"
+            ]
+          },
+          {
+            "year": "1700–1706",
+            "text": "Kartalab Khan (Murshid Quli Khan, then Dhaka's diwan) builds the Begum Bazar mosque, and Khan Mohammad Mridha raises his mosque on a high platform.",
+            "places": [
+              "kartalab-khan-mosque",
+              "khan-mohammad-mridha-mosque"
+            ],
+            "src": []
+          },
+          {
+            "year": "1717",
+            "text": "The capital of Bengal moves to Murshidabad, and Dhaka begins a long decline.",
+            "places": [],
+            "src": [
+              "bpDhaka",
+              "wikiHist"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "naib",
+        "years": "1717–1857",
+        "title": {
+          "en": "Deputy governors and the Company",
+          "bn": "নায়েব নাজিম ও কোম্পানি"
+        },
+        "color": "#E07F00",
+        "summary": "Dhaka is ruled by deputy governors (Naib Nazims), then by the East India Company. Armenian and European merchants settle, and the muslin trade collapses.",
+        "events": [
+          {
+            "year": "1728",
+            "text": "Naib Nazim Mirza Lutfullah builds the Chowk Bazaar, still the old city's market square.",
+            "places": [
+              "chawkbazar-iftar"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "c. 1760",
+            "text": "Rice-husking workers settle in Dhaka. Their speech becomes Dhakaiya Kutti, the old city's own Bangla.",
+            "places": [],
+            "src": [
+              "wikiKutti"
+            ]
+          },
+          {
+            "year": "1765–1766",
+            "text": "The East India Company takes over Bengal's revenue. The Naib Nazims move into a new palace at Nimtali; its gateway survives.",
+            "places": [
+              "nimtali-deuri"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1781",
+            "text": "The Armenian community builds the Church of the Holy Resurrection in Armanitola.",
+            "places": [
+              "armenian-church"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1793",
+            "text": "The Company abolishes the Nizamat and takes full control. The city is now written \"Dacca\".",
+            "places": [],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "c. 1800",
+            "text": "British observers already call Dhaka muslin extinct: British tariffs and cheap Lancashire cotton have ruined the weavers.",
+            "places": [],
+            "src": [
+              "wikiMuslin"
+            ]
+          },
+          {
+            "year": "1801–1840",
+            "text": "The population falls from about 200,000 to 51,636.",
+            "places": [],
+            "src": [
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1819–1824",
+            "text": "St Thomas Church is built near the river and consecrated.",
+            "places": [
+              "st-thomas-church"
+            ],
+            "src": []
+          },
+          {
+            "year": "1825",
+            "text": "Armenian merchant Stephen Aratoon builds the mansion that becomes Ruplal House.",
+            "places": [
+              "ruplal-house"
+            ],
+            "src": []
+          },
+          {
+            "year": "1835",
+            "text": "The Dhaka English Seminary opens; it is now Dhaka Collegiate School.",
+            "places": [
+              "dhaka-collegiate-school"
+            ],
+            "src": []
+          },
+          {
+            "year": "1843",
+            "text": "The last Naib Nazim dies and the office ends. The head of the Khwaja family estate becomes known as the Nawab of Dhaka.",
+            "places": [
+              "nimtali-deuri"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1848",
+            "text": "Nicholas Pogose, an Armenian, founds Pogose School, the country's first private school.",
+            "places": [
+              "pogose-school"
+            ],
+            "src": []
+          }
+        ]
+      },
+      {
+        "id": "nawab",
+        "years": "1857–1947",
+        "title": {
+          "en": "The Nawabs and the Raj",
+          "bn": "নবাব ও ব্রিটিশ রাজ"
+        },
+        "color": "#0E8FB0",
+        "summary": "The Nawabs build Ahsan Manzil, the city gets a municipality, a railway and a riverfront promenade, and in 1905 Dhaka briefly becomes a provincial capital.",
+        "events": [
+          {
+            "year": "1857",
+            "text": "During the sepoy uprising, British troops and sepoys clash at Lalbagh Fort on 22 November. Captured sepoys are hanged at Antaghar, today's Bahadur Shah Park.",
+            "places": [
+              "lalbagh-fort",
+              "bahadur-shah-park"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1858",
+            "text": "The Dhaka Brahma School opens; it grows into Jagannath University.",
+            "places": [
+              "jagannath-university"
+            ],
+            "src": []
+          },
+          {
+            "year": "1859–1872",
+            "text": "Nawab Abdul Ghani builds Ahsan Manzil on the river.",
+            "places": [
+              "ahsan-manzil"
+            ],
+            "src": []
+          },
+          {
+            "year": "1864",
+            "text": "The Dacca Municipality is founded, and the Buckland Bund promenade is built along the Sadarghat waterfront.",
+            "places": [
+              "sadarghat"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1872",
+            "text": "The first census counts 69,212 people.",
+            "places": [],
+            "src": [
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1880",
+            "text": "Northbrook Hall opens as the town hall.",
+            "places": [
+              "northbrook-hall"
+            ],
+            "src": []
+          },
+          {
+            "year": "1885",
+            "text": "The railway reaches Dhaka from Narayanganj, cutting through the Nimtali–Fulbaria area.",
+            "places": [],
+            "src": [
+              "bpDhaka",
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "1888",
+            "text": "A tornado wrecks Ahsan Manzil except its Rangmahal.",
+            "places": [
+              "ahsan-manzil"
+            ],
+            "src": []
+          },
+          {
+            "year": "1897",
+            "text": "A great earthquake damages Ahsan Manzil, the Armenian Church tower, Ruplal House and Hussaini Dalan.",
+            "places": [
+              "ahsan-manzil",
+              "armenian-church",
+              "ruplal-house",
+              "hussaini-dalan"
+            ],
+            "src": []
+          },
+          {
+            "year": "1905–1911",
+            "text": "Dhaka becomes capital of Eastern Bengal and Assam; the partition is annulled in 1911. The Nawab of Dhaka, Salimullah, helps found the Muslim League in Dhaka in 1906.",
+            "places": [
+              "ahsan-manzil"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          },
+          {
+            "year": "1914",
+            "text": "Jogesh Chandra Ghosh founds Sadhana Aushadhalaya, an ayurvedic factory in Gendaria.",
+            "places": [
+              "sadhana-aushadhalaya"
+            ],
+            "src": []
+          },
+          {
+            "year": "1922–1939",
+            "text": "Beauty Lassi (1922) and Haji Biryani (1939) open, two of the old city's longest-running food shops.",
+            "places": [
+              "beauty-lassi",
+              "haji-biryani"
+            ],
+            "src": []
+          },
+          {
+            "year": "1947",
+            "text": "Partition. Dhaka becomes capital of East Bengal in Pakistan. Some Hindu families leave, among them the owners of the Sutrapur Zamindar Bari, and Dhakeshwari's original idol goes to Kolkata.",
+            "places": [
+              "dhakeshwari-temple",
+              "sutrapur-zamindar-bari"
+            ],
+            "src": [
+              "wikiHist"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pakistan",
+        "years": "1947–1971",
+        "title": {
+          "en": "The Pakistan years and 1971",
+          "bn": "পাকিস্তান আমল ও ১৯৭১"
+        },
+        "color": "#0B7A57",
+        "summary": "Old Dhaka becomes the base of East Pakistan's publishers and the birthplace of the Awami League, and is attacked in 1971.",
+        "events": [
+          {
+            "year": "1949",
+            "text": "The Awami Muslim League, later the Awami League, is founded at Rose Garden Palace on 23 June.",
+            "places": [
+              "rose-garden-palace"
+            ],
+            "src": []
+          },
+          {
+            "year": "c. 1951",
+            "text": "Beauty Boarding opens and becomes a meeting place for writers and artists.",
+            "places": [
+              "beauty-boarding"
+            ],
+            "src": []
+          },
+          {
+            "year": "1954",
+            "text": "The Eid procession, an old Dhaka tradition, is stopped by the district magistrate. It does not return for 42 years.",
+            "places": [],
+            "src": [
+              "dsEid"
+            ]
+          },
+          {
+            "year": "1957",
+            "text": "Victoria Park is renamed Bahadur Shah Park, after the last Mughal emperor.",
+            "places": [
+              "bahadur-shah-park"
+            ],
+            "src": []
+          },
+          {
+            "year": "26 Mar 1971",
+            "text": "The Pakistan army attacks Shankhari Bazar, killing Hindu residents and burning houses. Survivors flee across the river. A memorial stands at the east end of the road.",
+            "places": [
+              "shankhari-bazar"
+            ],
+            "src": [
+              "wiki71"
+            ]
+          },
+          {
+            "year": "1971",
+            "text": "Jogesh Chandra Ghosh, founder of Sadhana Aushadhalaya, is killed during the war. Dhaka is liberated on 16 December and becomes the capital of Bangladesh.",
+            "places": [
+              "sadhana-aushadhalaya"
+            ],
+            "src": [
+              "wikiHist",
+              "bpDhaka"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bangladesh",
+        "years": "1971–2026",
+        "title": {
+          "en": "Bangladesh",
+          "bn": "বাংলাদেশ"
+        },
+        "color": "#E5317A",
+        "summary": "The old city restores its palaces, loses some of its heritage, lives through deadly fires, and gets its crafts and festivals recognised again.",
+        "events": [
+          {
+            "year": "1985–1992",
+            "text": "Ahsan Manzil is restored and opens as a branch of the National Museum.",
+            "places": [
+              "ahsan-manzil"
+            ],
+            "src": []
+          },
+          {
+            "year": "1994",
+            "text": "The Eid procession is revived, with young people from about 30 neighbourhoods.",
+            "places": [],
+            "src": [
+              "dsEid"
+            ]
+          },
+          {
+            "year": "1996",
+            "text": "Dhakeshwari is declared the National Temple.",
+            "places": [
+              "dhakeshwari-temple"
+            ],
+            "src": []
+          },
+          {
+            "year": "2005",
+            "text": "Jagannath College becomes Jagannath University.",
+            "places": [
+              "jagannath-university"
+            ],
+            "src": []
+          },
+          {
+            "year": "2009–2011",
+            "text": "The Asiatic Society restores the Nimtali gateway.",
+            "places": [
+              "nimtali-deuri"
+            ],
+            "src": []
+          },
+          {
+            "year": "3 Jun 2010",
+            "text": "A fire spreading from a chemical store in Nimtali kills at least 124 people.",
+            "places": [],
+            "src": [
+              "tbsFires"
+            ]
+          },
+          {
+            "year": "2011",
+            "text": "Dhaka City Corporation splits in two; Old Dhaka falls under Dhaka South.",
+            "places": [],
+            "src": [
+              "wikiHist"
+            ]
+          },
+          {
+            "year": "2014",
+            "text": "The government launches a project to bring back Dhaka muslin.",
+            "places": [],
+            "src": [
+              "wikiMuslin"
+            ]
+          },
+          {
+            "year": "20 Feb 2019",
+            "text": "A chemical vapour explosion at Churihatta, Chawkbazar, starts a fire that kills 71 people.",
+            "places": [
+              "chawkbazar-iftar"
+            ],
+            "src": [
+              "tbsFires"
+            ]
+          },
+          {
+            "year": "2022",
+            "text": "Part of the Bara Katra is demolished amid ownership disputes. The Padma Bridge opens, and the Sadarghat launch fleet starts to shrink.",
+            "places": [
+              "bara-katra",
+              "sadarghat"
+            ],
+            "src": []
+          },
+          {
+            "year": "2023",
+            "text": "UNESCO lists Dhaka's rickshaws and rickshaw painting as intangible cultural heritage.",
+            "places": [
+              "bangshal-rickshaw-market"
+            ],
+            "src": [
+              "unescoRick"
+            ]
+          },
+          {
+            "year": "2025",
+            "text": "Dhaka's city corporation stages a large Eid procession again.",
+            "places": [],
+            "src": [
+              "tbsEid",
+              "dsEid"
+            ]
+          },
+          {
+            "year": "2026",
+            "text": "Restoration of Northbrook Hall is largely complete by May.",
+            "places": [
+              "northbrook-hall"
+            ],
+            "src": []
+          }
+        ]
+      }
+    ],
+    "src": [
+      "wikiHist",
+      "bpDhaka"
+    ]
   }
 }

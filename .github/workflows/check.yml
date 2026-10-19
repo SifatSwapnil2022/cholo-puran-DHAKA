@@ -18,8 +18,8 @@ jobs:
       - name: Place pages are up to date
         run: |
           node tools/build-pages.mjs
-          if [ -n "$(git status --porcelain -- place sitemap.xml robots.txt)" ]; then
-            git status --short -- place sitemap.xml robots.txt
+          if [ -n "$(git status --porcelain -- place history sitemap.xml robots.txt)" ]; then
+            git status --short -- place history sitemap.xml robots.txt
             echo "::error::Place pages are out of date. Run 'node tools/build-pages.mjs' and commit the result."
             exit 1
           fi

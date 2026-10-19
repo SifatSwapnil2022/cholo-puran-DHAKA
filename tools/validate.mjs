@@ -136,6 +136,24 @@ if (cul) {
   }
 }
 
+const hist = d.history;
+if (hist) {
+  if (!isStr(hist.title?.en) || !isStr(hist.intro)) err('history', 'title.en and intro are required');
+  for (const k of hist.src || []) if (!tips?.sources?.[k]) err('history', `unknown source key "${k}"`);
+  for (const era of hist.eras || []) {
+    const w = `history ${era.id}`;
+    if (!isStr(era.years) || !isStr(era.title?.en) || !isStr(era.title?.bn) || !isStr(era.summary)) err(w, 'years, title.en, title.bn and summary are required');
+    if (!/^#[0-9A-Fa-f]{6}$/.test(era.color || '')) err(w, 'color must be #RRGGBB');
+    for (const ev of era.events || []) {
+      const we = `${w} ${ev.year}`;
+      if (!isStr(ev.year) || !isStr(ev.text)) err(we, 'year and text are required');
+      for (const s of ev.places || []) if (!slugs.has(s)) err(we, `place "${s}" does not exist`);
+      for (const k of ev.src || []) if (!tips?.sources?.[k]) err(we, `unknown source key "${k}"`);
+      if (!ev.src?.length && !ev.places?.length) err(we, 'needs a source, or a place whose sources cover it');
+    }
+  }
+}
+
 for (const m of warnings) console.warn('warn  ' + m);
 for (const m of errors) console.error('ERROR ' + m);
 console.log(`${d.places.length} places, ${(d.routes || []).length} routes: ${errors.length} errors, ${warnings.length} warnings`);

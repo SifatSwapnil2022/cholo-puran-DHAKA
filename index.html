@@ -440,6 +440,64 @@ table.fees small{color:var(--ink-3);font-weight:400}
 @keyframes livedot{50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){.mk.live .chip::after,.pin2.live::after,.chips .fchip i{animation:none}}
 @media (max-width:760px){.yearstrip{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.fview{display:inline-flex;gap:4px;padding:4px;border-radius:14px;background:var(--paper-2);border:1px solid var(--line);margin:0 0 16px}
+.fview button{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 16px;border-radius:10px;border:0;background:none;color:var(--ink-2);font:inherit;font-weight:700;font-size:14.5px;cursor:pointer}
+.fview button svg{width:17px;height:17px}.fview button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 2px 8px -4px rgba(0,0,0,.3)}
+.calhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 6px}
+.calhead h3{margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em}
+.calyears{display:inline-flex;gap:4px}.calyears button{min-height:38px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.calyears button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.calhead .btn{margin-left:auto;min-height:40px;font-size:14px}
+.calnote{margin:0 0 14px!important;max-width:70ch}
+.cdetail{padding:14px 16px;border-radius:16px;background:#fff;border:1px solid var(--line);margin:0 0 16px;display:grid;gap:10px}
+.cdetail h4{margin:0;font-size:15px;font-weight:800;color:var(--ink-2)}
+.cdi{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.cdi>i{width:12px;height:12px;border-radius:4px;background:var(--fc)}
+.cdi b{display:block;font-size:16px}.cdi span{font-size:13.5px;color:var(--ink-3)}
+.cdb{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.cdb .btn{min-height:38px;font-size:13.5px;padding:6px 12px}
+.calgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cm{padding:12px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.cm h4{margin:0 0 8px;font-size:15px;font-weight:800}
+.cgridm{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cgridm .wd{font-size:10.5px;font-weight:700;color:var(--ink-3);padding-bottom:2px}
+.cd{position:relative;display:grid;place-items:center;aspect-ratio:1;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--ink-2);border:0;background:none;padding:0;font-family:inherit}
+.cd.blank{visibility:hidden}.cd.past{opacity:.45}
+button.cd{cursor:pointer}
+.cd.on{background:var(--fc);color:#fff;font-weight:800}
+.cd.tint{background:color-mix(in srgb,var(--fc) 16%,#fff);color:var(--ink);box-shadow:inset 0 -2px 0 var(--fc)}
+.cd.today{outline:2px solid var(--ink);outline-offset:-2px}
+.cd.sel{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
+.cd i{position:absolute;right:2px;top:2px;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px var(--fc)}
+.cd.tint i{background:var(--fc);box-shadow:none}
+.calh{margin:22px 0 10px;font-size:19px;font-weight:800}
+.calrows{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.calrows button{width:100%;display:grid;grid-template-columns:150px 1fr auto;gap:10px;align-items:center;min-height:46px;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:14.5px;text-align:left;cursor:pointer}
+.calrows button.past{opacity:.5}
+.cr-d{font-weight:700;color:var(--ink-2)}.cr-n{display:flex;align-items:center;gap:8px;font-weight:700}.cr-n i{width:10px;height:10px;border-radius:3px;background:var(--fc);flex:none}.cr-c{font-size:12.5px;color:var(--ink-3)}
+.fcard.flash{animation:flash 1.6s ease-out}@keyframes flash{0%,40%{box-shadow:0 0 0 4px var(--tc)}100%{box-shadow:none}}
+.hjump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -4px 22px;padding:4px}
+.hjump::-webkit-scrollbar{display:none}
+.hjump a{flex:0 0 auto;display:flex;flex-direction:column;gap:2px;min-width:132px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);border-top:4px solid var(--tc);background:#fff;color:var(--ink);text-decoration:none}
+.hjump b{font-size:13px;color:var(--tc)}.hjump span{font-size:14.5px;font-weight:700;line-height:1.25}
+.hera{margin:0 0 34px;scroll-margin-top:12px}
+.hera header{padding:20px 22px;border-radius:20px;background:color-mix(in srgb,var(--tc) 11%,#fff);border:1px solid color-mix(in srgb,var(--tc) 30%,transparent);margin-bottom:6px}
+.hera .hy{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--tc);color:#fff;font-size:13px;font-weight:800;letter-spacing:.02em}
+.hera h2{margin:8px 0 6px;font-size:clamp(22px,4vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.hera h2 small{display:block;font-family:var(--f-bn);font-weight:500;font-size:16px;color:var(--ink-3);letter-spacing:0;margin-top:2px}
+.hera header p{margin:0 0 10px;color:var(--ink-2);max-width:66ch;font-size:16px}
+.hera .hmap{min-height:40px;font-size:14px}
+.htl{list-style:none;margin:0;padding:0 0 0 8px}
+.htl li{position:relative;display:grid;grid-template-columns:118px 1fr;gap:16px;padding:14px 0 14px 22px;border-left:3px solid color-mix(in srgb,var(--tc) 35%,transparent)}
+.htl li::before{content:"";position:absolute;left:-8.5px;top:19px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tc)}
+.hdate{font-weight:800;font-size:15px;color:var(--tc);line-height:1.4}
+.hev p{margin:0 0 6px;font-size:15.5px;line-height:1.55;color:var(--ink);max-width:66ch}
+.hev .from{margin:4px 0 0;font-size:12.5px;color:var(--ink-3)}.hev .from a{color:var(--ink-3)}
+.hnote{margin-top:6px;max-width:70ch}
+@media (max-width:760px){.calgrid{grid-template-columns:1fr 1fr;gap:8px}.cm{padding:8px}.cd{font-size:11.5px;border-radius:6px}.cgridm{gap:2px}
+  .calrows{grid-template-columns:1fr}.calrows button{grid-template-columns:110px 1fr;font-size:14px}.cr-c{display:none}
+  .calhead .btn{margin-left:0;width:100%;justify-content:center}.cdi{grid-template-columns:auto 1fr}.cdb{grid-column:1/-1;justify-content:flex-start}
+  .htl{padding-left:6px}.htl li{grid-template-columns:1fr;gap:4px;padding-left:18px}.hera header{padding:16px}
+  .tabbar button i{width:40px}.tabbar button{font-size:11px}}
 .tsec{scroll-margin-top:16px}
 .tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
 .tsec h2 i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tc);color:#fff;flex:0 0 auto}
@@ -607,6 +665,7 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
     <button id="nav-routes" data-v="routes"><span data-i="routes">Routes</span></button>
     <button id="nav-tips" data-v="tips"><span data-i="tips">Tips</span></button>
     <button id="nav-guide" data-v="guide"><span data-i="guide">Places</span></button>
+    <button id="nav-history" data-v="history"><span data-i="histNav">History</span></button>
     <button id="nav-about" data-v="about"><span data-i="about">About</span></button>
   </nav>
   <div class="search" role="search">
@@ -714,6 +773,14 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
     </div>
   </section>
 
+  <section class="page" id="historyView" hidden aria-labelledby="hTitle">
+    <div class="wrap">
+      <h1 id="hTitle"><span data-i="hTitle">Old Dhaka, 1608 to today</span><span class="bn">পুরান ঢাকা, ১৬০৮ থেকে আজ</span></h1>
+      <p class="lede" id="hIntro"></p>
+      <nav class="hjump" id="hjump" aria-label="Jump to a period"></nav>
+      <div id="hbody"></div>
+    </div>
+  </section>
   <section class="page" id="aboutView" hidden aria-labelledby="aTitle">
     <div class="wrap">
       <h1 id="aTitle"><span data-i="aTitle">Who made this</span><span class="bn">কে বানিয়েছে</span></h1>
@@ -756,6 +823,7 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
   <button data-v="routes"><i></i><span data-i="routes">Routes</span></button>
   <button data-v="tips"><i></i><span data-i="tips">Tips</span></button>
   <button data-v="guide"><i></i><span data-i="guide">Places</span></button>
+  <button data-v="history"><i></i><span data-i="histNav">History</span></button>
   <button data-v="about"><i></i><span data-i="about">About</span></button>
 </nav>
 
@@ -857,7 +925,10 @@ const UI = {
   check: '<circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16.2 9.5"/>',
   cal: '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
   brush: '<path d="M14.5 4.5l5 5-7.5 7.5-5-5zM7 12l-2.5 2.5c-1.4 1.4-1 4.5-1 4.5s3.1.4 4.5-1L10.5 15.5"/>',
-  chat: '<path d="M4 5.5h16v10H10l-4.5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/>'
+  chat: '<path d="M4 5.5h16v10H10l-4.5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/>',
+  scroll: '<path d="M7 4h11a2 2 0 0 1 2 2v1h-4M7 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7M7 4a2 2 0 0 1 2 2v12M11 10h4M11 14h4"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  grid: '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8.5 14h.01M12 14h.01M15.5 14h.01M8.5 17.5h.01M12 17.5h.01"/>'
 };
 const uiIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${UI[k]}</svg>`;
 
@@ -866,7 +937,9 @@ const uiIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
    ================================================================ */
 const T = {
   en: {
-    map: 'Map', guide: 'Places', about: 'About', routes: 'Routes', tips: 'Tips', search: 'Search places, food, mahallas', searchLabel: 'Search places',
+    map: 'Map', guide: 'Places', about: 'About', routes: 'Routes', tips: 'Tips', histNav: 'History', hTitle: 'Old Dhaka, 1608 to today',
+    hShow: 'Show these places on the map', hSources: 'Main sources for this page:', hNote: 'Dates before 1800 often differ between historians by a year or two; where our sources disagree, both are given. Events without a listed source come from the linked place card, which lists its own.', hPeriod: 'Period',
+    viewList: 'List', viewCal: 'Calendar', calTitle: 'Festival calendar', calNote: 'Estimated dates. Moon-based dates (marked ≈) can move by a day, and Hindu dates follow the Bengali calendar used in Bangladesh, which can differ by a day from Indian listings. Check the official holiday list before you plan.', addYear: 'Add all of {y} to calendar', tapDay: 'Tap a coloured day to see what is on.', allDates: 'All dates in {y}', seeCard: 'Details', wk: ['Sa', 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr'], search: 'Search places, food, mahallas', searchLabel: 'Search places',
     time: 'Time of day', goodNow: 'Good around this time', estimates: 'estimates', legendHidden: 'lesser-known place', plan: 'Top-down', walkHere2: 'Walk the lanes',
     walk: 'Walk here', directions: 'Directions', copy: 'Copy link', share: 'Share', copied: 'Link copied',
     why: 'Why go', glance: 'At a glance', spend: 'Time to spend', known: 'How well known', goodFor: 'Good for', getting: 'Getting there', walking: 'Walking', facilities: 'Facilities',
@@ -917,6 +990,8 @@ const T = {
     bnNote: 'বিস্তারিত বর্ণনা এখন ইংরেজিতে। বাংলা লেখা আসছে।', noResults: 'কিছু পাওয়া যায়নি। লালবাগ বা চকবাজারের মতো মহল্লার নাম লিখে দেখুন।', all: 'সব',
     nogl: 'আপনার ব্রাউজারে থ্রিডি ভিউ চালু হয়নি। "জায়গা" পাতায় সব তথ্য আছে।',
     rTitle: 'হেঁটে ঘোরার পথ', rLede: 'গুছিয়ে সাজানো দিনের পরিকল্পনা, এক জায়গা থেকে আরেক জায়গায় হাঁটার সময়সহ। দূরের পথে রিকশা নিন। সময়গুলো পরামর্শ; কোন জায়গা কবে বন্ধ, তা চিহ্নিত।',
+    histNav: 'ইতিহাস', hTitle: 'পুরান ঢাকা, ১৬০৮ থেকে আজ', hShow: 'এই জায়গাগুলো ম্যাপে দেখুন', hSources: 'এই পাতার প্রধান তথ্যসূত্র:', hNote: '১৮০০ সালের আগের তারিখ নিয়ে ইতিহাসবিদদের মধ্যে এক-দুই বছরের মতভেদ থাকে; আমাদের সূত্রে অমিল থাকলে দুটোই দেওয়া হয়েছে। যে ঘটনার পাশে সূত্র নেই, তার সূত্র জায়গার কার্ডে আছে।', hPeriod: 'সময়কাল',
+    viewList: 'তালিকা', viewCal: 'ক্যালেন্ডার', calTitle: 'উৎসবের ক্যালেন্ডার', calNote: 'আনুমানিক তারিখ। চাঁদ দেখার ওপর নির্ভর তারিখ (≈ চিহ্ন) এক দিন এদিক-ওদিক হতে পারে। পরিকল্পনার আগে সরকারি ছুটির তালিকা দেখে নিন।', addYear: '{y} সালের সব ক্যালেন্ডারে রাখুন', tapDay: 'রঙিন দিনে চাপ দিলে দেখবেন কী আছে।', allDates: '{y} সালের সব তারিখ', seeCard: 'বিস্তারিত', wk: ['শ', 'র', 'সো', 'ম', 'বু', 'বৃ', 'শু'],
     tTitle: 'যাওয়ার আগে জেনে নিন', tLede: 'প্রথমবার যাঁরা আসছেন, তাঁদের দরকারি তথ্য, সঙ্গে পুরান ঢাকার উৎসব, হস্তশিল্প আর বুলি। প্রতিটি অংশে তথ্যসূত্র দেওয়া আছে। বিস্তারিত এখন ইংরেজিতে।',
     wTitle: 'প্রথমবার পুরান ঢাকায়?', wLede: 'একটা হাঁটার পথ বেছে নিন, ধাপে ধাপে চলুন। অথবা নিজের মতো ম্যাপ ঘুরে দেখুন।', readTips: 'ভ্রমণ টিপস', explore: 'ম্যাপ ঘুরে দেখুন',
     showDriver: 'চালককে দেখান', driverHint: 'রিকশা বা সিএনজি চালককে দেখান', takeMe: 'দয়া করে আমাকে এখানে নিয়ে যান।', fareQ: 'ভাড়া কত হবে?', walkOnlyDrop: 'গাড়ি ভেতরে যায় না। কাছের রাস্তায় নামিয়ে দিন।', nearTo: 'কাছেই', oldDhaka: 'পুরান ঢাকা', done: 'ঠিক আছে',
@@ -994,7 +1069,7 @@ async function loadData() {
   const r = await fetch('places.json');
   if (!r.ok) throw new Error('places.json ' + r.status);
   const d = await r.json();
-  state.places = d.places; state.routes = d.routes || []; state.tips = d.tips || null; state.culture = d.culture || null; state.siteUrl = d.meta?.siteUrl || '';
+  state.places = d.places; state.routes = d.routes || []; state.tips = d.tips || null; state.culture = d.culture || null; state.history = d.history || null; state.siteUrl = d.meta?.siteUrl || '';
   const n = d.places.length; T.en.gTitle = `${n} places worth the trip`; T.bn.gTitle = `যাওয়ার মতো ${bnNum(n)}টি জায়গা`;
   for (const p of d.places) {
     const [x, z] = W(p.lat, p.lng);
@@ -2319,9 +2394,9 @@ const pName = p => state.lang === 'bn' ? p.name.bn : p.name.en;
 function renderChips(boxId) {
   const box = $(boxId);
   const count = c => state.places.filter(p => p.categories.includes(c)).length;
-  const fsh = state.festShow && state.culture?.festivals.find(x => x.id === state.festShow.id);
+  const fsh = state.festShow;
   const live = boxId === '#chips' && !fsh ? liveFests() : [];
-  box.innerHTML = (fsh ? `<button type="button" class="fchip on" data-unfest aria-label="${t('clearFest')}"><i></i><span>${esc(festName(fsh))}</span><b aria-hidden="true">✕</b></button>` : '')
+  box.innerHTML = (fsh ? `<button type="button" class="fchip on" data-unfest aria-label="${t('clearFest')}"><i></i><span>${esc(fsh.label)}</span><b aria-hidden="true">✕</b></button>` : '')
     + live.map(f => `<button type="button" class="fchip" data-fest="${f.id}"><i></i><span>${t('onNow')}: ${esc(festName(f))}</span></button>`).join('')
     + (boxId === '#chips' ? `<button type="button" class="ochip" data-open aria-pressed="${state.f.open}">${t('fOpen')}</button>` : '') + CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${state.filter === c}" style="--c:var(--c-${c})"><i>${svgIcon(c, 2.1)}</i><span>${CATNAME[state.lang][c]}</span><span class="count">${num(count(c))}</span></button>`).join('');
   box.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { state.festShow = null; state.filter = state.filter === b.dataset.c ? null : b.dataset.c; renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d(); });
@@ -2432,9 +2507,10 @@ function openDrawer(p) {
   enterLayer('#' + p.slug);
 }
 /* App shortcuts and shared links: #routes, #tips, #places, #about, #festivals, #crafts, #say, #near */
-const DEEP_VIEWS = ['routes', 'tips', 'about', 'places', 'festivals', 'crafts', 'say', 'near'];
+const DEEP_VIEWS = ['routes', 'tips', 'about', 'places', 'festivals', 'crafts', 'say', 'near', 'calendar', 'history'];
 function openDeepView(h) {
-  if (['routes', 'tips', 'about'].includes(h)) { showView(h); return true; }
+  if (['routes', 'tips', 'about', 'history'].includes(h)) { showView(h); return true; }
+  if (h === 'calendar') { state.festView = 'cal'; showView('tips'); setSeg('festivals'); renderFestivals(); return true; }
   if (h === 'places') { showView('guide'); return true; }
   if (['festivals', 'crafts', 'say'].includes(h)) { showView('tips'); setSeg(h); return true; }
   if (h === 'near') { locateMe(); return true; }
@@ -2447,7 +2523,7 @@ function festNoteFor(p) {
   for (const f of fs) {
     if (!(f.places || []).includes(p.slug)) continue;
     const w = festWhen(f, today);
-    if (w.now || (w.k === 1 && w.n <= 30)) return `<p class="fest">${uiIcon('cal')}<span><b>${esc(state.lang === 'bn' ? f.name.bn : f.name.en)}</b> · ${w.label} · ${esc(f.when)}${f.tip ? `. ${esc(f.tip)}` : ''}</span></p>`;
+    if (w.now || (w.k === 1 && w.n <= 30)) return `<p class="fest">${uiIcon('cal')}<span><b>${esc(state.lang === 'bn' ? f.name.bn : f.name.en)}</b> · ${w.label} · ${esc(fmtRange(w.o))}${f.tip ? `. ${esc(f.tip)}` : ''}</span></p>`;
   }
   return '';
 }
@@ -2946,32 +3022,41 @@ function markLive() {
 const monthKey = iso => iso.slice(0, 7);
 function occMonths(o) { const out = []; let d = new Date(o.from.slice(0, 7) + '-01T12:00:00Z'); const last = monthKey(o.to); while (monthKey(d.toISOString()) <= last) { out.push(monthKey(d.toISOString())); d.setUTCMonth(d.getUTCMonth() + 1); } return out; }
 /* Calendar file for one occurrence, so a visitor can keep the date in their phone. */
-function icsFor(f, o) {
+function icsFor(f, o) { return icsWrap([[f, o]]); }
+function icsWrap(list) {
   const ymd = x => x.replace(/-/g, '');
-  const end = new Date(Date.parse(o.to + 'T00:00:00Z') + 864e5).toISOString().slice(0, 10);
   const tx = x => String(x).replace(/\\/g, '\\\\').replace(/[;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
   const fold = l => { const out = []; while (l.length > 60) { out.push(l.slice(0, 60)); l = ' ' + l.slice(60); } out.push(l); return out.join('\r\n'); };
+  const ev = ([f, o]) => {
+  const end = new Date(Date.parse(o.to + 'T00:00:00Z') + 864e5).toISOString().slice(0, 10);
   const where = (f.places || []).map(x => state.bySlug[x]?.name.en).filter(Boolean).join(', ');
   const desc = f.what + (f.tip ? '\n\nTip: ' + f.tip : '') + (f.moon ? '\n\nThe date is set by the moon and may move by a day.' : '') + '\n\n' + location.href.split('#')[0] + '#festivals';
-  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cholo Puran Dhaka//Celebrations//EN', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+  return ['BEGIN:VEVENT',
     `UID:${f.id}-${o.from}@cholo-puran-dhaka`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`,
     `DTSTART;VALUE=DATE:${ymd(o.from)}`, `DTEND;VALUE=DATE:${ymd(end)}`, `SUMMARY:${tx(f.name.en + ' in Old Dhaka')}`,
-    `LOCATION:${tx((where ? where + ', ' : '') + 'Old Dhaka')}`, `DESCRIPTION:${tx(desc)}`, 'TRANSP:TRANSPARENT', 'END:VEVENT', 'END:VCALENDAR'].map(fold).join('\r\n') + '\r\n';
+    `LOCATION:${tx((where ? where + ', ' : '') + 'Old Dhaka')}`, `DESCRIPTION:${tx(desc)}`, 'TRANSP:TRANSPARENT', 'END:VEVENT']; };
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cholo Puran Dhaka//Celebrations//EN', 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:Old Dhaka celebrations', ...list.flatMap(ev), 'END:VCALENDAR'].map(fold).join('\r\n') + '\r\n';
+}
+function saveIcs(text, name) {
+  const url = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' }));
+  const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
 }
 function downloadIcs(f) {
   const o = festOcc(f, dhakaDate()); if (!o) return;
-  const url = URL.createObjectURL(new Blob([icsFor(f, o)], { type: 'text/calendar;charset=utf-8' }));
-  const a = document.createElement('a'); a.href = url; a.download = `${f.id}-${o.from.slice(0, 4)}.ics`; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 5000);
+  saveIcs(icsFor(f, o), `${f.id}-${o.from.slice(0, 4)}.ics`);
 }
 /* Show on map: only this celebration's places, framed on the 3D or street map. */
 function showFestOnMap(id) {
   const f = state.culture.festivals.find(x => x.id === id); if (!f) return;
-  const ps = (f.places || []).map(x => state.bySlug[x]).filter(Boolean); if (!ps.length) return;
+  showPlacesOnMap(id, festName(f), f.places || []);
+}
+function showPlacesOnMap(id, label, slugs) {
+  const ps = slugs.map(x => state.bySlug[x]).filter(Boolean); if (!ps.length) return;
   if (state.walk) stopWalk();
   if (state.route) endRoute();
   if ($('#drawer').classList.contains('open')) closeDrawer();
-  state.filter = null; state.festShow = { id, slugs: new Set(f.places) };
+  state.filter = null; state.festShow = { id, label, slugs: new Set(ps.map(q => q.slug)) };
   showView('map'); renderChips('#chips'); renderChips('#gchips'); renderGuide(); refresh2d();
   if (ps.length === 1) { select(ps[0].slug); return; }
   if (state.mode2d) fit2d(ps.map(q => [q.lat, q.lng]));
@@ -2997,7 +3082,7 @@ function renderCulture() {
   $('#tseg').onkeydown = e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const ids = SEGS.map(x => x[0]); const i = (ids.indexOf(state.tipSeg || 'practical') + (e.key === 'ArrowRight' ? 1 : ids.length - 1)) % ids.length; setSeg(ids[i]); $(`#tseg [data-seg="${ids[i]}"]`).focus(); };
   setSeg(state.tipSeg || 'practical');
   if (!c) return;
-  renderFestivals(); markLive();
+  renderFestivals(); markLive(); renderHistory();
   $('#tp-crafts').innerHTML = `<p class="lede">${t('cLede')}</p><div class="cgrid">${c.crafts.map((k, i) => `<article class="ccard" style="--tc:${FCOL[(i + 2) % FCOL.length]}">
       <h3>${esc(k.name.en)} <small lang="bn">${esc(k.name.bn)}</small></h3>
       <p>${esc(k.what)}</p>
@@ -3033,8 +3118,12 @@ function renderFestivals() {
   const coms = ['all', ...Object.keys(COMM).filter(k => c.festivals.some(f => f.community === k))];
   const now = all.filter(x => x.w.now);
   const MOOD = { festive: 'moodFestive', devotional: 'moodDevotional', mourning: 'moodMourning' };
-  $('#tp-festivals').innerHTML = `<p class="lede">${t('fLede')}</p>
-    ${now.map(x => `<div class="fnow" style="--tc:${x.col}"><b>${t('onNow')}</b><span>${esc(festName(x.f))} · ${esc(x.f.when)}</span><button class="fmap" data-map="${x.f.id}">${uiIcon('map')}${t('showMap')}</button></div>`).join('')}
+  const cal = state.festView === 'cal';
+  const head = `<p class="lede">${t('fLede')}</p>
+    ${now.map(x => `<div class="fnow" style="--tc:${x.col}"><b>${t('onNow')}</b><span>${esc(festName(x.f))} · ${esc(fmtRange(x.w.o))}</span><button class="fmap" data-map="${x.f.id}">${uiIcon('map')}${t('showMap')}</button></div>`).join('')}
+    <div class="fview" role="group" aria-label="${t('calTitle')}"><button data-fv="list" aria-pressed="${!cal}">${uiIcon('list')}${t('viewList')}</button><button data-fv="cal" aria-pressed="${cal}">${uiIcon('grid')}${t('viewCal')}</button></div>`;
+  if (cal) { $('#tp-festivals').innerHTML = head + calHtml(today); bindFestivals(); bindCalendar(); return; }
+  $('#tp-festivals').innerHTML = head + `
     <div class="yearstrip" role="group" aria-label="${t('byMonth')}">${months.map(m => `<button data-month="${m.k}" aria-pressed="${mon === m.k}"${m.fs.length ? '' : ' class="empty"'}><span class="mo">${esc(m.label)}${m.yr ? `<small>${m.yr}</small>` : ''}</span><span class="dots">${m.fs.slice(0, 4).map(x => `<i style="background:${x.col}"></i>`).join('')}</span></button>`).join('')}</div>
     <div class="comfilter" role="group" aria-label="${t('byCommunity')}">${coms.map(k => `<button data-com="${k}" aria-pressed="${com === k}"${k !== 'all' ? ` style="--cc:${COMM[k]}"` : ''}>${k !== 'all' ? '<i></i>' : ''}${t('com_' + k)}</button>`).join('')}${mon ? `<button class="clearm" data-month="">${t('allMonths')} ✕</button>` : ''}</div>
     ${fs.length ? '' : `<p class="fempty">${t('nothingMonth')}</p>`}
@@ -3048,7 +3137,7 @@ function renderFestivals() {
         <div class="fdate">${date}</div>
         <div class="fbody">
           <h3>${esc(f.name.en)} <small lang="bn">${esc(f.name.bn)}</small></h3>
-          <p class="fwhen">${esc(f.when)}${w.label && o ? ` <em>${w.label}</em>` : ''}</p>
+          <p class="fwhen">${o ? `<b>${esc(fmtRange(o))} ${num(o.to.slice(0, 4))}${f.moon ? ' ≈' : ''}</b> · ` : ''}${esc(f.when)}${w.label && o ? ` <em>${w.label}</em>` : ''}</p>
           <div class="fbadges"><span class="fb com" style="--cc:${COMM[f.community]}"><i></i>${t('com_' + f.community)}</span><span class="fb mood-${f.mood}">${t(MOOD[f.mood])}</span>${f.moon ? `<span class="fb">${t('moonNote')}</span>` : ''}</div>
           <p>${esc(f.what)}</p>
           ${f.tip ? `<p class="ftip"><b>${t('tipLabel')}:</b> ${esc(f.tip)}</p>` : ''}
@@ -3057,7 +3146,11 @@ function renderFestivals() {
           ${srcLine(f.src)}
         </div></article>`; }).join('')}</div>
     <p class="from" style="margin-top:14px">${t('festNote')}</p>`;
-  const P = $('#tp-festivals');
+  bindFestivals();
+}
+function bindFestivals() {
+  const P = $('#tp-festivals'), c = state.culture;
+  P.querySelectorAll('[data-fv]').forEach(b => b.onclick = () => { state.festView = b.dataset.fv; renderFestivals(); });
   P.querySelectorAll('[data-month]').forEach(b => b.onclick = () => { const k = b.dataset.month; state.festMonth = !k || state.festMonth === k ? null : k; renderFestivals(); });
   P.querySelectorAll('[data-com]').forEach(b => b.onclick = () => { state.festCom = b.dataset.com; renderFestivals(); });
   P.querySelectorAll('[data-map]').forEach(b => b.onclick = () => showFestOnMap(b.dataset.map));
@@ -3065,6 +3158,86 @@ function renderFestivals() {
   P.querySelectorAll('.pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
 
+/* ---------- Festival calendar: month grids for 2026 and 2027 ---------- */
+const CAL_YEARS = [2026, 2027];
+const isoAdd = (iso, n) => { const d = new Date(iso + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+function calData(y) {
+  const byDay = {}, rows = [];
+  state.culture.festivals.forEach((f, i) => {
+    const col = FCOL[i % FCOL.length];
+    for (const o of f.dates || []) {
+      if (+o.from.slice(0, 4) !== y && +o.to.slice(0, 4) !== y) continue;
+      const long = dayDiff(o.from, o.to) > 7;
+      rows.push({ f, o, col, long });
+      for (let k = o.from; k <= o.to; k = isoAdd(k, 1)) (byDay[k] ||= []).push({ f, o, col, long });
+    }
+  });
+  rows.sort((a, b) => a.o.from.localeCompare(b.o.from) || a.long - b.long);
+  for (const k in byDay) byDay[k].sort((a, b) => a.long - b.long);
+  return { byDay, rows };
+}
+const fmtRange = o => { const a = fmtDay(o.from), b = fmtDay(o.to); return o.from === o.to ? `${num(a.d)} ${a.m}` : a.m === b.m ? `${num(a.d)}–${num(b.d)} ${a.m}` : `${num(a.d)} ${a.m} – ${num(b.d)} ${b.m}`; };
+function calHtml(today) {
+  const ty = +today.slice(0, 4);
+  const y = state.calYear || (CAL_YEARS.includes(ty) ? ty : CAL_YEARS[0]);
+  const { byDay, rows } = calData(y);
+  const L = state.lang, wk = t('wk');
+  const day = state.calDay && state.calDay.startsWith(String(y)) ? state.calDay : (rows.find(r => r.o.to >= today && !r.long) || rows.find(r => r.o.to >= today) || {}).o?.from;
+  state.calDay = day;
+  const months = Array.from({ length: 12 }, (_, m) => {
+    const first = new Date(Date.UTC(y, m, 1, 12)), days = new Date(Date.UTC(y, m + 1, 0, 12)).getUTCDate();
+    const lead = (first.getUTCDay() + 1) % 7; // weeks start on Saturday, as on Bangladeshi calendars
+    const name = first.toLocaleString(L === 'bn' ? 'bn-BD' : 'en-GB', { month: 'long', timeZone: 'UTC' });
+    let cells = '';
+    for (let i = 0; i < lead; i++) cells += '<span class="cd blank"></span>';
+    for (let d = 1; d <= days; d++) {
+      const k = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const evs = byDay[k] || [], top = evs[0];
+      const cls = ['cd', k === today ? 'today' : '', k < today ? 'past' : '', k === day ? 'sel' : '', top ? (top.long ? 'tint' : 'on') : ''].filter(Boolean).join(' ');
+      const label = evs.map(e => festName(e.f)).join(', ');
+      cells += top ? `<button class="${cls}" data-day="${k}" style="--fc:${top.col}" aria-label="${num(d)} ${esc(name)}: ${esc(label)}" title="${esc(label)}">${num(d)}${evs.length > 1 ? '<i></i>' : ''}</button>` : `<span class="${cls}">${num(d)}</span>`;
+    }
+    return `<div class="cm"><h4>${esc(name)}</h4><div class="cgridm">${wk.map(w => `<span class="wd">${w}</span>`).join('')}${cells}</div></div>`;
+  }).join('');
+  const sel = day ? (byDay[day] || []) : [];
+  const upcoming = rows.filter(r => r.o.to >= today);
+  const detail = sel.length ? `<div class="cdetail"><h4>${esc(fmtRange({ from: day, to: day }))} ${num(y)}</h4>${sel.map(e => `<div class="cdi" style="--fc:${e.col}"><i></i><div><b>${esc(festName(e.f))}${e.f.moon ? ' ≈' : ''}</b><span>${esc(fmtRange(e.o))} · ${t('com_' + e.f.community)}</span></div><div class="cdb"><button class="btn" data-card="${e.f.id}">${t('seeCard')}</button>${(e.f.places || []).length ? `<button class="btn" data-map="${e.f.id}">${uiIcon('map')}<span>${t('showMap')}</span></button>` : ''}</div></div>`).join('')}</div>` : `<p class="fempty">${t('tapDay')}</p>`;
+  return `<div class="calhead"><h3>${t('calTitle')}</h3><div class="calyears">${CAL_YEARS.map(v => `<button data-year="${v}" aria-pressed="${v === y}">${num(v)}</button>`).join('')}</div>
+      ${upcoming.length ? `<button class="btn" data-addyear="${y}">${uiIcon('cal')}${fill('addYear', { y: num(y) })}</button>` : ''}</div>
+    <p class="from calnote">${t('calNote')}</p>
+    ${detail}
+    <div class="calgrid">${months}</div>
+    <h3 class="calh">${fill('allDates', { y: num(y) })}</h3>
+    <ol class="calrows">${rows.map(r => `<li><button data-day="${r.o.from}" class="${r.o.to < today ? 'past' : ''}" style="--fc:${r.col}"><span class="cr-d">${esc(fmtRange(r.o))}</span><span class="cr-n"><i></i>${esc(festName(r.f))}${r.f.moon ? ' ≈' : ''}</span><span class="cr-c">${t('com_' + r.f.community)}</span></button></li>`).join('')}</ol>`;
+}
+function bindCalendar() {
+  const P = $('#tp-festivals'), c = state.culture;
+  P.querySelectorAll('[data-year]').forEach(b => b.onclick = () => { state.calYear = +b.dataset.year; state.calDay = null; renderFestivals(); });
+  P.querySelectorAll('[data-day]').forEach(b => b.onclick = () => { state.calDay = b.dataset.day; renderFestivals(); const d = $('.cdetail'); if (d) d.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest' }); });
+  P.querySelectorAll('[data-card]').forEach(b => b.onclick = () => { state.festView = 'list'; state.festMonth = null; state.festCom = 'all'; renderFestivals(); const el = document.getElementById('fest-' + b.dataset.card); if (el) { el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1600); } });
+  P.querySelectorAll('[data-addyear]').forEach(b => b.onclick = () => { const y = +b.dataset.addyear, today = dhakaDate(); const list = calData(y).rows.filter(r => r.o.to >= today).map(r => [r.f, r.o]); if (list.length) saveIcs(icsWrap(list), `old-dhaka-celebrations-${y}.ics`); });
+}
+
+/* ================================================================
+   History of Old Dhaka
+   ================================================================ */
+function renderHistory() {
+  const H = state.history; if (!H) return;
+  const L = state.lang;
+  $('#hIntro').textContent = H.intro;
+  $('#hjump').innerHTML = H.eras.map(e => `<a href="#" data-era="${e.id}" style="--tc:${e.color}"><b>${esc(e.years)}</b><span>${esc(L === 'bn' ? e.title.bn : e.title.en)}</span></a>`).join('');
+  $('#hbody').innerHTML = H.eras.map(e => {
+    const slugs = [...new Set(e.events.flatMap(ev => ev.places || []))];
+    return `<section class="hera" id="era-${e.id}" style="--tc:${e.color}">
+      <header><span class="hy">${esc(e.years)}</span><h2>${esc(e.title.en)}<small lang="bn">${esc(e.title.bn)}</small></h2><p>${esc(e.summary)}</p>
+        ${slugs.length ? `<button class="btn hmap" data-hmap="${e.id}">${uiIcon('map')}${t('hShow')} (${num(slugs.length)})</button>` : ''}</header>
+      <ol class="htl">${e.events.map(ev => `<li><span class="hdate">${esc(ev.year)}</span><div class="hev"><p>${esc(ev.text)}</p>
+        ${(ev.places || []).length ? `<div class="pchips">${placeChips(ev.places)}</div>` : ''}${srcLine(ev.src)}</div></li>`).join('')}</ol></section>`;
+  }).join('') + `<p class="from hnote">${t('hNote')}</p>${srcLine(H.src).replace(t('from'), t('hSources'))}`;
+  $('#hjump').querySelectorAll('[data-era]').forEach(a => a.onclick = ev => { ev.preventDefault(); document.getElementById('era-' + a.dataset.era).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
+  $('#hbody').querySelectorAll('[data-hmap]').forEach(b => b.onclick = () => { const e = H.eras.find(x => x.id === b.dataset.hmap); showPlacesOnMap('era-' + e.id, `${e.years} · ${L === 'bn' ? e.title.bn : e.title.en}`, [...new Set(e.events.flatMap(ev => ev.places || []))]); });
+  $('#hbody').querySelectorAll('.pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
+}
 /* ================================================================
    Start-here sheet
    ================================================================ */
@@ -3116,7 +3289,7 @@ function applyLang() {
   else if (state.drawerMode === 'route' && state.route) showRouteList();
   else if (state.selected) openDrawer(state.bySlug[state.selected]);
 }
-const VIEWS = ['map', 'routes', 'tips', 'guide', 'about'];
+const VIEWS = ['map', 'routes', 'tips', 'guide', 'history', 'about'];
 function showView(v) {
   state.view = v;
   for (const n of VIEWS) if (n !== 'map') { const el = $('#' + n + 'View'); if (el) { const was = el.hidden; el.hidden = n !== v; if (was && !el.hidden) el.scrollTop = 0; } }
@@ -3249,7 +3422,7 @@ function applyStaticUI() {
   $('#lang').onclick = () => { state.lang = state.lang === 'en' ? 'bn' : 'en'; store.set('cpd-lang', state.lang); applyLang(); };
   document.querySelectorAll('[data-v]').forEach(b => b.onclick = () => showView(b.dataset.v));
   $('#nearBtn').onclick = locateMe;
-  $('#tabbar').querySelectorAll('[data-v]').forEach(b => { b.querySelector('i').innerHTML = uiIcon({ map: 'map', routes: 'route', tips: 'tips', guide: 'places', about: 'about' }[b.dataset.v]); });
+  $('#tabbar').querySelectorAll('[data-v]').forEach(b => { b.querySelector('i').innerHTML = uiIcon({ map: 'map', routes: 'route', tips: 'tips', guide: 'places', history: 'scroll', about: 'about' }[b.dataset.v]); });
   $('#wClose').onclick = closeWelcome; $('#wExplore').onclick = closeWelcome; $('#wTips').onclick = () => { closeWelcome(); showView('tips'); };
   addEventListener('keydown', e => { if (e.key === 'Escape') { if (!$('#driver').hidden) hideDriver(); else if (!$('#welcome').hidden) closeWelcome(); } });
   $('#home').onclick = () => { showView('map'); endRoute(); closeDrawer(); if (state.ready) { stopWalk(); flyTo(HOME.pos, HOME.target, 1.4); } };

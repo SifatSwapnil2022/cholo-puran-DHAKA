@@ -34,6 +34,8 @@ It is also an HCI question I care about: does a 3D street-level view help people
 - **Street map.** One tap switches from 3D to a real OpenStreetMap street map with every place pinned (clustered when zoomed out), routes drawn street by street, and your own position in Near me. Devices without 3D support open on the street map automatically.
 - **Works offline.** After one visit the app, all places, routes and tips are saved on the phone, and the street map keeps the areas you've looked at. An "Offline" badge shows when you're using the saved copy.
 - **Celebrations.** Thirteen of Old Dhaka's festivals through the year, from Durga Puja, Kali Puja and Saraswati Puja to Shab-e-Barat, the kasida singers of Ramadan, the Eid procession, Holi in Shankhari Bazar, Hal Khata at Pohela Boishakh, Shakrain, Ashura, Rath Yatra and Janmashtami. Each shows the next date with a countdown, a month-by-month strip, a filter by community, how to be a good guest, *Show on map* for its places, and *Add to calendar*. Pins pulse on the map while a celebration is on, and place cards mention one coming up within 30 days.
+- **Festival calendar.** Month-by-month calendars for 2026 and 2027 with every celebration marked (moon-based dates marked ≈). Tap a day to see what's on, open its card or its places on the map, or add the whole year to your phone's calendar in one tap. Link: [`#calendar`](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/#calendar).
+- **History of Old Dhaka.** A timeline from before 1608 to 2026 in six periods (Mughal capital, Naib Nazims and the Company, the Nawabs and the Raj, the Pakistan years and 1971, Bangladesh), 59 events, each with its source or a link to the place card that holds it. Each period can be shown on the map. Also as a plain page for search engines: [`history/`](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/history/).
 - **Crafts.** Rickshaw painting, conch-shell bangles, kites, bakarkhani and chinitikri mosaic: where to watch and what is worth buying.
 - **Say it in Dhakaiya.** A short phrasebook of Old Dhaka's own Bangla (Dhakaiya Kutti), in Bangla script, romanised and next to standard Bangla. Tap to hear it.
 - **Listen.** Any place card can be read aloud by the phone's own voice.
@@ -69,7 +71,7 @@ It is also an HCI question I care about: does a 3D street-level view help people
 
 The site is built to feel like an app on Android and iPhone:
 
-- **Tab bar.** Map, Routes, Tips, Places and About sit at the bottom, within thumb reach.
+- **Tab bar.** Map, Routes, Tips, Places, History and About sit at the bottom, within thumb reach.
 - **Bottom-sheet place cards.** Drag a card down to shrink it, down again to close it, or up to expand it.
 - **Back button.** Android's back button and the iPhone back swipe close the card or leave walk mode instead of leaving the site.
 - **Add to Home Screen.** Installs with its own icon, opens full screen and works offline. Long-press the icon on Android for shortcuts: Routes, Near me, Festivals, Tips. See [docs/ANDROID.md](docs/ANDROID.md) for putting it on Google Play.

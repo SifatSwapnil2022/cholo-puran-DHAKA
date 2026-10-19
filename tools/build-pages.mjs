@@ -66,7 +66,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'Bricolage 
 a{color:var(--teal);text-underline-offset:2px}
 .bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:#fff}
 .bar a.home{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:-.01em}
-.bar img{width:28px;height:28px}.bar .sp{flex:1}.bar a.all{font-weight:600;font-size:15px}
+.bar img{width:28px;height:28px}.bar .sp{flex:1}.bar a.all{font-weight:600;font-size:15px;margin-left:14px}
+.era{margin:28px 0}.era h2{margin:6px 0}.era .yr{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--ec);color:#fff;font-size:13px;font-weight:800}
+.tl{list-style:none;padding:0;margin:10px 0 0;border-left:3px solid var(--line)}.tl li{padding:8px 0 8px 16px}.tl b{color:var(--ec)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}.jump a{padding:6px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:14px;text-decoration:none;color:var(--ink)}
 .hero{background:var(--c);color:#FFFCF6;padding:34px 16px 30px}
 .hero .in,main,footer .in{max-width:760px;margin:0 auto}
 .bn{font-family:Galada,'Hind Siliguri',sans-serif;font-size:clamp(36px,8vw,56px);line-height:1.15}
@@ -128,7 +131,7 @@ function shell({ title, desc, canonical, image, ld, body, color = '#006A4E', dep
 ${ld ? `<script type="application/ld+json">${ld}</script>` : ''}
 </head>
 <body style="--c:${color}">
-<header class="bar"><a class="home" href="${up}"><img src="${up}docs/logo.svg" alt="">Cholo Puran Dhaka</a><span class="sp"></span><a class="all" href="${up}place/">All places</a></header>
+<header class="bar"><a class="home" href="${up}"><img src="${up}docs/logo.svg" alt="">Cholo Puran Dhaka</a><span class="sp"></span><a class="all" href="${up}history/">History</a><a class="all" href="${up}place/">All places</a></header>
 ${body}
 <footer><div class="in">Facts come from the sources listed above and were researched on ${esc(data.meta.researched)}. Hours and prices change, so check before you go. Spotted a mistake? <a href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new/choose">Tell us</a>.</div></footer>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('${up}sw.js').catch(()=>{})</script>
@@ -228,6 +231,29 @@ function listPage() {
   });
 }
 
+function historyPage() {
+  const H = data.history, S = data.tips.sources;
+  const src = keys => (keys || []).map(k => S[k]).filter(Boolean).map(x => `<a href="${esc(x.url)}" rel="noopener">${esc(x.label)}</a>`).join('; ');
+  const pl = slugs => (slugs || []).map(sl => data.places.find(q => q.slug === sl)).filter(Boolean).map(q => `<a href="../place/${q.slug}/">${esc(q.name.en)}</a>`).join(', ');
+  const body = `
+<section class="hero"><div class="in">
+  <div class="bn" lang="bn">${esc(H.title.bn)}</div>
+  <h1>${esc(H.title.en)}</h1>
+  <p class="tag">From Mughal capital to today's old city, with a source for every event.</p>
+</div></section>
+<div class="trim"></div>
+<main>
+  <div class="cta"><a class="btn p" href="../#history">Open in the 3D guide</a></div>
+  <p>${esc(H.intro)}</p>
+  <nav class="jump">${H.eras.map(e => `<a href="#${e.id}">${esc(e.years)}</a>`).join('')}</nav>
+  ${H.eras.map(e => `<section class="era" id="${e.id}" style="--ec:${e.color}"><span class="yr">${esc(e.years)}</span><h2>${esc(e.title.en)} <span class="small" lang="bn">${esc(e.title.bn)}</span></h2><p>${esc(e.summary)}</p>
+    <ol class="tl">${e.events.map(ev => `<li><b>${esc(ev.year)}</b> ${esc(ev.text)}${ev.places?.length ? ` <span class="small">See: ${pl(ev.places)}.</span>` : ''}${ev.src?.length ? ` <span class="small">Source: ${src(ev.src)}.</span>` : ''}</li>`).join('')}</ol></section>`).join('')}
+  <p class="note">Events without a listed source come from the linked place page, which lists its own sources.</p>
+</main>`;
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: H.title.en, about: { '@type': 'Place', name: 'Old Dhaka', geo: { '@type': 'GeoCoordinates', latitude: 23.71, longitude: 90.405 } }, url: `${SITE}history/`, image: og('site'), dateModified: data.meta.updated, inLanguage: 'en' }).replace(/</g, '\\u003c');
+  return shell({ title: 'History of Old Dhaka, 1608 to today · Cholo Puran Dhaka', desc: H.intro.slice(0, 290), canonical: `${SITE}history/`, image: og('site'), ld, body, depth: 1 });
+}
+
 const out = join(ROOT, 'place');
 if (existsSync(out)) rmSync(out, { recursive: true });
 for (const p of data.places) {
@@ -235,9 +261,10 @@ for (const p of data.places) {
   writeFileSync(join(out, p.slug, 'index.html'), placePage(p));
 }
 writeFileSync(join(out, 'index.html'), listPage());
+if (data.history) { mkdirSync(join(ROOT, 'history'), { recursive: true }); writeFileSync(join(ROOT, 'history', 'index.html'), historyPage()); }
 
 const today = data.meta.updated;
-const urls = [[SITE, '1.0'], [`${SITE}place/`, '0.8'], ...data.places.map(p => [url(p), '0.7'])];
+const urls = [[SITE, '1.0'], [`${SITE}place/`, '0.8'], ...(data.history ? [[`${SITE}history/`, '0.8']] : []), ...data.places.map(p => [url(p), '0.7'])];
 writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(([u, pr]) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod><priority>${pr}</priority></url>`).join('\n')}
