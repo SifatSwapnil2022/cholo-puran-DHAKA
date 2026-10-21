@@ -438,7 +438,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .fnow .fmap{margin-left:auto;display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border-radius:99px;border:0;background:rgba(0,0,0,.2);color:#fff;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}.fnow .fmap svg{width:16px;height:16px}
 .chips .fchip{background:#E0263F;border-color:#E0263F;color:#fff;font-weight:700}
 .chips .fchip i{width:9px;height:9px;border-radius:50%;background:#fff;animation:livedot 1.6s ease-in-out infinite}
-.chips .fchip.on{background:var(--ink);border-color:var(--ink)}.chips .fchip.on i{background:#F5A300;animation:none}.chips .fchip b{margin-left:2px;opacity:.8}
+.chips .fchip.on{background:#1C1B3A;border-color:#1C1B3A;color:#fff}.chips .fchip.on i{background:#F5A300;animation:none}.chips .fchip b{margin-left:2px;opacity:.8}
 .mk.live .chip::after,.pin2.live::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2.5px solid #E0263F;animation:livering 1.8s ease-out infinite;pointer-events:none}
 @keyframes livering{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.55);opacity:0}}
 @keyframes livedot{50%{opacity:.35}}
@@ -978,7 +978,7 @@ const T = {
     fareRick: 'rickshaw about ৳{a}–{b}', fareCng: 'CNG about ৳{a} by the meter', fareBasis: 'Fares are estimates from distance: rickshaw ৳15–20 per km, at least ৳20; CNG at the official rate. Agree the fare before you get in.', untilMidnight: 'until midnight',
     streetMap: 'Street map', view3d: '3D view', mapAttr: 'Street map © OpenStreetMap contributors',
     nearMe: 'Near me', nearTitle: 'Near you', locDenied: 'Location is turned off for this site. Allow location in your browser settings, or search for a place instead.', locFailed: "Couldn't get your location. Check that location is on and try again.",
-    locFar: 'You are about {k} km from Old Dhaka. Near me works once you are there; until then, here is how to get there.', refreshLoc: 'Update my location', accuracy: 'Accurate to about {m} m', nearDist: '{m} m · {w} min walk', fromYou: 'From your location: {f}',
+    locFar: 'You are about {k} km from Old Dhaka. Near me works once you are there; until then, here is how to get there.', refreshLoc: 'Update my location', accuracy: 'Accurate to about {m} m', accRough: 'Your location is only known to within about {k} km (common on laptops without GPS), so these distances may be off. On a phone with location on it will be much closer.', nearDist: '{m} m · {w} min walk', fromYou: 'From your location: {f}',
     fOpen: 'Open now', fBudget: 'Budget ৳', fFamily: 'Good for families', fHidden: 'Lesser-known', fWash: 'Has a washroom', noMatch: 'Nothing matches all of these filters. Turn one off to see more.', orderShort: 'Order: {x}',
     closedTodayAt: 'Closed today', walkKm: 'km on foot', sosText: 'Emergency: police, fire or ambulance. After dialling, press 2 for English.', call: 'Call 999', from: 'Sources:', jump: 'Jump to',
     segPractical: 'Practical', segFest: 'Festivals', segCrafts: 'Crafts', segSay: 'Say it', onNow: 'On now', today: 'Today', inDays: 'in {n} days', fTomorrow: 'Tomorrow', datesVary: 'Date varies',
@@ -1017,7 +1017,7 @@ const T = {
     fareRick: 'রিকশা প্রায় ৳{a}–{b}', fareCng: 'সিএনজি মিটারে প্রায় ৳{a}', fareBasis: 'দূরত্ব ধরে আনুমানিক ভাড়া: রিকশা কিমি প্রতি ৳১৫–২০, কমপক্ষে ৳২০; সিএনজি সরকারি হারে। ওঠার আগে ভাড়া ঠিক করে নিন।', untilMidnight: 'মাঝরাত পর্যন্ত',
     streetMap: 'রাস্তার ম্যাপ', view3d: 'থ্রিডি', mapAttr: 'রাস্তার ম্যাপ © OpenStreetMap অবদানকারীরা',
     nearMe: 'আমার কাছে', nearTitle: 'আপনার কাছাকাছি', locDenied: 'এই সাইটের জন্য লোকেশন বন্ধ। ব্রাউজারের সেটিংসে লোকেশন চালু করুন, অথবা জায়গার নাম লিখে খুঁজুন।', locFailed: 'লোকেশন পাওয়া যায়নি। লোকেশন চালু আছে কি না দেখে আবার চেষ্টা করুন।',
-    locFar: 'আপনি পুরান ঢাকা থেকে প্রায় {k} কিমি দূরে। সেখানে পৌঁছালে "আমার কাছে" কাজ করবে; ততক্ষণ যাওয়ার উপায় দেখুন।', refreshLoc: 'লোকেশন আবার নিন', accuracy: 'প্রায় {m} মিটার নির্ভুল', nearDist: '{m} মিটার · হেঁটে {w} মিনিট', fromYou: 'আপনার জায়গা থেকে: {f}',
+    locFar: 'আপনি পুরান ঢাকা থেকে প্রায় {k} কিমি দূরে। সেখানে পৌঁছালে "আমার কাছে" কাজ করবে; ততক্ষণ যাওয়ার উপায় দেখুন।', refreshLoc: 'লোকেশন আবার নিন', accuracy: 'প্রায় {m} মিটার নির্ভুল', accRough: 'আপনার অবস্থান প্রায় {k} কিমি পর্যন্ত এদিক-ওদিক হতে পারে (জিপিএস ছাড়া ল্যাপটপে এমন হয়), তাই দূরত্ব ঠিক নাও হতে পারে। লোকেশন চালু থাকা ফোনে অনেক নির্ভুল হবে।', nearDist: '{m} মিটার · হেঁটে {w} মিনিট', fromYou: 'আপনার জায়গা থেকে: {f}',
     fOpen: 'এখন খোলা', fBudget: 'কম খরচ ৳', fFamily: 'পরিবারের জন্য', fHidden: 'কম-চেনা', fWash: 'ওয়াশরুম আছে', noMatch: 'সব ফিল্টার মেলে এমন কিছু নেই। একটা ফিল্টার বন্ধ করে দেখুন।', orderShort: 'অর্ডার: {x}',
     closedTodayAt: 'আজ বন্ধ', walkKm: 'কিমি হাঁটা', sosText: 'জরুরি: পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স।', call: '৯৯৯-এ ফোন করুন', from: 'তথ্যসূত্র:', jump: 'বিষয়',
     segPractical: 'দরকারি', segFest: 'উৎসব', segCrafts: 'হস্তশিল্প', segSay: 'ঢাকাইয়া বুলি', onNow: 'এখন চলছে', today: 'আজ', inDays: '{n} দিন পর', fTomorrow: 'আগামীকাল', datesVary: 'তারিখ বদলায়',
@@ -2691,7 +2691,7 @@ function showNear(o = {}) {
     body = `<ul class="nlist">${list.map(({ p, d }) => { const f = fareText(d); return `<li><button data-slug="${p.slug}" style="--c:var(--c-${p.cat})"><i>${svgIcon(p.cat, 2)}</i><span><b>${esc(pName(p))}</b><small>${fill('nearDist', { m: num(Math.round(d * 1.3 / 10) * 10), w: num(Math.max(1, Math.ceil(d * 1.3 / 75))) })}${f ? ' · ' + f : ''}</small>${ostatHtml(p)}</span></button></li>`; }).join('')}</ul><p class="status" style="margin-top:12px">${t('fareBasis')}</p>`;
   }
   $('#drawerBody').style.cssText = '--c:#0E8FB0;--rc:#0E8FB0;--rink:#FFFFFF';
-  $('#drawerBody').innerHTML = `<div class="rpanel rtrim"><span class="bn" lang="bn">আমার কাছে</span><h2 id="dTitle">${t('nearTitle')}</h2>${state.me && !o.err && !state.me.far ? `<div class="stats"><span>${fill('accuracy', { m: num(Math.round(state.me.acc)) })}</span></div>` : ''}</div>${body}<div class="ractions"><button class="btn" id="nRefresh">${uiIcon('dir')}${t('refreshLoc')}</button></div>`;
+  $('#drawerBody').innerHTML = `<div class="rpanel rtrim"><span class="bn" lang="bn">আমার কাছে</span><h2 id="dTitle">${t('nearTitle')}</h2>${state.me && !o.err && !state.me.far && state.me.acc <= 1000 ? `<div class="stats"><span>${fill('accuracy', { m: num(Math.round(state.me.acc)) })}</span></div>` : ''}</div>${state.me && !o.err && !state.me.far && state.me.acc > 1000 ? `<p class="warn soft" style="margin:12px 16px 0">${fill('accRough', { k: num(Math.round(state.me.acc / 1000)) })}</p>` : ''}${body}<div class="ractions"><button class="btn" id="nRefresh">${uiIcon('dir')}${t('refreshLoc')}</button></div>`;
   const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek', 'inroute'); dr.setAttribute('aria-hidden', 'false'); dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
   $('#drawerBody').querySelectorAll('.nlist [data-slug]').forEach(b => b.onclick = () => select(b.dataset.slug));
