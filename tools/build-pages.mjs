@@ -135,6 +135,7 @@ ${ld ? `<script type="application/ld+json">${ld}</script>` : ''}
 ${body}
 <footer><div class="in">Facts come from the sources listed above and were researched on ${esc(data.meta.researched)}. Hours and prices change, so check before you go. Spotted a mistake? <a href="https://github.com/SifatSwapnil2022/cholo-puran-DHAKA/issues/new/choose">Tell us</a>.</div></footer>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('${up}sw.js').catch(()=>{})</script>
+<script data-goatcounter="https://sifat2000.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 `;
