@@ -1,7 +1,7 @@
 // Checks places.json before it ships: required fields, types, coordinates inside Old Dhaka,
 // opening-hours format, dishes, sources, and that routes and tips point at things that exist.
 // Run: node tools/validate.mjs   (exits 1 on any error)
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
 const file = new URL('../places.json', import.meta.url);
 const d = JSON.parse(readFileSync(file, 'utf8'));
@@ -65,6 +65,14 @@ for (const [i, p] of (d.places || []).entries()) {
     if (p.dishes?.some(x => x.price) && !p.priceYear) warn(w, 'dish prices without priceYear');
   }
   if (p.priceBand !== undefined && ![1, 2, 3].includes(p.priceBand)) err(w, 'priceBand must be 1, 2 or 3');
+  if (p.image != null) {
+    const m = p.image, free = /^(CC[ -]BY(-SA)?[ -]\d|CC0|Public domain|PD\b)/i.test(m.licence || '') && !/\b(NC|ND)\b/i.test(m.licence || '');
+    if (!free) err(w, `image.licence "${m.licence}" is not a free licence (CC BY, CC BY-SA, CC0 or public domain only)`);
+    for (const k of ['file', 'author', 'page']) if (!isStr(m[k])) err(w, `image.${k} is required (credit)`);
+    if (m.page && !/^https:\/\/commons\.wikimedia\.org\//.test(m.page)) err(w, 'image.page must link to the file on Wikimedia Commons');
+    if (!(m.w > 0 && m.h > 0)) err(w, 'image.w and image.h are required');
+    for (const f of [`img/${p.slug}.jpg`, `img/t/${p.slug}.jpg`]) if (!existsSync(new URL(`../${f}`, import.meta.url))) err(w, `${f} is missing`);
+  }
   if (p.checked != null) {
     const c = p.checked;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(c.date || '') || isNaN(Date.parse(c.date))) err(w, 'checked.date must be YYYY-MM-DD');

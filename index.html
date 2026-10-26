@@ -186,7 +186,7 @@ a{color:var(--green-ink)}
 .btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border-radius:9px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-weight:600;font-size:14px;text-decoration:none;color:var(--ink)}
 .btn svg{width:17px;height:17px}
 .btn.primary{background:#006A4E;border-color:#006A4E;color:#fff}
-.btn.pink{background:var(--pink);border-color:var(--pink);color:#fff}
+.btn.pink{background:#C92564;border-color:#C92564;color:#fff}
 body.inroute #chips,body.inroute #timebox,body.inroute .legend{display:none}
 .sec{margin-top:20px}
 .sec h3{margin:0 0 8px;font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--ink);display:flex;align-items:center;gap:8px}
@@ -261,7 +261,7 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .gtools select{height:34px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;padding:0 8px}
 .glist{list-style:none;margin:0;padding:0;border-top:3px solid var(--green)}
 .glist li{border-bottom:1px solid var(--line)}
-.grow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:6px 20px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:14px 4px;cursor:pointer}
+.grow{display:grid;grid-template-columns:72px minmax(0,1.6fr) minmax(0,1fr) auto;gap:6px 20px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:14px 4px;cursor:pointer}
 @media (hover:hover){.grow:hover{background:var(--paper-2)}}
 .grow .nm{font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.25}
 .grow .nm .bn{font-weight:500;color:var(--ink-3);font-size:15px;margin-left:8px}
@@ -269,6 +269,12 @@ table.fees small{color:var(--ink-3);font-weight:400}
 .grow .cats{display:flex;flex-wrap:wrap;gap:5px}
 .grow .cats span{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--paper-2);background:color-mix(in srgb,var(--c) 13%,var(--paper));color:var(--ink);color:color-mix(in srgb,var(--c) 55%,var(--ink))}
 .grow .cats i{width:8px;height:8px;border-radius:2px;background:var(--c)}
+.gth,.pth{display:block;width:72px;height:72px;border-radius:14px;overflow:hidden;background:var(--paper-2);background:color-mix(in srgb,var(--c) 18%,var(--paper));align-self:start}
+.gth img,.pth img{display:block;width:100%;height:100%;object-fit:cover}
+.gth.none,.pth.none{display:flex;align-items:center;justify-content:center;color:var(--c);color:color-mix(in srgb,var(--c) 70%,var(--ink));font:400 30px/1 var(--f-sign)}
+.pth{float:right;width:64px;height:64px;margin:0 0 6px 10px;border-radius:12px}
+.dph{margin:18px 0 4px}.dph img{display:block;width:100%;height:auto;aspect-ratio:var(--ar);max-height:300px;object-fit:cover;border-radius:14px;background:var(--paper-2)}
+.dph figcaption{font-size:12px;line-height:1.4;color:var(--ink-3);margin-top:6px}.dph figcaption a{color:inherit;text-underline-offset:2px}
 .grow .rt{font-size:12.5px;color:var(--ink-3);text-align:right;white-space:nowrap}
 .grow .rt b{display:block;color:var(--ink);font-family:var(--f-display);font-size:13px;font-weight:600}
 .mahh{font-size:13px;font-weight:600;color:var(--ink-2);color:color-mix(in srgb,var(--c,var(--ink-3)) 55%,var(--ink));margin-top:3px}
@@ -664,7 +670,8 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
   .about{grid-template-columns:1fr;gap:20px}
   .portrait{max-width:180px}
   .cols{grid-template-columns:1fr}
-  .grow{grid-template-columns:1fr;gap:6px}
+  .grow{grid-template-columns:64px minmax(0,1fr);gap:6px 12px}
+  .grow > :not(.gth){grid-column:2}.gth{grid-row:1/span 3;width:64px;height:64px}
   .grow .rt{text-align:left}
   .nearlist{display:none}
   .hint{bottom:auto;top:62px;font-size:12px;white-space:normal;text-align:center;width:calc(100% - 32px)}
@@ -1021,6 +1028,7 @@ const T = {
     pClosedThatDay: '{p} is closed on {d}, so it isn\'t in this plan.', pFestOn: '{f} is on that day. Expect crowds near the temples and markets.',
     pShowMap: 'Show on the map', pShare: 'Share this plan', pSwap: 'Swap', pFrom: 'Starting from {p}', pRides: 'rickshaw rides', pWait: 'wait {m} min until it opens',
     pOpen: 'Open {a}–{b}', pEst: 'Hours not published · usually fine then', pMeal_breakfast: 'Breakfast', pMeal_lunch: 'Lunch', pMeal_dinner: 'Dinner',
+    photoBy: 'Photo:', photoVia: 'via Wikimedia Commons', photoAlt: 'Photo of {p}', photoNone: 'No free photo yet. Have one?',
     pHonest: 'Times are estimates from published hours and typical visits. Hours change, so check before you go, and ask locally where hours are not published.',
     rTitle: 'Walking routes', rLede: 'Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.',
     tTitle: 'Before you go', tLede: 'What first-time visitors ask about, plus the festivals, crafts and words of Old Dhaka. Each part says where the information comes from.',
@@ -1068,6 +1076,7 @@ const T = {
     pClosedThatDay: '{p} {d} বন্ধ থাকে, তাই এই পরিকল্পনায় নেই।', pFestOn: 'সেদিন {f}। মন্দির ও বাজারের কাছে ভিড় থাকবে।',
     pShowMap: 'ম্যাপে দেখুন', pShare: 'পরিকল্পনা শেয়ার করুন', pSwap: 'বদলান', pFrom: '{p} থেকে শুরু', pRides: 'রিকশা যাত্রা', pWait: 'খোলা পর্যন্ত {m} মিনিট অপেক্ষা',
     pOpen: 'খোলা {a}–{b}', pEst: 'সময় প্রকাশিত নয় · সাধারণত তখন ভালো', pMeal_breakfast: 'নাশতা', pMeal_lunch: 'দুপুরের খাবার', pMeal_dinner: 'রাতের খাবার',
+    photoBy: 'ছবি:', photoVia: 'উইকিমিডিয়া কমন্স থেকে', photoAlt: '{p}-এর ছবি', photoNone: 'এখনো কোনো মুক্ত ছবি নেই। আপনার কাছে আছে?',
     pHonest: 'সময়গুলো প্রকাশিত তথ্য আর সাধারণ ভ্রমণের হিসাবে আনুমানিক। সময় বদলায়, তাই যাওয়ার আগে যাচাই করুন।',
     rTitle: 'হেঁটে ঘোরার পথ', rLede: 'গুছিয়ে সাজানো দিনের পরিকল্পনা, এক জায়গা থেকে আরেক জায়গায় হাঁটার সময়সহ। দূরের পথে রিকশা নিন। সময়গুলো পরামর্শ; কোন জায়গা কবে বন্ধ, তা চিহ্নিত।',
     histNav: 'ইতিহাস', hTitle: 'পুরান ঢাকা, ১৬০৮ থেকে আজ', hShow: 'এই জায়গাগুলো ম্যাপে দেখুন', hSources: 'এই পাতার প্রধান তথ্যসূত্র:', hNote: '১৮০০ সালের আগের তারিখ নিয়ে ইতিহাসবিদদের মধ্যে এক-দুই বছরের মতভেদ থাকে; আমাদের সূত্রে অমিল থাকলে দুটোই দেওয়া হয়েছে। যে ঘটনার পাশে সূত্র নেই, তার সূত্র জায়গার কার্ডে আছে।', hPeriod: 'সময়কাল',
@@ -2514,6 +2523,25 @@ addEventListener('popstate', () => {
   if ($('#drawer').classList.contains('open')) closeDrawer(true);
   endRoute();
 });
+/* Photos from Wikimedia Commons (free licences only, credited). img/<slug>.jpg for cards, img/t/<slug>.jpg for thumbnails. */
+const hasPhoto = p => !!p.image;
+const firstGrapheme = s => { try { return [...new Intl.Segmenter('bn', { granularity: 'grapheme' }).segment(s)][0].segment; } catch { return s.slice(0, 1); } };
+function thumbHtml(p, cls) {
+  return hasPhoto(p)
+    ? `<span class="${cls}" style="--c:var(--c-${p.cat})"><img src="img/t/${p.slug}.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"></span>`
+    : `<span class="${cls} none" style="--c:var(--c-${p.cat})" aria-hidden="true"><span lang="bn">${esc(firstGrapheme(p.name.bn))}</span></span>`;
+}
+function photoFig(p) {
+  const m = p.image; if (!m) return '';
+  const lic = m.licenceUrl ? `<a href="${esc(m.licenceUrl)}" target="_blank" rel="noopener license">${esc(m.licence)}</a>` : esc(m.licence);
+  return `<figure class="dph" style="--ar:${m.w}/${m.h}"><img src="img/${p.slug}.jpg" width="${m.w}" height="${m.h}" alt="${esc(m.alt || fill('photoAlt', { p: p.name.en }))}" decoding="async">
+    <figcaption>${t('photoBy')} <a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(m.author)}</a> · ${lic} · ${t('photoVia')}</figcaption></figure>`;
+}
+function photoFallbacks(root) {
+  root.querySelectorAll('.dph img').forEach(i => i.addEventListener('error', () => i.closest('.dph')?.remove(), { once: true }));
+  root.querySelectorAll('.gth img,.pth img').forEach(i => i.addEventListener('error', () => { const b = i.parentNode; b.classList.add('none'); i.remove(); }, { once: true }));
+}
+
 function openDrawer(p) {
   state.selected = p.slug; state.drawerMode = 'place';
   if (!$('#welcome').hidden) closeWelcome();
@@ -2534,6 +2562,7 @@ function openDrawer(p) {
       <h2 id="dTitle">${esc(p.name.en)}</h2>
       <div class="meta">${p.categories.map(c => `<span class="cat" style="--cc:var(--c-${c})"><i></i>${CATNAME[L][c]}</span>`).join('')}<span>${esc(p.mahalla)}</span></div>
     </div>
+    ${photoFig(p)}
     <p class="tagline">${esc(p.tagline)}</p>
     <div class="orow">${ostatHtml(p)}${p.open ? `<small>${t('regularHours')}</small>` : ''}</div>
     ${p.checked ? `<p class="status ok">${uiIcon('check')}<span>${fill('checkedOn', { d: esc(p.checked.date) })}${p.checked.by ? ` · ${esc(p.checked.by)}` : ''}</span></p>` : `<p class="status">${uiIcon('info')}<span>${t('researched')}</span></p>`}
@@ -2572,10 +2601,11 @@ function openDrawer(p) {
     ${near ? `<div class="sec"><h3>${t('nearby')}</h3><ul class="near">${near}</ul></div>` : ''}
     <div class="sec"><h3>${t('sources')}</h3><ol class="src">${p.sources.map(s => s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>` : `<li>${esc(s.label)}</li>`).join('')}</ol></div>
     <p class="coords">${p.lat.toFixed(4)}° N · ${p.lng.toFixed(4)}° E${p.pin === 'approx' ? ' · approx.' : ''}</p>
-    <p class="report"><a href="${reportUrl(p)}" target="_blank" rel="noopener">${uiIcon('flag')}${t('report')}</a><a href="${REPO}/issues/new?template=owner-update.yml&title=${encodeURIComponent('Owner update: ' + p.name.en)}&place=${encodeURIComponent(p.name.en)}" target="_blank" rel="noopener">${t('owner')}</a></p>`;
+    <p class="report"><a href="${reportUrl(p)}" target="_blank" rel="noopener">${uiIcon('flag')}${t('report')}</a><a href="${REPO}/issues/new?template=owner-update.yml&title=${encodeURIComponent('Owner update: ' + p.name.en)}&place=${encodeURIComponent(p.name.en)}" target="_blank" rel="noopener">${t('owner')}</a>${p.image ? '' : `<a href="${REPO}/issues/new?title=${encodeURIComponent('Photo: ' + p.name.en)}&body=${encodeURIComponent('Link to a photo on Wikimedia Commons (CC BY, CC BY-SA, CC0 or public domain), or upload your own there first:\n\n')}" target="_blank" rel="noopener">${t('photoNone')}</a>`}</p>`;
   const dr = $('#drawer'); dr.classList.add('open'); dr.classList.remove('peek'); dr.classList.toggle('inroute', !!rs); dr.setAttribute('aria-hidden', 'false');
   dr.setAttribute('aria-labelledby', 'dTitle');
   $('#drawerBody').scrollTop = 0;
+  photoFallbacks($('#drawerBody'));
   $('#dWalk').onclick = () => startWalk(p);
   $('#dDriver').onclick = () => showDriver(p);
   if (rs) { $('#rsBack').onclick = () => showRouteList(); if ($('#rsPrev')) $('#rsPrev').onclick = () => select(rs[ri - 1].slug); if ($('#rsNext')) $('#rsNext').onclick = () => select(rs[ri + 1].slug); }
@@ -2771,12 +2801,13 @@ function renderGuide() {
   if (sort === 'hidden') list.sort((a, b) => b.underrated - a.underrated || a.name.en.localeCompare(b.name.en));
   else if (sort === 'name') list.sort((a, b) => pName(a).localeCompare(pName(b), state.lang));
   else list.sort((a, b) => a.mahalla.localeCompare(b.mahalla) || a.name.en.localeCompare(b.name.en));
-  $('#glist').innerHTML = list.map(p => `<li><button class="grow" data-slug="${p.slug}">
+  $('#glist').innerHTML = list.map(p => `<li><button class="grow" data-slug="${p.slug}">${thumbHtml(p, 'gth')}
     <span><span class="nm">${esc(p.name.en)}<span class="bn">${esc(p.name.bn)}</span></span><span class="tg" style="display:block">${esc(p.tagline)}</span>${p.dishes ? `<span class="ord">${fill('orderShort', { x: p.dishes.slice(0, 2).map(x => esc(state.lang === 'bn' ? x.bn : x.en)).join(', ') })}${p.priceBand ? ' · ' + '৳'.repeat(p.priceBand) : ''}</span>` : ''}<span class="mahh" style="--c:var(--c-${p.cat})">${esc(p.mahalla)}</span>${ostatHtml(p)}</span>
     <span class="cats">${p.categories.map(c => `<span style="--c:var(--c-${c})"><i></i>${CATNAME[state.lang][c]}</span>`).join('')}</span>
     <span class="rt"><b>${KNOWN[state.lang][p.underrated]}</b>${minutes(p.spend[0], p.spend[1])}</span></button></li>`).join('');
   if (!list.length) $('#glist').innerHTML = `<li class="empty">${t('noMatch')}</li>`;
   $('#glist').querySelectorAll('.grow').forEach(b => b.onclick = () => select(b.dataset.slug));
+  photoFallbacks($('#glist'));
 }
 /* ================================================================
    2D street map (Leaflet + OpenStreetMap tiles), loaded on first use
@@ -3536,7 +3567,7 @@ function showPlan(plan) {
       <ol class="ptl">${S.map((s, i) => `
         ${`<li class="pleg">${uiIcon(s.tr.ride ? 'rickshaw' : 'steps')}${s.tr.ride ? fill('rideLeg', { m: num(s.tr.mins), d: km(s.tr.d * 1.4 / 1000) }) + (fareText(s.tr.d) ? ' · ' + fareText(s.tr.d) : '') : fill('walkLeg', { m: num(s.tr.mins) })}${s.at > s.arrive + 4 ? ` · ${fill('pWait', { m: num(s.at - s.arrive) })}` : ''}</li>`}
         <li class="pstop" style="--c:var(--c-${s.c.p.cat})"><span class="pt">${fmtClock(s.at)}</span>
-          <div class="pb"><h4>${esc(s.c.p.name.en)}<span class="bn" lang="bn">${esc(s.c.p.name.bn)}</span></h4>
+          <div class="pb">${hasPhoto(s.c.p) ? thumbHtml(s.c.p, 'pth') : ''}<h4>${esc(s.c.p.name.en)}<span class="bn" lang="bn">${esc(s.c.p.name.bn)}</span></h4>
             <div class="ptags">${reason(s)}<span class="ptag">${minutes(s.c.stay, s.c.stay)}</span></div>
             <p>${esc(s.c.p.tagline)}</p>
             <div class="acts"><button class="btn" data-open="${s.c.p.slug}">${t('open')}</button><button class="btn" data-swap="${s.c.p.slug}">${uiIcon('route')}${t('pSwap')}</button></div></div></li>`).join('')}</ol>
@@ -3546,6 +3577,7 @@ function showPlan(plan) {
   $('#pShare').onclick = () => planShare(plan);
   $('#pCal').onclick = () => saveIcs(planIcs(plan), `old-dhaka-plan-${o.date}.ics`);
   box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => select(b.dataset.open));
+  photoFallbacks(box);
   box.querySelectorAll('[data-swap]').forEach(b => b.onclick = () => { const op = planOpts(); op.ban = [...new Set([...(plan.opts.ban || []), b.dataset.swap])]; runPlan(false); });
   state.planRoute = planToRoute(plan);
 }

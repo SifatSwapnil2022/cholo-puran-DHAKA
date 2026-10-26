@@ -51,6 +51,7 @@ function jsonLd(p) {
     address: { '@type': 'PostalAddress', addressLocality: `${p.mahalla}, Old Dhaka`, addressRegion: 'Dhaka', addressCountry: 'BD' },
     isAccessibleForFree: !p.fees.length
   };
+  if (p.image) ld.image = [og(p.slug), { '@type': 'ImageObject', contentUrl: `${SITE}img/${p.slug}.jpg`, license: p.image.licenceUrl || undefined, acquireLicensePage: p.image.page, creditText: `${p.image.author} / Wikimedia Commons`, creator: { '@type': 'Person', name: p.image.author } }];
   const spec = hoursSpec(p); if (spec.length) ld.openingHoursSpecification = spec;
   if (food && p.priceBand) ld.priceRange = '৳'.repeat(p.priceBand);
   if (food && p.dishes?.length) ld.servesCuisine = 'Old Dhaka (Dhakaiya)';
@@ -99,6 +100,8 @@ footer{border-top:1px solid var(--line);padding:22px 16px 40px;font-size:14px;co
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;list-style:none;padding:0}
 .grid a{display:block;height:100%;padding:12px 14px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--cc);border-radius:12px;color:var(--ink);text-decoration:none}
 .grid b{display:block}.grid small{color:var(--ink-3)}
+.ph{margin:0 0 22px}.ph img{display:block;width:100%;height:auto;aspect-ratio:var(--ar);max-height:560px;object-fit:cover;border-radius:16px;background:var(--paper-2)}
+.ph figcaption{font-size:13px;color:var(--ink-3);margin-top:6px}.ph figcaption a{color:inherit}
 @media (max-width:520px){.facts{grid-template-columns:1fr}}
 `;
 
@@ -146,6 +149,13 @@ function mix(hex, t = 0.62) {
   return '#' + a.map((x, i) => Math.round(x * t + b[i] * (1 - t)).toString(16).padStart(2, '0')).join('');
 }
 
+function photoFigure(p) {
+  const m = p.image; if (!m) return '';
+  const lic = m.licenceUrl ? `<a href="${esc(m.licenceUrl)}" rel="noopener license">${esc(m.licence)}</a>` : esc(m.licence);
+  return `<figure class="ph" style="--ar:${m.w}/${m.h}"><img src="../../img/${p.slug}.jpg" width="${m.w}" height="${m.h}" alt="${esc(m.alt || p.name.en)}" decoding="async">
+  <figcaption>Photo: <a href="${esc(m.page)}" rel="noopener">${esc(m.author)}</a>, ${lic}, via Wikimedia Commons</figcaption></figure>`;
+}
+
 function placePage(p) {
   const color = mix(CAT[p.categories[0]][1]);
   const chips = p.categories.map(c => `<span style="--cc:${CAT[c][1]}"><i></i>${CAT[c][0]}</span>`).join('');
@@ -171,6 +181,7 @@ function placePage(p) {
     <a class="btn p" href="../../#${p.slug}">Open on the 3D map</a>
     <a class="btn s" href="${maps}" rel="noopener">Directions</a>
   </div>
+  ${photoFigure(p)}
   <h2>Why go</h2>
   <p>${esc(p.whyGo)}</p>
   <dl class="facts">

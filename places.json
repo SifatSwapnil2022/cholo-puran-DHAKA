@@ -126,7 +126,16 @@
           "t": "15:00-19:30"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Ahsan Manzil-Front View.jpg",
+        "author": "Mahbub Hossain Shaheed (mahosha)",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Ahsan_Manzil-Front_View.jpg",
+        "w": 960,
+        "h": 641
+      }
     },
     {
       "slug": "lalbagh-fort",
@@ -215,7 +224,16 @@
           "t": "14:00-17:00"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "1. লালবাগের কেল্লা.jpg",
+        "author": "Pinu Rahman",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:1._%E0%A6%B2%E0%A6%BE%E0%A6%B2%E0%A6%AC%E0%A6%BE%E0%A6%97%E0%A7%87%E0%A6%B0_%E0%A6%95%E0%A7%87%E0%A6%B2%E0%A7%8D%E0%A6%B2%E0%A6%BE.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "tara-masjid",
@@ -273,7 +291,16 @@
           "url": "https://en.wikipedia.org/wiki/Star_Mosque"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Star Mosque 2023.jpg",
+        "author": "Dead.rabbit",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Star_Mosque_2023.jpg",
+        "w": 960,
+        "h": 540
+      }
     },
     {
       "slug": "armenian-church",
@@ -331,7 +358,16 @@
           "url": "https://en.wikipedia.org/wiki/Armenian_Church,_Dhaka"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "আর্মেনিয়ান গির্জার পার্শ্বদৃশ্য.jpg",
+        "author": "Hasan Nahiyan Nobel",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE%E0%A6%A8_%E0%A6%97%E0%A6%BF%E0%A6%B0%E0%A7%8D%E0%A6%9C%E0%A6%BE%E0%A6%B0_%E0%A6%AA%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%A6%E0%A7%83%E0%A6%B6%E0%A7%8D%E0%A6%AF.jpg",
+        "w": 960,
+        "h": 540
+      }
     },
     {
       "slug": "dhakeshwari-temple",
@@ -390,7 +426,16 @@
           "url": "https://en.wikipedia.org/wiki/Dhakeshwari_Temple"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "ঢাকেশ্বরী মন্দির।.jpg",
+        "author": "Khirul Alam Emon",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A7%87%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%B0%E0%A7%80_%E0%A6%AE%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%BF%E0%A6%B0%E0%A5%A4.jpg",
+        "w": 960,
+        "h": 641
+      }
     },
     {
       "slug": "hussaini-dalan",
@@ -448,7 +493,16 @@
           "url": "https://en.wikipedia.org/wiki/Hussaini_Dalan"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "হোসেনি দালান ২০১১ (১).jpg",
+        "author": "Ronju65",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%B9%E0%A7%8B%E0%A6%B8%E0%A7%87%E0%A6%A8%E0%A6%BF_%E0%A6%A6%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%A8_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A7_(%E0%A7%A7).jpg",
+        "w": 960,
+        "h": 643
+      }
     },
     {
       "slug": "bara-katra",
@@ -505,7 +559,16 @@
           "url": "https://en.wikipedia.org/wiki/Bara_Katra"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Boro Katra 4 by Ashif Siddique.jpg",
+        "author": "Ashif Anam Siddique",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "page": "https://commons.wikimedia.org/wiki/File:Boro_Katra_4_by_Ashif_Siddique.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "choto-katra",
@@ -561,7 +624,16 @@
           "url": "https://en.wikipedia.org/wiki/Choto_Katra"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "ছোট কাটরার বহির্দৃশ্য.jpg",
+        "author": "অভিজিৎ দাস",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%9B%E0%A7%8B%E0%A6%9F_%E0%A6%95%E0%A6%BE%E0%A6%9F%E0%A6%B0%E0%A6%BE%E0%A6%B0_%E0%A6%AC%E0%A6%B9%E0%A6%BF%E0%A6%B0%E0%A7%8D%E0%A6%A6%E0%A7%83%E0%A6%B6%E0%A7%8D%E0%A6%AF.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "khan-mohammad-mridha-mosque",
@@ -618,7 +690,16 @@
           "url": "https://en.wikipedia.org/wiki/Khan_Mohammad_Mridha_Mosque"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Khan Mohammad Mridha Mosque-11.jpg",
+        "author": "SabbirAbeir (md sabbir)",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Khan_Mohammad_Mridha_Mosque-11.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "binat-bibi-mosque",
@@ -674,7 +755,16 @@
           "url": "https://en.wikipedia.org/wiki/Binat_Bibi_Mosque"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "বিনত বিবি মসজিদ 02.jpg",
+        "author": "Aminul joy",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A6%A4_%E0%A6%AC%E0%A6%BF%E0%A6%AC%E0%A6%BF_%E0%A6%AE%E0%A6%B8%E0%A6%9C%E0%A6%BF%E0%A6%A6_02.jpg",
+        "w": 960,
+        "h": 734
+      }
     },
     {
       "slug": "northbrook-hall",
@@ -736,7 +826,16 @@
           "url": "https://www.dhakatribune.com/bangladesh/409749/historic-lalkuthi-set-to-reopen-after-major"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Northbrook Hall, Dhaka (13-11-2009).jpg",
+        "author": "Arifa010",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "page": "https://commons.wikimedia.org/wiki/File:Northbrook_Hall,_Dhaka_(13-11-2009).jpg",
+        "w": 960,
+        "h": 638
+      }
     },
     {
       "slug": "ruplal-house",
@@ -794,7 +893,16 @@
           "url": "https://en.wikipedia.org/wiki/Ruplal_House"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "রূপলাল হাউজ 3.jpg",
+        "author": "Rayhan9d",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%B0%E0%A7%82%E0%A6%AA%E0%A6%B2%E0%A6%BE%E0%A6%B2_%E0%A6%B9%E0%A6%BE%E0%A6%89%E0%A6%9C_3.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "rose-garden-palace",
@@ -851,7 +959,16 @@
           "url": "https://en.wikipedia.org/wiki/Rose_Garden_Palace"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Rose Garden Palace Dhaka, August 2025.jpg",
+        "author": "Niasoh",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Rose_Garden_Palace_Dhaka,_August_2025.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "bahadur-shah-park",
@@ -909,7 +1026,16 @@
           "url": "https://en.wikipedia.org/wiki/Bahadur_Shah_Park"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "বাহাদুর শাহ পার্ক, ২০১৭।.jpg",
+        "author": "Omar Faruq Komol",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%AC%E0%A6%BE%E0%A6%B9%E0%A6%BE%E0%A6%A6%E0%A7%81%E0%A6%B0_%E0%A6%B6%E0%A6%BE%E0%A6%B9_%E0%A6%AA%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%95,_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%AD%E0%A5%A4.jpg",
+        "w": 960,
+        "h": 736
+      }
     },
     {
       "slug": "pogose-school",
@@ -964,7 +1090,16 @@
           "url": "https://en.wikipedia.org/wiki/Pogose_School"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Pogose School 002.jpg",
+        "author": "Rashed Ali",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Pogose_School_002.jpg",
+        "w": 960,
+        "h": 638
+      }
     },
     {
       "slug": "gurdwara-sangat-tola",
@@ -1021,7 +1156,16 @@
           "url": "https://en.wikipedia.org/wiki/Gurdwara_Sangat_Tola"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "গুরুদুয়ারা সঙ্গতটোলা.jpg",
+        "author": "অভিজিৎ দাস",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%97%E0%A7%81%E0%A6%B0%E0%A7%81%E0%A6%A6%E0%A7%81%E0%A6%AF%E0%A6%BC%E0%A6%BE%E0%A6%B0%E0%A6%BE_%E0%A6%B8%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%A4%E0%A6%9F%E0%A7%8B%E0%A6%B2%E0%A6%BE.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "chawk-shahi-mosque",
@@ -1078,7 +1222,16 @@
           "url": "https://en.wikipedia.org/wiki/Chowk_Bazaar"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Chawkbazar Shahi Mosque 2 by Ragib Hasan.jpg",
+        "author": "Ragib Hasan",
+        "licence": "CC BY 2.5",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+        "page": "https://commons.wikimedia.org/wiki/File:Chawkbazar_Shahi_Mosque_2_by_Ragib_Hasan.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "baldha-garden",
@@ -1136,7 +1289,16 @@
           "url": "https://en.wikipedia.org/wiki/Baldha_Garden"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "বলধা গার্ডেন ২০১২.jpg",
+        "author": "Ronju65",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%AC%E0%A6%B2%E0%A6%A7%E0%A6%BE_%E0%A6%97%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A7%87%E0%A6%A8_%E0%A7%A8%E0%A7%A6%E0%A7%A7%E0%A7%A8.jpg",
+        "w": 960,
+        "h": 652
+      }
     },
     {
       "slug": "narinda-christian-cemetery",
@@ -1192,7 +1354,16 @@
           "label": "Listed for field research; no verified source yet"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Dhaka Christian Cemetery 202211-9.jpg",
+        "author": "Farawayman",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dhaka_Christian_Cemetery_202211-9.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "sadarghat",
@@ -1269,7 +1440,16 @@
           "url": "https://awaywiththesteiners.com/launch-boat-dhaka-to-barisal-bangladesh/"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Buriganga at the port Sadarghat 02.jpg",
+        "author": "Kritzolina",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Buriganga_at_the_port_Sadarghat_02.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "buriganga-boat-ride",
@@ -1326,7 +1506,16 @@
           "url": "https://nijhoom.com/sadarghat-port-dhaka/"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "On the Buriganga River 03.jpg",
+        "author": "Kritzolina",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:On_the_Buriganga_River_03.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "slug": "shankhari-bazar",
@@ -1390,7 +1579,16 @@
           "url": "https://www.thedailystar.net/life-living/news/shankhari-bazar-the-street-transforms-durga-puja-3710471"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "NZF 6086.jpg",
+        "author": "Ronju65",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:NZF_6086.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "tanti-bazar",
@@ -1587,7 +1785,16 @@
           "en": "Boro baper polay khay",
           "bn": "বড় বাপের পোলায় খায়"
         }
-      ]
+      ],
+      "image": {
+        "file": "Juice seller at chawkbazar iftar market 2.jpg",
+        "author": "Wasiul Bahar",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Juice_seller_at_chawkbazar_iftar_market_2.jpg",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "banglabazar-books",
@@ -1712,7 +1919,16 @@
           "en": "Plain Bengali lunch (rice, dal, curry)",
           "bn": "ভাত, ডাল, তরকারি"
         }
-      ]
+      ],
+      "image": {
+        "file": "Beauty Boarding (05).JPG",
+        "author": "Nidal Adnan",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Beauty_Boarding_(05).JPG",
+        "w": 960,
+        "h": 640
+      }
     },
     {
       "slug": "cafe-corner",
@@ -1855,7 +2071,16 @@
           "en": "Borhani",
           "bn": "বোরহানি"
         }
-      ]
+      ],
+      "image": {
+        "file": "Haji Biryani, Old Dhaka, Bangladesh.jpg",
+        "author": "Tanvir Rahat",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Haji_Biryani,_Old_Dhaka,_Bangladesh.jpg",
+        "w": 960,
+        "h": 1280
+      }
     },
     {
       "slug": "nanna-biryani",
@@ -2556,7 +2781,16 @@
           "url": "https://thefinancialexpress.com.bd/lifestyle/culture/transition-of-shakrain-old-dhakas-festival-in-2026"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "Kite festival at Shakrain.JPG",
+        "author": "Md.altaf.rahman",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Kite_festival_at_Shakrain.JPG",
+        "w": 960,
+        "h": 415
+      }
     },
     {
       "slug": "jinjira-palace",
@@ -2613,7 +2847,16 @@
           "url": "https://en.wikipedia.org/wiki/Jinjira_Palace"
         }
       ],
-      "checked": null
+      "checked": null,
+      "image": {
+        "file": "জিঞ্জিরা প্রাসাদ (3).jpg",
+        "author": "Ruhul Amin Ras",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%9C%E0%A6%BF%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%BF%E0%A6%B0%E0%A6%BE_%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE%E0%A6%A6_(3).jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [
@@ -2856,7 +3099,16 @@
           "url": "https://www.tbsnews.net/features/food/5-restaurants-around-dhaka-satisfy-your-nihari-cravings-525830"
         }
       ],
-      "ticketing": ""
+      "ticketing": "",
+      "image": {
+        "file": "PeshWarain , Wari , Dhaka, Bangladesh 2.jpg",
+        "author": "Tanvir Rahat",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:PeshWarain_,_Wari_,_Dhaka,_Bangladesh_2.jpg",
+        "w": 960,
+        "h": 1280
+      }
     },
     {
       "quiet": [
@@ -3204,7 +3456,16 @@
           "label": "Banglapedia: Kartalab Khan's Mosque",
           "url": "https://en.banglapedia.org/index.php/Kartalab_Khan%E2%80%99s_Mosque"
         }
-      ]
+      ],
+      "image": {
+        "file": "করতলব খান মসজিদ.jpg",
+        "author": "অভিজিৎ দাস",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A6%B2%E0%A6%AC_%E0%A6%96%E0%A6%BE%E0%A6%A8_%E0%A6%AE%E0%A6%B8%E0%A6%9C%E0%A6%BF%E0%A6%A6.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [
@@ -3264,7 +3525,16 @@
           "label": "Wikipedia: St Thomas Church, Dhaka",
           "url": "https://en.wikipedia.org/wiki/St_Thomas_Church,_Dhaka"
         }
-      ]
+      ],
+      "image": {
+        "file": "St Thomas's Church, Dhaka (1904).jpg",
+        "author": "Fritz Kapp",
+        "licence": "Public domain",
+        "licenceUrl": "",
+        "page": "https://commons.wikimedia.org/wiki/File:St_Thomas%27s_Church,_Dhaka_(1904).jpg",
+        "w": 712,
+        "h": 569
+      }
     },
     {
       "quiet": [
@@ -3324,7 +3594,16 @@
           "url": "https://www.tbsnews.net/features/habitat/how-nimtali-deuri-old-dhaka-was-restored-295549"
         }
       ],
-      "ticketing": ""
+      "ticketing": "",
+      "image": {
+        "file": "Asiatic Society Heritage Museum.jpg",
+        "author": "এটন",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Asiatic_Society_Heritage_Museum.jpg",
+        "w": 960,
+        "h": 627
+      }
     },
     {
       "quiet": [
@@ -3385,7 +3664,16 @@
           "url": "https://hiddenheritage.org/haturia-house"
         }
       ],
-      "ticketing": ""
+      "ticketing": "",
+      "image": {
+        "file": "Haturia House - Khanka E Aliya - Dhaka by NKS.jpg",
+        "author": "Nasir Khan",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Haturia_House_-_Khanka_E_Aliya_-_Dhaka_by_NKS.jpg",
+        "w": 960,
+        "h": 537
+      }
     },
     {
       "quiet": [],
@@ -3552,7 +3840,16 @@
           "url": "https://www.thedailystar.net/weekend-read/news/historic-tale-gandaria-2954686"
         }
       ],
-      "ticketing": ""
+      "ticketing": "",
+      "image": {
+        "file": "সাধনা ঔষধালয়.jpg",
+        "author": "অভিজিৎ দাস",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%B8%E0%A6%BE%E0%A6%A7%E0%A6%A8%E0%A6%BE_%E0%A6%94%E0%A6%B7%E0%A6%A7%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [],
@@ -3662,7 +3959,16 @@
           "label": "The Business Standard: Activists rally against demolition of the old Collegiate School building",
           "url": "https://www.tbsnews.net/node/813011"
         }
-      ]
+      ],
+      "image": {
+        "file": "Dhaka collegiate school.jpg",
+        "author": "Anup Sadi",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dhaka_collegiate_school.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [],
@@ -3715,7 +4021,16 @@
           "label": "Wikipedia: Jagannath University",
           "url": "https://en.wikipedia.org/wiki/Jagannath_University"
         }
-      ]
+      ],
+      "image": {
+        "file": "Shanto Chattar Jagannath University.jpg",
+        "author": "Md. Ekram Hossain Bhuiyan",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Shanto_Chattar_Jagannath_University.jpg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [
@@ -3905,7 +4220,16 @@
           "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
           "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
         }
-      ]
+      ],
+      "image": {
+        "file": "Shiv Temple inside Joy Kali Temple in Old Dhaka.jpg",
+        "author": "Ambereen21",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "page": "https://commons.wikimedia.org/wiki/File:Shiv_Temple_inside_Joy_Kali_Temple_in_Old_Dhaka.jpg",
+        "w": 960,
+        "h": 1280
+      }
     },
     {
       "quiet": [
@@ -3969,7 +4293,16 @@
           "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
           "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
         }
-      ]
+      ],
+      "image": {
+        "file": "Ramkrishna Missionaries, Dhaka.jpeg",
+        "author": "Rahul_Kumar_Sanjowal",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "page": "https://commons.wikimedia.org/wiki/File:Ramkrishna_Missionaries,_Dhaka.jpeg",
+        "w": 960,
+        "h": 720
+      }
     },
     {
       "quiet": [],
@@ -4026,7 +4359,16 @@
           "label": "Dhaka Tribune: 10 historic temples in Dhaka you can visit (Oct 2024)",
           "url": "https://www.dhakatribune.com/bangladesh/dhaka/361441/10-historic-temples-in-dhaka-you-can-visit"
         }
-      ]
+      ],
+      "image": {
+        "file": "Swamibagh Iskcon Temple' s Ratha or Chariot.jpg",
+        "author": "Sergeant Roach",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Swamibagh_Iskcon_Temple%27_s_Ratha_or_Chariot.jpg",
+        "w": 960,
+        "h": 640
+      }
     }
   ],
   "routes": [
