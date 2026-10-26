@@ -21,8 +21,10 @@ async function get(params, tries = 4) {
   const u = new URL(API);
   for (const [k, v] of Object.entries({ format: 'json', formatversion: 2, origin: '*', ...params })) u.searchParams.set(k, v);
   for (let i = 0; ; i++) {
-    const r = await fetch(u, { headers: { 'User-Agent': UA } });
-    if (r.ok) return r.json();
+    const r = await fetch(u, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA } });
+    const body = await r.text();
+    if (r.ok && body.trimStart().startsWith('{')) return JSON.parse(body);
+    console.log('API', r.status, r.headers.get('content-type'), body.replace(/\s+/g, ' ').slice(0, 600));
     if (i >= tries) throw new Error(`${r.status} ${u}`);
     await sleep(1500 * (i + 1));
   }
@@ -56,6 +58,10 @@ async function candidates() {
   const all = {};
   for (const p of data.places) {
     if (picks[p.slug]) continue;
+    try { await one(p); } catch (e) { console.log('FAIL', p.slug, e.message); }
+  }
+  await fs.writeFile(new URL('candidates.json', OUT), JSON.stringify(all, null, 1));
+  async function one(p) {
     const en = p.name.en || p.name;
     const names = [...new Set([en, en.replace(/\s*\(.*\)/, ''), (en.match(/\((.*)\)/) || [])[1]].filter(Boolean))];
     const found = new Map();
@@ -74,7 +80,6 @@ async function candidates() {
     all[p.slug] = list;
     console.log(p.slug, list.length);
   }
-  await fs.writeFile(new URL('candidates.json', OUT), JSON.stringify(all, null, 1));
 }
 
 async function fetchPicks() {
