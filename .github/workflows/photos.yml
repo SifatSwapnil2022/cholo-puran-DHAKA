@@ -27,8 +27,9 @@ jobs:
         if: always()
         run: |
           cd out
+          MODE=$(cat ../tools/photo-mode.txt)
           git init -q -b photo-results
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A && git commit -q -m "Commons photo results"
-          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" photo-results
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" "photo-results:photo-$MODE"

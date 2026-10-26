@@ -106,6 +106,15 @@ async function fetchPicks() {
 }
 
 const mode = process.argv[2];
-if (mode === 'candidates') await candidates();
+if (mode === 'probe') {
+  for (const [name, u, h] of [
+    ['api', `${API}?action=query&list=search&srsearch=Ahsan%20Manzil&srnamespace=6&format=json&srlimit=2`, { 'User-Agent': UA }],
+    ['api-noUA', `${API}?action=query&list=search&srsearch=Ahsan%20Manzil&srnamespace=6&format=json&srlimit=2`, {}],
+    ['rest', 'https://api.wikimedia.org/core/v1/commons/search/page?q=Ahsan%20Manzil&limit=2', { 'User-Agent': UA }],
+    ['upload', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ahsan_Manzil_Dhaka.jpg/320px-Ahsan_Manzil_Dhaka.jpg', { 'User-Agent': UA }]]) {
+    try { const r = await fetch(u, { headers: h }); const b = await r.text(); console.log(name, r.status, r.headers.get('content-type'), b.replace(/\s+/g, ' ').slice(0, 700)); }
+    catch (e) { console.log(name, 'ERR', e.message); }
+  }
+} else if (mode === 'candidates') await candidates();
 else if (mode === 'fetch') await fetchPicks();
 else { console.log('usage: node tools/commons.mjs candidates|fetch'); process.exit(1); }
