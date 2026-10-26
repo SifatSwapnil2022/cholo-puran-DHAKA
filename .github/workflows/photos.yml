@@ -1,0 +1,29 @@
+name: Commons photos
+
+# Push to the photo-work branch to search Commons or download the picked photos.
+# The results land on the photo-results branch for review; nothing is written to main.
+on:
+  push:
+    branches: [photo-work]
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run
+        run: node tools/commons.mjs "$(cat tools/photo-mode.txt)"
+      - name: Publish results
+        run: |
+          cd out
+          git init -q -b photo-results
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "Commons photo results"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" photo-results
