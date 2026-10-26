@@ -18,8 +18,13 @@ jobs:
         with:
           node-version: 22
       - name: Run
-        run: node tools/commons.mjs "$(cat tools/photo-mode.txt)"
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          set -o pipefail
+          node tools/commons.mjs "$(cat tools/photo-mode.txt)" 2>&1 | tee out/log.txt
       - name: Publish results
+        if: always()
         run: |
           cd out
           git init -q -b photo-results
