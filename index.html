@@ -515,12 +515,12 @@ button.cd{cursor:pointer}
 .phead h2{margin:2px 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;letter-spacing:-.02em}
 .phead p{margin:0 0 16px;color:var(--ink-2);max-width:62ch}
 .pqs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.pq{padding:14px;border-radius:16px;background:var(--paper-2)}
+.pq{padding:14px;border-radius:16px;background:var(--paper-2);min-width:0}
 .pq h3{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:16px;font-weight:800}
 .pq h3 b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#0B6E8C;color:#fff;font-size:13px}
-.prow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.prow label{display:grid;gap:4px;font-size:12.5px;font-weight:700;color:var(--ink-2)}
-.prow input,.prow select{min-height:42px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px}
+.prow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.prow label{display:grid;gap:4px;min-width:0;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.prow input,.prow select{min-height:42px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px;width:100%;min-width:0;box-sizing:border-box}
 .pchips{display:flex;flex-wrap:wrap;gap:6px}.pchips.sm{margin-top:8px}
 .pchoice{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 13px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .pchoice svg{width:16px;height:16px}
@@ -550,6 +550,7 @@ button.cd{cursor:pointer}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ptag.ok{color:var(--green-ink);border-color:var(--green-ink)} :root:not([data-theme="light"]) :is(.phead .bn,.psum .bn){color:#7CC3D8}}
 :root[data-theme="dark"] .ptag.ok{color:var(--green-ink);border-color:var(--green-ink)} :root[data-theme="dark"] :is(.phead .bn,.psum .bn){color:#7CC3D8}
 @media (max-width:900px){.pqs{grid-template-columns:1fr}}
+@media (max-width:340px){.prow{grid-template-columns:1fr}.planner{padding:12px}.pq{padding:12px}}
 @media (max-width:760px){.planner{padding:16px;border-radius:18px}.pstop{grid-template-columns:48px 1fr;padding:10px}.pacts .btn{flex:1 1 auto;justify-content:center}}
 .tsec{scroll-margin-top:16px}
 .tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
@@ -576,7 +577,8 @@ button.cd{cursor:pointer}
 .welcome .x svg{width:18px;height:18px}
 
 /* ---------- open-now pills, filters, near me ---------- */
-.ostat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;line-height:1.4;white-space:nowrap}
+.ostat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;line-height:1.4;white-space:nowrap;max-width:100%}
+@media (max-width:340px){.ostat{white-space:normal}}
 .ostat::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:0 0 auto}
 .ostat.open{background:var(--paper-2);background:color-mix(in srgb,#2E9A3E 14%,var(--paper));color:var(--ink);color:color-mix(in srgb,#2E9A3E 70%,var(--ink))}
 .ostat.closed{background:var(--paper-2);background:color-mix(in srgb,var(--red) 11%,var(--paper));color:var(--red-ink)}
@@ -1453,7 +1455,10 @@ function signTex(bn, en, i) {
    Ground, river, roads, city
    ================================================================ */
 function buildGround() {
-  const g = new THREE.Mesh(new THREE.PlaneGeometry(24000, 24000), new THREE.MeshLambertMaterial({ color: 0xA9A495 }));
+  // Ground, river and roads are flat layers a few centimetres apart. From map height the depth buffer cannot
+  // tell them apart (they flickered into each other), so they are drawn first, in order, without writing depth.
+  const flat = (m, order) => { m.material.depthWrite = false; m.renderOrder = order; return m; };
+  const g = flat(new THREE.Mesh(new THREE.PlaneGeometry(24000, 24000), new THREE.MeshLambertMaterial({ color: 0xA9A495 })), -3);
   g.rotation.x = -Math.PI / 2; g.position.y = -0.05; scene.add(g);
   // river strip
   const pos = [], idx = [];
@@ -1462,7 +1467,7 @@ function buildGround() {
   for (let i = 0; i < steps; i++) { const a = i * 2; idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
   const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); rg.setIndex(idx); rg.computeVertexNormals();
   const water = new THREE.Mesh(rg, new THREE.MeshStandardMaterial({ color: 0x4A625C, roughness: 0.32, metalness: 0.15 }));
-  scene.add(water);
+  scene.add(flat(water, -2));
   // embankments
   const bpos = [], bidx = []; let n = 0;
   const wall = (fz, off) => { for (let i = 0; i <= steps; i++) { const x = lerp(x0, x1, i / steps); const z = fz(x) + off; bpos.push(x, 1.1, z - 2.5, x, 1.1, z + 0.2); } for (let i = 0; i < steps; i++) { const a = n + i * 2; bidx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); } n += (steps + 1) * 2; };
@@ -1476,7 +1481,7 @@ function buildGround() {
     rp.push(ax + nx, .08, az + nz, ax - nx, .08, az - nz, bx + nx, .08, bz + nz, ax - nx, .08, az - nz, bx - nx, .08, bz - nz, bx + nx, .08, bz + nz);
   }
   const rgeo = new THREE.BufferGeometry(); rgeo.setAttribute('position', new THREE.Float32BufferAttribute(rp, 3)); rgeo.computeVertexNormals();
-  const roads = new THREE.Mesh(rgeo, new THREE.MeshLambertMaterial({ color: 0x55534E, side: THREE.DoubleSide })); scene.add(roads);
+  const roads = new THREE.Mesh(rgeo, new THREE.MeshLambertMaterial({ color: 0x55534E, side: THREE.DoubleSide })); scene.add(flat(roads, -1));
   // Babu Bazar bridge (approximate position)
   const k = new Kit(); const bx = W(0, 90.3990)[0]; const zn = bankZ(bx) - 30, zs = southZ(bx) + 30, L = zs - zn;
   k.box(19, 1.4, L, bx, 11, (zn + zs) / 2, '#B8B2A6'); k.box(19.4, 1.1, L, bx, 12.4, (zn + zs) / 2, '#8F8B83');
@@ -3136,10 +3141,20 @@ const monthKey = iso => iso.slice(0, 7);
 function occMonths(o) { const out = []; let d = new Date(o.from.slice(0, 7) + '-01T12:00:00Z'); const last = monthKey(o.to); while (monthKey(d.toISOString()) <= last) { out.push(monthKey(d.toISOString())); d.setUTCMonth(d.getUTCMonth() + 1); } return out; }
 /* Calendar file for one occurrence, so a visitor can keep the date in their phone. */
 function icsFor(f, o) { return icsWrap([[f, o]]); }
+/* iCalendar lines may be at most 75 bytes (RFC 5545). Fold by UTF-8 bytes, never inside a character. */
+function icsFold(line) {
+  const out = []; let cur = '', bytes = 0;
+  for (const ch of line) {
+    const b = new TextEncoder().encode(ch).length;
+    if (bytes + b > 74) { out.push(cur); cur = ' '; bytes = 1; }
+    cur += ch; bytes += b;
+  }
+  out.push(cur); return out.join('\r\n');
+}
 function icsWrap(list) {
   const ymd = x => x.replace(/-/g, '');
   const tx = x => String(x).replace(/\\/g, '\\\\').replace(/[;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
-  const fold = l => { const out = []; while (l.length > 60) { out.push(l.slice(0, 60)); l = ' ' + l.slice(60); } out.push(l); return out.join('\r\n'); };
+  const fold = icsFold;
   const ev = ([f, o]) => {
   const end = new Date(Date.parse(o.to + 'T00:00:00Z') + 864e5).toISOString().slice(0, 10);
   const where = (f.places || []).map(x => state.bySlug[x]?.name.en).filter(Boolean).join(', ');
@@ -3412,7 +3427,7 @@ function planStay(p, o) { if (PLAN_OUTSIDE.has(p.slug) || o.len <= 120) return p
 
 function makePlan(o) {
   const T0 = o.time, T1 = Math.min(1440, o.time + o.len);
-  const start = o.startPt; // { x, z, name }
+  const start = o.startPt; // { x, z, slug | me, note? }
   const fests = (state.culture?.festivals || []).filter(f => (f.dates || []).some(x => o.date >= x.from && o.date <= x.to));
   // A meal is part of the plan when the day overlaps its usual hours by 45 min or more (breakfast counts from 2 h plans, the others from 3 h).
   const needMeals = MEALS.filter(([n, a, b]) => Math.min(b, T1) - Math.max(a, T0) >= 45 && (n === 'breakfast' ? T0 <= 510 : o.len >= 180));
@@ -3482,22 +3497,24 @@ function planLoad() { try { return { ...planDefaults(), ...JSON.parse(store.get(
 function planSave(o) { store.set('cpd-plan', JSON.stringify({ time: o.time, len: o.len, ints: o.ints, start: o.start, kids: o.kids, budget: o.budget })); }
 const planOpts = () => state.planOpts || (state.planOpts = planLoad());
 function planStartPt(o, cb) {
-  if (o.start !== 'me') { const p = state.bySlug[o.start] || state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, name: pName(p) }); return; }
-  const fallback = why => { const p = state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, name: pName(p), note: why }); };
-  if (!navigator.geolocation) { fallback(t('pNoLoc')); return; }
+  if (o.start !== 'me') { const p = state.bySlug[o.start] || state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, slug: p.slug }); return; }
+  const fallback = why => { const p = state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, slug: p.slug, note: why }); };
+  if (!navigator.geolocation) { fallback({ k: 'pNoLoc' }); return; }
   navigator.geolocation.getCurrentPosition(pos => {
     const [x, z] = W(pos.coords.latitude, pos.coords.longitude);
     const far = Math.hypot(x - HOME.target.x, z - HOME.target.z);
     if (far > 3500 || pos.coords.accuracy > 1500) {
       // Too far away (or too rough a fix) to walk from: start at the nearest landmark instead.
       const near = PLAN_STARTS.slice(1).map(s => state.bySlug[s]).sort((a, b) => Math.hypot(a.x - x, a.z - z) - Math.hypot(b.x - x, b.z - z))[0];
-      cb({ x: near.x, z: near.z, name: pName(near), note: fill('pFarStart', { k: num(Math.round(far / 100) / 10), p: pName(near) }) });
-    } else cb({ x, z, name: t('pYou') });
-  }, () => fallback(t('pNoLoc')), { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
+      cb({ x: near.x, z: near.z, slug: near.slug, note: { k: 'pFarStart', km: Math.round(far / 100) / 10, slug: near.slug } });
+    } else cb({ x, z, me: true });
+  }, () => fallback({ k: 'pNoLoc' }), { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
 }
 function planTimes() { const out = []; for (let m = 360; m <= 1200; m += 30) out.push(m); return out; }
 function renderPlanner() {
   const box = $('#planner'); if (!box) return;
+  const f = document.activeElement, keep = f && box.contains(f) && f.matches('[data-len],[data-int],[data-flag],[data-start]')
+    ? ['len', 'int', 'flag', 'start'].map(k => f.dataset[k] != null ? `[data-${k}="${f.dataset[k]}"]` : '').join('') : '';
   const o = planOpts(), L = state.lang;
   const chip = (attr, val, on, label, extra = '') => `<button type="button" class="pchoice" ${attr}="${val}" aria-pressed="${on}"${extra}>${label}</button>`;
   box.innerHTML = `
@@ -3519,13 +3536,15 @@ function renderPlanner() {
   box.querySelectorAll('[data-int]').forEach(b => b.onclick = () => { const k = b.dataset.int; o.ints = o.ints.includes(k) ? o.ints.filter(x => x !== k) : [...o.ints, k]; renderPlanner(); });
   box.querySelectorAll('[data-flag]').forEach(b => b.onclick = () => { o[b.dataset.flag] = !o[b.dataset.flag]; renderPlanner(); });
   box.querySelectorAll('[data-start]').forEach(b => b.onclick = () => { o.start = b.dataset.start; renderPlanner(); });
-  $('#pDate').onchange = e => { o.date = e.target.value || dhakaDate(); };
+  $('#pDate').onchange = e => { const v = e.target.value; o.date = /^\d{4}-\d{2}-\d{2}$/.test(v) && v >= dhakaDate() ? v : dhakaDate(); e.target.value = o.date; };
   $('#pTime').onchange = e => { o.time = +e.target.value; };
   $('#pGo').onclick = () => { o.ban = []; runPlan(true); };
+  if (keep) box.querySelector(keep)?.focus({ preventScroll: true });
   if (state.plan) showPlan(state.plan);
 }
 function runPlan(scroll) {
   const o = planOpts();
+  if (!(o.date >= dhakaDate())) o.date = dhakaDate();  // a tab left open overnight, or a typed past date
   if (!o.ints.length) { $('#pResult').innerHTML = `<p class="warn">${t('pPickOne')}</p>`; return; }
   planSave(o);
   $('#pResult').innerHTML = `<p class="pwait">${t('pWorking')}</p>`;
@@ -3544,7 +3563,8 @@ function planFees(stops) {
 function showPlan(plan) {
   const box = $('#pResult'); if (!box) return;
   const o = plan.opts, L = state.lang, S = plan.stops;
-  const notes = [plan.start.note, ...plan.missing.map(m => fill('pClosedThatDay', { p: esc(pName(m.p)), d: esc(DAYSHORT[L][WEEK.indexOf(plan.day)] ? (L === 'bn' ? DAYSHORT.bn[WEEK.indexOf(plan.day)] : plan.day) : plan.day) })),
+  const sn = plan.start.note, startNote = !sn ? '' : sn.k === 'pFarStart' ? fill('pFarStart', { k: num(sn.km), p: esc(pName(state.bySlug[sn.slug])) }) : t(sn.k);
+  const notes = [startNote, ...plan.missing.map(m => fill('pClosedThatDay', { p: esc(pName(m.p)), d: esc(DAYSHORT[L][WEEK.indexOf(plan.day)] ? (L === 'bn' ? DAYSHORT.bn[WEEK.indexOf(plan.day)] : plan.day) : plan.day) })),
     ...plan.fests.map(f => fill('pFestOn', { f: esc(festName(f)) }))].filter(Boolean);
   if (!S.length) { box.innerHTML = `<div class="pempty"><h3>${t('pNone')}</h3><p>${t('pNoneWhy')}</p>${notes.map(n => `<p class="pnote">${n}</p>`).join('')}</div>`; return; }
   const walkM = S.reduce((a, s) => a + (s.tr.ride ? 0 : s.tr.d * 1.3), 0), rides = S.filter(s => s.tr.ride);
@@ -3563,7 +3583,7 @@ function showPlan(plan) {
         <div class="stats"><span>${uiIcon('clock')}${fmtClock(S[0].at)}–${fmtClock(plan.end)}</span><span>${uiIcon('route')}${num(S.length)} ${t('stopsN')}</span><span>${uiIcon('steps')}${km(walkM / 1000)} ${t('walkKm')}</span>${rides.length ? `<span>${uiIcon('rickshaw')}${num(rides.length)} ${t('pRides')}</span>` : ''}${fees ? `<span>${uiIcon('money')}${fees}</span>` : ''}</div></div>
       ${notes.map(n => `<p class="pnote">${n}</p>`).join('')}
       <div class="pacts"><button class="btn big rc" id="pMap">${uiIcon('map')}${t('pShowMap')}</button><button class="btn" id="pShare">${uiIcon('link')}<span>${t('pShare')}</span></button><button class="btn" id="pCal">${uiIcon('cal')}${t('addCal')}</button></div>
-      <p class="pfrom">${uiIcon('dir')}${fill('pFrom', { p: esc(plan.start.name) })}</p>
+      <p class="pfrom">${uiIcon('dir')}${fill('pFrom', { p: esc(plan.start.me ? t('pYou') : pName(state.bySlug[plan.start.slug])) })}</p>
       <ol class="ptl">${S.map((s, i) => `
         ${`<li class="pleg">${uiIcon(s.tr.ride ? 'rickshaw' : 'steps')}${s.tr.ride ? fill('rideLeg', { m: num(s.tr.mins), d: km(s.tr.d * 1.4 / 1000) }) + (fareText(s.tr.d) ? ' · ' + fareText(s.tr.d) : '') : fill('walkLeg', { m: num(s.tr.mins) })}${s.at > s.arrive + 4 ? ` · ${fill('pWait', { m: num(s.at - s.arrive) })}` : ''}</li>`}
         <li class="pstop" style="--c:var(--c-${s.c.p.cat})"><span class="pt">${fmtClock(s.at)}</span>
@@ -3615,7 +3635,7 @@ function planIcs(plan) {
   const o = plan.opts, ymd = o.date.replace(/-/g, '');
   const utc = m => { const d = new Date(Date.UTC(+o.date.slice(0, 4), +o.date.slice(5, 7) - 1, +o.date.slice(8, 10), 0, m - 360)); return d.toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; };
   const tx = x => String(x).replace(/\\/g, '\\\\').replace(/[;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
-  const fold = l => { const out = []; while (l.length > 60) { out.push(l.slice(0, 60)); l = ' ' + l.slice(60); } out.push(l); return out.join('\r\n'); };
+  const fold = icsFold;
   const lines = plan.stops.map(s => `${fmtClock(s.at)}  ${s.c.p.name.en} (${s.c.stay} min)`).join('\n');
   return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cholo Puran Dhaka//Plan//EN', 'BEGIN:VEVENT', `UID:plan-${ymd}-${o.time}@cholo-puran-dhaka`,
     `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, `DTSTART:${utc(plan.stops[0].at)}`, `DTEND:${utc(plan.end)}`,
@@ -3715,10 +3735,18 @@ function runIntro(done) {
    Main loop
    ================================================================ */
 let fpsAcc = 0, fpsN = 0, fpsChecked = false, elapsed = 0;
+/* A near plane of 0.4 m is right on foot, but from 500 m up it wastes depth precision and distant roofs shimmer. */
+function fitNear() {
+  // Nothing in the city is taller than ~50 m, so keep the near plane well inside the clear air below the camera.
+  const y = camera.position.y;
+  const want = state.walk ? 0.4 : Math.max(0.4, Math.min(40, y * 0.05, (y - 50) * 0.5));
+  if (Math.abs(want - camera.near) > camera.near * 0.1) { camera.near = want; camera.updateProjectionMatrix(); }
+}
 function loop() {
   const raw = clock.getDelta(); const dt = Math.min(0.05, raw); elapsed += dt;
   stepTween(Math.min(0.1, raw));
   if (state.walk) stepWalk(dt); else controls.update();
+  fitNear();
   updateLife(dt, elapsed);
   if (state.sunDir) { sun.position.copy(controls.target).addScaledVector(state.sunDir, 3000); sun.target.position.copy(controls.target); }
   if (!state.mode2d) { renderer.render(scene, camera); updateMarkers(); drawRoute(); }
