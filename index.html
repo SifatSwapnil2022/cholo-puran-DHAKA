@@ -503,6 +503,48 @@ button.cd{cursor:pointer}
   .calhead .btn{margin-left:0;width:100%;justify-content:center}.cdi{grid-template-columns:auto 1fr}.cdb{grid-column:1/-1;justify-content:flex-start}
   .htl{padding-left:6px}.htl li{grid-template-columns:1fr;gap:4px;padding-left:18px}.hera header{padding:16px}
   .tabbar button i{width:40px}.tabbar button{font-size:11px}}
+.planner{--rc:#0B6E8C;--rink:#fff;margin:6px 0 34px;padding:22px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+#wPlan{--rc:#0B6E8C;--rink:#fff}
+.phead .bn{font-family:var(--f-bn);font-size:15px;color:#0B6E8C}
+.phead h2{margin:2px 0 6px;font-size:clamp(24px,4vw,30px);font-weight:800;letter-spacing:-.02em}
+.phead p{margin:0 0 16px;color:var(--ink-2);max-width:62ch}
+.pqs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pq{padding:14px;border-radius:16px;background:var(--paper-2)}
+.pq h3{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:16px;font-weight:800}
+.pq h3 b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#0B6E8C;color:#fff;font-size:13px}
+.prow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.prow label{display:grid;gap:4px;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.prow input,.prow select{min-height:42px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px}
+.pchips{display:flex;flex-wrap:wrap;gap:6px}.pchips.sm{margin-top:8px}
+.pchoice{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 13px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.pchoice svg{width:16px;height:16px}
+.pchoice[aria-pressed="true"]{background:#0B6E8C;border-color:#0B6E8C;color:#fff}
+.pchips.sm .pchoice{min-height:36px;font-size:13px}
+.pgo{margin-top:16px;width:100%;justify-content:center;background:#0B6E8C;border-color:#0B6E8C;color:#fff;font-size:17px}
+.pwait{margin:16px 0 0;color:var(--ink-2)}
+.pplan{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.psum{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;align-items:flex-end}
+.psum .bn{font-family:var(--f-bn);font-size:14px;color:#0B6E8C}.psum h3{margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em}
+.psum .stats{margin-top:0;color:var(--ink-2)}.psum .stats svg{width:16px;height:16px}
+.pnote{margin:10px 0 0;padding:9px 12px;border-radius:10px;background:var(--paper-2);font-size:14px;color:var(--ink-2)}
+.pacts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.pfrom{display:flex;align-items:center;gap:6px;margin:12px 0 4px;font-size:14px;font-weight:600;color:var(--ink-2)}.pfrom svg{width:16px;height:16px}
+.ptl{list-style:none;margin:0;padding:0}
+.pleg{display:flex;align-items:center;gap:7px;margin-left:27px;padding:8px 0 8px 20px;border-left:2px dashed var(--line);font-size:13.5px;color:var(--ink-2)}.pleg svg{width:16px;height:16px;flex:none}
+.pstop{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:12px;border-radius:16px;background:var(--paper-2);border-left:5px solid var(--c)}
+.pt{font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;padding-top:2px}
+.pb h4{margin:0;font-size:17px;font-weight:800;line-height:1.25}.pb h4 .bn{display:block;font-family:var(--f-bn);font-weight:500;font-size:14px;color:var(--ink-2)}
+.pb p{margin:6px 0 8px;font-size:14.5px;color:var(--ink-2)}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.ptag{padding:2px 9px;border-radius:99px;background:var(--card);border:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.ptag.ok{color:#0B7A57;border-color:#0B7A57}.ptag.est{color:var(--ink-2);border-style:dashed}.ptag.meal{background:#9A5300;border-color:#9A5300;color:#fff}.ptag.fest{background:#C81E36;border-color:#C81E36;color:#fff}
+.pb .acts{display:flex;flex-wrap:wrap;gap:6px}.pb .acts .btn{min-height:38px;font-size:13.5px;padding:6px 12px}
+.pempty{margin-top:18px;padding:16px;border-radius:14px;background:var(--paper-2)}.pempty h3{margin:0 0 4px}
+.rhead{margin:0 0 14px;font-size:22px;font-weight:800;letter-spacing:-.015em}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ptag.ok{color:var(--green-ink);border-color:var(--green-ink)} :root:not([data-theme="light"]) :is(.phead .bn,.psum .bn){color:#7CC3D8}}
+:root[data-theme="dark"] .ptag.ok{color:var(--green-ink);border-color:var(--green-ink)} :root[data-theme="dark"] :is(.phead .bn,.psum .bn){color:#7CC3D8}
+@media (max-width:900px){.pqs{grid-template-columns:1fr}}
+@media (max-width:760px){.planner{padding:16px;border-radius:18px}.pstop{grid-template-columns:48px 1fr;padding:10px}.pacts .btn{flex:1 1 auto;justify-content:center}}
 .tsec{scroll-margin-top:16px}
 .tsec h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
 .tsec h2 i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--tc);color:#fff;flex:0 0 auto}
@@ -725,6 +767,7 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
       <p data-i="wLede">Pick a walking route and follow it stop by stop, or explore the map on your own.</p>
       <div class="wroutes" id="wRoutes"></div>
       <div class="wmore">
+        <button class="btn rc" id="wPlan"></button>
         <button class="btn" id="wTips"></button>
         <button class="btn" id="wExplore"></button>
       </div>
@@ -744,6 +787,8 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
     <div class="wrap">
       <h1 id="rTitle"><span data-i="rTitle">Walking routes</span><span class="bn">হেঁটে ঘোরার পথ</span></h1>
       <p class="lede" data-i="rLede">Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.</p>
+      <section class="planner" id="planner" aria-label="Plan my day"></section>
+      <h2 class="rhead" data-i="rReady">Or pick a ready-made route</h2>
       <div class="rgrid" id="rgrid"></div>
     </div>
   </section>
@@ -967,6 +1012,16 @@ const T = {
     sortLabel: 'Sort', sortMahalla: 'By neighbourhood', sortHidden: 'Lesser-known first', sortName: 'A to Z', aTitle: 'Who made this', aData: 'About the data', aCredits: 'Credits',
     bnNote: '', noResults: 'Nothing found. Try a mahalla name like Lalbagh or Chawkbazar.', all: 'All',
     nogl: 'Your browser could not start the 3D view. Everything is still in Places.',
+    planTitle: 'Plan my day', planLede: 'Answer three questions. You get a day that fits: places that are open when you arrive, in a sensible order, with a meal at the right time.', rReady: 'Or pick a ready-made route',
+    pQ1: 'When', pQ2: 'What do you like?', pQ3: 'Where do you start?', pDate: 'Day', pStart: 'Start at', pLen2: '2 hours', pLen4: 'Half a day', pLen7: 'A full day',
+    pHeritage: 'Heritage', pFood: 'Food', pFaith: 'Faith and festivals', pMarkets: 'Markets and crafts', pRiver: 'The river', pHidden: 'Hidden gems', pKids: 'With kids or elders', pBudget: 'On a budget',
+    pMe: 'Where I am', pYou: 'your location', pGo: 'Make my plan', pWorking: 'Making your plan…', pPickOne: 'Pick at least one thing you like.',
+    pNone: 'Nothing fits that time.', pNoneWhy: 'Try a longer time, an earlier start, another day or more interests.', pNoLoc: 'Your location isn\'t available, so the plan starts at Ahsan Manzil.',
+    pFarStart: 'You\'re about {k} km from Old Dhaka, so the plan starts at {p}. Take a rickshaw, CNG or ride-share there first.',
+    pClosedThatDay: '{p} is closed on {d}, so it isn\'t in this plan.', pFestOn: '{f} is on that day. Expect crowds near the temples and markets.',
+    pShowMap: 'Show on the map', pShare: 'Share this plan', pSwap: 'Swap', pFrom: 'Starting from {p}', pRides: 'rickshaw rides', pWait: 'wait {m} min until it opens',
+    pOpen: 'Open {a}–{b}', pEst: 'Hours not published · usually fine then', pMeal_breakfast: 'Breakfast', pMeal_lunch: 'Lunch', pMeal_dinner: 'Dinner',
+    pHonest: 'Times are estimates from published hours and typical visits. Hours change, so check before you go, and ask locally where hours are not published.',
     rTitle: 'Walking routes', rLede: 'Ready-made days out, in a sensible order, with walking times between stops. Long hops are marked for a rickshaw. Times are suggestions; the days a stop is closed are flagged.',
     tTitle: 'Before you go', tLede: 'What first-time visitors ask about, plus the festivals, crafts and words of Old Dhaka. Each part says where the information comes from.',
     wTitle: 'New to Old Dhaka?', wLede: 'Pick a walking route and follow it stop by stop, or explore the map on your own.', readTips: 'Traveller tips', explore: 'Explore the map',
@@ -1004,6 +1059,16 @@ const T = {
     sortLabel: 'সাজান', sortMahalla: 'মহল্লা অনুযায়ী', sortHidden: 'কম-চেনা আগে', sortName: 'নাম অনুযায়ী', aTitle: 'কে বানিয়েছে', aData: 'তথ্য সম্পর্কে', aCredits: 'কৃতজ্ঞতা',
     bnNote: 'বিস্তারিত বর্ণনা এখন ইংরেজিতে। বাংলা লেখা আসছে।', noResults: 'কিছু পাওয়া যায়নি। লালবাগ বা চকবাজারের মতো মহল্লার নাম লিখে দেখুন।', all: 'সব',
     nogl: 'আপনার ব্রাউজারে থ্রিডি ভিউ চালু হয়নি। "জায়গা" পাতায় সব তথ্য আছে।',
+    planTitle: 'আমার দিনের পরিকল্পনা', planLede: 'তিনটি প্রশ্নের উত্তর দিন। পৌঁছানোর সময় খোলা থাকবে এমন জায়গা, ঠিক ক্রমে, সঠিক সময়ে খাওয়াসহ একটি দিন পাবেন।', rReady: 'অথবা তৈরি করা পথ বেছে নিন',
+    pQ1: 'কখন', pQ2: 'আপনার কী ভালো লাগে?', pQ3: 'কোথা থেকে শুরু?', pDate: 'দিন', pStart: 'শুরুর সময়', pLen2: '২ ঘণ্টা', pLen4: 'আধা দিন', pLen7: 'পুরো দিন',
+    pHeritage: 'ঐতিহ্য', pFood: 'খাবার', pFaith: 'ধর্ম ও উৎসব', pMarkets: 'বাজার ও হস্তশিল্প', pRiver: 'নদী', pHidden: 'অজানা জায়গা', pKids: 'শিশু বা বয়স্কদের নিয়ে', pBudget: 'কম খরচে',
+    pMe: 'আমি যেখানে আছি', pYou: 'আপনার অবস্থান', pGo: 'পরিকল্পনা বানান', pWorking: 'পরিকল্পনা তৈরি হচ্ছে…', pPickOne: 'অন্তত একটি পছন্দ বেছে নিন।',
+    pNone: 'এই সময়ে কিছু মিলছে না।', pNoneWhy: 'আরও বেশি সময়, আগে শুরু, অন্য দিন বা আরও পছন্দ বেছে দেখুন।', pNoLoc: 'আপনার অবস্থান পাওয়া যায়নি, তাই পরিকল্পনা আহসান মঞ্জিল থেকে শুরু।',
+    pFarStart: 'আপনি পুরান ঢাকা থেকে প্রায় {k} কিমি দূরে, তাই পরিকল্পনা {p} থেকে শুরু। আগে রিকশা, সিএনজি বা রাইডে সেখানে যান।',
+    pClosedThatDay: '{p} {d} বন্ধ থাকে, তাই এই পরিকল্পনায় নেই।', pFestOn: 'সেদিন {f}। মন্দির ও বাজারের কাছে ভিড় থাকবে।',
+    pShowMap: 'ম্যাপে দেখুন', pShare: 'পরিকল্পনা শেয়ার করুন', pSwap: 'বদলান', pFrom: '{p} থেকে শুরু', pRides: 'রিকশা যাত্রা', pWait: 'খোলা পর্যন্ত {m} মিনিট অপেক্ষা',
+    pOpen: 'খোলা {a}–{b}', pEst: 'সময় প্রকাশিত নয় · সাধারণত তখন ভালো', pMeal_breakfast: 'নাশতা', pMeal_lunch: 'দুপুরের খাবার', pMeal_dinner: 'রাতের খাবার',
+    pHonest: 'সময়গুলো প্রকাশিত তথ্য আর সাধারণ ভ্রমণের হিসাবে আনুমানিক। সময় বদলায়, তাই যাওয়ার আগে যাচাই করুন।',
     rTitle: 'হেঁটে ঘোরার পথ', rLede: 'গুছিয়ে সাজানো দিনের পরিকল্পনা, এক জায়গা থেকে আরেক জায়গায় হাঁটার সময়সহ। দূরের পথে রিকশা নিন। সময়গুলো পরামর্শ; কোন জায়গা কবে বন্ধ, তা চিহ্নিত।',
     histNav: 'ইতিহাস', hTitle: 'পুরান ঢাকা, ১৬০৮ থেকে আজ', hShow: 'এই জায়গাগুলো ম্যাপে দেখুন', hSources: 'এই পাতার প্রধান তথ্যসূত্র:', hNote: '১৮০০ সালের আগের তারিখ নিয়ে ইতিহাসবিদদের মধ্যে এক-দুই বছরের মতভেদ থাকে; আমাদের সূত্রে অমিল থাকলে দুটোই দেওয়া হয়েছে। যে ঘটনার পাশে সূত্র নেই, তার সূত্র জায়গার কার্ডে আছে।', hPeriod: 'সময়কাল',
     viewList: 'তালিকা', viewCal: 'ক্যালেন্ডার', calTitle: 'উৎসবের ক্যালেন্ডার', calNote: 'আনুমানিক তারিখ। চাঁদ দেখার ওপর নির্ভর তারিখ (≈ চিহ্ন) এক দিন এদিক-ওদিক হতে পারে। পরিকল্পনার আগে সরকারি ছুটির তালিকা দেখে নিন।', addYear: '{y} সালের সব ক্যালেন্ডারে রাখুন', tapDay: 'রঙিন দিনে চাপ দিলে দেখবেন কী আছে।', allDates: '{y} সালের সব তারিখ', seeCard: 'বিস্তারিত', wk: ['শ', 'র', 'সো', 'ম', 'বু', 'বৃ', 'শু'],
@@ -2525,6 +2590,7 @@ function openDrawer(p) {
 const DEEP_VIEWS = ['routes', 'tips', 'about', 'places', 'festivals', 'crafts', 'say', 'near', 'calendar', 'history'];
 function openDeepView(h) {
   if (['routes', 'tips', 'about', 'history'].includes(h)) { showView(h); return true; }
+  if (h.startsWith('plan')) { planFromHash(h); return true; }
   if (h === 'calendar') { state.festView = 'cal'; showView('tips'); setSeg('festivals'); renderFestivals(); return true; }
   if (h === 'places') { showView('guide'); return true; }
   if (['festivals', 'crafts', 'say'].includes(h)) { showView('tips'); setSeg(h); return true; }
@@ -2876,7 +2942,7 @@ function fitPts(pts, opts = {}) {
   flyTo(c.clone().addScaledVector(dir, dist), c, 1.6);
 }
 function openRoute(id, opts = {}) {
-  const r = state.routes.find(x => x.id === id); if (!r) return;
+  const r = findRoute(id); if (!r) return;
   $('#welcome').hidden = true; store.set('cpd-welcome', '1');
   if (state.walk) stopWalk();
   showView('map');
@@ -2899,7 +2965,7 @@ function endRoute() {
 }
 function showRouteList() {
   const r = state.route; if (!r) return;
-  const info = routeInfo(r); const L = state.lang; const today = dhakaWeekday();
+  const info = routeInfo(r); const L = state.lang; const today = r.day || dhakaWeekday();
   state.drawerMode = 'route'; state.selected = null;
   markerEls.forEach(e => e.classList.remove('sel'));
   const closedNow = info.stops.filter(s => (s.p.closed || []).includes(today));
@@ -3258,11 +3324,280 @@ function renderHistory() {
   $('#hbody').querySelectorAll('.pchip').forEach(b => b.onclick = () => select(b.dataset.slug));
 }
 /* ================================================================
+   Plan my day: three questions in, a day that fits out.
+   Hard rules: published opening hours, closed days, seasonal places, the time limit.
+   Soft rules: the "good time" estimates (BEST) for places without published hours.
+   ================================================================ */
+const PLAN_INT = [['heritage', 'pHeritage'], ['food', 'pFood'], ['faith', 'pFaith'], ['markets', 'pMarkets'], ['river', 'pRiver'], ['hidden', 'pHidden']];
+const PLAN_LEN = [[120, 'pLen2'], [240, 'pLen4'], [420, 'pLen7']];
+const PLAN_STARTS = ['me', 'sadarghat', 'ahsan-manzil', 'lalbagh-fort', 'bahadur-shah-park'];
+const PLAN_SEASONAL = { 'chawkbazar-iftar': 'ramadan', 'shakrain': 'shakrain' };
+const PLAN_OUTSIDE = new Set(['bara-katra', 'choto-katra', 'northbrook-hall', 'ruplal-house', 'pogose-school', 'sutrapur-zamindar-bari', 'mangalabash', 'sadhana-aushadhalaya', 'dhaka-collegiate-school', 'haturia-house', 'jinjira-palace', 'rose-garden-palace']);
+const MEALS = [['breakfast', 420, 600], ['lunch', 750, 870], ['dinner', 1170, 1320]];
+// Tea, sweets and lassi shops are snacks, not meals; breakfast has its own places.
+const PLAN_SNACK = new Set(['alauddin-sweetmeat', 'pannu-khan-tea', 'beauty-lassi', 'agamasi-bakarkhani', 'medina-mishtanna', 'cafe-corner']);
+const PLAN_BREAKFAST = new Set(['medina-mishtanna', 'chowrangi-restaurant', 'shah-sahib-biryani', 'maa-shahi-nihari', 'agamasi-bakarkhani', 'cafe-corner']);
+const mealOk = (slug, meal) => meal === 'breakfast' ? PLAN_BREAKFAST.has(slug) : !PLAN_SNACK.has(slug) && !PLAN_BREAKFAST.has(slug) || slug === 'chowrangi-restaurant' && meal === 'lunch';
+const JSDAY = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const planDefaults = () => ({ date: dhakaDate(), time: 540, len: 240, ints: ['heritage', 'food'], start: 'ahsan-manzil', kids: false, budget: false, ban: [] });
+
+function planTravel(a, b) {
+  const d = straight(a, b), ride = d > 900; // same rule as the ready-made routes
+  return { d, ride, mins: ride ? Math.ceil(d * 1.4 / 150) + 3 : Math.max(1, Math.ceil(d * 1.3 / 75)) };
+}
+/* When can this place be visited on that date? [[startMin, endMin], ...] and whether the hours are published. */
+function planWindows(p, date) {
+  const jd = new Date(date + 'T12:00:00Z').getUTCDay(), day = JSDAY[jd], dayName = WEEK[ORDER.indexOf(day)], month = +date.slice(5, 7);
+  const seasonal = PLAN_SEASONAL[p.slug];
+  if (seasonal) {
+    const f = (state.culture?.festivals || []).find(x => x.id === seasonal);
+    if (!f || !(f.dates || []).some(o => date >= o.from && date <= o.to)) return { w: [], firm: false, why: 'season' };
+  }
+  if ((p.closed || []).includes(dayName)) return { w: [], firm: true, why: 'closed' };
+  if (p.open) {
+    const w = p.open.filter(o => inMonths(o.m, month) && o.d.split(',').includes(day)).map(o => o.t.split('-').map(hm)).sort((a, b) => a[0] - b[0]);
+    return { w, firm: true, why: w.length ? '' : 'closed' };
+  }
+  let w = (BEST[p.slug] || [[9, 18]]).map(([a, b]) => [Math.max(0, a * 60 - 30), Math.min(1440, b * 60 + 30)]);
+  if (day === 'fri' && /mosque/.test(p.type)) w = w.flatMap(([a, b]) => [[a, Math.min(b, 720)], [Math.max(a, 870), b]]).filter(([a, b]) => b - a >= 20);
+  return { w, firm: false, why: '' };
+}
+function planBase(p, o, fests) {
+  const c = p.categories, ints = o.ints;
+  const hit = { heritage: c.includes('heritage'), food: c.includes('food'), faith: c.includes('worship') || c.includes('festival'),
+    markets: c.includes('market'), river: c.includes('river'), hidden: c.includes('hidden-gem') && p.underrated >= 4 };
+  const matched = ints.filter(i => hit[i]);
+  if (c.includes('food') && !ints.includes('food')) return { s: 0, matched, foodOnly: true };
+  let s = matched.length ? 3 + matched.length : 0.4;
+  s += (5 - p.underrated) * 0.7 + Math.min(2, p.spend[1] / 45);
+  if (PLAN_OUTSIDE.has(p.slug)) s -= 1;
+  if (o.kids) { if (p.goodFor.some(g => g === 'kids' || g === 'family-elders')) s += 1; if (p.access.walking === 'hard') s -= 2; }
+  if (o.budget) { if (!p.fees.length || p.priceBand === 1) s += 0.7; if (p.priceBand === 3) s -= 1; }
+  const fest = fests.find(f => (f.places || []).includes(p.slug));
+  if (fest) s += 3;
+  return { s: Math.max(0, s), matched, fest };
+}
+function planStay(p, o) { if (PLAN_OUTSIDE.has(p.slug) || o.len <= 120) return p.spend[0]; return Math.round((p.spend[0] + p.spend[1]) / 2 / 5) * 5; }
+
+function makePlan(o) {
+  const T0 = o.time, T1 = Math.min(1440, o.time + o.len);
+  const start = o.startPt; // { x, z, name }
+  const fests = (state.culture?.festivals || []).filter(f => (f.dates || []).some(x => o.date >= x.from && o.date <= x.to));
+  // A meal is part of the plan when the day overlaps its usual hours by 45 min or more (breakfast counts from 2 h plans, the others from 3 h).
+  const needMeals = MEALS.filter(([n, a, b]) => Math.min(b, T1) - Math.max(a, T0) >= 45 && (n === 'breakfast' ? T0 <= 510 : o.len >= 180));
+  const cand = state.places.filter(p => !o.ban.includes(p.slug)).map(p => ({ p, win: planWindows(p, o.date), base: planBase(p, o, fests), stay: planStay(p, o) })).filter(c => c.win.w.length);
+  const schedule = seq => {
+    let t = T0, pos = start; const out = [];
+    for (const c of seq) {
+      const tr = planTravel(pos, c.p); t += tr.mins;
+      let at = null, win = null;
+      for (const w of c.win.w) { const s = Math.max(t, w[0]); if (s - t <= 40 && s + c.stay <= w[1]) { at = s; win = w; break; } }
+      if (at == null) return null;
+      out.push({ c, tr, arrive: t, at, win }); t = at + c.stay; pos = c.p;
+    }
+    return t <= T1 ? { out, end: t } : null;
+  };
+  const value = r => {
+    let v = 0; const used = new Set();
+    const foodCap = o.ints.length === 1 && o.ints[0] === 'food' ? 5 : o.len <= 240 ? 2 : 3; let foods = 0, mosques = 0, biryanis = 0;
+    for (const x of r.out) {
+      let s = x.c.base.s;
+      if (x.c.p.categories.includes('food')) {
+        if (++foods > foodCap) s -= 6;
+        const meal = needMeals.find(([n, a, b]) => !used.has(n) && x.at >= a - 15 && x.at <= b && mealOk(x.c.p.slug, n));
+        if (meal) { used.add(meal[0]); s += 6; x.meal = meal[0]; } else if (x.c.base.foodOnly) s = -2;
+      }
+      if (/mosque/.test(x.c.p.type) && ++mosques > 2) s -= 4;
+      if (x.c.p.type === 'shop-biryani' && ++biryanis > 1) s -= 5;
+      const best = BEST[x.c.p.slug]; if (best && best.some(([a, b]) => x.at >= a * 60 && x.at <= b * 60)) s += 0.5;
+      v += s;
+    }
+    return v;
+  };
+  let seq = [], cur = { out: [], end: T0 }, curV = 0;
+  const maxStops = o.len <= 120 ? 4 : o.len <= 240 ? 6 : 9;
+  const anchors = cand.filter(c => c.p.underrated <= 2 && c.p.spend[1] >= 45 && c.base.matched.length && !c.p.categories.includes('food'))
+    .sort((a, b) => b.base.s - a.base.s).slice(0, o.len <= 120 ? 1 : o.len <= 240 ? 2 : 4);
+  for (const c of anchors) {
+    let best = null;
+    for (let i = 0; i <= seq.length; i++) { const trial = [...seq.slice(0, i), c, ...seq.slice(i)]; const r = schedule(trial); if (r && (!best || r.end < best.r.end)) best = { trial, r }; }
+    if (best && best.r.end <= T0 + o.len * 0.85) { seq = best.trial; cur = best.r; curV = value(cur); }
+  }
+  for (let k = seq.length; k < maxStops; k++) {
+    let best = null;
+    for (const c of cand) {
+      if (seq.includes(c) || c.base.s <= 0 && !c.p.categories.includes('food')) continue;
+      for (let i = 0; i <= seq.length; i++) {
+        const trial = [...seq.slice(0, i), c, ...seq.slice(i)];
+        const r = schedule(trial); if (!r) continue;
+        const gain = value(r) - curV; if (gain <= 0.2) continue;
+        const ratio = gain / (r.end - cur.end - 0.65 * c.stay + 12);
+        if (!best || ratio > best.ratio) best = { ratio, trial, r };
+      }
+    }
+    if (!best) break;
+    seq = best.trial; cur = best.r; curV = value(cur);
+  }
+  value(cur); // marks meals on the final schedule
+  // Famous places that match but can't be visited that day: say why, so nobody wonders.
+  const day = WEEK[ORDER.indexOf(JSDAY[new Date(o.date + 'T12:00:00Z').getUTCDay()])];
+  const missing = state.places.filter(p => p.underrated <= 2 && !o.ban.includes(p.slug) && !seq.some(c => c.p === p) && planBase(p, o, fests).matched.length)
+    .map(p => ({ p, w: planWindows(p, o.date) })).filter(x => !x.w.w.length && x.w.why === 'closed').slice(0, 3);
+  return { stops: cur.out, end: cur.end, start, T0, T1, day, fests, missing, needMeals: needMeals.map(m => m[0]) };
+}
+
+/* ---------- Planner screen ---------- */
+function planLoad() { try { return { ...planDefaults(), ...JSON.parse(store.get('cpd-plan') || '{}'), date: dhakaDate(), ban: [] }; } catch { return planDefaults(); } }
+function planSave(o) { store.set('cpd-plan', JSON.stringify({ time: o.time, len: o.len, ints: o.ints, start: o.start, kids: o.kids, budget: o.budget })); }
+const planOpts = () => state.planOpts || (state.planOpts = planLoad());
+function planStartPt(o, cb) {
+  if (o.start !== 'me') { const p = state.bySlug[o.start] || state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, name: pName(p) }); return; }
+  const fallback = why => { const p = state.bySlug['ahsan-manzil']; cb({ x: p.x, z: p.z, name: pName(p), note: why }); };
+  if (!navigator.geolocation) { fallback(t('pNoLoc')); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    const [x, z] = W(pos.coords.latitude, pos.coords.longitude);
+    const far = Math.hypot(x - HOME.target.x, z - HOME.target.z);
+    if (far > 3500 || pos.coords.accuracy > 1500) {
+      // Too far away (or too rough a fix) to walk from: start at the nearest landmark instead.
+      const near = PLAN_STARTS.slice(1).map(s => state.bySlug[s]).sort((a, b) => Math.hypot(a.x - x, a.z - z) - Math.hypot(b.x - x, b.z - z))[0];
+      cb({ x: near.x, z: near.z, name: pName(near), note: fill('pFarStart', { k: num(Math.round(far / 100) / 10), p: pName(near) }) });
+    } else cb({ x, z, name: t('pYou') });
+  }, () => fallback(t('pNoLoc')), { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
+}
+function planTimes() { const out = []; for (let m = 360; m <= 1200; m += 30) out.push(m); return out; }
+function renderPlanner() {
+  const box = $('#planner'); if (!box) return;
+  const o = planOpts(), L = state.lang;
+  const chip = (attr, val, on, label, extra = '') => `<button type="button" class="pchoice" ${attr}="${val}" aria-pressed="${on}"${extra}>${label}</button>`;
+  box.innerHTML = `
+    <div class="phead"><span class="bn" lang="bn">আমার দিনের পরিকল্পনা</span><h2>${t('planTitle')}</h2><p>${t('planLede')}</p></div>
+    <div class="pqs">
+      <div class="pq"><h3><b>1</b>${t('pQ1')}</h3>
+        <div class="prow"><label>${t('pDate')}<input type="date" id="pDate" value="${o.date}" min="${dhakaDate()}"></label>
+          <label>${t('pStart')}<select id="pTime">${planTimes().map(m => `<option value="${m}"${m === o.time ? ' selected' : ''}>${fmtClock(m)}</option>`).join('')}</select></label></div>
+        <div class="pchips">${PLAN_LEN.map(([m, k]) => chip('data-len', m, o.len === m, t(k))).join('')}</div></div>
+      <div class="pq"><h3><b>2</b>${t('pQ2')}</h3>
+        <div class="pchips">${PLAN_INT.map(([k, l]) => chip('data-int', k, o.ints.includes(k), t(l))).join('')}</div>
+        <div class="pchips sm">${chip('data-flag', 'kids', o.kids, t('pKids'))}${chip('data-flag', 'budget', o.budget, t('pBudget'))}</div></div>
+      <div class="pq"><h3><b>3</b>${t('pQ3')}</h3>
+        <div class="pchips">${PLAN_STARTS.map(s => chip('data-start', s, o.start === s, s === 'me' ? uiIcon('dir') + t('pMe') : esc(pName(state.bySlug[s])))).join('')}</div></div>
+    </div>
+    <button class="btn big pgo" id="pGo">${uiIcon('route')}${t('pGo')}</button>
+    <div id="pResult" aria-live="polite"></div>`;
+  box.querySelectorAll('[data-len]').forEach(b => b.onclick = () => { o.len = +b.dataset.len; renderPlanner(); });
+  box.querySelectorAll('[data-int]').forEach(b => b.onclick = () => { const k = b.dataset.int; o.ints = o.ints.includes(k) ? o.ints.filter(x => x !== k) : [...o.ints, k]; renderPlanner(); });
+  box.querySelectorAll('[data-flag]').forEach(b => b.onclick = () => { o[b.dataset.flag] = !o[b.dataset.flag]; renderPlanner(); });
+  box.querySelectorAll('[data-start]').forEach(b => b.onclick = () => { o.start = b.dataset.start; renderPlanner(); });
+  $('#pDate').onchange = e => { o.date = e.target.value || dhakaDate(); };
+  $('#pTime').onchange = e => { o.time = +e.target.value; };
+  $('#pGo').onclick = () => { o.ban = []; runPlan(true); };
+  if (state.plan) showPlan(state.plan);
+}
+function runPlan(scroll) {
+  const o = planOpts();
+  if (!o.ints.length) { $('#pResult').innerHTML = `<p class="warn">${t('pPickOne')}</p>`; return; }
+  planSave(o);
+  $('#pResult').innerHTML = `<p class="pwait">${t('pWorking')}</p>`;
+  planStartPt(o, pt => {
+    o.startPt = pt;
+    const plan = makePlan(o); plan.opts = { ...o };
+    state.plan = plan; showPlan(plan);
+    if (scroll) { const r = $('#pResult'); if (r) r.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); }
+  });
+}
+const planDayLabel = o => new Date(o.date + 'T12:00:00Z').toLocaleDateString(state.lang === 'bn' ? 'bn-BD' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
+function planFees(stops) {
+  let lo = 0, hi = 0; for (const s of stops) { const f = s.c.p.fees.map(x => x.bdt); if (f.length) { lo += Math.min(...f); hi += Math.max(...f); } }
+  return lo ? (lo === hi ? `৳${num(lo)}` : `৳${num(lo)}–${num(hi)}`) : '';
+}
+function showPlan(plan) {
+  const box = $('#pResult'); if (!box) return;
+  const o = plan.opts, L = state.lang, S = plan.stops;
+  const notes = [plan.start.note, ...plan.missing.map(m => fill('pClosedThatDay', { p: esc(pName(m.p)), d: esc(DAYSHORT[L][WEEK.indexOf(plan.day)] ? (L === 'bn' ? DAYSHORT.bn[WEEK.indexOf(plan.day)] : plan.day) : plan.day) })),
+    ...plan.fests.map(f => fill('pFestOn', { f: esc(festName(f)) }))].filter(Boolean);
+  if (!S.length) { box.innerHTML = `<div class="pempty"><h3>${t('pNone')}</h3><p>${t('pNoneWhy')}</p>${notes.map(n => `<p class="pnote">${n}</p>`).join('')}</div>`; return; }
+  const walkM = S.reduce((a, s) => a + (s.tr.ride ? 0 : s.tr.d * 1.3), 0), rides = S.filter(s => s.tr.ride);
+  const fees = planFees(S);
+  const reason = s => {
+    const p = s.c.p, bits = [];
+    if (s.meal) bits.push(`<span class="ptag meal">${t('pMeal_' + s.meal)}</span>`);
+    if (s.c.base.fest) bits.push(`<span class="ptag fest">${esc(festName(s.c.base.fest))}</span>`);
+    bits.push(s.c.win.firm ? `<span class="ptag ok">${fill('pOpen', { a: fmtClock(s.win[0]), b: fmtClock(Math.min(s.win[1], 1439)) })}</span>` : `<span class="ptag est">${t('pEst')}</span>`);
+    s.c.base.matched.forEach(m => { const k = PLAN_INT.find(x => x[0] === m); if (k) bits.push(`<span class="ptag">${t(k[1])}</span>`); });
+    return bits.join('');
+  };
+  box.innerHTML = `
+    <div class="pplan">
+      <div class="psum"><div><span class="bn" lang="bn">আপনার দিন</span><h3>${esc(planDayLabel(o))}</h3></div>
+        <div class="stats"><span>${uiIcon('clock')}${fmtClock(S[0].at)}–${fmtClock(plan.end)}</span><span>${uiIcon('route')}${num(S.length)} ${t('stopsN')}</span><span>${uiIcon('steps')}${km(walkM / 1000)} ${t('walkKm')}</span>${rides.length ? `<span>${uiIcon('rickshaw')}${num(rides.length)} ${t('pRides')}</span>` : ''}${fees ? `<span>${uiIcon('money')}${fees}</span>` : ''}</div></div>
+      ${notes.map(n => `<p class="pnote">${n}</p>`).join('')}
+      <div class="pacts"><button class="btn big rc" id="pMap">${uiIcon('map')}${t('pShowMap')}</button><button class="btn" id="pShare">${uiIcon('link')}<span>${t('pShare')}</span></button><button class="btn" id="pCal">${uiIcon('cal')}${t('addCal')}</button></div>
+      <p class="pfrom">${uiIcon('dir')}${fill('pFrom', { p: esc(plan.start.name) })}</p>
+      <ol class="ptl">${S.map((s, i) => `
+        ${`<li class="pleg">${uiIcon(s.tr.ride ? 'rickshaw' : 'steps')}${s.tr.ride ? fill('rideLeg', { m: num(s.tr.mins), d: km(s.tr.d * 1.4 / 1000) }) + (fareText(s.tr.d) ? ' · ' + fareText(s.tr.d) : '') : fill('walkLeg', { m: num(s.tr.mins) })}${s.at > s.arrive + 4 ? ` · ${fill('pWait', { m: num(s.at - s.arrive) })}` : ''}</li>`}
+        <li class="pstop" style="--c:var(--c-${s.c.p.cat})"><span class="pt">${fmtClock(s.at)}</span>
+          <div class="pb"><h4>${esc(s.c.p.name.en)}<span class="bn" lang="bn">${esc(s.c.p.name.bn)}</span></h4>
+            <div class="ptags">${reason(s)}<span class="ptag">${minutes(s.c.stay, s.c.stay)}</span></div>
+            <p>${esc(s.c.p.tagline)}</p>
+            <div class="acts"><button class="btn" data-open="${s.c.p.slug}">${t('open')}</button><button class="btn" data-swap="${s.c.p.slug}">${uiIcon('route')}${t('pSwap')}</button></div></div></li>`).join('')}</ol>
+      <p class="from">${t('pHonest')}</p>
+    </div>`;
+  $('#pMap').onclick = () => openRoute('plan');
+  $('#pShare').onclick = () => planShare(plan);
+  $('#pCal').onclick = () => saveIcs(planIcs(plan), `old-dhaka-plan-${o.date}.ics`);
+  box.querySelectorAll('[data-open]').forEach(b => b.onclick = () => select(b.dataset.open));
+  box.querySelectorAll('[data-swap]').forEach(b => b.onclick = () => { const op = planOpts(); op.ban = [...new Set([...(plan.opts.ban || []), b.dataset.swap])]; runPlan(false); });
+  state.planRoute = planToRoute(plan);
+}
+function planToRoute(plan) {
+  const o = plan.opts;
+  return { id: 'plan', color: '#0B6E8C', name: { en: 'My day in Old Dhaka', bn: 'পুরান ঢাকায় আমার দিন' }, blurb: { en: '', bn: '' },
+    note: { en: planDayLabel(o) }, best: [plan.day], day: plan.day,
+    stops: plan.stops.map(s => ({ slug: s.c.p.slug, at: `${Math.floor(s.at / 60)}:${String(s.at % 60).padStart(2, '0')}`, stay: s.c.stay, tip: s.c.p.tagline })) };
+}
+const findRoute = id => id === 'plan' ? state.planRoute : state.routes.find(x => x.id === id);
+function planParams(o) {
+  const q = new URLSearchParams({ d: o.date, t: o.time, h: o.len, i: o.ints.join(','), s: o.start });
+  if (o.kids) q.set('k', 1); if (o.budget) q.set('b', 1); if (o.ban.length) q.set('x', o.ban.join(','));
+  return q.toString();
+}
+function planShare(plan) {
+  const url = location.href.split('#')[0] + '#plan?' + planParams(plan.opts);
+  if (navigator.share && matchMedia('(pointer:coarse)').matches) { navigator.share({ title: t('planTitle') + ' · Cholo Puran Dhaka', url }).catch(() => {}); return; }
+  const done = () => { const s = $('#pShare span'); if (s) { s.textContent = t('copied'); setTimeout(() => { const x = $('#pShare span'); if (x) x.textContent = t('pShare'); }, 1800); } };
+  try { navigator.clipboard.writeText(url).then(done, () => prompt('', url)); } catch { prompt('', url); }
+}
+function planFromHash(h) {
+  const q = new URLSearchParams(h.replace(/^plan\??/, ''));
+  const o = planOpts();
+  const d = q.get('d'); if (/^\d{4}-\d{2}-\d{2}$/.test(d || '') && d >= dhakaDate()) o.date = d;
+  const tm = +q.get('t'); if (tm >= 360 && tm <= 1200) o.time = tm;
+  const len = +q.get('h'); if (PLAN_LEN.some(x => x[0] === len)) o.len = len;
+  const ints = (q.get('i') || '').split(',').filter(k => PLAN_INT.some(x => x[0] === k)); if (ints.length) o.ints = ints;
+  const s = q.get('s'); if (PLAN_STARTS.includes(s)) o.start = s;
+  o.kids = q.get('k') === '1'; o.budget = q.get('b') === '1';
+  o.ban = (q.get('x') || '').split(',').filter(x => state.bySlug[x]);
+  showView('routes'); renderPlanner(); runPlan(true);
+}
+function planIcs(plan) {
+  const o = plan.opts, ymd = o.date.replace(/-/g, '');
+  const utc = m => { const d = new Date(Date.UTC(+o.date.slice(0, 4), +o.date.slice(5, 7) - 1, +o.date.slice(8, 10), 0, m - 360)); return d.toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; };
+  const tx = x => String(x).replace(/\\/g, '\\\\').replace(/[;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
+  const fold = l => { const out = []; while (l.length > 60) { out.push(l.slice(0, 60)); l = ' ' + l.slice(60); } out.push(l); return out.join('\r\n'); };
+  const lines = plan.stops.map(s => `${fmtClock(s.at)}  ${s.c.p.name.en} (${s.c.stay} min)`).join('\n');
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cholo Puran Dhaka//Plan//EN', 'BEGIN:VEVENT', `UID:plan-${ymd}-${o.time}@cholo-puran-dhaka`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, `DTSTART:${utc(plan.stops[0].at)}`, `DTEND:${utc(plan.end)}`,
+    `SUMMARY:${tx('My day in Old Dhaka')}`, `LOCATION:${tx(plan.stops[0].c.p.name.en + ', Old Dhaka')}`,
+    `DESCRIPTION:${tx(lines + '\n\n' + location.href.split('#')[0] + '#plan?' + planParams(o))}`, 'END:VEVENT', 'END:VCALENDAR'].map(fold).join('\r\n') + '\r\n';
+}
+
+/* ================================================================
    Start-here sheet
    ================================================================ */
 function renderWelcome() {
   $('#wRoutes').innerHTML = state.routes.map(r => { const info = routeInfo(r); return `<button data-route="${r.id}" style="${rstyle(r)}"><b>${esc(state.lang === 'bn' ? r.name.bn : r.name.en)}</b><span>${info.span} · ${num(info.stops.length)} ${t('stopsN')}</span></button>`; }).join('');
   $('#wRoutes').querySelectorAll('[data-route]').forEach(b => b.onclick = () => openRoute(b.dataset.route));
+  $('#wPlan').innerHTML = `${uiIcon('route')}${t('planTitle')}`;
   $('#wTips').innerHTML = `${uiIcon('tips')}${t('readTips')}`;
   $('#wExplore').innerHTML = `${uiIcon('map')}${t('explore')}`;
 }
@@ -3306,7 +3641,7 @@ function applyLang() {
   if ($('#modeLbl')) $('#modeLbl').textContent = state.mode2d ? t('view3d') : t('streetMap');
   labelTools();
   refresh2d();
-  renderRoutes(); renderTips(); renderFilters(); if (!$('#welcome').hidden) renderWelcome();
+  renderRoutes(); renderPlanner(); renderTips(); renderFilters(); if (!$('#welcome').hidden) renderWelcome();
   if (state.drawerMode === 'near') showNear(state.nearErr ? { err: state.nearErr } : {});
   else if (state.drawerMode === 'route' && state.route) showRouteList();
   else if (state.selected) openDrawer(state.bySlug[state.selected]);
@@ -3367,7 +3702,7 @@ async function boot() {
   try { await loadData(); }
   catch (e) { hideIntro(); $('#markers').innerHTML = `<div class="nogl panel" style="margin:40px auto;max-width:420px;position:relative;inset:auto">The place data could not load (${esc(e.message)}). Reload the page to try again.</div>`; return; }
   refreshOpen(); setInterval(() => { refreshOpen(); if (state.view === 'guide') renderGuide(); }, 60000);
-  renderFilters(); renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderTips(); applyLang();
+  renderFilters(); renderChips('#chips'); renderChips('#gchips'); renderGuide(); renderNow(); renderRoutes(); renderPlanner(); renderTips(); applyLang();
   try { initRenderer(); }
   catch (e) {
     hideIntro(); state.no3d = true;
@@ -3395,7 +3730,7 @@ async function boot() {
   const start = (animated) => {
     state.ready = true; clock.getDelta();
     if (store.get('cpd-mode') === '2d') setMode2d(true, { keep: true });
-    if (DEEP_VIEWS.includes(deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openDeepView(deep); return; }
+    if (DEEP_VIEWS.includes(deep) || deep.startsWith('plan')) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openDeepView(deep); return; }
     if (deep.startsWith('route-') && state.routes.some(r => 'route-' + r.id === deep)) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); openRoute(deep.slice(6)); return; }
     setTimeout(maybeWelcome, animated ? 2600 : 400);
     if (deep && state.bySlug[deep]) { try { history.replaceState(null, '', location.pathname + location.search); } catch {} const v = viewFor(state.bySlug[deep]); camera.position.copy(HOME.pos); controls.target.copy(HOME.target); controls.update(); flyTo(v.pos, v.target, animated ? 2.2 : 0.01); openDrawer(state.bySlug[deep]); return; }
@@ -3410,7 +3745,7 @@ async function boot() {
   loop();
   runIntro(start);
   window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets };
-  window.__T = { openState, openLabel, fareText, placeFilter };
+  window.__T = { openState, openLabel, fareText, placeFilter, makePlan, planWindows };
 }
 /* Phone bottom sheet: drag the handle or the coloured header down to shrink or close, up to expand */
 function initSheetSwipe() {
@@ -3445,7 +3780,7 @@ function applyStaticUI() {
   document.querySelectorAll('[data-v]').forEach(b => b.onclick = () => showView(b.dataset.v));
   $('#nearBtn').onclick = locateMe;
   $('#tabbar').querySelectorAll('[data-v]').forEach(b => { b.querySelector('i').innerHTML = uiIcon({ map: 'map', routes: 'route', tips: 'tips', guide: 'places', history: 'scroll', about: 'about' }[b.dataset.v]); });
-  $('#wClose').onclick = closeWelcome; $('#wExplore').onclick = closeWelcome; $('#wTips').onclick = () => { closeWelcome(); showView('tips'); };
+  $('#wClose').onclick = closeWelcome; $('#wExplore').onclick = closeWelcome; $('#wTips').onclick = () => { closeWelcome(); showView('tips'); }; $('#wPlan').onclick = () => { closeWelcome(); showView('routes'); };
   addEventListener('keydown', e => { if (e.key === 'Escape') { if (!$('#driver').hidden) hideDriver(); else if (!$('#welcome').hidden) closeWelcome(); } });
   $('#home').onclick = () => { showView('map'); endRoute(); closeDrawer(); if (state.ready) { stopWalk(); flyTo(HOME.pos, HOME.target, 1.4); } };
   $('#closeDrawer').onclick = () => closeX();

@@ -30,6 +30,8 @@ It is also an HCI question I care about: does a 3D street-level view help people
 ## What it does
 
 - **Walking routes.** Four ready-made days out: *Old Dhaka in one day*, a food crawl, a golden-hour river walk, and a morning of Old Dhaka's many faiths. The route is drawn on the 3D map with numbered stops, suggested times, walking minutes between stops (longer hops marked for a rickshaw), and the days each stop is closed. Every route has its own link, for example [`#route-one-day`](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/#route-one-day).
+
+- **Plan my day.** Three questions (when, what you like, where you start) and the app builds a day that fits: only places that are open when you arrive, nothing on its closed day, mosques skipped during Friday prayers, breakfast, lunch and dinner at the right times, walks and rickshaw hops with fare estimates. Swap any stop, show the day on the map, add it to your calendar, or share it as a link. It runs on the phone, with no account and no server.
 - **Show the driver.** One tap shows the place name in large Bangla with its area and a well-known landmark nearby, plus "Please take me here" and "How much will the fare be?" in Bangla, each with an English line underneath. The screen stays on while it is open.
 - **Street map.** One tap switches from 3D to a real OpenStreetMap street map with every place pinned (clustered when zoomed out), routes drawn street by street, and your own position in Near me. Devices without 3D support open on the street map automatically.
 - **Works offline.** After one visit the app, all places, routes and tips are saved on the phone, and the street map keeps the areas you've looked at. An "Offline" badge shows when you're using the saved copy.
@@ -177,6 +179,8 @@ To have Google index the place pages, add the site in [Google Search Console](ht
 - [x] Festivals, crafts, Dhakaiya phrasebook, listen
 - [x] Suggest a place, report a mistake, owner updates, checked-on-site badge
 - [x] Installable app with shortcuts, Play Store guide, social cards
+- [x] Festival calendar, history of the old city, Plan my day
+- [ ] A real photo for each place, from Wikimedia Commons with credit
 - [ ] Field-check every card and fix the approximate pins
 - [ ] Use OpenStreetMap buildings and lanes in the 3D city
 - [ ] Full Bangla descriptions
