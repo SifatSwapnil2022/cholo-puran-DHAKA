@@ -19,7 +19,7 @@ const plain = h => (h || '').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').rep
 
 async function get(params, tries = 4) {
   const u = new URL(API);
-  for (const [k, v] of Object.entries({ format: 'json', formatversion: 2, origin: '*', ...params })) u.searchParams.set(k, v);
+  for (const [k, v] of Object.entries({ action: 'query', format: 'json', formatversion: 2, origin: '*', ...params })) u.searchParams.set(k, v);
   for (let i = 0; ; i++) {
     const r = await fetch(u, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA } });
     const body = await r.text();
