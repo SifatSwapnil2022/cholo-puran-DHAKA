@@ -4,7 +4,7 @@
 
 <h1 align="center">Cholo Puran Dhaka · চলো পুরান ঢাকা</h1>
 
-<p align="center">A walkable 3D guide to Old Dhaka for first-time visitors: 62 places (for now), ready-made walking routes,<br>what to order and whether it is open now, a card to show your rickshaw driver, festivals, crafts and local phrases,<br>a real street map that works offline, and practical tips, each with its source.</p>
+<p align="center">A walkable 3D guide to Old Dhaka for first-time visitors: 62 places (for now) with real photos, ready-made walking routes<br>and a planner that builds your day around opening hours, what to order and whether it is open now, a card to show your rickshaw driver,<br>a festival calendar, 400 years of history, a real street map that works offline, and practical tips, each with its source.</p>
 
 <p align="center"><b><a href="https://sifatswapnil2022.github.io/cholo-puran-DHAKA/">Open the live site →</a></b><br><sub>Works on desktop, Android and iPhone, and offline once opened. No sign-up, no install.</sub></p>
 
@@ -30,9 +30,7 @@ It is also an HCI question I care about: does a 3D street-level view help people
 ## What it does
 
 - **Walking routes.** Four ready-made days out: *Old Dhaka in one day*, a food crawl, a golden-hour river walk, and a morning of Old Dhaka's many faiths. The route is drawn on the 3D map with numbered stops, suggested times, walking minutes between stops (longer hops marked for a rickshaw), and the days each stop is closed. Every route has its own link, for example [`#route-one-day`](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/#route-one-day).
-
 - **Plan my day.** Three questions (when, what you like, where you start) and the app builds a day that fits: only places that are open when you arrive, nothing on its closed day, mosques skipped during Friday prayers, breakfast, lunch and dinner at the right times, walks and rickshaw hops with fare estimates. Swap any stop, show the day on the map, add it to your calendar, or share it as a link. It runs on the phone, with no account and no server.
-
 - **Photos.** 38 places have a real photo from Wikimedia Commons, picked by hand to make sure it shows the right building, with the photographer and licence under it. Only free licences are used (no NC or ND), and the data check rejects anything else. Places without a free photo yet say so and link to a form to suggest one. `tools/commons.mjs` searches Commons and downloads the picks with their credits.
 - **Show the driver.** One tap shows the place name in large Bangla with its area and a well-known landmark nearby, plus "Please take me here" and "How much will the fare be?" in Bangla, each with an English line underneath. The screen stays on while it is open.
 - **Street map.** One tap switches from 3D to a real OpenStreetMap street map with every place pinned (clustered when zoomed out), routes drawn street by street, and your own position in Near me. Devices without 3D support open on the street map automatically.
@@ -43,7 +41,7 @@ It is also an HCI question I care about: does a 3D street-level view help people
 - **Crafts.** Rickshaw painting, conch-shell bangles, kites, bakarkhani and chinitikri mosaic: where to watch and what is worth buying.
 - **Say it in Dhakaiya.** A short phrasebook of Old Dhaka's own Bangla (Dhakaiya Kutti), in Bangla script, romanised and next to standard Bangla. Tap to hear it.
 - **Listen.** Any place card can be read aloud by the phone's own voice.
-- **A page for every place.** Each place has its own page (for example [`place/ahsan-manzil`]({S}place/ahsan-manzil/)) with a preview image, so links look good when shared on Facebook or WhatsApp and search engines can find them. There is also [a list of all places]({S}place/).
+- **A page for every place.** Each place has its own page (for example [`place/ahsan-manzil`](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/place/ahsan-manzil/)) with a preview image, so links look good when shared on Facebook or WhatsApp and search engines can find them. There is also [a list of all places](https://sifatswapnil2022.github.io/cholo-puran-DHAKA/place/).
 - **Help keep it right.** Every card has *Report a mistake* and *I run this place*; the Places page has *Suggest a place*. They open short GitHub forms. Places that someone has checked in person get a green *Checked on site* badge.
 - **Before you go.** Getting there, getting around the lanes, what to wear, money, food and water, staying safe, when to go and dates to know, with a 999 emergency button (press 2 for English). Every section lists its sources.
 - **Open now.** Places with published hours show "Open now · until 16:30" or "Closed now · opens tomorrow 9:30", always in Dhaka time, with seasonal hours (Ahsan Manzil, Lalbagh Fort) and 24-hour places handled.
@@ -51,7 +49,7 @@ It is also an HCI question I care about: does a 3D street-level view help people
 - **What to order.** Food places list their dishes in English and Bangla, with prices where a source gives them and the year of that price.
 - **Fare estimates.** Rickshaw hops on the routes and in Near me show an estimate (৳15–20 per km, at least ৳20) and, for longer trips, the official CNG fare.
 - **Filters.** Open now, budget, good for families, lesser-known, and has a washroom, on the map and in the list. Search also finds dishes, so typing "nihari" finds the nihari shops.
-- **Start here.** First-time visitors get a short welcome with the four routes, the tips and an option to explore the map on their own.
+- **Start here.** First-time visitors get a short welcome with the four routes, Plan my day, the tips and an option to explore the map on their own.
 - **3D Old Dhaka.** Orbit, pan and zoom over the old city and the Buriganga. Tap a marker and the camera flies to the place.
 - **Walk mode.** Drop to street level in front of any place and walk with W A S D, the arrow keys or an on-screen pad. Walls and the river block you, and nearby places show distance and direction.
 - **Place cards.** Why go, history, entry fees, hours and closed days (with a warning if it is closed today), quieter and busiest times, photo tips, vehicle access, seating and washrooms, nearby places, and the sources for every fact.
@@ -95,6 +93,12 @@ The site is built to feel like an app on Android and iPhone:
   <img src="docs/screenshots/phone-walk.jpg" width="230" alt="Walk mode with the on-screen pad on a phone">
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/phone-plan.jpg" width="230" alt="Plan my day: a Saturday timeline with times, photos and rickshaw hops">
+  <img src="docs/screenshots/phone-places.jpg" width="230" alt="Places list with photo thumbnails">
+  <img src="docs/screenshots/phone-festivals.jpg" width="230" alt="Festivals with countdowns and a month strip">
+</p>
+
 ## Browser support
 
 Tested on phone, tablet and desktop sizes from a 280 px folded Galaxy Fold to 1920 px desktops, in portrait and landscape, in English and Bangla.
@@ -130,6 +134,8 @@ Lesser-known places are marked with a red dot so visitors can go beyond the usua
 
 - **Landmarks** are modelled in code: Ahsan Manzil's arcades, staircase and lotus dome, Lalbagh Fort's walls, gate and Pari Bibi's tomb, Tara Masjid with a star-mosaic texture, shopfronts with Bangla signboards, and so on.
 - **The city around them is generated** for now: about 30,000 houses with painted shutters, iron grilles, balconies, signboards, rooftop water tanks and overhead wires, drawn with instancing and a custom GLSL facade shader. Rickshaws, CNGs, buses, pushcarts, motorbikes, people and boats move along the roads and the river.
+- **Plan my day** runs entirely in the browser: it scores each place by your interests, checks its opening hours, closed days, Friday prayer times and festival dates for the chosen day, puts meals at meal times, then builds the order by value per minute of walking and visiting.
+- **Flat layers.** The ground, river and roads are drawn first and in a fixed order, and the camera's near plane moves out as you zoom out, so distant surfaces don't flicker into each other.
 - **Performance.** Instanced meshes keep draw calls under about 100. The app uses lighter settings on low-power devices and steps down further if the frame rate drops.
 
 ## Run it locally
@@ -197,12 +203,17 @@ index.html            the whole app: UI, 3D scene, landmarks, walk mode
 places.json           the places, routes, tips and their sources
 sw.js                 service worker for offline use
 place/                generated page for every place, plus place/index.html (do not edit by hand)
+history/              generated plain page of the history timeline
+img/                  place photos from Wikimedia Commons (img/t/ holds thumbnails); credits are in places.json
 sitemap.xml           generated list of pages for search engines
 tools/validate.mjs    checks places.json; runs on every push (.github/workflows/check.yml)
 tools/build-pages.mjs writes place/ and sitemap.xml from places.json
+tools/commons.mjs     searches Wikimedia Commons and downloads picked photos with credits (run by .github/workflows/photos.yml)
+tools/photo-picks.json the Commons file chosen for each place
 tools/cards.py        draws link-preview images, social cards and shortcut icons
 tools/fonts/          fonts used by tools/cards.py (SIL Open Font License)
 vendor/leaflet/       Leaflet and Leaflet.markercluster for the street map
+vendor/es-module-shims.js  import-map support for iOS 15–16.3
 manifest.webmanifest  app name, colours, icons, shortcuts and screenshots
 icons/                home-screen, app and shortcut icons
 docs/                 logo, screenshots, preview images (og/), field-check and Android guides
