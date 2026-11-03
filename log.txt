@@ -1,0 +1,15 @@
+https://overpass-api.de/api/interpreter 200 371682
+way 222335867 {"waterway":"river"} 91 pts
+way 320456988 {"natural":"water","water":"river"} 153 pts
+way 339681629 {"natural":"water","water":"river"} 641 pts
+way 519219171 {"waterway":"river"} 33 pts
+way 643043084 {"fishing":"no","intermittent":"no","name":"বুড়িগঙ্গা নদী","name:en":"Buriganga River","tidal":"no","waterway":"river","width":"15"} 28 pts
+way 643049043 {"natural":"water","water":"river"} 209 pts
+way 722862311 {"boat":"yes","destination":"Dhaleshwari River","destination:bn":"ধলেশ্বরী নদী","layer":"0","name":"বুড়িগঙ্গা নদী","name:bn":"বুড়িগঙ্গা নদী" 131 pts
+relation 2256206 {"name":"Dhanmondi Lake","natural":"water","type":"multipolygon","water":"lake","wikidata":"Q5269000"} 4 members
+relation 3400205 {"boat":"yes","intermittent":"no","natural":"water","source":"PGS;bing","tidal":"yes","type":"multipolygon","water":"river"} 20 members
+relation 4790846 {"leisure":"park","name":"বাসাবো বালুর মাঠ","name:bn":"বাসাবো বালুর মাঠ","name:en":"Bashabo Balur Math","type":"multipolygon"} 2 members
+relation 5347205 {"name":"বুড়িগঙ্গা","name:en":"Buriganga","name:hi":"बुड़िगंगा","natural":"water","type":"multipolygon","water":"river","wikidata":"Q2991464 6 members
+relation 7314107 {"landuse":"religious","type":"multipolygon"} 1 members
+relation 12701072 {"intermittent":"no","name":"Suhrawardy Udyan Lake","name:bn":"সোহরাওয়ার্দি উদ্যান লেক","name:hi":"सुहरावर्दी उद्यान झील","natural":"water", 1 members
+relation 12701073 {"natural":"water","type":"multipolygon","water":"lake"} 1 members
