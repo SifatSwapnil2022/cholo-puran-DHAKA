@@ -132,8 +132,10 @@ Lesser-known places are marked with a red dot so visitors can go beyond the usua
   z = −(lat − 23.7085972) × 110574
   ```
 
-- **Landmarks** are modelled in code: Ahsan Manzil's arcades, staircase and lotus dome, Lalbagh Fort's walls, gate and Pari Bibi's tomb, Tara Masjid with a star-mosaic texture, shopfronts with Bangla signboards, and so on.
-- **The city around them is generated** for now: about 30,000 houses with painted shutters, iron grilles, balconies, signboards, rooftop water tanks and overhead wires, drawn with instancing and a custom GLSL facade shader. Rickshaws, CNGs, buses, pushcarts, motorbikes, people and boats move along the roads and the river.
+- **The city is real.** `tools/osm-fetch.mjs` pulls building footprints, streets, lanes, bridges, river banks, ponds and parks for Old Dhaka from OpenStreetMap, and `tools/build-city.mjs` packs them into `data/city.bin` (about 1.6 MB: quantised coordinates in typed arrays). In the browser the footprints are extruded in 380 m tiles; where OpenStreetMap has no height, a building's storeys are estimated from its neighbours. A GLSL facade shader draws windows, shutters, grilles, rain streaks, brick and corrugated tin from each wall's world position, and roofs get water tanks, stair rooms and tin sheds. Street-facing walls get shop boards, awnings, balconies and AC units, and wires run along the real streets.
+- **The 62 places are modelled by hand**, each from photographs and published descriptions, at recorded dimensions where they exist: Ahsan Manzil's 125 m front, arcades and dome; Lalbagh Fort's walls, gate, Pari Bibi's tomb and the three-domed mosque on one axis; Tara Masjid's star mosaic; the four shikharas of Dhakeshwari; Northbrook Hall's ringed towers; the truck-art boards at Peshwarain and the terrazzo pillar at Haji Biryani. OpenStreetMap buildings that overlap a model are removed so the model stands in its own footprint, and shops are set back into their street row.
+- **Open-up view.** When a place is open, ordinary buildings between the camera and it are cut away along the line of sight, like an architectural model, so a small shrine in a packed block can still be seen.
+- **Traffic** follows the real street network: cycle rickshaws (painted seat box, art plate, vinyl hood with fringe), green CNGs, two liveries of local bus, pushcarts and motorbikes, with nouka boats and launches on the Buriganga.
 - **Plan my day** runs entirely in the browser: it scores each place by your interests, checks its opening hours, closed days, Friday prayer times and festival dates for the chosen day, puts meals at meal times, then builds the order by value per minute of walking and visiting.
 - **Flat layers.** The ground, river and roads are drawn first and in a fixed order, and the camera's near plane moves out as you zoom out, so distant surfaces don't flicker into each other.
 - **Performance.** Instanced meshes keep draw calls under about 100. The app uses lighter settings on low-power devices and steps down further if the frame rate drops.
@@ -191,7 +193,7 @@ To have Google index the place pages, add the site in [Google Search Console](ht
 - [x] Real photos from Wikimedia Commons, with credit (38 of 62 places so far)
 - [ ] Free photos for the rest, mostly food shops
 - [ ] Field-check every card and fix the approximate pins
-- [ ] Use OpenStreetMap buildings and lanes in the 3D city
+- [x] Use OpenStreetMap buildings and lanes in the 3D city, and model every place from photos
 - [ ] Full Bangla descriptions
 - [ ] Reviews and visitor photos (needs a small backend)
 - [ ] A small user study comparing 3D and 2D maps for wayfinding
@@ -200,12 +202,15 @@ To have Google index the place pages, add the site in [Google Search Console](ht
 
 ```
 index.html            the whole app: UI, 3D scene, landmarks, walk mode
+data/city.bin         Old Dhaka's buildings, streets and water from OpenStreetMap (ODbL), packed by tools/build-city.mjs
 places.json           the places, routes, tips and their sources
 sw.js                 service worker for offline use
 place/                generated page for every place, plus place/index.html (do not edit by hand)
 history/              generated plain page of the history timeline
 img/                  place photos from Wikimedia Commons (img/t/ holds thumbnails); credits are in places.json
 sitemap.xml           generated list of pages for search engines
+tools/osm-fetch.mjs   downloads the OpenStreetMap data for the city (Overpass API)
+tools/build-city.mjs  turns it into data/city.bin
 tools/validate.mjs    checks places.json; runs on every push (.github/workflows/check.yml)
 tools/build-pages.mjs writes place/ and sitemap.xml from places.json
 tools/commons.mjs     searches Wikimedia Commons and downloads picked photos with credits (run by .github/workflows/photos.yml)
@@ -227,7 +232,7 @@ wrangler.jsonc        optional config for Cloudflare deploys
 - Code: MIT, see [LICENSE](LICENSE).
 - Photos in `img/`: from [Wikimedia Commons](https://commons.wikimedia.org/), each under its own free licence (CC BY, CC BY-SA, CC0 or public domain), not the licences above. The photographer, licence and a link to the original are shown under every photo and stored in `places.json`. Resized to 960 px; otherwise unchanged.
 - Place descriptions and data: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Share with credit; not for resale.
-- [three.js](https://threejs.org/) (MIT), [Leaflet](https://leafletjs.com/) and Leaflet.markercluster (BSD-2 / MIT). Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. Fonts: Bricolage Grotesque, Hind Siliguri, Galada and IBM Plex Mono (SIL Open Font License). Bangladesh outline: Natural Earth via world-atlas.
+- [three.js](https://threejs.org/) (MIT), [Leaflet](https://leafletjs.com/) and Leaflet.markercluster (BSD-2 / MIT). Buildings, streets and water in the 3D city, and the street map: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, available under the [Open Database License](https://opendatacommons.org/licenses/odbl/). Fonts: Tiro Bangla, Anek Bangla, IBM Plex Sans and IBM Plex Mono for the interface; Hind Siliguri and Galada on painted signs (SIL Open Font License). Bangladesh outline: Natural Earth via world-atlas.
 - The demo video's music is original: a soft piano piece in D major, synthesized by `tools/music.py`.
 
 ## Author
