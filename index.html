@@ -925,6 +925,9 @@ body *{border-radius:0!important}
 }
 @media (max-height:820px){ .now{display:none} }
 @media (pointer:coarse){ .sky{height:40px;margin-block:-6px} }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .hera .hy{color:color-mix(in srgb,var(--tc) 45%,var(--ink));border-color:color-mix(in srgb,var(--tc) 60%,var(--ink))} :root:not([data-theme="light"]) .sos{background:#A3382A} }
+:root[data-theme="dark"] .hera .hy{color:color-mix(in srgb,var(--tc) 45%,var(--ink));border-color:color-mix(in srgb,var(--tc) 60%,var(--ink))}
+:root[data-theme="dark"] .sos{background:#A3382A}
 </style>
 
 </head>
