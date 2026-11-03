@@ -1,8 +1,8 @@
 // Water bodies stored as relations (the Buriganga) for Old Dhaka, with member geometry.
 import fs from 'node:fs/promises';
-const BBOX = '23.680,90.355,23.745,90.455';
+const BBOX = "23.680,90.355,23.745,90.455";
 const UA = 'CholoPuranDhaka/1.0 (https://github.com/SifatSwapnil2022/cholo-puran-DHAKA)';
-const Q = `[out:json][timeout:180];(relation["natural"="water"](${BBOX});relation["waterway"="riverbank"](${BBOX});way["natural"="water"]["water"="river"](${BBOX});way["waterway"="river"](${BBOX});relation["landuse"](${BBOX});relation["leisure"="park"](${BBOX}););out tags geom;`;
+const Q = `[out:json][timeout:180];(relation["natural"="water"](${BBOX});relation["waterway"="riverbank"](${BBOX});way["natural"="water"]["water"="river"](${BBOX});way["waterway"="river"](${BBOX});relation["landuse"](${BBOX});relation["leisure"="park"](${BBOX}););out geom;`;
 await fs.mkdir('out', { recursive: true });
 let j;
 for (const ep of ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
