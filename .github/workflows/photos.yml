@@ -22,7 +22,7 @@ jobs:
         run: |
           mkdir -p out
           set -o pipefail
-          node tools/commons.mjs "$(cat tools/photo-mode.txt)" 2>&1 | tee out/log.txt
+          node tools/osm-probe.mjs 2>&1 | tee out/log.txt
       - name: Publish results
         if: always()
         run: |
