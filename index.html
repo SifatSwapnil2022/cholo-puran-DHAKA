@@ -786,7 +786,7 @@ a{color:var(--ink);text-decoration-color:var(--survey);text-underline-offset:2px
 .mk .chip svg{width:15px;height:15px}
 .mk.sel .chip{background:var(--c);color:#fff;outline:2px solid var(--ink);outline-offset:2px}
 .mk .dot{border-radius:0;width:7px;height:7px;right:-4px;top:-4px;background:var(--survey);outline:1.5px solid var(--card)}
-.mk .lbl{background:color-mix(in srgb,var(--card) 92%,transparent);color:var(--ink);border:1px solid var(--ink);font-family:var(--f-display);font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:2px 6px}
+.mk .lbl{background:var(--card);background:color-mix(in srgb,var(--card) 92%,transparent);color:var(--ink);border:1px solid var(--ink);font-family:var(--f-display);font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:2px 6px}
 .mk .lbl i{font-family:var(--f-bn);font-style:normal;color:var(--ink-3)}
 .mk.rt .chip{border-radius:0}
 
@@ -908,6 +908,14 @@ body *{border-radius:0!important}
 .fwhen em{background:none;border:1px solid currentColor}
 .ostat{border:1px solid currentColor}
 .gtools select,.prow input,.prow select{border:1px solid var(--ink-3);background:var(--card)}
+.mk.mini .chip{transform:scale(.42);transform-origin:50% 100%}
+.mk.mini .chip svg,.mk.mini .dot{visibility:hidden}
+.mk.mini .chip{background:var(--c)}
+@media (max-width:760px){
+  .handle{background:var(--card);border-bottom:1px solid var(--line)}
+  .handle::after{background:var(--ink-3)}
+  .close{top:44px}
+}
 </style>
 
 </head>
@@ -1460,13 +1468,13 @@ function roadAt(r, s) {
 function chainRoads(test, minLen) {
   const ways = CITY.roads.filter(test).map(r => ({ r, used: false })), node = new Map();
   const nk = p => Math.round(p[0]) * 100003 + Math.round(p[1]);
-  for (const w of ways) for (const e of [w.r.pts[0], w.r.pts.at(-1)]) { const k = nk(e); let a = node.get(k); if (!a) node.set(k, a = []); a.push(w); }
+  for (const w of ways) for (const e of [w.r.pts[0], w.r.pts[w.r.pts.length - 1]]) { const k = nk(e); let a = node.get(k); if (!a) node.set(k, a = []); a.push(w); }
   const extend = pts => {
     for (let guard = 0; guard < 300; guard++) {
-      const end = pts.at(-1), prev = pts.at(-2), a1 = Math.atan2(end[1] - prev[1], end[0] - prev[0]);
+      const end = pts[pts.length - 1], prev = pts[pts.length - 2], a1 = Math.atan2(end[1] - prev[1], end[0] - prev[0]);
       let best = null, bestA = 1.0;
       for (const w of node.get(nk(end)) || []) {
-        if (w.used) continue; const p = w.r.pts, fwd = nk(p[0]) === nk(end), nx = fwd ? p[1] : p.at(-2);
+        if (w.used) continue; const p = w.r.pts, fwd = nk(p[0]) === nk(end), nx = fwd ? p[1] : p[p.length - 2];
         let d = Math.abs(a1 - Math.atan2(nx[1] - end[1], nx[0] - end[0])); if (d > Math.PI) d = 2 * Math.PI - d;
         if (d < bestA) { bestA = d; best = { w, fwd }; }
       }
@@ -1483,7 +1491,7 @@ function chainRoads(test, minLen) {
       if (cur.length > 1) {
         const dense = [];
         for (let i = 1; i < cur.length; i++) { const [ax, az] = cur[i - 1], [bx, bz] = cur[i], n = Math.max(1, Math.ceil(Math.hypot(bx - ax, bz - az) / 12)); for (let j = 0; j < n; j++) dense.push([lerp(ax, bx, j / n), lerp(az, bz, j / n)]); }
-        dense.push(cur.at(-1)); const r = { w: w.r.w, cls: w.r.cls, pts: dense }; measureRoad(r); if (r.len >= minLen) out.push(r);
+        dense.push(cur[cur.length - 1]); const r = { w: w.r.w, cls: w.r.cls, pts: dense }; measureRoad(r); if (r.len >= minLen) out.push(r);
       }
       cur = [];
     };
@@ -1687,12 +1695,25 @@ class Kit {
     const c = new THREE.Color(color), n = geo.attributes.position.count, a = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) { a[i * 3] = c.r; a[i * 3 + 1] = c.g; a[i * 3 + 2] = c.b; }
     geo.setAttribute('color', new THREE.BufferAttribute(a, 3));
+    if (this.art) {                // vehicle kits: map art panels into the atlas, everything else onto its white texel
+      let uv = geo.attributes.uv; if (!uv) { uv = new THREE.BufferAttribute(new Float32Array(n * 2), 2); geo.setAttribute('uv', uv); }
+      const ac = o.art && ART[o.art];
+      for (let i = 0; i < n; i++) if (ac) uv.setXY(i, ac[0] + uv.getX(i) * (ac[2] - ac[0]), ac[1] + uv.getY(i) * (ac[3] - ac[1])); else uv.setXY(i, ART_WHITE[0], ART_WHITE[1]);
+    }
     _e.set(o.rx || 0, o.ry || 0, o.rz || 0); _q.setFromEuler(_e); _s.set(o.sx || 1, o.sy || 1, o.sz || 1);
     geo.applyMatrix4(_m.compose(_p.set(x, y, z), _q, _s));
-    (o.glow ? this.glow : o.tex ? (this.tex[o.tex] ??= []) : this.parts).push(geo);
+    (o.glow ? this.glow : o.tex ? (this.tex[o.tex] ??= []) : o.city ? (this.city ??= []) : this.parts).push(geo);
     return this;
   }
   box(w, h, d, x, y, z, c, o) { return this.put(new THREE.BoxGeometry(w, h, d), c, x, y + h / 2, z, o); }
+  // a house body drawn with the city's facade shader (windows, shutters, weathering on every side); 'frontZ' marks the
+  // face that carries modelled shopfronts and windows, which the shader leaves plain
+  cityBox(w, h, d, x, y, z, c, floors, seed, frontZ = 0) {
+    const g = new THREE.BoxGeometry(w, h, d), n = g.attributes.position.count, nr = g.attributes.normal, inf = new Uint8Array(n * 4);
+    for (let i = 0; i < n; i++) { const roof = nr.getY(i) > 0.5, front = frontZ && nr.getZ(i) * frontZ > 0.5; inf[i * 4] = seed & 255; inf[i * 4 + 1] = 60; inf[i * 4 + 2] = front ? 0 : Math.min(255, Math.round(floors * 10.2)); inf[i * 4 + 3] = roof ? 255 : 0; }
+    g.setAttribute('info', new THREE.BufferAttribute(inf, 4, true));
+    return this.put(g, c, x, y + h / 2, z, { city: true });
+  }
   cyl(rt, rb, h, x, y, z, c, seg = 14, o) { return this.put(new THREE.CylinderGeometry(rt, rb, h, seg), c, x, y + h / 2, z, o); }
   dome(r, x, y, z, c, o) { return this.put(new THREE.SphereGeometry(r, 18, 8, 0, Math.PI * 2, 0, Math.PI / 2), c, x, y, z, o); }
   ball(r, x, y, z, c, o) { return this.put(new THREE.SphereGeometry(r, 12, 8), c, x, y, z, o); }
@@ -1802,7 +1823,7 @@ function buildGround() {
   for (const r of CITY.roads) {
     if (!r.bridge || r.cls > 2 || !r.pts.some(p => p[1] > bankZ(p[0]) && p[1] < southZ(p[0]))) continue;
     const cum = [0]; for (let i = 1; i < r.pts.length; i++) cum.push(cum[i - 1] + Math.hypot(r.pts[i][0] - r.pts[i - 1][0], r.pts[i][1] - r.pts[i - 1][1]));
-    const L = cum.at(-1), hAt = s => 11 * clamp(Math.min(s, L - s) / (L * 0.2), 0, 1);
+    const L = cum[cum.length - 1], hAt = s => 11 * clamp(Math.min(s, L - s) / (L * 0.2), 0, 1);
     for (let i = 1; i < r.pts.length; i++) {
       const [ax, az] = r.pts[i - 1], [bx, bz] = r.pts[i], len = Math.hypot(bx - ax, bz - az); if (len < 0.5) continue;
       const ry = Math.atan2(bx - ax, bz - az), y = (hAt(cum[i - 1]) + hAt(cum[i])) / 2;
@@ -1874,6 +1895,26 @@ async function buildCity() {
     if (hit) continue;
     b.h = floorTop(b.lv); b.far = far; keep.push(b);
   }
+  // OpenStreetMap often holds the same house twice (an outline and a building:part, or two mappers' versions). Where one
+  // footprint sits inside another and is no taller, it is dropped; where two overlap at the same height their roofs
+  // would sit in one plane and flicker, so each roof is lifted by a few centimetres from its id.
+  const G = 30, grid = new Map(), gk = (x, z) => Math.floor(x / G) * 100003 + Math.floor(z / G);
+  const area = p => { let a = 0; for (let i = 0, n = p.length / 2; i < n; i++) { const j = (i + 1) % n; a += p[i * 2] * p[j * 2 + 1] - p[j * 2] * p[i * 2 + 1]; } return Math.abs(a) / 2; };
+  for (const b of keep) { b.area = area(b.pts); const k = gk(b.cx, b.cz); let a = grid.get(k); if (!a) grid.set(k, a = []); a.push(b); }
+  let dropped = 0;
+  for (const b of keep) {
+    if (b.gone) continue;
+    const gx = Math.floor(b.cx / G), gz = Math.floor(b.cz / G), p = b.pts, n = p.length / 2;
+    for (let dx = -1; dx <= 1 && !b.gone; dx++) for (let dz = -1; dz <= 1 && !b.gone; dz++) for (const a of grid.get((gx + dx) * 100003 + gz + dz) || []) {
+      if (a === b || a.gone || a.area < b.area) continue;
+      if (!ptInPoly(a.pts, b.cx, b.cz)) continue;
+      let inside = 0; for (let i = 0; i < n; i++) if (ptInPoly(a.pts, p[i * 2], p[i * 2 + 1]) || polyEdgeDist(a.pts, p[i * 2], p[i * 2 + 1]) < 0.4) inside++;
+      if (inside >= n * 0.7 && b.h <= a.h + 0.5) { b.gone = true; dropped++; break; }
+    }
+  }
+  for (let i = keep.length - 1; i >= 0; i--) if (keep[i].gone) keep.splice(i, 1);
+  for (const b of keep) b.h += (b.id % 7) * 0.045;
+  state.overlapDropped = dropped;
   // one merged mesh per tile, so the camera skips tiles it can't see
   const TILE = 380, tiles = new Map();
   for (const b of keep) { const k = Math.floor(b.cx / TILE) * 1000 + Math.floor(b.cz / TILE); let a = tiles.get(k); if (!a) tiles.set(k, a = []); a.push(b); }
@@ -1981,6 +2022,9 @@ async function buildFacades(blds) {
       const nx = (bz - az) / len, nz = -(bx - ax) / len, mx = (ax + bx) / 2, mz = (az + bz) / 2;
       const ox = mx + nx * 1.6, oz = mz + nz * 1.6;
       if (inWater(ox, oz) || hitSolid(ox, oz, 0.3)) continue;                          // this wall touches another building
+      // how much of the wall is open: probe along it, and keep fittings inside the open middle stretch
+      let free = 0; for (const t of [0.12, 0.3, 0.7, 0.88]) { const px = ax + (bx - ax) * t + nx * 1.4, pz = az + (bz - az) * t + nz * 1.4; if (!hitSolid(px, pz, 0.2)) free++; }
+      if (free < 3) continue;
       const road = nearRoad(ox, oz, 2.5, 4), main = road && nearRoad(ox, oz, 3, 2);
       q.setFromAxisAngle(up, Math.atan2(nx, nz));
       const P = (out, along, y) => new THREE.Vector3(mx + nx * out + nz * along, y, mz + nz * out - nx * along);
@@ -1990,7 +2034,8 @@ async function buildFacades(blds) {
         sign.push(new THREE.Matrix4().compose(P(0.12, (r() - 0.5) * (len - sw) * 0.8, 3.05 + r() * 0.3), q, new THREE.Vector3(sw, sh, 1)));
         signC.push(Math.floor(r() * BOARDS.length));
         if (r() < (main ? 0.45 : 0.25)) {
-          awn.push(new THREE.Matrix4().compose(P(0.6, 0, 2.6), q.clone().multiply(tilt), new THREE.Vector3(len * (0.4 + r() * 0.5), 0.04, 1.2 + r() * 0.5)));
+          const dep = hitSolid(mx + nx * 3.4, mz + nz * 3.4, 0.2) ? 0.8 : 1.2 + r() * 0.5;   // narrow lane: a shallower awning so it clears the house opposite
+          awn.push(new THREE.Matrix4().compose(P(dep / 2 - 0.05, 0, 2.6), q.clone().multiply(tilt), new THREE.Vector3(len * (0.4 + r() * 0.5), 0.04, dep)));
           awnC.push(c.set(['#2F5E8C', '#4E7F5A', '#B86A2D', '#8C8A82', '#3A6E7A', '#A33A31'][Math.floor(r() * 6)]).clone());
         }
       }
@@ -2628,7 +2673,7 @@ PLACE['choto-katra'] = (k) => {
   k.box(9.2, 3.4, 0.25, 0, 7.4, 5.08, P);
   for (const dx of [-2, 2]) { k.arch(1.5, 1.5, dx, 7.8, 5.22, '#3D4448', 0); for (let b = 0; b < 4; b++) k.box(0.05, 1.9, 0.05, dx - 0.55 + b * 0.37, 7.8, 5.3, '#D9D9D2'); }
   for (let i = 0; i < 8; i++) k.box(1 + (i % 3), 0.8 + (i % 2), 0.1, -6 + i * 1.7, 1 + (i * 37 % 10), 5.06, P);
-  for (const sx of [-1, 1]) { k.box(9, 15 + sx * 2, 9, sx * 11.5, 0, 1, PLASTER[sx > 0 ? 3 : 7]); k.solid(9, 9, sx * 11.5, 1); }
+  for (const sx of [-1, 1]) { k.cityBox(9, 15 + sx * 2, 9, sx * 11.5, 0, 1, PLASTER[sx > 0 ? 3 : 7], sx > 0 ? 5 : 4, 40 + sx); k.solid(9, 9, sx * 11.5, 1); }
 };
 
 
@@ -2660,7 +2705,7 @@ PLACE['binat-bibi-mosque'] = (k) => {
   k.box(16.4, 0.9, 3.6, 0, 4.2, 5, '#D6D2C9'); k.box(16.2, 0.25, 0.1, 0, 3.9, 6.86, '#3B3B38');
   for (const x of [-3.8, 3.8]) { k.cyl(2.9, 2.9, 0.6, x, 5.2, -1, Wt, 14); k.put(new THREE.SphereGeometry(2.9, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), Wt, x, 5.8, -1, { tex: 'star', sy: 0.85 }); }
   for (const x of [-7.8, 0, 7.8]) { k.cyl(0.42, 0.5, 6.6, x, 5.2, 3.2, Wt, 8); k.onion(0.48, 1.0, x, 11.8, 3.2, Wt); }
-  for (const [x, h, c] of [[-13.2, 13, '#8B5C47'], [13, 10, '#A7A39A'], [0, 16, '#A0796A']]) { k.box(10, h, 8, x, 0, x ? -1 : -10, c); k.solid(10, 8, x, x ? -1 : -10); }
+  for (const [x, h, c] of [[-13.2, 13, '#8B5C47'], [13, 10, '#A7A39A'], [0, 16, '#A0796A']]) { k.cityBox(10, h, 8, x, 0, x ? -1 : -10, c, Math.round((h - 0.5) / 3.05), (x * 7) & 255); k.solid(10, 8, x, x ? -1 : -10); }
 };
 
 /* Northbrook Hall / Lalkuthi (1874–80): deep red plaster with white bands, two tall ringed towers with onion domes at the
@@ -2759,7 +2804,7 @@ function boardGeo(cell, w, h, x, y, z, ry = 0) {
    of grilled windows under concrete sunshades (chajja), a balcony now and then, a parapet. side = which side of the lane. */
 function narrowHouse(k, x, w, depth, faceZ, side, floors, col, r, boards) {
   const H = 3.6 + (floors - 1) * 3.05, fz = faceZ + side * 0.0, out = -side;   // out = direction the front faces
-  k.box(w - 0.06, H, depth, x, 0, faceZ + side * depth / 2, col); k.solid(w, depth, x, faceZ + side * depth / 2);
+  k.cityBox(w - 0.06, H, depth, x, 0, faceZ + side * depth / 2, col, floors, Math.floor(r() * 255), -side); k.solid(w, depth, x, faceZ + side * depth / 2);
   const F = (d) => faceZ + out * d;
   k.box(w - 0.5, 2.7, 0.3, x, 0.05, F(0.02), '#2A2421');                                   // open shop
   k.box(w - 0.4, 0.38, 0.4, x, 2.75, F(0.1), '#7E7C76');                                   // shutter rolled up
@@ -2808,7 +2853,7 @@ PLACE['nazira-bazar-food-street'] = (k, p, g) => laneStreet(k, p, g, { len: 60, 
 /* A shop at the lane: open front, rolled-up shutter, lit inside, floors above with grilles and sunshades. */
 function shopShell(k, w, d, floors, col, frontZ = 0) {
   const H = 3.6 + (floors - 1) * 3.05;
-  k.box(w, H - 3.6, d, 0, 3.6, -d / 2 + frontZ, col);
+  k.cityBox(w, H - 3.6, d, 0, 3.6, -d / 2 + frontZ, col, floors, (w * 37 + d * 11) | 0, 1);
   k.box(0.45, 3.6, d, -w / 2 + 0.22, 0, -d / 2 + frontZ, col); k.box(0.45, 3.6, d, w / 2 - 0.22, 0, -d / 2 + frontZ, col);
   k.box(w, 3.6, 0.3, 0, 0, -d + frontZ, '#CFC5B0'); k.box(w - 0.6, 0.1, d, 0, 0, -d / 2 + frontZ, '#B2AB9C');
   k.box(w - 0.6, 0.42, 0.45, 0, 3.15, frontZ - 0.2, '#7E7C76');                           // rolled-up shutter
@@ -3142,7 +3187,7 @@ PLACE['joy-kali-temple'] = (k) => {
   for (const sx of [-1, 1]) { k.box(0.5, 3.6, 0.2, sx * 1.8, 0, 1.06, '#A8352E'); for (let b = 0; b < 4; b++) k.box(0.05, 2.6, 0.05, sx * (0.4 + b * 0.32), 0.3, 1.3, '#2E7FB8'); }
   for (let i = 0; i < 18; i++) k.box(0.3, 0.3, 0.05, -4 + (i % 9), 1 + Math.floor(i / 9) * 3.4, 1.03, i % 2 ? '#D98AA0' : '#7FB07F');
   k.box(9.4, 0.6, 8.4, 0, 6.4, -3, '#A8352E');
-  for (const sx of [-1, 1]) { k.box(7, 12 + sx * 3, 9, sx * 8.2, 0, -3, PLASTER[sx > 0 ? 2 : 6]); k.solid(7, 9, sx * 8.2, -3); }
+  for (const sx of [-1, 1]) { k.cityBox(7, 12 + sx * 3, 9, sx * 8.2, 0, -3, PLASTER[sx > 0 ? 2 : 6], sx > 0 ? 5 : 3, 90 + sx); k.solid(7, 9, sx * 8.2, -3); }
 };
 
 /* Swamibagh ISKCON Temple (1899): a white and saffron temple with a shikhara spire and a hall for the deities, where the
@@ -3284,7 +3329,7 @@ PLACE['sadarghat'] = (k, p, g) => {
     for (let v = 0; v < col.count; v++) if (gg.attributes.position.getY(v) > 0.38 && gg.attributes.position.getY(v) < 0.5) col.setXYZ(v, c.r, c.g, c.b);
     gg.rotateY(ry); gg.translate(x, -0.15, z); list.push(gg);
   }
-  g.add(new THREE.Mesh(mergeGeometries(list, false), lambertVC));
+  g.add(new THREE.Mesh(mergeGeometries(list, false), vehMat()));
 };
 
 /* Shakrain (Poush Sankranti, January): every flat roof in Sutrapur and Gendaria is crowded with people flying kites; the
@@ -3321,9 +3366,9 @@ PLACE['bangshal-rickshaw-market'] = (k, p, g) => {
     else for (let j = 0; j < 5; j++) k.put(new THREE.TorusGeometry(0.33, 0.03, 4, 16), '#B9BDBF', x + (j % 2) * 0.12, 0.35 + j * 0.07, z, { rx: Math.PI / 2 });
     if (r() < 0.4) k.box(0.9, 0.5, 0.04, x, 1.6, z + side * 0.25, hood[Math.floor(r() * 5)]);
   }
-  const geo = vehicleGeo('rickshaw'), list = [];
-  for (let i = 0; i < 7; i++) { const gg = geo.clone(); gg.rotateY(i % 2 ? 0.3 : Math.PI - 0.2); gg.translate(-20 + i * 6.5, 0, (i % 2 ? -1 : 1) * 1.3); list.push(gg); }
-  g.add(new THREE.Mesh(mergeGeometries(list, false), lambertVC));
+  const list = [];
+  for (let i = 0; i < 7; i++) { const gg = vehicleGeo(i % 2 ? 'rickshaw2' : 'rickshaw'); gg.rotateY(i % 2 ? 0.3 : Math.PI - 0.2); gg.translate(-20 + i * 6.5, 0, (i % 2 ? -1 : 1) * 1.3); list.push(gg); }
+  g.add(new THREE.Mesh(mergeGeometries(list, false), vehMat()));
 };
 
 /* Islampur: the cloth market. Narrow lane, every shop stacked to the ceiling with bolts, lengths of printed cloth and
@@ -3361,7 +3406,8 @@ async function buildLandmarks() {
     k.base = p;
     fn(k, p, g);
     const m = k.mesh(heroMat, k.parts); if (m) g.add(m);
-    if (m) { m.geometry.computeBoundingBox(); const bb = m.geometry.boundingBox; p.clear = { lx: (bb.min.x + bb.max.x) / 2, lz: (bb.min.z + bb.max.z) / 2, hw: (bb.max.x - bb.min.x) / 2 + 1.5, hd: (bb.max.z - bb.min.z) / 2 + 1.5, ry: g.rotation.y }; }
+    const cm = k.city && k.mesh(cityMat, k.city); if (cm) g.add(cm);
+    if (m) { m.geometry.computeBoundingBox(); const bb = m.geometry.boundingBox.clone(); if (cm) { cm.geometry.computeBoundingBox(); bb.union(cm.geometry.boundingBox); } p.clear = { lx: (bb.min.x + bb.max.x) / 2, lz: (bb.min.z + bb.max.z) / 2, hw: (bb.max.x - bb.min.x) / 2 + 1.5, hd: (bb.max.z - bb.min.z) / 2 + 1.5, ry: g.rotation.y }; }
     const gm = k.mesh(glowMat, k.glow); if (gm) g.add(gm);
     for (const key in k.tex) { const tm = k.mesh(key === 'star' ? starMat : heroMat, k.tex[key]); if (tm) g.add(tm); }
     const c = Math.cos(g.rotation.y), s = Math.sin(g.rotation.y);
@@ -3400,74 +3446,260 @@ function rider(k, x, y, lean = 0.2, shirt = '#E9E2D2', lower = '#3F5E8C', seated
   k.cyl(0.045, 0.05, 0.5, x + 0.18, y + 0.12, 0.2, shirt, 5, { rz: -1.2 }); k.cyl(0.045, 0.05, 0.5, x + 0.18, y + 0.12, -0.2, shirt, 5, { rz: -1.2 });
   k.ball(0.115, x + 0.1, y + 0.7, 0, '#7A4E33'); k.put(new THREE.SphereGeometry(0.12, 10, 5, 0, Math.PI * 2, 0, Math.PI / 2), '#1C1714', x + 0.08, y + 0.73, 0);
 }
+/* ---------- vehicle paintwork ----------
+   One 1024² atlas of hand-painted panels, after photographs of Dhaka street vehicles: the rickshaw hood (blue tiled
+   cap, medallion side panels, a pink front border), the tin art plate at the back of the seat, the embossed seat box,
+   frame tape, the wooden sides and crown board of a painted truck, an easy-bike's sticker panels and two local-bus
+   liveries with their windows, Bangla names, routes, scrapes and rust. Parts without art map to a white texel, so
+   their vertex colours show unchanged. */
+const ART = {};
+const artCell = (name, x, y, w, h) => { ART[name] = [x / 1024, 1 - (y + h) / 1024, (x + w) / 1024, 1 - y / 1024, x, y, w, h]; };
+artCell('hood', 0, 0, 256, 256); artCell('hood2', 256, 0, 256, 256); artCell('back', 512, 0, 256, 256);
+artCell('seatbox', 768, 0, 256, 128); artCell('guard', 768, 128, 128, 128); artCell('tape', 896, 128, 128, 64);
+artCell('truckside', 0, 256, 512, 256); artCell('truckfront', 512, 256, 256, 256); artCell('easy', 768, 256, 256, 256);
+artCell('busA', 0, 512, 1024, 256); artCell('busB', 0, 768, 1024, 256);
+const ART_WHITE = [912 / 1024, 1 - 216 / 1024];
+let VEH_MAT = null;
+function vehMat() {
+  if (VEH_MAT) return VEH_MAT;
+  const tx = canvasTex(1024, 1024, paintVehicles, t => { t.anisotropy = 8; });
+  VEH_MAT = new THREE.MeshLambertMaterial({ vertexColors: true, map: tx, side: THREE.DoubleSide });
+  return VEH_MAT;
+}
+function paintVehicles(c) {
+  const r = rng(1952), bnF = (px, wt = 700) => `${wt} ${px}px "Hind Siliguri", "Noto Sans Bengali", sans-serif`;
+  const cell = (n, fn) => { const [, , , , x, y, w, h] = ART[n]; c.save(); c.beginPath(); c.rect(x, y, w, h); c.clip(); c.translate(x, y); fn(w, h); c.restore(); };
+  const flower = (x, y, s, petal, mid, n = 6) => { c.fillStyle = petal; for (let k = 0; k < n; k++) { const a = k / n * 6.283; c.beginPath(); c.ellipse(x + Math.cos(a) * s * 0.55, y + Math.sin(a) * s * 0.55, s * 0.42, s * 0.26, a, 0, 7); c.fill(); } c.fillStyle = mid; c.beginPath(); c.arc(x, y, s * 0.3, 0, 7); c.fill(); };
+  const roundel = (x, y, R, cols) => cols.forEach((col, k) => { c.fillStyle = col; c.beginPath(); c.arc(x, y, R * (1 - k / cols.length), 0, 7); c.fill(); });
+  c.fillStyle = '#FFFFFF'; c.fillRect(896, 192, 128, 64);
+  // rickshaw hood: u runs from one leg over the cap to the other, v from the back rib (bottom) to the front edge (top)
+  const hood = (w, h, cap, capLine, side, med) => {
+    c.fillStyle = side; c.fillRect(0, 0, w, h);
+    c.fillStyle = cap; c.fillRect(w * 0.27, 0, w * 0.46, h);
+    c.strokeStyle = capLine; c.lineWidth = 3;
+    for (let i = 0; i <= 6; i++) { const x = w * 0.27 + i * w * 0.46 / 6; c.beginPath(); c.moveTo(x, 0); c.lineTo(x, h); c.stroke(); }
+    for (let j = 0; j < 8; j++) { c.beginPath(); c.moveTo(w * 0.27, j * h / 8); c.lineTo(w * 0.73, j * h / 8); c.stroke(); }
+    for (const x0 of [0, w * 0.73]) {
+      for (let j = 0; j < 3; j++) { const cy = h * (0.28 + j * 0.24), cx = x0 + w * 0.135; roundel(cx, cy, w * 0.11, med); flower(cx, cy, w * 0.045, '#F2C230', '#C8213A'); }
+      c.fillStyle = '#2FBF4A'; c.fillRect(x0 + (x0 ? 0 : w * 0.25), 0, w * 0.02, h);
+    }
+    c.fillStyle = '#E8308A'; c.fillRect(0, 0, w, h * 0.09); c.fillStyle = '#FFFFFF'; for (let i = 0; i < 26; i++) { c.beginPath(); c.arc(5 + i * w / 26, h * 0.045, 3, 0, 7); c.fill(); }
+    c.fillStyle = '#2FBF4A'; c.fillRect(0, h * 0.09, w, h * 0.035);
+    c.fillStyle = '#7A1820'; c.fillRect(0, h * 0.93, w, h * 0.07);
+  };
+  cell('hood', (w, h) => hood(w, h, '#2457B8', '#DDE8F6', '#C8213A', ['#F2C230', '#E9781E', '#2E8F4A', '#F7D84A', '#C8213A']));
+  cell('hood2', (w, h) => hood(w, h, '#1E7A4A', '#F2E7A8', '#2B3A8C', ['#F05A28', '#F2C230', '#E8308A', '#FFFFFF', '#2B3A8C']));
+  // the art plate behind the seat: a river scene with a boat, a mosque and a sun, flowers in the corners, and a blessing
+  cell('back', (w, h) => {
+    const g = c.createLinearGradient(0, 0, 0, h * 0.6); g.addColorStop(0, '#5EB4E8'); g.addColorStop(1, '#F7D7A0'); c.fillStyle = g; c.fillRect(0, 0, w, h);
+    c.fillStyle = '#F2A13B'; c.beginPath(); c.arc(w * 0.78, h * 0.22, 22, 0, 7); c.fill();
+    c.fillStyle = '#2E8F4A'; c.beginPath(); c.moveTo(0, h * 0.55); c.quadraticCurveTo(w * 0.3, h * 0.38, w * 0.6, h * 0.52); c.lineTo(w, h * 0.48); c.lineTo(w, h * 0.62); c.lineTo(0, h * 0.62); c.fill();
+    c.fillStyle = '#F4F1E8'; c.fillRect(w * 0.18, h * 0.36, 44, 26); c.beginPath(); c.arc(w * 0.18 + 22, h * 0.36, 16, Math.PI, 0); c.fill(); c.fillRect(w * 0.18 - 6, h * 0.24, 5, 38); c.fillRect(w * 0.18 + 45, h * 0.24, 5, 38);
+    c.fillStyle = '#2C6FB8'; c.fillRect(0, h * 0.62, w, h * 0.2);
+    c.fillStyle = '#6A3A1E'; c.beginPath(); c.moveTo(w * 0.42, h * 0.68); c.lineTo(w * 0.72, h * 0.68); c.lineTo(w * 0.66, h * 0.74); c.lineTo(w * 0.48, h * 0.74); c.fill(); c.fillStyle = '#F2C230'; c.fillRect(w * 0.5, h * 0.6, 26, 9);
+    c.fillStyle = '#C8213A'; c.fillRect(0, h * 0.82, w, h * 0.18);
+    c.fillStyle = '#FFFFFF'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.font = bnF(30); c.fillText('মায়ের দোয়া', w / 2, h * 0.91);
+    for (const [x, y] of [[16, 16], [w - 16, 16], [16, h * 0.76], [w - 16, h * 0.76]]) flower(x, y, 22, '#E8308A', '#F2C230');
+    c.strokeStyle = '#F2C230'; c.lineWidth = 6; c.strokeRect(3, 3, w - 6, h - 6);
+  });
+  // embossed tin of the seat box and footboard, pink and yellow flowers punched in
+  cell('seatbox', (w, h) => {
+    c.fillStyle = '#C9CDD2'; c.fillRect(0, 0, w, h);
+    c.strokeStyle = '#9EA4AB'; c.lineWidth = 2; for (let i = -h; i < w; i += 14) { c.beginPath(); c.moveTo(i, 0); c.lineTo(i + h, h); c.stroke(); c.beginPath(); c.moveTo(i + h, 0); c.lineTo(i, h); c.stroke(); }
+    for (let i = 0; i < 5; i++) flower(26 + i * 51, h / 2, 26, i % 2 ? '#E8308A' : '#F2C230', '#2E8F4A');
+    c.fillStyle = '#C8213A'; c.fillRect(0, 0, w, 8); c.fillRect(0, h - 8, w, 8);
+  });
+  cell('guard', (w, h) => { c.fillStyle = '#1FA37A'; c.fillRect(0, 0, w, h); roundel(w / 2, h / 2, w * 0.45, ['#F2C230', '#F7D84A']); for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283; c.fillStyle = '#C8213A'; c.beginPath(); c.arc(w / 2 + Math.cos(a) * w * 0.32, h / 2 + Math.sin(a) * w * 0.32, 6, 0, 7); c.fill(); } flower(w / 2, h / 2, 26, '#C8213A', '#2E8F4A'); });
+  cell('tape', (w, h) => { const cols = ['#C8213A', '#2FBF4A', '#F2C230', '#FFFFFF', '#2457B8']; for (let i = -10; i < 30; i++) { c.fillStyle = cols[(i + 20) % 5]; c.beginPath(); c.moveTo(i * 10, 0); c.lineTo(i * 10 + 10, 0); c.lineTo(i * 10 + 10 + h, h); c.lineTo(i * 10 + h, h); c.fill(); } });
+  // truck: wooden sides painted in panels, a crown board over the cab
+  cell('truckside', (w, h) => {
+    c.fillStyle = '#E9A21F'; c.fillRect(0, 0, w, h);
+    const pc = ['#2457B8', '#C8213A', '#1E7A4A'];
+    for (let i = 0; i < 6; i++) { const x = 10 + i * 84; c.fillStyle = pc[i % 3]; c.fillRect(x, 50, 74, 120); c.strokeStyle = '#FFFFFF'; c.lineWidth = 3; c.strokeRect(x + 4, 54, 66, 112); flower(x + 37, 110, 26, ['#F2C230', '#E8308A', '#FFFFFF'][i % 3], '#F05A28'); }
+    c.fillStyle = '#1E7A4A'; c.fillRect(0, 0, w, 44); c.fillStyle = '#C8213A'; c.fillRect(0, h - 70, w, 70);
+    c.fillStyle = '#FFFFFF'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.font = bnF(40); c.fillText('শুভ যাত্রা', w / 2, h - 35);
+    c.fillStyle = '#F2C230'; for (let i = 0; i < 24; i++) { c.beginPath(); c.moveTo(i * 22, 44); c.lineTo(i * 22 + 11, 22); c.lineTo(i * 22 + 22, 44); c.fill(); }
+    c.fillStyle = 'rgba(40,20,10,0.25)'; for (let i = 0; i < 40; i++) c.fillRect(r() * w, r() * h, 2 + r() * 30, 2);
+  });
+  cell('truckfront', (w, h) => {
+    c.fillStyle = '#C8213A'; c.fillRect(0, 0, w, h);
+    c.fillStyle = '#F2C230'; c.beginPath(); c.moveTo(0, h * 0.62); for (let i = 0; i <= 8; i++) c.quadraticCurveTo(i * w / 8 - w / 16, h * 0.2, i * w / 8, h * 0.62); c.lineTo(w, h); c.lineTo(0, h); c.fill();
+    c.fillStyle = '#1E7A4A'; c.font = bnF(46); c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('মায়ের দোয়া', w / 2, h * 0.8);
+    for (let i = 0; i < 4; i++) flower(32 + i * 64, h * 0.3, 24, '#FFFFFF', '#2457B8');
+  });
+  cell('easy', (w, h) => {
+    c.fillStyle = '#F4F2EE'; c.fillRect(0, 0, w, h);
+    c.fillStyle = '#2457B8'; c.fillRect(0, h * 0.7, w, h * 0.3); c.fillStyle = '#E8308A'; c.fillRect(0, h * 0.62, w, h * 0.08);
+    for (let i = 0; i < 4; i++) flower(32 + i * 64, h * 0.35, 30, ['#E8308A', '#F05A28', '#2FBF4A', '#F2C230'][i], '#2457B8');
+    c.fillStyle = '#FFFFFF'; c.font = bnF(34); c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('আল্লাহ ভরসা', w / 2, h * 0.85);
+  });
+  // two local-bus liveries, left end = rear, right end = front (door at the front on the kerb side)
+  const bus = (w, h, L, S1, S2, Up, name, route) => {
+    c.fillStyle = Up; c.fillRect(0, 0, w, h);
+    c.fillStyle = L; c.fillRect(0, h * 0.52, w, h * 0.48);
+    c.fillStyle = S1; c.fillRect(0, h * 0.55, w, h * 0.05); c.fillStyle = S2; c.fillRect(0, h * 0.62, w, h * 0.025); c.fillStyle = S1; c.fillRect(0, h * 0.9, w, h * 0.03);
+    for (let i = 0; i < 10; i++) {                              // windows: dark glass, a frame, some slid open
+      const x = 22 + i * 88; c.fillStyle = '#6C7378'; c.fillRect(x - 4, h * 0.1, 80, h * 0.36);
+      c.fillStyle = '#20282C'; c.fillRect(x, h * 0.12, 72, h * 0.32);
+      c.fillStyle = 'rgba(190,210,220,0.22)'; c.beginPath(); c.moveTo(x + 8, h * 0.12); c.lineTo(x + 30, h * 0.12); c.lineTo(x + 6, h * 0.44); c.lineTo(x, h * 0.44); c.fill();
+      if (r() < 0.4) { c.fillStyle = '#3A4246'; c.fillRect(x + 36, h * 0.12, 36, h * 0.32); }
+      if (r() < 0.35) { c.fillStyle = '#7A4E33'; c.beginPath(); c.arc(x + 20 + r() * 30, h * 0.38, 9, 0, 7); c.fill(); }
+    }
+    c.fillStyle = '#161A1C'; c.fillRect(w - 118, h * 0.12, 70, h * 0.84);            // the door at the front
+    c.fillStyle = '#6C7378'; c.fillRect(w - 120, h * 0.12, 4, h * 0.84);
+    c.fillStyle = '#20282C'; c.fillRect(w - 40, h * 0.12, 36, h * 0.32);
+    c.textAlign = 'center'; c.textBaseline = 'middle'; c.font = bnF(58); c.lineWidth = 6; c.strokeStyle = '#FFFFFF'; c.strokeText(name, w * 0.42, h * 0.76); c.fillStyle = '#C8213A'; c.fillText(name, w * 0.42, h * 0.76);
+    c.font = bnF(22, 600); c.fillStyle = '#1B1B19'; c.fillText(route, w * 0.42, h * 0.5);
+    for (let i = 0; i < 26; i++) { c.fillStyle = r() < 0.5 ? 'rgba(90,50,25,0.55)' : 'rgba(255,255,255,0.45)'; c.fillRect(r() * w, h * (0.55 + r() * 0.4), 8 + r() * 70, 1 + r() * 3); }   // scrapes
+    for (let i = 0; i < 7; i++) { const x = r() * w, y = h * (0.6 + r() * 0.3); const g = c.createRadialGradient(x, y, 2, x, y, 24); g.addColorStop(0, 'rgba(110,60,30,0.7)'); g.addColorStop(1, 'rgba(110,60,30,0)'); c.fillStyle = g; c.fillRect(x - 24, y - 24, 48, 48); }   // rust
+    c.fillStyle = 'rgba(0,0,0,0.18)'; c.fillRect(0, h * 0.94, w, h * 0.06);
+    c.fillStyle = '#F2F0EA'; c.fillRect(w * 0.08, h * 0.66, 90, 36); c.fillStyle = '#C8213A'; c.font = bnF(18); c.fillText('সিটিং', w * 0.08 + 45, h * 0.66 + 18);
+  };
+  cell('busA', (w, h) => bus(w, h, '#2E7D4F', '#F2C230', '#C8322C', '#ECE8DE', 'শুভযাত্রা পরিবহন', 'সদরঘাট — গুলিস্তান — গাবতলী'));
+  cell('busB', (w, h) => bus(w, h, '#1F5C99', '#F2F0EA', '#E9781E', '#F2F0EA', 'মায়ের দোয়া পরিবহন', 'সদরঘাট — মতিঝিল — উত্তরা'));
+}
+// a straight bar between two points (frame tubes, struts)
+function bar(k, a, b, r, col, o = {}) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], dz = b[2] - a[2], L = Math.hypot(dx, dy, dz);
+  const g = new THREE.CylinderGeometry(r, r, L, o.seg || 6); g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), new THREE.Vector3(dx / L, dy / L, dz / L)));
+  return k.put(g, col, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2, o);
+}
+// the rickshaw hood (kamani): an arch of bamboo ribs fanned about a hinge on the seat back
+function hoodGeo(hx, hy, W, legHi, a0, a1, inset = 0, nu = 30, nv = 10) {
+  const R = W / 2 - inset, L1 = legHi, arc = Math.PI * R, total = 2 * L1 + arc, pos = [], uv = [], idx = [];
+  const prof = t => { let s = t * total; if (s < L1) return [s, -R]; s -= L1; if (s < arc) { const a = s / R; return [legHi + Math.sin(a) * R, -Math.cos(a) * R]; } s -= arc; return [legHi - s, R]; };
+  for (let j = 0; j <= nv; j++) { const ang = a0 + (a1 - a0) * j / nv, sa = Math.sin(ang), ca = Math.cos(ang), d0 = inset * 1.2; for (let i = 0; i <= nu; i++) { const [d, z] = prof(i / nu); pos.push(hx + (d - d0) * sa, hy + (d - d0) * ca, z); uv.push(i / nu, j / nv); } }
+  for (let j = 0; j < nv; j++) for (let i = 0; i < nu; i++) { const a = j * (nu + 1) + i, b = a + 1, cc = a + nu + 1, d = cc + 1; idx.push(a, cc, b, b, cc, d); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
+  g.userData.prof = prof; return g;
+}
+function spokedWheel(k, x, y, z, rad, n = 12, rim = '#BFC2C4') {
+  k.put(new THREE.TorusGeometry(rad, 0.022, 5, 22), '#161616', x, y, z);
+  k.put(new THREE.TorusGeometry(rad - 0.03, 0.012, 4, 22), rim, x, y, z);
+  for (let i = 0; i < n; i++) k.put(new THREE.BoxGeometry(0.008, rad * 2 - 0.06, 0.008), '#C9CCCF', x, y, z, { rz: i * Math.PI / n });
+  k.put(new THREE.CylinderGeometry(0.035, 0.035, 0.1, 8), '#8E9195', x, y, z, { rx: Math.PI / 2 });
+}
+function rickshawGeo(variant) {
+  const k = new Kit(); k.art = true;
+  const hoodArt = variant ? 'hood2' : 'hood', seat = variant ? '#1E7A4A' : '#C0202C', frameArt = 'tape';
+  // wheels: two at the back under the seat, the bicycle wheel in front
+  for (const z of [0.5, -0.5]) { spokedWheel(k, -0.55, 0.33, z, 0.33); k.put(new THREE.CylinderGeometry(0.37, 0.37, 0.09, 12, 1, true, Math.PI * 0.7, Math.PI * 0.6), '#FFFFFF', -0.55, 0.33, z * 1.02, { rx: Math.PI / 2, art: 'tape' }); }
+  spokedWheel(k, 1.25, 0.33, 0, 0.33);
+  k.put(new THREE.CylinderGeometry(0.36, 0.36, 0.06, 10, 1, true, Math.PI * 0.78, Math.PI * 0.44), '#1B1B1B', 1.25, 0.33, 0, { rx: Math.PI / 2 });
+  // chassis and the bicycle frame
+  bar(k, [-0.55, 0.33, -0.52], [-0.55, 0.33, 0.52], 0.022, '#2A2A2A');
+  bar(k, [-0.55, 0.36, 0], [0.5, 0.36, 0], 0.025, '#2A2A2A'); bar(k, [-0.3, 0.5, 0.45], [0.5, 0.36, 0], 0.018, '#2A2A2A'); bar(k, [-0.3, 0.5, -0.45], [0.5, 0.36, 0], 0.018, '#2A2A2A');
+  bar(k, [0.5, 0.36, 0], [1.08, 0.95, 0], 0.024, '#1B1B1B'); bar(k, [0.45, 1.0, 0], [1.08, 0.97, 0], 0.022, '#1B1B1B'); bar(k, [0.5, 0.36, 0], [0.44, 1.0, 0], 0.022, '#1B1B1B');
+  bar(k, [1.25, 0.33, 0.05], [1.1, 0.98, 0.05], 0.022, '#FFFFFF', { art: frameArt }); bar(k, [1.25, 0.33, -0.05], [1.1, 0.98, -0.05], 0.022, '#FFFFFF', { art: frameArt });
+  bar(k, [1.1, 0.98, 0], [1.06, 1.14, 0], 0.024, '#C8213A');
+  bar(k, [1.0, 1.15, -0.3], [1.0, 1.15, 0.3], 0.014, '#D0D3D6'); for (const z of [0.3, -0.3]) { bar(k, [1.0, 1.15, z], [0.92, 1.17, z * 1.08], 0.022, '#1B1B1B'); for (let i = 0; i < 3; i++) bar(k, [0.92, 1.17, z * 1.08], [0.9, 0.9 - i * 0.04, z * 1.08 + (i - 1) * 0.02], 0.006, ['#C8213A', '#2FBF4A', '#F2C230'][i]); }
+  k.box(0.26, 0.06, 0.16, 0.44, 1.0, 0, '#1B1B1B');
+  bar(k, [0.5, 0.36, 0.06], [0.58, 0.24, 0.12], 0.012, '#5A5A5A'); bar(k, [0.5, 0.36, -0.06], [0.42, 0.48, -0.12], 0.012, '#5A5A5A');
+  bar(k, [0.5, 0.36, 0.08], [-0.55, 0.33, 0.08], 0.008, '#3A3A3A');                         // chain
+  // seat box, footboard, seat and backrest
+  k.box(0.56, 0.42, 0.98, -0.42, 0.5, 0, seat);
+  k.put(new THREE.PlaneGeometry(0.98, 0.42), '#FFFFFF', -0.135, 0.71, 0, { ry: Math.PI / 2, art: 'seatbox' });
+  for (const z of [0.492, -0.492]) k.put(new THREE.PlaneGeometry(0.4, 0.4), '#FFFFFF', -0.45, 0.71, z, { ry: z > 0 ? 0 : Math.PI, art: 'guard' });
+  k.put(new THREE.PlaneGeometry(0.92, 0.5), '#FFFFFF', -0.705, 0.66, 0, { ry: -Math.PI / 2, art: 'back' });
+  k.put(new THREE.PlaneGeometry(0.42, 0.9), '#FFFFFF', 0.02, 0.47, 0, { rx: -Math.PI / 2, rz: 0, ry: 0, art: 'seatbox', sx: 1 });
+  k.box(0.52, 0.1, 1.0, -0.42, 0.92, 0, seat); k.box(0.5, 0.03, 0.96, -0.42, 1.02, 0, '#E9C9A0');
+  k.box(0.08, 0.36, 0.98, -0.66, 1.0, 0, seat, { rz: 0.16 });
+  // the hood: painted outer skin, red lining, fringe along the front edge, struts down to the footboard
+  const hx = -0.66, hy = 1.02, a0 = -0.22, a1 = 0.86, W = 1.02, legHi = 0.5;
+  const outer = hoodGeo(hx, hy, W, legHi, a0, a1, 0), prof = outer.userData.prof;
+  k.put(outer, '#FFFFFF', 0, 0, 0, { art: hoodArt });
+  k.put(hoodGeo(hx, hy, W, legHi, a0, a1, 0.03), '#9E1E26', 0, 0, 0);
+  const sa = Math.sin(a1), ca = Math.cos(a1);
+  for (let i = 1; i < 24; i++) { const [d, z] = prof(i / 24); k.put(new THREE.ConeGeometry(0.03, 0.1, 4), i % 2 ? '#2FBF4A' : '#E8308A', hx + d * sa + 0.02, hy + d * ca - 0.06, z, { rz: Math.PI }); }
+  for (const j of [0.35, 0.7]) { const ang = a0 + (a1 - a0) * j; for (let i = 0; i < 24; i++) { const [d0, z0] = prof(i / 24), [d1, z1] = prof((i + 1) / 24); bar(k, [hx + d0 * Math.sin(ang), hy + d0 * Math.cos(ang), z0 * 0.985], [hx + d1 * Math.sin(ang), hy + d1 * Math.cos(ang), z1 * 0.985], 0.012, '#5A2A18'); } }
+  for (const z of [0.5, -0.5]) bar(k, [hx + 0.3 * sa, hy + 0.3 * ca, z], [-0.05, 0.52, z * 0.9], 0.016, '#FFFFFF', { art: frameArt });
+  for (const z of [0.47, -0.47]) k.ball(0.03, hx, hy, z, '#D9DCDF');
+  // the puller in a checked lungi and a shirt, a gamchha round the neck
+  // the puller: lungi to the knees, shirt, gamchha round the neck, feet on the pedals, hands on the grips
+  const shirt = variant ? '#4A5A6A' : '#6B5A48', lungi = variant ? '#2F4A6A' : '#3E5A3A', skin = '#7A4E33';
+  for (const [z, kx, ky, px, py] of [[0.11, 0.66, 0.78, 0.6, 0.26], [-0.11, 0.6, 0.86, 0.44, 0.48]]) {
+    bar(k, [0.44, 1.06, z], [kx, ky, z * 1.1], 0.065, lungi, { seg: 7 }); bar(k, [kx, ky, z * 1.1], [px, py, z], 0.04, skin, { seg: 6 });
+    k.box(0.18, 0.04, 0.08, px + 0.04, py - 0.04, z, '#3A2A20');
+  }
+  k.put(new THREE.CylinderGeometry(0.15, 0.2, 0.34, 9, 1, true), lungi, 0.5, 0.98, 0, { rz: -0.9 });
+  bar(k, [0.44, 1.08, 0], [0.62, 1.56, 0], 0.13, shirt, { seg: 8 });
+  k.put(new THREE.SphereGeometry(0.105, 10, 8), skin, 0.68, 1.76, 0); k.put(new THREE.SphereGeometry(0.11, 10, 5, 0, Math.PI * 2, 0, Math.PI / 2.3), '#15110E', 0.67, 1.79, 0);
+  bar(k, [0.62, 1.58, 0], [0.66, 1.66, 0], 0.045, skin);
+  for (const z of [0.19, -0.19]) { bar(k, [0.6, 1.52, z * 0.9], [0.8, 1.3, z * 1.2], 0.038, shirt); bar(k, [0.8, 1.3, z * 1.2], [0.92, 1.18, z * 1.55], 0.032, skin); }
+  bar(k, [0.58, 1.6, 0.12], [0.66, 1.4, 0.14], 0.03, '#C8213A'); bar(k, [0.58, 1.6, -0.12], [0.63, 1.38, -0.15], 0.03, '#2E8F4A'); k.put(new THREE.TorusGeometry(0.1, 0.03, 5, 12), '#C8213A', 0.63, 1.6, 0, { ry: Math.PI / 2, rz: 0.4 });
+  return k.geometry();
+}
 function vehicleGeo(kind) {
-  const k = new Kit();
-  if (kind === 'rickshaw') {
-    // Dhaka cycle rickshaw, after photographs: rear wheels under a painted seat box, the tin art plate at the back,
-    // a folding vinyl hood with appliqué bands and a fringe, chrome studs, streamers on the handlebar.
-    wheel(k, -0.55, 0.5, 0.33); wheel(k, -0.55, -0.5, 0.33); wheel(k, 1.15, 0, 0.31);
-    for (const z of [0.5, -0.5]) { for (let i = 0; i < 8; i++) k.put(new THREE.BoxGeometry(0.012, 0.6, 0.012), '#B9B9B4', -0.55, 0.33, z, { rz: i * Math.PI / 8 }); k.put(new THREE.CylinderGeometry(0.38, 0.38, 0.1, 10, 1, true, Math.PI * 0.62, Math.PI * 0.62), '#2457A0', -0.55, 0.33, z, { rx: Math.PI / 2 }); }
-    for (let i = 0; i < 7; i++) k.put(new THREE.BoxGeometry(0.012, 0.56, 0.012), '#B9B9B4', 1.15, 0.31, 0, { rz: i * Math.PI / 7 });
-    k.box(0.05, 0.05, 1.05, -0.55, 0.33, 0, '#2A2A2A');
-    k.box(1.75, 0.05, 0.07, 0.28, 0.5, 0, '#2A2A2A', { rz: 0.12 }); k.box(0.6, 0.03, 0.03, 0.3, 0.38, 0.06, '#3A3A3A', { rz: -0.35 });
-    k.box(0.55, 0.04, 0.9, 0.0, 0.42, 0, '#6B4A2E');                                       // footboard
-    k.box(0.62, 0.34, 0.98, -0.52, 0.56, 0, '#B11F2B');                                   // seat box
-    for (const z of [0.495, -0.495]) { for (let i = 0; i < 4; i++) k.box(0.13, 0.26, 0.012, -0.75 + i * 0.15, 0.6, z, ['#F2C230', '#2A8A4A', '#F2F0EA', '#2457A0'][i]); k.ball(0.025, -0.25, 0.86, z, '#E6E6E0'); k.ball(0.025, -0.8, 0.86, z, '#E6E6E0'); }
-    k.box(0.6, 0.12, 0.96, -0.5, 0.96, 0, '#2A6E9E');                                     // cushion in printed cover
-    k.box(0.08, 0.52, 0.96, -0.82, 1.06, 0, '#B11F2B', { rz: 0.12 });
-    k.box(0.04, 0.5, 0.98, -0.88, 0.32, 0, '#F2F0EA');                                     // the art plate: sky, river, hills, a flower
-    k.box(0.045, 0.18, 0.92, -0.885, 0.62, 0, '#7EC3E6'); k.box(0.046, 0.1, 0.92, -0.886, 0.46, 0, '#2E8F4A'); k.box(0.046, 0.08, 0.92, -0.886, 0.38, 0, '#3E7FB8');
-    k.box(0.047, 0.1, 0.1, -0.887, 0.62, 0.22, '#E8308A'); k.box(0.047, 0.1, 0.1, -0.887, 0.62, -0.25, '#F2C230');
-    k.box(0.05, 0.05, 1.0, -0.89, 0.8, 0, '#E6E6E0'); for (const z of [0.4, -0.4]) k.box(0.05, 0.07, 0.12, -0.9, 0.12, z, '#D02A2A');
-    // hood (white vertex colour takes each rickshaw's own tint), ribs, appliqué bands and fringe
-    k.put(new THREE.CylinderGeometry(0.58, 0.58, 1.02, 16, 1, true, Math.PI / 2, Math.PI), '#FFFFFF', -0.6, 1.08, 0, { rx: Math.PI / 2, sx: 0.85 });
-    for (const t of [0.18, 0.5, 0.82]) k.put(new THREE.CylinderGeometry(0.585, 0.585, 0.05, 16, 1, true, Math.PI / 2, Math.PI), t === 0.5 ? '#F2C230' : '#2A2A2A', -0.6, 1.08, -0.51 + t * 1.02, { rx: Math.PI / 2, sx: 0.85 });
-    for (let i = 0; i < 9; i++) { const a = Math.PI / 2 + i / 8 * Math.PI, x = -0.6 + Math.cos(a) * 0.5, y = 1.08 + Math.sin(a) * 0.58; if (x > -0.62) k.put(new THREE.ConeGeometry(0.035, 0.12, 4), ['#E8308A', '#F2C230', '#2A8A4A'][i % 3], x + 0.02, y - 0.05, 0.52, { rz: Math.PI }); }
-    k.box(0.04, 0.04, 1.06, -0.55, 1.66, 0, '#E9B422');
-    k.box(0.05, 0.6, 0.05, 0.85, 0.55, 0, '#2A2A2A'); k.box(0.05, 0.05, 0.62, 1.0, 1.15, 0, '#BFBFBA');
-    k.put(new THREE.CylinderGeometry(0.36, 0.36, 0.08, 10, 1, true, Math.PI * 0.75, Math.PI * 0.5), '#2457A0', 1.15, 0.31, 0, { rx: Math.PI / 2 });
-    k.box(0.3, 0.06, 0.18, 0.62, 1.0, 0, '#3A2A20');
-    rider(k, 0.6, 1.26, 0.25, '#E9E2D2', '#3B5B8E');
-    for (const z of [0.3, -0.3]) for (let i = 0; i < 3; i++) k.box(0.015, 0.26, 0.015, 1.0, 1.02, z + (i - 1) * 0.03, ['#D6213A', '#F2C230', '#2A8A4A'][i]);
-  } else if (kind === 'cng') {
-    // green CNG auto-rickshaw with a black canvas roof and steel cage doors
+  if (kind === 'rickshaw' || kind === 'rickshaw2') return rickshawGeo(kind === 'rickshaw2');
+  const k = new Kit(); k.art = true;
+  if (kind === 'cng') {
+    // Bajaj three-wheeler as run in Dhaka: green body, black canvas roof, the steel grille doors fitted after 2009
     wheel(k, -0.75, 0.6, 0.24); wheel(k, -0.75, -0.6, 0.24); wheel(k, 0.95, 0, 0.24);
     k.box(2.0, 0.55, 1.3, -0.15, 0.25, 0, '#2E8B3E');
-    k.put(new THREE.CylinderGeometry(0.36, 0.56, 0.95, 4, 1), '#2E8B3E', 0.98, 0.78, 0, { ry: Math.PI / 4, sx: 0.8 });   // the tapered nose
-    k.put(new THREE.SphereGeometry(0.1, 10, 6), '#F4F1E2', 1.3, 0.92, 0); k.box(0.04, 0.4, 0.7, 1.2, 1.08, 0, '#9FB7C0', { rz: -0.35 });
+    k.put(new THREE.CylinderGeometry(0.36, 0.56, 0.95, 4, 1), '#2E8B3E', 0.98, 0.78, 0, { ry: Math.PI / 4, sx: 0.8 });
+    k.put(new THREE.SphereGeometry(0.1, 10, 6), '#F4F1E2', 1.3, 0.92, 0); k.box(0.04, 0.42, 0.74, 1.12, 1.02, 0, '#8FA9B4', { rz: -0.35 });
     k.box(0.4, 0.12, 0.5, 1.12, 0.33, 0, '#1E1E1E');
     k.box(1.55, 0.8, 1.32, -0.4, 0.8, 0, '#2B7E39');
-    k.box(2.05, 0.08, 1.42, -0.18, 1.62, 0, '#1A211D');
-    k.box(0.05, 0.62, 0.9, 0.7, 0.98, 0, '#9FB7C0');
-    for (const zz of [0.67, -0.67]) for (let i = 0; i < 5; i++) k.box(0.03, 0.78, 0.03, -0.95 + i * 0.28, 0.82, zz, '#1F2A22');
-    for (const zz of [0.67, -0.67]) k.box(1.2, 0.03, 0.03, -0.4, 1.2, zz, '#1F2A22');
-    k.box(0.12, 0.08, 0.5, 1.23, 0.75, 0, '#F2F0EA');
-    k.ball(0.11, 0.42, 1.38, 0, '#7A4E33');
+    k.put(new THREE.CylinderGeometry(0.72, 0.72, 2.05, 12, 1, true, Math.PI * 0.18, Math.PI * 0.64), '#1A211D', -0.18, 0.95, 0, { rz: Math.PI / 2 });
+    for (const zz of [0.67, -0.67]) { for (let i = 0; i < 6; i++) k.box(0.025, 0.76, 0.025, -1.0 + i * 0.24, 0.82, zz, '#C9CCCF'); for (const y of [1.0, 1.3]) k.box(1.25, 0.025, 0.025, -0.4, y, zz, '#C9CCCF'); }
+    k.box(0.05, 0.12, 0.3, -1.16, 0.62, 0, '#E9E4D6');
+    rider(k, 0.45, 0.98, 0.1, '#D9D3C4', '#2F3E52');
   } else if (kind === 'bus' || kind === 'bus2') {
-    // a Dhaka local bus: painted livery in bands, window pillars, a destination board over the split windscreen,
-    // the door open on the kerb side with the helper hanging out, scrapes and rust on the lower panels
-    const [L, S1, S2, Up] = kind === 'bus' ? ['#2E7D4F', '#F2C230', '#C8322C', '#ECE8DE'] : ['#1F5C99', '#F2F0EA', '#E9781E', '#F2F0EA'];
-    for (const x of [-3.1, 3.2]) for (const z of [1.08, -1.08]) { wheel(k, x, z, 0.48); k.put(new THREE.CylinderGeometry(0.62, 0.62, 0.08, 10, 1, true, 0, Math.PI), '#1C1C1C', x, 0.5, z * 1.12, { rx: Math.PI / 2 }); }
+    // Dhaka local bus: painted livery with its name and route, windows, the door on the kerb side, dents and rust
+    const art = kind === 'bus' ? 'busA' : 'busB', Up = kind === 'bus' ? '#ECE8DE' : '#F2F0EA', L = kind === 'bus' ? '#2E7D4F' : '#1F5C99';
+    for (const x of [-3.1, 3.2]) for (const z of [1.08, -1.08]) { wheel(k, x, z, 0.48); k.put(new THREE.CylinderGeometry(0.62, 0.62, 0.08, 10, 1, true, Math.PI / 2, Math.PI), '#1C1C1C', x, 0.5, z * 1.12, { rx: Math.PI / 2 }); }
     k.box(9.3, 0.3, 2.2, 0, 0.32, 0, '#1E1E1E');
-    k.box(9.5, 1.05, 2.42, 0, 0.62, 0, L);
-    for (const z of [1.215, -1.215]) { k.box(9.5, 0.09, 0.012, 0, 1.12, z, S1); k.box(9.5, 0.06, 0.012, 0, 1.28, z, S2); k.box(9.5, 0.05, 0.012, 0, 0.75, z, S1); }
-    k.box(9.42, 0.95, 2.36, 0, 1.67, 0, '#262E31');
-    for (let i = 0; i <= 9; i++) for (const z of [1.19, -1.19]) k.box(0.14, 0.95, 0.03, -4.45 + i * 0.95, 1.67, z, Up);
-    for (const [i, z] of [[2, 1.2], [5, -1.2], [7, 1.2]]) k.box(0.42, 0.44, 0.02, -4.0 + i * 0.95, 2.05, z, '#59636A');
-    k.box(9.5, 0.36, 2.42, 0, 2.62, 0, Up); k.box(9.5, 0.05, 2.43, 0, 2.62, 0, S2);
+    k.box(9.48, 2.36, 2.3, 0, 0.6, 0, Up);
+    for (const s of [1, -1]) {
+      const pg = new THREE.PlaneGeometry(9.5, 2.4, 28, 6), pp = pg.attributes.position;
+      for (let i = 0; i < pp.count; i++) { const x = pp.getX(i), y = pp.getY(i); pp.setZ(i, -0.03 * Math.max(0, Math.sin(x * 2.3 + y * 3.1) * Math.sin(x * 0.7 + s))); }
+      k.put(pg, '#FFFFFF', 0, 1.8, s * 1.205, { ry: s > 0 ? 0 : Math.PI, art });
+    }
     k.box(9.3, 0.1, 2.3, 0, 2.98, 0, '#CFCBC2'); for (const z of [1.13, -1.13]) k.put(new THREE.CylinderGeometry(0.13, 0.13, 9.3, 8), Up, 0, 2.92, z, { rz: Math.PI / 2 });
-    k.box(0.04, 0.82, 2.2, 4.76, 1.72, 0, '#38464D'); k.box(0.06, 0.82, 0.1, 4.78, 1.72, 0, Up);
+    k.box(0.04, 0.9, 2.2, 4.76, 1.7, 0, '#2C383E'); k.box(0.06, 0.9, 0.1, 4.78, 1.7, 0, Up); k.box(0.05, 1.05, 2.42, 4.75, 0.62, 0, L);
     k.box(0.05, 0.3, 1.7, 4.77, 2.66, 0, '#F4F1E8'); for (let i = 0; i < 7; i++) k.box(0.055, 0.12, 0.13, 4.78, 2.66, -0.6 + i * 0.2, '#C8322C');
     for (const z of [0.82, -0.82]) { k.put(new THREE.CylinderGeometry(0.13, 0.13, 0.05, 10), '#F4F1E2', 4.77, 0.95, z, { rz: Math.PI / 2 }); k.box(0.06, 0.14, 0.16, -4.77, 1.0, z, '#C8322C'); }
     k.box(0.16, 0.22, 2.46, 4.8, 0.48, 0, '#1B1B1B'); k.box(0.16, 0.22, 2.46, -4.8, 0.48, 0, '#1B1B1B');
-    k.box(0.04, 0.7, 2.1, -4.76, 1.75, 0, '#38464D');
-    k.box(0.7, 1.95, 0.03, 3.7, 0.55, -1.22, '#161A1C');                                   // the open door, kerb side
-    rider(k, 3.75, 1.55, -0.1, '#D9D3C4', '#2F3E52', false); k.box(0.05, 1.2, 0.05, 3.4, 1.0, -1.25, '#BFBFBA');
-    const rr = rng(kind.length * 17);
-    for (let i = 0; i < 9; i++) { const z = rr() < 0.5 ? 1.216 : -1.216; k.box(0.2 + rr() * 0.7, 0.06 + rr() * 0.2, 0.012, -4.3 + rr() * 8.6, 0.65 + rr() * 0.4, z, rr() < 0.5 ? '#7A5A3E' : '#C9C4B8'); }
-    const geo = k.geometry(), pos = geo.attributes.position;
-    for (let i = 0; i < pos.count; i++) { const y = pos.getY(i), z = pos.getZ(i), x = pos.getX(i); if (Math.abs(z) > 1.15 && y > 0.6 && y < 1.7) pos.setZ(i, z - Math.sign(z) * 0.025 * Math.max(0, Math.sin(x * 2.3 + y * 4) * Math.sin(x * 0.7))); }
-    pos.needsUpdate = true; geo.computeVertexNormals(); return geo;
+    k.box(0.04, 0.8, 2.1, -4.76, 1.75, 0, '#2C383E'); k.box(0.05, 1.05, 2.42, -4.75, 0.62, 0, L);
+    rider(k, 3.75, 1.5, -0.1, '#D9D3C4', '#2F3E52', false); k.box(0.05, 1.2, 0.05, 3.4, 1.0, -1.27, '#BFBFBA');
+  } else if (kind === 'leguna') {
+    // leguna (human hauler): a small cab, a canopy over two facing benches, passengers hanging off the open back
+    for (const x of [-1.15, 1.2]) for (const z of [0.62, -0.62]) wheel(k, x, z, 0.3);
+    k.box(3.7, 0.18, 1.45, 0, 0.36, 0, '#1E1E1E');
+    k.box(1.05, 1.15, 1.45, 1.3, 0.5, 0, '#2B7E9A'); k.box(0.04, 0.55, 1.25, 1.84, 1.05, 0, '#8FA9B4', { rz: -0.2 }); k.box(0.12, 0.2, 1.45, 1.86, 0.55, 0, '#1B1B1B');
+    for (const z of [0.5, -0.5]) k.put(new THREE.SphereGeometry(0.08, 8, 6), '#F4F1E2', 1.84, 0.8, z);
+    k.box(2.6, 0.5, 0.05, -0.5, 0.5, 0.71, '#2B7E9A'); k.box(2.6, 0.5, 0.05, -0.5, 0.5, -0.71, '#2B7E9A');
+    k.box(2.75, 0.07, 1.55, -0.45, 1.9, 0, '#2B7E9A'); k.box(2.7, 0.05, 0.05, -0.45, 1.86, 0.78, '#F2C230');
+    for (const x of [-1.75, -0.5, 0.75]) for (const z of [0.7, -0.7]) k.box(0.04, 0.9, 0.04, x, 1.0, z, '#C9CCCF');
+    for (const z of [0.45, -0.45]) { k.box(2.4, 0.08, 0.35, -0.5, 0.78, z, '#4A3A2A'); for (let i = 0; i < 3; i++) { k.cyl(0.14, 0.16, 0.5, -1.4 + i * 0.8, 0.86, z, ['#D9D3C4', '#4A6A8A', '#B83A3A'][i], 7); k.ball(0.11, -1.4 + i * 0.8, 1.5, z, '#7A4E33'); } }
+    rider(k, -1.95, 0.6, 0, '#E9E2D2', '#3B4B5E', false);
+    rider(k, 1.25, 1.05, 0.05, '#D9D3C4', '#2F3E52');
+  } else if (kind === 'easy') {
+    // battery 'easy bike': a three-wheeler with open sides, a flat roof with a fringe, sticker panels and two benches
+    wheel(k, -0.7, 0.56, 0.27); wheel(k, -0.7, -0.56, 0.27); wheel(k, 1.05, 0, 0.27);
+    k.box(2.1, 0.1, 1.15, -0.1, 0.36, 0, '#1E1E1E');
+    for (const z of [0.58, -0.58]) k.put(new THREE.PlaneGeometry(1.8, 0.48), '#FFFFFF', -0.2, 0.7, z, { ry: z > 0 ? 0 : Math.PI, art: 'easy' });
+    k.box(1.8, 0.48, 1.14, -0.2, 0.46, 0, '#F4F2EE');
+    k.put(new THREE.CylinderGeometry(0.3, 0.5, 0.9, 4, 1), '#F4F2EE', 0.95, 0.8, 0, { ry: Math.PI / 4, sx: 0.8 }); k.box(0.04, 0.5, 0.8, 1.05, 1.2, 0, '#8FA9B4', { rz: -0.3 });
+    k.box(2.25, 0.06, 1.25, -0.15, 1.78, 0, '#2457B8'); for (let i = 0; i < 18; i++) k.put(new THREE.ConeGeometry(0.03, 0.1, 4), ['#E8308A', '#F2C230'][i % 2], -1.2 + i * 0.12, 1.72, 0.63, { rz: Math.PI });
+    for (const x of [-1.05, 0.85]) for (const z of [0.56, -0.56]) k.box(0.035, 0.9, 0.035, x, 0.88, z, '#C9CCCF');
+    for (const x of [-0.85, -0.1]) k.box(0.36, 0.1, 1.0, x, 0.84, 0, '#7A2A2A');
+    rider(k, -0.85, 0.95, 0, '#E9E2D2', '#5A3A6A'); rider(k, 0.55, 0.95, 0.1, '#D9D3C4', '#2F3E52');
+  } else if (kind === 'truck') {
+    // a painted Tata truck: bonnet nose, cab with a crown board, wooden body painted in panels, a tarpaulin load
+    for (const x of [-1.7, 2.6]) for (const z of [0.95, -0.95]) { wheel(k, x, z, 0.5); if (x < 0) wheel(k, x, z * 0.78, 0.5); }
+    k.box(6.6, 0.3, 1.8, 0.2, 0.45, 0, '#1E1E1E');
+    k.box(1.15, 0.95, 1.85, 3.1, 0.75, 0, '#D9A21E'); k.box(0.06, 0.7, 1.3, 3.69, 0.8, 0, '#2A2A2A'); for (let i = 0; i < 6; i++) k.box(0.07, 0.6, 0.06, 3.7, 0.85, -0.5 + i * 0.2, '#C9CCCF');
+    for (const z of [0.7, -0.7]) k.put(new THREE.CylinderGeometry(0.12, 0.12, 0.06, 10), '#F4F1E2', 3.7, 1.25, z, { rz: Math.PI / 2 });
+    k.box(1.5, 1.5, 2.3, 1.8, 0.75, 0, '#D9A21E'); k.box(0.05, 0.7, 2.0, 2.56, 1.5, 0, '#2C383E', { rz: -0.08 });
+    k.box(0.2, 0.6, 2.36, 2.5, 2.25, 0, '#C8213A'); k.put(new THREE.PlaneGeometry(2.3, 0.58), '#FFFFFF', 2.61, 2.55, 0, { ry: Math.PI / 2, art: 'truckfront' });
+    for (const z of [1.16, -1.16]) k.box(1.2, 0.5, 0.02, 1.8, 0.85, z, '#1E7A4A');
+    k.box(3.6, 0.12, 2.3, -0.9, 1.0, 0, '#6A4A2A');
+    for (const s of [1, -1]) k.put(new THREE.PlaneGeometry(3.6, 1.3), '#FFFFFF', -0.9, 1.77, s * 1.185, { ry: s > 0 ? 0 : Math.PI, art: 'truckside' });
+    k.box(3.6, 1.3, 0.04, -0.9, 1.12, 1.15, '#6A4A2A'); k.box(3.6, 1.3, 0.04, -0.9, 1.12, -1.15, '#6A4A2A');
+    k.put(new THREE.PlaneGeometry(2.3, 1.3), '#FFFFFF', -2.735, 1.77, 0, { ry: -Math.PI / 2, art: 'truckside' }); k.box(0.04, 1.3, 2.3, -2.7, 1.12, 0, '#6A4A2A');
+    k.put(new THREE.CylinderGeometry(1.05, 1.05, 3.4, 10, 1, false, 0, Math.PI), '#3E5A4A', -0.9, 2.42, 0, { rz: Math.PI / 2, sy: 1, sz: 1, sx: 0.55 });
+    rider(k, 2.0, 1.4, 0.05, '#D9D3C4', '#2F3E52');
   } else if (kind === 'thela') {
     // pushcart (thela gari) with sacks
     wheel(k, 0, 0.62, 0.42); wheel(k, 0, -0.62, 0.42);
@@ -3483,16 +3715,18 @@ function vehicleGeo(kind) {
   } else if (kind === 'nouka') {
     // Buriganga crossing boat: curved hull, bamboo-mat canopy, boatman standing at the stern with a long oar
     k.box(5.6, 0.5, 1.5, 0, -0.05, 0, '#5E4128');
-    k.box(1.3, 0.45, 1.05, 3.1, 0.12, 0, '#5E4128', { rz: 0.42 }); k.box(1.3, 0.45, 1.05, -3.1, 0.12, 0, '#5E4128', { rz: -0.42 });
+    k.put(new THREE.BoxGeometry(1.3, 0.45, 1.05), '#5E4128', 3.1, 0.35, 0, { rz: 0.42 }); k.put(new THREE.BoxGeometry(1.3, 0.45, 1.05), '#5E4128', -3.1, 0.35, 0, { rz: -0.42 });
     k.box(5.4, 0.08, 1.56, 0, 0.42, 0, '#3E2B1A');
+    for (const z of [0.76, -0.76]) k.box(5.0, 0.12, 0.02, 0, 0.3, z, ['#2E8F4A', '#C8322C'][z > 0 ? 0 : 1]);
     k.put(new THREE.CylinderGeometry(0.78, 0.78, 2.4, 12, 1, true, 0, Math.PI), '#9A7A49', 0.2, 0.42, 0, { rz: Math.PI / 2, sz: 0.95 });
     k.cyl(0.09, 0.1, 0.62, -2.6, 0.45, 0.08, '#2B3A4A', 6); k.cyl(0.09, 0.1, 0.62, -2.6, 0.45, -0.08, '#2B3A4A', 6);
     k.cyl(0.14, 0.17, 0.55, -2.6, 1.07, 0, '#E9E2D2', 7); k.ball(0.11, -2.6, 1.74, 0, '#7A4E33');
-    k.box(3.0, 0.05, 0.05, -2.2, 1.1, 0.25, '#7A5A36', { rz: -0.55 });
+    k.put(new THREE.BoxGeometry(3.0, 0.05, 0.05), '#7A5A36', -2.2, 1.1, 0.25, { rz: -0.55 });
     k.cyl(0.13, 0.16, 0.42, 1.6, 0.42, 0.3, '#C23B2E', 7); k.ball(0.1, 1.6, 0.95, 0.3, '#7A4E33');
   }
   return k.geometry();
 }
+
 function personGeo(part) {
   const k = new Kit();
   if (part === 'top') {
@@ -3508,7 +3742,7 @@ function personGeo(part) {
   return k.geometry();
 }
 function moverMesh(kind, n, colors, geo) {
-  const im = new THREE.InstancedMesh(geo || vehicleGeo(kind), lambertVC, n); im.frustumCulled = false;
+  const im = new THREE.InstancedMesh(geo || vehicleGeo(kind), vehMat(), n); im.frustumCulled = false;
   const c = new THREE.Color(); const r = rng(n * 7 + kind.length);
   for (let i = 0; i < n; i++) { c.set(colors[Math.floor(r() * colors.length)]); im.setColorAt(i, c); }
   if (im.instanceColor) im.instanceColor.needsUpdate = true;
@@ -3525,11 +3759,15 @@ function buildLife() {
     if (!set.length) return;
     const pick = picker(set), im = moverMesh(kind, n, cols);
     const items = []; for (let i = 0; i < n; i++) { const rd = pick(); items.push({ rd, s: r() * rd.len, v: speed * (0.75 + r() * 0.5) * (r() < 0.5 ? 1 : -1), off: Math.min(laneOff * (0.6 + r() * 0.6), Math.max(0.5, rd.w / 2 - 0.7)) }); }
-    movers.push({ im, items, kind: 'road' });
+    movers.push({ im, items, kind: 'road', vk: kind });
   };
   const both = [...mains, ...lanes];
-  mk('rickshaw', nR, 3.2, ['#FFFFFF', '#F7D7DA', '#D9E8F5', '#F9EBC8', '#E2F0DD', '#F5D9EC'], 2.4, both);
-  mk('cng', nC, 7, ['#FFFFFF'], 3.2, mains);
+  mk('rickshaw', Math.ceil(nR * 0.55), 3.2, ['#FFFFFF', '#FFF6F2', '#F4F8FF'], 2.4, both);
+  mk('rickshaw2', Math.floor(nR * 0.45), 3.2, ['#FFFFFF', '#FFF8EC', '#F2FFF4'], 2.4, both);
+  mk('cng', nC, 7, ['#FFFFFF', '#F0F6EE'], 3.2, mains);
+  mk('easy', Math.round(nC * 0.6), 5, ['#FFFFFF', '#FFF0F6', '#EEF4FF'], 2.8, both);
+  mk('leguna', Math.round(nB * 0.8), 6.5, ['#FFFFFF', '#E6F2E6', '#F6F0E2'], 3.2, mains);
+  mk('truck', Math.round(nB * 0.5), 5, ['#FFFFFF', '#F4F0FF'], 3.4, mains);
   mk('bus', Math.ceil(nB / 2), 6, ['#FFFFFF', '#F1EEE8', '#E8ECE6'], 3.4, mains);
   mk('bus2', Math.floor(nB / 2), 6, ['#FFFFFF', '#EEF0F4', '#F4EEE8'], 3.4, mains);
   mk('thela', state.low ? 30 : 70, 1.1, ['#FFFFFF'], 4.2, both);
@@ -3572,14 +3810,36 @@ function buildLife() {
   lamps.forEach(([x, z], i) => lim2.setMatrixAt(i, _m.makeTranslation(x, 6.2, z))); lim2.frustumCulled = false; scene.add(lim2); state.lampMesh = lim2;
 }
 const _o = new THREE.Object3D();
+/* Traffic keeps its distance: vehicles in the same lane of the same street queue behind the one ahead instead of
+   driving through it (motorbikes squeeze past). Runs every few frames; 'room' caps how far each may move. */
+const VLEN = { rickshaw: 2.7, rickshaw2: 2.7, cng: 2.8, easy: 2.9, leguna: 3.9, bus: 9.8, bus2: 9.8, truck: 7.2, thela: 3.4, moto: 1.9 };
+let trafficTick = 0;
+function spaceTraffic() {
+  const q = new Map();
+  for (const m of movers) if (m.kind === 'road') { const L = VLEN[m.vk] || 3; for (const it of m.items) { it.len = L; it.room = Infinity; it.hid = it.x !== undefined && hitSolid(it.x, it.z, 0.2); if (m.vk === 'moto') continue; const k = it.rd; let e = q.get(k); if (!e) q.set(k, e = [[], []]); e[it.v > 0 ? 0 : 1].push(it); } }
+  for (const [rd, lanes] of q) lanes.forEach((arr, d) => {
+    if (arr.length < 2) return; const len = rd.len, w = x => ((x % len) + len) % len;
+    arr.sort((a, b) => d ? w(b.s) - w(a.s) : w(a.s) - w(b.s));
+    for (let i = 0; i < arr.length; i++) {
+      const f = arr[i];
+      for (let j = 1; j < Math.min(arr.length, 4); j++) {
+        const l = arr[(i + j) % arr.length]; if (Math.abs(l.off - f.off) > 1.3) continue;
+        const gap = d ? w(f.s - l.s) : w(l.s - f.s), need = (f.len + l.len) / 2 + 1.4;
+        if (gap < need + 6) f.room = Math.max(0, gap - need) * 0.3;
+        break;
+      }
+    }
+  });
+}
 function updateLife(dt, time) {
+  if (++trafficTick % 3 === 0) spaceTraffic();
   for (const m of movers) {
     const { im, items } = m;
     if (m.kind === 'road') {
       items.forEach((it, i) => {
-        it.s += it.v * dt; const a = roadAt(it.rd, it.s); const L = Math.hypot(a.dx, a.dz) || 1; const dir = Math.sign(it.v);
-        _o.position.set(a.x - a.dz / L * it.off * dir, 0.08, a.z + a.dx / L * it.off * dir);
-        _o.rotation.set(0, Math.atan2(-a.dz * dir, a.dx * dir), 0); _o.scale.set(1, 1, 1); _o.updateMatrix(); im.setMatrixAt(i, _o.matrix);
+        const step = Math.abs(it.v) * dt; it.s += Math.sign(it.v) * Math.min(step, it.room ?? step); const a = roadAt(it.rd, it.s); const L = Math.hypot(a.dx, a.dz) || 1; const dir = Math.sign(it.v);
+        _o.position.set(a.x - a.dz / L * it.off * dir, 0.08, a.z + a.dx / L * it.off * dir); it.x = _o.position.x; it.z = _o.position.z;
+        _o.rotation.set(0, Math.atan2(-a.dz * dir, a.dx * dir), 0); const sc = it.hid ? 0 : 1; _o.scale.set(sc, sc, sc);   // never shown inside a wall _o.updateMatrix(); im.setMatrixAt(i, _o.matrix);
       });
     } else if (m.kind === 'cross') {
       items.forEach((it, i) => {
@@ -3700,18 +3960,26 @@ function updateMarkers() {
     e._want = lab; e._sx = sx; e._sy = sy; e._d = d; e._sc = sc;
     e.classList.toggle('dim', !show && !state.route);
   }
-  const placed = [];
+  // two passes: first every mark claims its spot (a mark mostly under a more important one shrinks to a small square),
+  // then names are placed only where they clear every mark and every name already placed
   const order = markerEls.filter(e => e.style.display !== 'none').sort((a, b) => (b.classList.contains('sel') - a.classList.contains('sel')) || ((b._ri ? 1 : 0) - (a._ri ? 1 : 0)) || (a._place.underrated - b._place.underrated) || (a._d - b._d));
+  const hit = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+  const chips = [], all = [];
+  for (const e of order) {
+    const chip = { x: e._sx - 14 * e._sc, y: e._sy - 36 * e._sc, w: 28 * e._sc, h: 36 * e._sc, e };
+    const under = !e.classList.contains('sel') && !e._ri && chips.some(q => { const ox = Math.min(q.x + q.w, chip.x + chip.w) - Math.max(q.x, chip.x), oy = Math.min(q.y + q.h, chip.y + chip.h) - Math.max(q.y, chip.y); return ox > 0 && oy > 0 && ox * oy > chip.w * chip.h * 0.35; });
+    e.classList.toggle('mini', under); e._mini = under;
+    if (under) { chip.x += chip.w * 0.3; chip.y += chip.h * 0.55; chip.w *= 0.42; chip.h *= 0.42; } else chips.push(chip);
+    all.push(chip);
+  }
+  const placed = [];
   for (const e of order) {
     const p = e._place;
-    const chip = { x: e._sx - 15 * e._sc, y: e._sy - 36 * e._sc, w: 30 * e._sc, h: 36 * e._sc };
-    let lab = e._want || e.classList.contains('sel');
-    const lw = ((state.lang === 'bn' ? p.name.bn.length * 7.2 : p.name.en.length * 7 + p.name.bn.length * 5.6) + 24) * e._sc;
-    const rect = { x: e._sx + 18 * e._sc, y: e._sy - 30 * e._sc, w: lw, h: 22 * e._sc };
-    const hit = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
-    if (lab && !e.classList.contains('sel') && placed.some(q => hit(q, rect))) lab = false;
+    let lab = !e._mini && (e._want || e.classList.contains('sel'));
+    const lw = ((state.lang === 'bn' ? p.name.bn.length * 7.4 : p.name.en.length * 6.9 + p.name.bn.length * 5.4) + 22) * e._sc;
+    const rect = { x: e._sx + 16 * e._sc, y: e._sy - 30 * e._sc, w: lw, h: 22 * e._sc };
+    if (lab && !e.classList.contains('sel') && (placed.some(q => hit(q, rect)) || all.some(q => q.e !== e && hit(q, rect)))) lab = false;
     if (lab) placed.push(rect);
-    placed.push(chip);
     e.classList.toggle('labels', lab);
   }
   const showMah = !walking && camD > 650;
@@ -3960,7 +4228,7 @@ function photoFallbacks(root) {
 function gridRef(p) { const c = clamp(Math.floor((p.x + 2500) / 500), 0, 11), r = clamp(Math.floor((p.z + 2000) / 500), 0, 8); return 'ABCDEFGHIJKL'[c] + (r + 1); }
 function recLine(p) {
   const n = String(state.places.indexOf(p) + 1).padStart(3, '0'), bn = state.lang === 'bn';
-  const ll = `${p.lat.toFixed(4)}° N, ${p.lng.toFixed(4)}° E`;
+  const ll = `${p.lat.toFixed(3)}° N ${p.lng.toFixed(3)}° E`;
   return bn ? `নথি ${num(n)} · ছক <b>${num(gridRef(p))}</b> · ${ll}${p.pin === 'approx' ? ' · আনুমানিক' : ''}` : `Rec. ${n} · Grid <b>${gridRef(p)}</b> · ${ll}${p.pin === 'approx' ? ' · approx.' : ''}`;
 }
 function openDrawer(p) {
@@ -5233,7 +5501,7 @@ async function boot() {
   renderer.render(scene, camera); await nextFrame();
   loop();
   runIntro(start);
-  window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets, vehicleKinds: ['rickshaw', 'cng', 'bus', 'thela', 'moto', 'nouka', 'bus2'], vehicleMesh: k => new THREE.Mesh(vehicleGeo(k), lambertVC) };
+  window.__cpd = { state, scene, renderer, camera, controls, startWalk, stopWalk, select, applyTime, hitSolid, inWater, buckets, vehicleKinds: ['rickshaw', 'rickshaw2', 'cng', 'easy', 'leguna', 'bus', 'bus2', 'truck', 'thela', 'moto', 'nouka'], vehicleMesh: k => new THREE.Mesh(vehicleGeo(k), vehMat()) };
   window.__T = { openState, openLabel, fareText, placeFilter, makePlan, planWindows };
 }
 /* Phone bottom sheet: drag the handle or the coloured header down to shrink or close, up to expand */
