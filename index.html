@@ -724,9 +724,9 @@ body.m2d #scene,body.m2d #markers,body.m2d #routeLayer,body.m2d #timebox,body.m2
   --ink:#1B1B19; --ink-2:#45443F; --ink-3:#6B6962; --line:#D0CEC7; --rule:#1B1B19;
   --survey:#B23D2C; --slate:#3E5660;
   --green:#2F5D50; --green-ink:#2F5D50; --red:#B23D2C; --red-ink:#9A3323;
-  --pink:#9B3B64; --marigold:#A8661A; --teal:#3E5F75; --violet:#5A4B86;
+  --pink:#9B3B64; --marigold:#965A16; --teal:#3E5F75; --violet:#5A4B86;
   --board:#1B1B19; --board-ink:#F2F2EF;
-  --c-heritage:#B23D2C; --c-food:#A8661A; --c-hidden-gem:#5A4B86; --c-photo-spot:#9B3B64;
+  --c-heritage:#B23D2C; --c-food:#965A16; --c-hidden-gem:#5A4B86; --c-photo-spot:#9B3B64;
   --c-market:#4B6B32; --c-worship:#2F5D50; --c-river:#3E5F75; --c-festival:#7E2B2B;
   --shadow:none;
   --f-display:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
@@ -916,6 +916,14 @@ body *{border-radius:0!important}
   .handle::after{background:var(--ink-3)}
   .close{top:44px}
 }
+
+/* map chrome stays out of the way of the map: one row of filters that scrolls, a compact time strip */
+@media (min-width:761px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;pointer-events:auto;width:max-content;max-width:calc(100% - 32px);right:auto;padding-bottom:4px}
+  .chips::-webkit-scrollbar{display:none}
+  .timebox{padding:9px 12px 8px;width:min(340px,calc(100% - 32px))}
+}
+@media (max-height:820px){ .now{display:none} }
 </style>
 
 </head>
@@ -1601,7 +1609,120 @@ function resize() {
 }
 
 /* ---------- materials ---------- */
-const heroMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0.02, side: THREE.DoubleSide });
+
+/* ---------- weather on everything hand-built ----------
+   Old Dhaka's monuments are not clean models: lime plaster stained black under every ledge by the monsoon, damp
+   climbing the plinth, green-black algae on the north and low faces, patched and repainted bays, soot on the cornices,
+   lichen on flat roofs. This is drawn from world position and normal, so every landmark gets it without textures.
+   Fine detail fades out with distance so the city still reads cleanly from map height. */
+const WX_COMMON = `
+  varying vec3 vWxP; varying vec3 vWxN;
+  float wh(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+  float wn(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(wh(i), wh(i + vec2(1.0, 0.0)), f.x), mix(wh(i + vec2(0.0, 1.0)), wh(i + vec2(1.0, 1.0)), f.x), f.y); }
+  float wfb(vec2 p){ return 0.65 * wn(p) + 0.35 * wn(p * 2.3 + 7.1); }`;
+function weathered(mat, o = {}) {
+  const prev = mat.onBeforeCompile;
+  mat.onBeforeCompile = (sh, r) => {
+    if (prev) prev.call(mat, sh, r);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWxP; varying vec3 vWxN;')
+      .replace('#include <project_vertex>', `#include <project_vertex>
+        { vec4 wp = vec4(transformed, 1.0); vec3 wnrm = objectNormal;
+        #ifdef USE_INSTANCING
+          wp = instanceMatrix * wp; wnrm = mat3(instanceMatrix) * wnrm;
+        #endif
+          vWxP = (modelMatrix * wp).xyz; vWxN = normalize(mat3(modelMatrix) * wnrm); }`);
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>' + WX_COMMON)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+      {
+        vec3 P = vWxP, N = normalize(vWxN); float up = N.y, side = 1.0 - abs(up);
+        float px = length(fwidth(P)); float near = 1.0 - smoothstep(0.3, 1.4, px);
+        vec2 tg = normalize(vec2(-N.z, N.x) + 1e-5); float u = dot(P.xz, tg);
+        vec3 c = diffuseColor.rgb; float lum = dot(c, vec3(0.3, 0.59, 0.11));
+        float paint = step(0.06, lum);                                       // leave openings and glass as they are
+        // uneven lime wash and repainted patches
+        c *= 0.9 + 0.16 * wfb(vec2(u, P.y) * 0.22 + P.xz * 0.01);
+        c = mix(c, c * vec3(1.04, 1.01, 0.95), step(0.7, wn(vec2(u * 0.09, P.y * 0.07) + 11.0)) * 0.55);
+        // black monsoon streaks running down the walls
+        float col = floor(u * 1.7), sl = 0.5 + 0.5 * wh(vec2(col, 3.0));
+        float streak = side * step(0.42, wh(vec2(col, 9.0))) * wn(vec2(u * 1.7, P.y * 0.16 + col)) * smoothstep(0.0, 0.5, fract(P.y / (3.0 + sl * 4.0)));
+        c *= 1.0 - ${o.streak ?? 0.42} * streak * (0.4 + 0.6 * near) * paint;
+        // damp rising from the ground, algae on the low and north-facing faces
+        float y = P.y, damp = 1.0 - smoothstep(0.0, 1.0 + 1.2 * wn(vec2(u * 0.35, 1.3)), y);
+        float north = smoothstep(0.2, 0.9, -N.z) * side;
+        c = mix(c, c * vec3(0.62, 0.66, 0.56), damp * ${o.damp ?? 0.75} * paint);
+        c = mix(c, c * vec3(0.72, 0.8, 0.66), north * wn(vec2(u, y) * 0.3) * 0.35 * paint);
+        // soot and dust on tops and cornices, lichen blotches on flat roofs
+        float top = smoothstep(0.6, 0.95, up);
+        c *= 1.0 - top * (0.14 + 0.18 * wn(P.xz * 0.35)) * paint;
+        c = mix(c, c * vec3(0.8, 0.84, 0.72), top * step(0.66, wn(P.xz * 0.7)) * 0.5 * paint);
+        // fine grit, only up close
+        if (near > 0.0) c *= 1.0 - 0.07 * near * wh(floor(P.xz * 18.0 + P.y * 18.0));
+        diffuseColor.rgb = c;
+      }`);
+  };
+  mat.customProgramCacheKey = () => 'wx' + (prev ? prev.toString().length : 0);
+  return mat;
+}
+/* ---------- the ground: dusty earth, asphalt that has been dug up and patched, brick-on-edge lanes ----------
+   Road ribbons carry their distance along the road, their offset across it, their width and class (attribute rd),
+   so the shader can draw a wet gutter at each edge, a faded centre line on the main roads, repair patches, potholes,
+   and herringbone brick soling on some of the lanes. */
+function groundShader(mat, kind) {
+  mat.onBeforeCompile = sh => {
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vGP;' + (kind === 'road' ? '\nattribute vec4 rd; varying vec4 vRd;' : ''))
+      .replace('#include <project_vertex>', '#include <project_vertex>\n vGP = (modelMatrix * vec4(transformed, 1.0)).xyz;' + (kind === 'road' ? ' vRd = rd;' : ''));
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>' + WX_COMMON + '\nvarying vec3 vGP;' + (kind === 'road' ? '\nvarying vec4 vRd;' : ''))
+      .replace('#include <color_fragment>', `#include <color_fragment>
+      {
+        vec2 P = vGP.xz; float px = length(fwidth(vGP)); float near = 1.0 - smoothstep(0.25, 1.6, px), mid = 1.0 - smoothstep(1.5, 9.0, px);
+        vec3 c = diffuseColor.rgb;
+        ${kind === 'ground' ? `
+        // packed earth and brick dust, darker where it is wet, rubble and refuse in the corners
+        float n1 = wfb(P * 0.045), n2 = mid > 0.0 ? wn(P * 0.33 + 5.0) : 0.5;
+        c = mix(c, vec3(0.50, 0.43, 0.36), smoothstep(0.45, 0.8, n1) * 0.55);
+        c = mix(c, vec3(0.42, 0.42, 0.38), smoothstep(0.62, 0.85, wn(P * 0.08 + 9.0)) * 0.5);
+        c *= 0.86 + 0.2 * n2 * mid;
+        c *= 1.0 - 0.1 * near * wh(floor(P * 9.0));` : ''}
+        ${kind === 'green' ? `
+        // grass grows in clumps; paths are worn bare where people cut across
+        float n1 = wfb(P * 0.12), n2 = wn(P * 0.9);
+        c *= 0.82 + 0.3 * n1;
+        c = mix(c, vec3(0.52, 0.47, 0.37), smoothstep(0.7, 0.86, wfb(P * 0.05 + 3.0)) * 0.7);
+        c *= 1.0 - 0.1 * near * n2;` : ''}
+        ${kind === 'road' ? `
+        float s = vRd.x, t = vRd.y, w = max(vRd.z, 0.5), cls = floor(vRd.w), rid = fract(vRd.w) * 97.0;
+        float e = abs(t) / (w * 0.5);
+        bool brick = cls >= 3.0 && wh(vec2(rid, 4.0)) < 0.45;
+        if (brick) {
+          // brick laid on edge in a herringbone, the way Old Dhaka's lanes were soled
+          vec2 q = vec2(s, t) / 0.23; float k = floor(q.x + q.y), a = mod(k, 2.0);
+          vec2 b = a < 0.5 ? vec2(q.x, q.y * 2.0) : vec2(q.y, q.x * 2.0);
+          float mortar = max(step(0.9, fract(b.x)), step(0.86, fract(b.y)));
+          vec3 bc = vec3(0.56, 0.37, 0.30) * (0.82 + 0.3 * wh(floor(b) + k));
+          c = mix(c, mix(bc, vec3(0.32, 0.3, 0.27), mortar * 0.8), mid * (0.55 + 0.45 * near));
+          c = mix(c, diffuseColor.rgb * 0.9, smoothstep(0.55, 0.8, wfb(P * 0.08 + rid)) * 0.75);   // patched over with concrete
+        } else {
+          c *= 0.9 + 0.14 * wfb(P * 0.5) * mid;
+          float pc = wh(vec2(floor(s / 7.0), floor(t / 2.5) + rid));               // dug up and patched
+          c = mix(c, c * (pc > 0.9 ? 0.78 : 1.12), step(0.82, pc) * mid * 0.8);
+          if (cls <= 2.0) {
+            float dash = step(abs(t), 0.07) * step(fract(s / 7.0), 0.5) * step(0.35, wn(vec2(s * 0.4, 1.0)));
+            c = mix(c, vec3(0.78, 0.76, 0.7), dash * 0.45 * mid);
+          }
+          c *= 1.0 - 0.35 * step(0.86, wn(P * 0.6 + rid)) * near;                  // potholes
+        }
+        float gut = smoothstep(0.78, 0.98, e);
+        c = mix(c, c * vec3(0.56, 0.6, 0.55), gut * 0.75);                             // the wet gutter at each edge
+        c *= 1.0 - 0.06 * near * wh(floor(P * 14.0));` : ''}
+        diffuseColor.rgb = c;
+      }`);
+  };
+  mat.customProgramCacheKey = () => 'gr-' + kind;
+  return mat;
+}
+
+const heroMat = weathered(new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0.02, side: THREE.DoubleSide }));
 const glowMat = new THREE.MeshBasicMaterial({ vertexColors: true, toneMapped: false });
 const lambertVC = new THREE.MeshLambertMaterial({ vertexColors: true });
 const cityMat = new THREE.MeshLambertMaterial({ vertexColors: true });
@@ -1796,14 +1917,14 @@ function flatMesh(pos, mat, order, cols) {
 function buildGround() {
   // Ground, green, water and streets are flat layers a few centimetres apart. From map height the depth buffer cannot
   // tell them apart (they flickered into each other), so they are drawn first, in order, without writing depth.
-  const g = new THREE.Mesh(new THREE.PlaneGeometry(24000, 24000), new THREE.MeshLambertMaterial({ color: 0x8D877B }));
+  const g = new THREE.Mesh(new THREE.PlaneGeometry(24000, 24000), groundShader(new THREE.MeshLambertMaterial({ color: 0x8D877B }), 'ground'));
   g.rotation.x = -Math.PI / 2; g.position.y = -0.05; g.material.depthWrite = false; g.renderOrder = -4; scene.add(g);
   const green = [], gcol = [], water = [], c = new THREE.Color();
   for (const a of CITY.areas) {
     if (a.kind === 1 || a.kind === 2) flatTris(a.pts, 0.06, water);
     else { c.set(a.kind === 4 ? '#7D8659' : ['#6E7B52', '#75805A', '#697651'][a.pts.length % 3]); flatTris(a.pts, 0.03, green, gcol, c); }
   }
-  flatMesh(green, new THREE.MeshLambertMaterial({ vertexColors: true }), -3, gcol);
+  flatMesh(green, groundShader(new THREE.MeshLambertMaterial({ vertexColors: true }), 'green'), -3, gcol);
   flatMesh(water, new THREE.MeshStandardMaterial({ color: 0x4D6360, roughness: 0.3, metalness: 0.12 }), -2);
   // a low embankment wall along both banks where the river meets the old city
   const steps = 360, x0 = -4200, x1 = 3800, bpos = [], bidx = []; let n = 0;
@@ -1812,19 +1933,21 @@ function buildGround() {
   const bg = new THREE.BufferGeometry(); bg.setAttribute('position', new THREE.Float32BufferAttribute(bpos, 3)); bg.setIndex(bidx); bg.computeVertexNormals();
   scene.add(new THREE.Mesh(bg, new THREE.MeshLambertMaterial({ color: 0x9E998D, side: THREE.DoubleSide })));
   // streets: asphalt for the main roads, worn concrete and brick for lanes
-  const rp = [], rc = [], RC = { 1: '#55534F', 2: '#5E5B56', 3: '#77736B', 4: '#827D73' };
+  const rp = [], rc = [], rdA = [], RC = { 1: '#55534F', 2: '#5E5B56', 3: '#77736B', 4: '#827D73' };
+  let rid = 0;
   for (const r of CITY.roads) {
     if (r.cls > 4 || r.tunnel || r.bridge) continue;
-    c.set(RC[r.cls]);
+    c.set(RC[r.cls]); rid++; let cum = 0; const tag = r.cls + ((rid * 0.6180339) % 1) * 0.99;
     for (let i = 1; i < r.pts.length; i++) {
       let [ax, az] = r.pts[i - 1], [bx, bz] = r.pts[i]; const L = Math.hypot(bx - ax, bz - az); if (L < 0.01) continue;
+      { const e = r.w * 0.45, sa = cum - e, sb = cum + L + e, hw = r.w / 2; for (const [ss, tt] of [[sa, hw], [sb, hw], [sa, -hw], [sa, -hw], [sb, hw], [sb, -hw]]) rdA.push(ss, tt, r.w, tag); cum += L; }
       const ux = (bx - ax) / L, uz = (bz - az) / L, e = r.w * 0.45; ax -= ux * e; az -= uz * e; bx += ux * e; bz += uz * e;   // overlap so corners close
       const nx = -uz * r.w / 2, nz = ux * r.w / 2, y = 0.08 + (r.cls <= 2 ? 0.01 : 0);
       rp.push(ax + nx, y, az + nz, bx + nx, y, bz + nz, ax - nx, y, az - nz, ax - nx, y, az - nz, bx + nx, y, bz + nz, bx - nx, y, bz - nz);
       for (let k = 0; k < 6; k++) rc.push(c.r, c.g, c.b);
     }
   }
-  flatMesh(rp, new THREE.MeshLambertMaterial({ vertexColors: true }), -1, rc);
+  const rm = flatMesh(rp, groundShader(new THREE.MeshLambertMaterial({ vertexColors: true }), 'road'), -1, rc); rm.geometry.setAttribute('rd', new THREE.Float32BufferAttribute(rdA, 4));
   // bridges over the Buriganga, from the OSM bridge ways
   const k = new Kit();
   for (const r of CITY.roads) {
@@ -4865,7 +4988,7 @@ function renderTips() {
    ================================================================ */
 const SEGS = [['practical', 'segPractical', 'tips', '#006A4E'], ['festivals', 'segFest', 'cal', '#C81E36'], ['crafts', 'segCrafts', 'brush', '#9A5300'], ['say', 'segSay', 'chat', '#6A3FD9']];
 /* the guide's accents are survey inks: any bright colour in the data is mapped onto the nearest of these */
-const INKS = [[0, '#B23D2C'], [22, '#A8661A'], [48, '#8A6A1E'], [100, '#4B6B32'], [160, '#2F5D50'], [195, '#3E5F75'], [225, '#3E4F7A'], [262, '#5A4B86'], [320, '#9B3B64'], [345, '#B23D2C']];
+const INKS = [[0, '#B23D2C'], [22, '#965A16'], [48, '#8A6A1E'], [100, '#4B6B32'], [160, '#2F5D50'], [195, '#3E5F75'], [225, '#3E4F7A'], [262, '#5A4B86'], [320, '#9B3B64'], [345, '#B23D2C']];
 function ink(hex) {
   if (typeof hex !== 'string' || hex[0] !== '#') return hex;
   const c = new THREE.Color(hex), h = {}; c.getHSL(h); const deg = h.h * 360;
